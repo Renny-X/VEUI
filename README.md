@@ -13,16 +13,18 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-VEUI is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+VEUI is available through [VDPod](http://gitlab.ivedeng.com/veui/vdpod). To install it, simply add the following line to your Podfile:
 
 ```ruby
+source 'http://gitlab.ivedeng.com/veui/vdpod.git'
+
 pod 'VEUI'
 ```
 
 ## Author
 
-Coder, tmxuhan5@qq.com
+Drake, it8360@vedeng.com
+Coder, it8359@vedeng.com
 
 ## License
 

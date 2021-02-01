@@ -1,9 +1,10 @@
+source 'http://gitlab.ivedeng.com/veui/vdpod.git'
+platform :ios, '10.0'
+
 use_frameworks!
 
-platform :ios, '9.0'
-
 target 'VEUI_Example' do
-  pod 'VEUI', :path => '../'
+  pod 'VEUI', :path => '../VEUI.podspec'
 
   target 'VEUI_Tests' do
     inherit! :search_paths
