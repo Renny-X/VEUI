@@ -1,0 +1,6 @@
+framework module VEUI {
+  umbrella header "VEUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

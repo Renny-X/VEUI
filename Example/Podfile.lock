@@ -1,0 +1,27 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - VEUI (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - VEUI (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  VEUI:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  VEUI: fc72a326d07cc2f459497c1d6844df08cce47df8
+
+PODFILE CHECKSUM: 5711db9f22e3a6513c5de18a4779200cb939b65f
+
+COCOAPODS: 1.10.0
