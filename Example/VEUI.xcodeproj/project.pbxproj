@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		1E109A29C6B4F1DBACEEE42A /* Pods-VEUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VEUI_Tests.release.xcconfig"; path = "Target Support Files/Pods-VEUI_Tests/Pods-VEUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		27CAF832562C2A5EBF6623ED /* VEUI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = VEUI.podspec; path = ../VEUI.podspec; sourceTree = "<group>"; };
+		27CAF832562C2A5EBF6623ED /* VEUI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VEUI.podspec; path = ../VEUI.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3291ADD8039D5F1A0BEB4285 /* Pods_VEUI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VEUI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35633CAA3658DA9A8EE446AE /* Pods_VEUI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VEUI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CBAC9892815EAA160C315BB /* Pods-VEUI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VEUI_Tests.debug.xcconfig"; path = "Target Support Files/Pods-VEUI_Tests/Pods-VEUI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,11 +61,11 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		65CE6B093FD9C0E15D9CC7D3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		65CE6B093FD9C0E15D9CC7D3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		65D9A319D96955CFFDA0C504 /* Pods-VEUI_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VEUI_Example.debug.xcconfig"; path = "Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8968CB0F7BFA7F29D787824B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		8968CB0F7BFA7F29D787824B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DFA54D22401755049A4188B8 /* Pods-VEUI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VEUI_Example.release.xcconfig"; path = "Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,7 +193,6 @@
 				5CBAC9892815EAA160C315BB /* Pods-VEUI_Tests.debug.xcconfig */,
 				1E109A29C6B4F1DBACEEE42A /* Pods-VEUI_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -259,6 +258,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
