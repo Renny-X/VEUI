@@ -9,115 +9,155 @@
 /* Begin PBXBuildFile section */
 		00224C929D57F45B70E87359E719948D /* FBSnapshotTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = FEE661E58CA6655B39AA49AA4C021C33 /* FBSnapshotTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0607E57FFC99071B52261FD3075EE49F /* Pods-VEUI_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F17C9233F0D5358328633434F47D5085 /* Pods-VEUI_Tests-dummy.m */; };
-		08A4D6D87172A0BCD0B79B31D806D6A9 /* VEUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 91618C95254A8770068927F1820CB860 /* VEUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0C8BF30D00BE3CFD25643F853D191A27 /* VEUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C43272FF26D5A61E314DFC63DBC42ED0 /* VEUI-dummy.m */; };
+		0AEAA25040A37A32EE5D2D4AA53B75E9 /* UITextField+VEUI.m in Sources */ = {isa = PBXBuildFile; fileRef = C76B0CFE51ECF4732DE5D96F07F34CC0 /* UITextField+VEUI.m */; };
+		116AD38BF4258D2A606241B29DFD1A7B /* VELabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4425D5E25C0C239B2C81982AC8C704 /* VELabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		11C410135C7E89353B480AC8DE0BFB77 /* UIApplication+StrictKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F538C426803AE34255FC6E35B408CCA /* UIApplication+StrictKeyWindow.m */; };
 		121439AB6B4061E1B6222256817548FA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E658F388F01C72599CA75537950B6095 /* XCTest.framework */; };
 		139FF91F62503FB2DCB47701A2BB6AEE /* Pods-VEUI_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F666EF9DF20140E5A4206315C074F712 /* Pods-VEUI_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		14AD81D52FAD9CF2C065C61FB00C3B4F /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568279DE47DC3AB91598E1317503995 /* UIImage+Diff.m */; };
+		1545829A94767FF33A783983B7375FDB /* VEUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3428468B34BA3FBD29558A4EDC699518 /* VEUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EA90E61F2A28268B6F1C2B7E41D9DD9 /* UITextField+VEUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 213E717108BB5BE12A5D088B5E3C5086 /* UITextField+VEUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2284A371B3393815F3273439605EA29A /* UIColor+VEUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 95539450C8A7A4728E8B5B628A999C29 /* UIColor+VEUI.m */; };
+		23489956A6F3EA4965F8866718791E3E /* NSArray+VEUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C869DE1A0E3111664D0FE4DCC29FD14 /* NSArray+VEUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2675C013FD387402C8446EA5B223DD7D /* UIView+VEUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 8429CC6745657D3B116E5244812CD07B /* UIView+VEUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AC5BEF619704433E7833ECA070B860D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
 		2DCFF0CE0BD295F1D46D3247F36B192C /* UIImage+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 235A78CFFA6D8B8D86CACD733531CB13 /* UIImage+Compare.m */; };
 		2E4C0BD2363ABABB6470FBA5415985AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3280BB5E7B57C31D41117A74F76E9DF3 /* QuartzCore.framework */; };
+		3A2B81045847D68F628A33218717629B /* VEUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 714ACE009B44CC4F9186EA9FF53FF56E /* VEUI-dummy.m */; };
+		3A32FAE0003E1FB48B0AD7CB4C2855E9 /* NSString+VEUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F484CC821947B372DFE6236DA0B8A02 /* NSString+VEUI.m */; };
+		3F38580E0DF2485442EFC14CCC3BEB64 /* NSString+VEUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 18F57776EC4323841B36F57C3F593550 /* NSString+VEUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40039E0AF0D764360B1D4FC4F7950D2E /* UIApplication+StrictKeyWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 99A67367E018411D614EC8536A8A1C5B /* UIApplication+StrictKeyWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4AB233BF3A5C84F424891221EBC1EE90 /* VETipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 481370D4C8A742C227D0FC8DAA458568 /* VETipView.m */; };
 		4ABDB961F5CBDFBF86D13785FC575F07 /* Pods-VEUI_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 823654C96BC8E103FEB8584DB38CCE1A /* Pods-VEUI_Example-dummy.m */; };
 		4CDEA83FEBF535B2F2F3ABE2F825FE3B /* Pods-VEUI_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BBD56216B95943DB790BF1691B87A0B /* Pods-VEUI_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		546F66A52F1BB993A72BD23B5A77B339 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
+		56775BD8BF47AC9751B2553E9EB125DD /* NSDictionary+VEUI.m in Sources */ = {isa = PBXBuildFile; fileRef = E934E87181A5CD21844CCA9CDDC77839 /* NSDictionary+VEUI.m */; };
 		6DBC8EB7532E931C2FBDA71D1E0B66A4 /* FBSnapshotTestCase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ADA6E655DC84D06359BD0ED5E36C783 /* FBSnapshotTestCase-dummy.m */; };
+		702C8568E6F7846C6B590038E9BE2CA3 /* UIColor+VEUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 39DABBD342A774DC613BA25A78E4DABB /* UIColor+VEUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7861BBDFF1D48828393A2236FD27CF1A /* VEBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A9851AF38E8215A1AD94CDABE0738C /* VEBubbleView.m */; };
+		7E1E9246D1F525EF14A6C6CEB19DAD20 /* VELabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B313F622FD4092B1974005C2C1302ECA /* VELabel.m */; };
+		7FC935A91A3C2D774AD9BD129DD2FE53 /* VETipView.h in Headers */ = {isa = PBXBuildFile; fileRef = 59C85718C7FB2CACD827340BCE93BA4B /* VETipView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88396E68DC05A379282F3B374F75F43C /* FBSnapshotTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1B7EA746BF6557FD565BAE12AF9198 /* FBSnapshotTestController.m */; };
 		8CE3BF0ACE07EA42DD5DAC871BF4B767 /* FBSnapshotTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 277B6BE10C665F515606A22FD60C6DCC /* FBSnapshotTestCase.m */; };
 		90142C6259374E18E640396A59AD379A /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = AE9FF9459FBCDC4AF88FB6B5A4CC1439 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D65089019D558E5A9661F2DCAD20313 /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D66CF296ABBC57EC4D0452397E235 /* SwiftSupport.swift */; };
 		A378B790A341684D19D7156DE6010F0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
+		A3F142651891890BEC3187F0C45F38EA /* VEBubbleView.h in Headers */ = {isa = PBXBuildFile; fileRef = CFD326AF6839BBBC56BD1E5EA0772CD8 /* VEBubbleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A525E29E0A8079B35B793D8A2B5FBDF2 /* UIImage+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = D872A3EE224412D4057C234FBC629F9C /* UIImage+Snapshot.m */; };
+		A9AFD752CD5748F8D0548E32FC61911C /* UIView+VEUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EEE65BF3EBEB8723894DBD5B41E1427 /* UIView+VEUI.m */; };
+		AFC6569B07F6D22E2519E1B23E04FBD9 /* VEUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A37AD182C117CE7573561A52774D0587 /* VEUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B450D189DBEF1533BF306C7F49B0A3BC /* NSDictionary+VEUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 037960BA66D0E78E9F6AB4536BD5CA1C /* NSDictionary+VEUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B74CD6E6EBEA0B642776BCB37850415D /* UIImage+Snapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 284833D18C244D2B42966B6EE425AA59 /* UIImage+Snapshot.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		BD4953074A12E769ED4E6C94F5E73694 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DA24A38BA9EE106B59E3D4C8DD1CE0E /* UIKit.framework */; };
 		C49D52712466511E332C952834C81FE1 /* FBSnapshotTestCasePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B1DEEBF6316A84D7413645212492FF /* FBSnapshotTestCasePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA63ADACAC6C2BF1E30108E6BEF68A09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
-		CAC41E7442EA23A4745A26220867FC65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */; };
-		D02A7BE42A2991B4006F01E02328A245 /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A95DAF867A8BEAF43A2E19396AA6E4 /* ReplaceMe.m */; };
 		D04AAC8B22E4A4DC4F39891C4E52F251 /* UIImage+Diff.h in Headers */ = {isa = PBXBuildFile; fileRef = 96187BF3038121CC146335E9FF0B0AFF /* UIImage+Diff.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		DFCED5DF4DF565B878ACF5C3F85031C4 /* NSArray+VEUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4B96B97E46022D6F21B3495194A181 /* NSArray+VEUI.m */; };
 		E8AC509D18EBF21B1FEA909652A01108 /* FBSnapshotTestCasePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABB3EB3CCC5BCA82F40FE8DC87BB778 /* FBSnapshotTestCasePlatform.m */; };
 		F1AAAE00BB32B733B238E2B4E8424506 /* UIImage+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = 656116C8FA5458F45D4707110C9530EC /* UIImage+Compare.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		F720FAF13A108CE6901E0A8B0580E1E8 /* FBSnapshotTestCase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E5923010B02074CAA9AAF6EA02D66AA /* FBSnapshotTestCase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7EE9BA364ADA721E21291AC4CD10A52 /* NSDate+VEUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0CC90255599EC2F963EF8B0FA0453 /* NSDate+VEUI.m */; };
+		FE7ACFA4B41A67042C04A5D4AF217536 /* NSDate+VEUI.h in Headers */ = {isa = PBXBuildFile; fileRef = E605292A835EFF8D118660EDF19F85FD /* NSDate+VEUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		02C84A21B32764A95B1E47DA0A602292 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 15D74A8D0296470E5BEFBD7D0D81131A;
-			remoteInfo = VEUI;
-		};
-		6560314F035CC09D88D25647634C865F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7E0CBE47ACC1D36016DB97C03C35D8BA;
-			remoteInfo = "Pods-VEUI_Example";
-		};
-		851F1FBAB6BE7A2D5ABD87594A2BC178 /* PBXContainerItemProxy */ = {
+		3A141BE2BB6AB624135AC92BD4A86E81 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 98A98149697C80CEF8D5772791E92E66;
 			remoteInfo = FBSnapshotTestCase;
 		};
+		9E7BFA8DB589DEED39BBC0EEBDC14781 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15D74A8D0296470E5BEFBD7D0D81131A;
+			remoteInfo = VEUI;
+		};
+		D4D3A50E3E75D85F83634F9F0C205585 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E0CBE47ACC1D36016DB97C03C35D8BA;
+			remoteInfo = "Pods-VEUI_Example";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0D250782FD6C1AE99BE8EE67A428FFE7 /* VEUI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VEUI-prefix.pch"; sourceTree = "<group>"; };
+		037960BA66D0E78E9F6AB4536BD5CA1C /* NSDictionary+VEUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+VEUI.h"; sourceTree = "<group>"; };
+		0507D073CEB82C342AD7B45F329E5C07 /* VEUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VEUI.release.xcconfig; sourceTree = "<group>"; };
 		0F538C426803AE34255FC6E35B408CCA /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
-		157FF33DDA8A3513A9281BE37C20EC88 /* VEUI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VEUI.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1016FD48ADEF4E0BB3A45BD9B70FB04C /* VEUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "VEUI-Info.plist"; sourceTree = "<group>"; };
+		18F57776EC4323841B36F57C3F593550 /* NSString+VEUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSString+VEUI.h"; sourceTree = "<group>"; };
 		1ADA6E655DC84D06359BD0ED5E36C783 /* FBSnapshotTestCase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FBSnapshotTestCase-dummy.m"; sourceTree = "<group>"; };
 		1DA24A38BA9EE106B59E3D4C8DD1CE0E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		204E0D82B30FD2F8BAFBCB9B3F78EE16 /* Pods_VEUI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VEUI_Tests.framework; path = "Pods-VEUI_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		20A95DAF867A8BEAF43A2E19396AA6E4 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ReplaceMe.m; path = VEUI/Classes/ReplaceMe.m; sourceTree = "<group>"; };
+		213E717108BB5BE12A5D088B5E3C5086 /* UITextField+VEUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITextField+VEUI.h"; sourceTree = "<group>"; };
 		21988256F6D63CFABE3FEECE3DBB715E /* Pods-VEUI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VEUI_Example.release.xcconfig"; sourceTree = "<group>"; };
 		235A78CFFA6D8B8D86CACD733531CB13 /* UIImage+Compare.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Compare.m"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.m"; sourceTree = "<group>"; };
 		277B6BE10C665F515606A22FD60C6DCC /* FBSnapshotTestCase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCase.m; path = FBSnapshotTestCase/FBSnapshotTestCase.m; sourceTree = "<group>"; };
 		284833D18C244D2B42966B6EE425AA59 /* UIImage+Snapshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Snapshot.h"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.h"; sourceTree = "<group>"; };
-		2EE7191611C329F45A2CB946E9AFDC2B /* VEUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "VEUI-Info.plist"; sourceTree = "<group>"; };
 		3280BB5E7B57C31D41117A74F76E9DF3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		3428468B34BA3FBD29558A4EDC699518 /* VEUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VEUI-umbrella.h"; sourceTree = "<group>"; };
+		35A9851AF38E8215A1AD94CDABE0738C /* VEBubbleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VEBubbleView.m; sourceTree = "<group>"; };
+		39DABBD342A774DC613BA25A78E4DABB /* UIColor+VEUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+VEUI.h"; sourceTree = "<group>"; };
 		3BBD56216B95943DB790BF1691B87A0B /* Pods-VEUI_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VEUI_Tests-umbrella.h"; sourceTree = "<group>"; };
 		3F0D66CF296ABBC57EC4D0452397E235 /* SwiftSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSupport.swift; path = FBSnapshotTestCase/SwiftSupport.swift; sourceTree = "<group>"; };
 		4568279DE47DC3AB91598E1317503995 /* UIImage+Diff.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Diff.m"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.m"; sourceTree = "<group>"; };
 		46038BF62751BEDCC3B8EADA4627F479 /* Pods-VEUI_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VEUI_Example-frameworks.sh"; sourceTree = "<group>"; };
+		481370D4C8A742C227D0FC8DAA458568 /* VETipView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VETipView.m; sourceTree = "<group>"; };
+		4BF0CC90255599EC2F963EF8B0FA0453 /* NSDate+VEUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDate+VEUI.m"; sourceTree = "<group>"; };
 		4C6513B09838318BD763CFD5390D1DE0 /* FBSnapshotTestCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FBSnapshotTestCase.release.xcconfig; sourceTree = "<group>"; };
+		4C869DE1A0E3111664D0FE4DCC29FD14 /* NSArray+VEUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSArray+VEUI.h"; sourceTree = "<group>"; };
 		4E1ACA9F2FC126A5A1171633AA5F342D /* Pods-VEUI_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VEUI_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		57221B54D014471C3D3E1925EFC917C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		59C85718C7FB2CACD827340BCE93BA4B /* VETipView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VETipView.h; sourceTree = "<group>"; };
+		5B4425D5E25C0C239B2C81982AC8C704 /* VELabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VELabel.h; sourceTree = "<group>"; };
 		5C4F31330DFA99D699E4BDC8C3573D73 /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FBSnapshotTestCase.framework; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FB2C7E833BD6D13BD6B9A66ECA14796 /* VEUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = VEUI.modulemap; sourceTree = "<group>"; };
 		656116C8FA5458F45D4707110C9530EC /* UIImage+Compare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Compare.h"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.h"; sourceTree = "<group>"; };
 		6ABB3EB3CCC5BCA82F40FE8DC87BB778 /* FBSnapshotTestCasePlatform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCasePlatform.m; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.m; sourceTree = "<group>"; };
-		6E83CA1634737611FA48E18469F87C19 /* VEUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VEUI.debug.xcconfig; sourceTree = "<group>"; };
+		6F484CC821947B372DFE6236DA0B8A02 /* NSString+VEUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSString+VEUI.m"; sourceTree = "<group>"; };
+		714ACE009B44CC4F9186EA9FF53FF56E /* VEUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VEUI-dummy.m"; sourceTree = "<group>"; };
+		724282B6BA922188372917CCD0D63725 /* VEUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VEUI.debug.xcconfig; sourceTree = "<group>"; };
+		780DA2FC3F001414CD64930DA14993FF /* VEUI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = VEUI.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7E1B7EA746BF6557FD565BAE12AF9198 /* FBSnapshotTestController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestController.m; path = FBSnapshotTestCase/FBSnapshotTestController.m; sourceTree = "<group>"; };
 		823654C96BC8E103FEB8584DB38CCE1A /* Pods-VEUI_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VEUI_Example-dummy.m"; sourceTree = "<group>"; };
+		8429CC6745657D3B116E5244812CD07B /* UIView+VEUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+VEUI.h"; sourceTree = "<group>"; };
 		87FCB8951B62DCC96DC728D3A8C5E422 /* Pods-VEUI_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VEUI_Example.modulemap"; sourceTree = "<group>"; };
 		88B1DEEBF6316A84D7413645212492FF /* FBSnapshotTestCasePlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCasePlatform.h; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.h; sourceTree = "<group>"; };
+		8A4B96B97E46022D6F21B3495194A181 /* NSArray+VEUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSArray+VEUI.m"; sourceTree = "<group>"; };
 		8CDFED61AC6637643AC074C4C1051CB0 /* Pods-VEUI_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VEUI_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8E5923010B02074CAA9AAF6EA02D66AA /* FBSnapshotTestCase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-umbrella.h"; sourceTree = "<group>"; };
-		91618C95254A8770068927F1820CB860 /* VEUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VEUI-umbrella.h"; sourceTree = "<group>"; };
 		9468E867498BBAF36F9AFFE4845F8B09 /* FBSnapshotTestCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FBSnapshotTestCase.debug.xcconfig; sourceTree = "<group>"; };
+		95539450C8A7A4728E8B5B628A999C29 /* UIColor+VEUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VEUI.m"; sourceTree = "<group>"; };
 		96187BF3038121CC146335E9FF0B0AFF /* UIImage+Diff.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Diff.h"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.h"; sourceTree = "<group>"; };
 		99A67367E018411D614EC8536A8A1C5B /* UIApplication+StrictKeyWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+StrictKeyWindow.h"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A2E28D8E7C26DC3F89D36FD4483D5861 /* VEUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = VEUI.modulemap; sourceTree = "<group>"; };
-		A4E98A65B79639F120EA8F314CA7D87E /* VEUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = VEUI.release.xcconfig; sourceTree = "<group>"; };
-		A84EA07DC25E6B6A9483046945044A91 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		9EEE65BF3EBEB8723894DBD5B41E1427 /* UIView+VEUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+VEUI.m"; sourceTree = "<group>"; };
+		A37AD182C117CE7573561A52774D0587 /* VEUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = VEUI.h; path = VEUI/Classes/VEUI.h; sourceTree = "<group>"; };
 		AE9FF9459FBCDC4AF88FB6B5A4CC1439 /* FBSnapshotTestController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestController.h; path = FBSnapshotTestCase/FBSnapshotTestController.h; sourceTree = "<group>"; };
-		B0B2095968DF959072A5FBD8CC55DF80 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		B1670C9F811C670D0072E2CE26F4BACF /* VEUI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "VEUI-prefix.pch"; sourceTree = "<group>"; };
+		B313F622FD4092B1974005C2C1302ECA /* VELabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VELabel.m; sourceTree = "<group>"; };
+		B55741831D357F22010BCB9F4F5C637F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		B5B49F7BE249687698AACAA813578720 /* Pods-VEUI_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VEUI_Tests.modulemap"; sourceTree = "<group>"; };
+		B63239FB304579094AB30447B204EE7C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		B653BC7DCB53CD53120381973F5413F7 /* Pods-VEUI_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VEUI_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B7103CA00AED20722C5B69CA5B4F6938 /* FBSnapshotTestCase-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FBSnapshotTestCase-Info.plist"; sourceTree = "<group>"; };
 		BEF95D99252ABB606D6ECDE02D259482 /* Pods-VEUI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VEUI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		C43272FF26D5A61E314DFC63DBC42ED0 /* VEUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "VEUI-dummy.m"; sourceTree = "<group>"; };
+		C76B0CFE51ECF4732DE5D96F07F34CC0 /* UITextField+VEUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITextField+VEUI.m"; sourceTree = "<group>"; };
 		CBFF6C5FD9C3A84274A9314D3E940B6E /* FBSnapshotTestCase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FBSnapshotTestCase.modulemap; sourceTree = "<group>"; };
+		CFD326AF6839BBBC56BD1E5EA0772CD8 /* VEBubbleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VEBubbleView.h; sourceTree = "<group>"; };
 		D08CEBB9BDD9EF7A662ECFC0305C169E /* FBSnapshotTestCase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-prefix.pch"; sourceTree = "<group>"; };
 		D787F4F438AF22E831DB7DB7915CB8D1 /* Pods-VEUI_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VEUI_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		D872A3EE224412D4057C234FBC629F9C /* UIImage+Snapshot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Snapshot.m"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.m"; sourceTree = "<group>"; };
 		DE597CD66199462C50C6B25AEDE9CCEC /* Pods-VEUI_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VEUI_Tests-Info.plist"; sourceTree = "<group>"; };
 		DFC19397C95652E0946DDCA949FE1A7D /* Pods-VEUI_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VEUI_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		E5ABE8EB42C1D737CC12BC52EBCCF5E2 /* Pods-VEUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VEUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E605292A835EFF8D118660EDF19F85FD /* NSDate+VEUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDate+VEUI.h"; sourceTree = "<group>"; };
 		E658F388F01C72599CA75537950B6095 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E934E87181A5CD21844CCA9CDDC77839 /* NSDictionary+VEUI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+VEUI.m"; sourceTree = "<group>"; };
 		F17C9233F0D5358328633434F47D5085 /* Pods-VEUI_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VEUI_Tests-dummy.m"; sourceTree = "<group>"; };
 		F666EF9DF20140E5A4206315C074F712 /* Pods-VEUI_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VEUI_Example-umbrella.h"; sourceTree = "<group>"; };
 		FACEA3450F4A02E826B7FFA0BB67E5F5 /* Pods_VEUI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_VEUI_Example.framework; path = "Pods-VEUI_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,19 +168,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2FFBABF39F9A722E30741A531D44190D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CAC41E7442EA23A4745A26220867FC65 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		504C1067D9B3803BC1136811ED94C10B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A378B790A341684D19D7156DE6010F0D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58D183BEFFEB66F0C7043138A867084E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				546F66A52F1BB993A72BD23B5A77B339 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,23 +206,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28F43CE26A18D9FC30AE21C9CB6B74E7 /* VEUI */ = {
+		2B15B5C13864462DA06BB84F214493E8 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				20A95DAF867A8BEAF43A2E19396AA6E4 /* ReplaceMe.m */,
-				EC5ABF0B92EFA160692A2A7A9A8021E1 /* Pod */,
-				61E9467608653DE22C7F32C5130627F8 /* Support Files */,
+				CFD326AF6839BBBC56BD1E5EA0772CD8 /* VEBubbleView.h */,
+				35A9851AF38E8215A1AD94CDABE0738C /* VEBubbleView.m */,
+				5B4425D5E25C0C239B2C81982AC8C704 /* VELabel.h */,
+				B313F622FD4092B1974005C2C1302ECA /* VELabel.m */,
+				59C85718C7FB2CACD827340BCE93BA4B /* VETipView.h */,
+				481370D4C8A742C227D0FC8DAA458568 /* VETipView.m */,
 			);
-			name = VEUI;
-			path = ../..;
+			name = view;
+			path = VEUI/Classes/view;
 			sourceTree = "<group>";
 		};
-		298CC25F001C98355A37A4CB61ED8CD6 /* Development Pods */ = {
+		3FE633ED2CC3A72B05B5F005B1774CCC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				28F43CE26A18D9FC30AE21C9CB6B74E7 /* VEUI */,
+				5FB2C7E833BD6D13BD6B9A66ECA14796 /* VEUI.modulemap */,
+				714ACE009B44CC4F9186EA9FF53FF56E /* VEUI-dummy.m */,
+				1016FD48ADEF4E0BB3A45BD9B70FB04C /* VEUI-Info.plist */,
+				B1670C9F811C670D0072E2CE26F4BACF /* VEUI-prefix.pch */,
+				3428468B34BA3FBD29558A4EDC699518 /* VEUI-umbrella.h */,
+				724282B6BA922188372917CCD0D63725 /* VEUI.debug.xcconfig */,
+				0507D073CEB82C342AD7B45F329E5C07 /* VEUI.release.xcconfig */,
 			);
-			name = "Development Pods";
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/VEUI";
 			sourceTree = "<group>";
 		};
 		4BA2479549DD918290454B1CDCD0B92B /* Core */ = {
@@ -206,19 +256,26 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		61E9467608653DE22C7F32C5130627F8 /* Support Files */ = {
+		5651D7EE7FBBF5BED5C294E04AE4F51C /* category */ = {
 			isa = PBXGroup;
 			children = (
-				A2E28D8E7C26DC3F89D36FD4483D5861 /* VEUI.modulemap */,
-				C43272FF26D5A61E314DFC63DBC42ED0 /* VEUI-dummy.m */,
-				2EE7191611C329F45A2CB946E9AFDC2B /* VEUI-Info.plist */,
-				0D250782FD6C1AE99BE8EE67A428FFE7 /* VEUI-prefix.pch */,
-				91618C95254A8770068927F1820CB860 /* VEUI-umbrella.h */,
-				6E83CA1634737611FA48E18469F87C19 /* VEUI.debug.xcconfig */,
-				A4E98A65B79639F120EA8F314CA7D87E /* VEUI.release.xcconfig */,
+				4C869DE1A0E3111664D0FE4DCC29FD14 /* NSArray+VEUI.h */,
+				8A4B96B97E46022D6F21B3495194A181 /* NSArray+VEUI.m */,
+				E605292A835EFF8D118660EDF19F85FD /* NSDate+VEUI.h */,
+				4BF0CC90255599EC2F963EF8B0FA0453 /* NSDate+VEUI.m */,
+				037960BA66D0E78E9F6AB4536BD5CA1C /* NSDictionary+VEUI.h */,
+				E934E87181A5CD21844CCA9CDDC77839 /* NSDictionary+VEUI.m */,
+				18F57776EC4323841B36F57C3F593550 /* NSString+VEUI.h */,
+				6F484CC821947B372DFE6236DA0B8A02 /* NSString+VEUI.m */,
+				39DABBD342A774DC613BA25A78E4DABB /* UIColor+VEUI.h */,
+				95539450C8A7A4728E8B5B628A999C29 /* UIColor+VEUI.m */,
+				213E717108BB5BE12A5D088B5E3C5086 /* UITextField+VEUI.h */,
+				C76B0CFE51ECF4732DE5D96F07F34CC0 /* UITextField+VEUI.m */,
+				8429CC6745657D3B116E5244812CD07B /* UIView+VEUI.h */,
+				9EEE65BF3EBEB8723894DBD5B41E1427 /* UIView+VEUI.m */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/VEUI";
+			name = category;
+			path = VEUI/Classes/category;
 			sourceTree = "<group>";
 		};
 		800E8D2C3D74619AB8E35056D38D50F6 /* Pods-VEUI_Tests */ = {
@@ -236,6 +293,24 @@
 			);
 			name = "Pods-VEUI_Tests";
 			path = "Target Support Files/Pods-VEUI_Tests";
+			sourceTree = "<group>";
+		};
+		842BD1A0840A04C16F1D893B72EEA68D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3662FC9DC4DC6A6F0C7AA95A9520E0C /* VEUI */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		85DDD01E07707D6BBBEE10C7A3F01C7C /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				B63239FB304579094AB30447B204EE7C /* LICENSE */,
+				B55741831D357F22010BCB9F4F5C637F /* README.md */,
+				780DA2FC3F001414CD64930DA14993FF /* VEUI.podspec */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		906402ECC4C6C5EB58DD365FD2C64E92 /* SwiftSupport */ = {
@@ -321,12 +396,25 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				298CC25F001C98355A37A4CB61ED8CD6 /* Development Pods */,
+				842BD1A0840A04C16F1D893B72EEA68D /* Development Pods */,
 				BA4F31F07263C99FC76E66D632A59F09 /* Frameworks */,
 				E81A37DBDE41E671312C56736544E2FA /* Pods */,
 				A4EDDE261C64C71F49CCDB2D60FE5ACB /* Products */,
 				AA8E79289CA7D15D2981EFFD2D854D33 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		E3662FC9DC4DC6A6F0C7AA95A9520E0C /* VEUI */ = {
+			isa = PBXGroup;
+			children = (
+				A37AD182C117CE7573561A52774D0587 /* VEUI.h */,
+				5651D7EE7FBBF5BED5C294E04AE4F51C /* category */,
+				85DDD01E07707D6BBBEE10C7A3F01C7C /* Pod */,
+				3FE633ED2CC3A72B05B5F005B1774CCC /* Support Files */,
+				2B15B5C13864462DA06BB84F214493E8 /* view */,
+			);
+			name = VEUI;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		E81A37DBDE41E671312C56736544E2FA /* Pods */ = {
@@ -335,16 +423,6 @@
 				BD2D60DE56CBB8C87BA07E0C1CCD0592 /* FBSnapshotTestCase */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		EC5ABF0B92EFA160692A2A7A9A8021E1 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				A84EA07DC25E6B6A9483046945044A91 /* LICENSE */,
-				B0B2095968DF959072A5FBD8CC55DF80 /* README.md */,
-				157FF33DDA8A3513A9281BE37C20EC88 /* VEUI.podspec */,
-			);
-			name = Pod;
 			sourceTree = "<group>";
 		};
 		FB2668559AE577E6E8078C0C291AD417 /* iOS */ = {
@@ -384,11 +462,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		49BA1A5E3C87A240DFEC3ECDD7EE4566 /* Headers */ = {
+		9D56E6AC180963584DA4C0B3FC8F88DB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08A4D6D87172A0BCD0B79B31D806D6A9 /* VEUI-umbrella.h in Headers */,
+				23489956A6F3EA4965F8866718791E3E /* NSArray+VEUI.h in Headers */,
+				FE7ACFA4B41A67042C04A5D4AF217536 /* NSDate+VEUI.h in Headers */,
+				B450D189DBEF1533BF306C7F49B0A3BC /* NSDictionary+VEUI.h in Headers */,
+				3F38580E0DF2485442EFC14CCC3BEB64 /* NSString+VEUI.h in Headers */,
+				702C8568E6F7846C6B590038E9BE2CA3 /* UIColor+VEUI.h in Headers */,
+				1EA90E61F2A28268B6F1C2B7E41D9DD9 /* UITextField+VEUI.h in Headers */,
+				2675C013FD387402C8446EA5B223DD7D /* UIView+VEUI.h in Headers */,
+				A3F142651891890BEC3187F0C45F38EA /* VEBubbleView.h in Headers */,
+				116AD38BF4258D2A606241B29DFD1A7B /* VELabel.h in Headers */,
+				7FC935A91A3C2D774AD9BD129DD2FE53 /* VETipView.h in Headers */,
+				1545829A94767FF33A783983B7375FDB /* VEUI-umbrella.h in Headers */,
+				AFC6569B07F6D22E2519E1B23E04FBD9 /* VEUI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,12 +494,12 @@
 /* Begin PBXNativeTarget section */
 		15D74A8D0296470E5BEFBD7D0D81131A /* VEUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7338DBAA73765633CB4DC0BAD1220844 /* Build configuration list for PBXNativeTarget "VEUI" */;
+			buildConfigurationList = 2AA261BC5FC7B4157AC0AFB73E7A0F94 /* Build configuration list for PBXNativeTarget "VEUI" */;
 			buildPhases = (
-				49BA1A5E3C87A240DFEC3ECDD7EE4566 /* Headers */,
-				A61C58BC1C5C581093FCD170AA402030 /* Sources */,
-				2FFBABF39F9A722E30741A531D44190D /* Frameworks */,
-				85D7F2F2DE030FC87B55A1E350498A08 /* Resources */,
+				9D56E6AC180963584DA4C0B3FC8F88DB /* Headers */,
+				A2648D0E32A0E2892047B04DC1658FC3 /* Sources */,
+				58D183BEFFEB66F0C7043138A867084E /* Frameworks */,
+				CD6A555E295173E1BC6256858919136D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -433,8 +522,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				7F02EC0D3A92F48D50F5E65D4E5AD492 /* PBXTargetDependency */,
-				59F42E3F159BBFAE2DE3325118DCE199 /* PBXTargetDependency */,
+				D96321D6659372AE22CFFA59D6E820E0 /* PBXTargetDependency */,
+				6AFB1D44A1721E5B557A96152F7ED715 /* PBXTargetDependency */,
 			);
 			name = "Pods-VEUI_Tests";
 			productName = "Pods-VEUI_Tests";
@@ -453,7 +542,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D3075363F2DB892D7A7EA63E2D7A5795 /* PBXTargetDependency */,
+				78FBBD3BCF80CC1E36E7C30729EB4AE5 /* PBXTargetDependency */,
 			);
 			name = "Pods-VEUI_Example";
 			productName = "Pods-VEUI_Example";
@@ -516,13 +605,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		85D7F2F2DE030FC87B55A1E350498A08 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A521AF2701D4B00C7B591F2677987BF7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -537,6 +619,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CD6A555E295173E1BC6256858919136D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -545,6 +634,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				0607E57FFC99071B52261FD3075EE49F /* Pods-VEUI_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2648D0E32A0E2892047B04DC1658FC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFCED5DF4DF565B878ACF5C3F85031C4 /* NSArray+VEUI.m in Sources */,
+				F7EE9BA364ADA721E21291AC4CD10A52 /* NSDate+VEUI.m in Sources */,
+				56775BD8BF47AC9751B2553E9EB125DD /* NSDictionary+VEUI.m in Sources */,
+				3A32FAE0003E1FB48B0AD7CB4C2855E9 /* NSString+VEUI.m in Sources */,
+				2284A371B3393815F3273439605EA29A /* UIColor+VEUI.m in Sources */,
+				0AEAA25040A37A32EE5D2D4AA53B75E9 /* UITextField+VEUI.m in Sources */,
+				A9AFD752CD5748F8D0548E32FC61911C /* UIView+VEUI.m in Sources */,
+				7861BBDFF1D48828393A2236FD27CF1A /* VEBubbleView.m in Sources */,
+				7E1E9246D1F525EF14A6C6CEB19DAD20 /* VELabel.m in Sources */,
+				4AB233BF3A5C84F424891221EBC1EE90 /* VETipView.m in Sources */,
+				3A2B81045847D68F628A33218717629B /* VEUI-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,15 +671,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A61C58BC1C5C581093FCD170AA402030 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D02A7BE42A2991B4006F01E02328A245 /* ReplaceMe.m in Sources */,
-				0C8BF30D00BE3CFD25643F853D191A27 /* VEUI-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CFBBD4B8E08B4AA85D083B4C9D0A11FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -584,32 +682,66 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		59F42E3F159BBFAE2DE3325118DCE199 /* PBXTargetDependency */ = {
+		6AFB1D44A1721E5B557A96152F7ED715 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-VEUI_Example";
 			target = 7E0CBE47ACC1D36016DB97C03C35D8BA /* Pods-VEUI_Example */;
-			targetProxy = 6560314F035CC09D88D25647634C865F /* PBXContainerItemProxy */;
+			targetProxy = D4D3A50E3E75D85F83634F9F0C205585 /* PBXContainerItemProxy */;
 		};
-		7F02EC0D3A92F48D50F5E65D4E5AD492 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FBSnapshotTestCase;
-			target = 98A98149697C80CEF8D5772791E92E66 /* FBSnapshotTestCase */;
-			targetProxy = 851F1FBAB6BE7A2D5ABD87594A2BC178 /* PBXContainerItemProxy */;
-		};
-		D3075363F2DB892D7A7EA63E2D7A5795 /* PBXTargetDependency */ = {
+		78FBBD3BCF80CC1E36E7C30729EB4AE5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = VEUI;
 			target = 15D74A8D0296470E5BEFBD7D0D81131A /* VEUI */;
-			targetProxy = 02C84A21B32764A95B1E47DA0A602292 /* PBXContainerItemProxy */;
+			targetProxy = 9E7BFA8DB589DEED39BBC0EEBDC14781 /* PBXContainerItemProxy */;
+		};
+		D96321D6659372AE22CFFA59D6E820E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FBSnapshotTestCase;
+			target = 98A98149697C80CEF8D5772791E92E66 /* FBSnapshotTestCase */;
+			targetProxy = 3A141BE2BB6AB624135AC92BD4A86E81 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		116F93189099B9C01FC1C71CB020D1B8 /* Release */ = {
+		139117B8E16496A1593FD22885550719 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5ABE8EB42C1D737CC12BC52EBCCF5E2 /* Pods-VEUI_Tests.release.xcconfig */;
+			baseConfigurationReference = 8CDFED61AC6637643AC074C4C1051CB0 /* Pods-VEUI_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		306B029203F2872329A9A0FD72671CFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEF95D99252ABB606D6ECDE02D259482 /* Pods-VEUI_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -620,7 +752,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-VEUI_Tests/Pods-VEUI_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-VEUI_Tests/Pods-VEUI_Tests.modulemap";
@@ -632,13 +764,198 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3E39A517897BFCDD1DD7268CB1B69BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9468E867498BBAF36F9AFFE4845F8B09 /* FBSnapshotTestCase.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase.modulemap";
+				PRODUCT_MODULE_NAME = FBSnapshotTestCase;
+				PRODUCT_NAME = FBSnapshotTestCase;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		44792B38032244EAE9ED1AB60EE0AE21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0507D073CEB82C342AD7B45F329E5C07 /* VEUI.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/VEUI/VEUI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/VEUI/VEUI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/VEUI/VEUI.modulemap";
+				PRODUCT_MODULE_NAME = VEUI;
+				PRODUCT_NAME = VEUI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
+		656ECDD2DDEF1B35698C4B8AFDE68DBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 724282B6BA922188372917CCD0D63725 /* VEUI.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/VEUI/VEUI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/VEUI/VEUI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/VEUI/VEUI.modulemap";
+				PRODUCT_MODULE_NAME = VEUI;
+				PRODUCT_NAME = VEUI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		BF531801B332EDF71FA8F4F9667B86BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C6513B09838318BD763CFD5390D1DE0 /* FBSnapshotTestCase.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase.modulemap";
+				PRODUCT_MODULE_NAME = FBSnapshotTestCase;
+				PRODUCT_NAME = FBSnapshotTestCase;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -691,7 +1008,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -704,41 +1021,12 @@
 			};
 			name = Debug;
 		};
-		3E39A517897BFCDD1DD7268CB1B69BE9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9468E867498BBAF36F9AFFE4845F8B09 /* FBSnapshotTestCase.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase.modulemap";
-				PRODUCT_MODULE_NAME = FBSnapshotTestCase;
-				PRODUCT_NAME = FBSnapshotTestCase;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		66BCA81B7DC88771533B874B291ADACC /* Release */ = {
+		D5E65E3885743CDD6C4FEC2F170EA17E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 21988256F6D63CFABE3FEECE3DBB715E /* Pods-VEUI_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -749,7 +1037,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example.modulemap";
@@ -767,73 +1055,12 @@
 			};
 			name = Release;
 		};
-		6AAA4FEDBC29FB9DE961F20C480CCB9B /* Debug */ = {
+		FFB712D913ABCFBF882C6686AB671092 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CDFED61AC6637643AC074C4C1051CB0 /* Pods-VEUI_Example.debug.xcconfig */;
+			baseConfigurationReference = E5ABE8EB42C1D737CC12BC52EBCCF5E2 /* Pods-VEUI_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A7CD7BE96CDF133EF9EC6BC563A9B579 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E83CA1634737611FA48E18469F87C19 /* VEUI.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/VEUI/VEUI-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/VEUI/VEUI-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/VEUI/VEUI.modulemap";
-				PRODUCT_MODULE_NAME = VEUI;
-				PRODUCT_NAME = VEUI;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B390A8A3F2B1CA0AABFB242DE167E798 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEF95D99252ABB606D6ECDE02D259482 /* Pods-VEUI_Tests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -844,7 +1071,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-VEUI_Tests/Pods-VEUI_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-VEUI_Tests/Pods-VEUI_Tests.modulemap";
@@ -856,129 +1083,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		BF531801B332EDF71FA8F4F9667B86BC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C6513B09838318BD763CFD5390D1DE0 /* FBSnapshotTestCase.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase.modulemap";
-				PRODUCT_MODULE_NAME = FBSnapshotTestCase;
-				PRODUCT_NAME = FBSnapshotTestCase;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		CD2F4A5A4DEFEB04D5E725A7BF8D36AB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4E98A65B79639F120EA8F314CA7D87E /* VEUI.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/VEUI/VEUI-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/VEUI/VEUI-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/VEUI/VEUI.modulemap";
-				PRODUCT_MODULE_NAME = VEUI;
-				PRODUCT_NAME = VEUI;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -988,11 +1092,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2AA261BC5FC7B4157AC0AFB73E7A0F94 /* Build configuration list for PBXNativeTarget "VEUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				656ECDD2DDEF1B35698C4B8AFDE68DBA /* Debug */,
+				44792B38032244EAE9ED1AB60EE0AE21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */,
-				CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */,
+				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
+				7EE7A78859F657F6BEFC651185B43192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1000,17 +1113,8 @@
 		4ACA675D7AA53F128D2866051F37E2E3 /* Build configuration list for PBXNativeTarget "Pods-VEUI_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B390A8A3F2B1CA0AABFB242DE167E798 /* Debug */,
-				116F93189099B9C01FC1C71CB020D1B8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7338DBAA73765633CB4DC0BAD1220844 /* Build configuration list for PBXNativeTarget "VEUI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A7CD7BE96CDF133EF9EC6BC563A9B579 /* Debug */,
-				CD2F4A5A4DEFEB04D5E725A7BF8D36AB /* Release */,
+				306B029203F2872329A9A0FD72671CFF /* Debug */,
+				FFB712D913ABCFBF882C6686AB671092 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1018,8 +1122,8 @@
 		9D85DCF86E5DB686B4BC745A82A66EE7 /* Build configuration list for PBXNativeTarget "Pods-VEUI_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6AAA4FEDBC29FB9DE961F20C480CCB9B /* Debug */,
-				66BCA81B7DC88771533B874B291ADACC /* Release */,
+				139117B8E16496A1593FD22885550719 /* Debug */,
+				D5E65E3885743CDD6C4FEC2F170EA17E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

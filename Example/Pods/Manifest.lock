@@ -8,7 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - FBSnapshotTestCase
-  - VEUI (from `../`)
+  - VEUI (from `../VEUI.podspec`)
 
 SPEC REPOS:
   trunk:
@@ -16,12 +16,12 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   VEUI:
-    :path: "../"
+    :path: "../VEUI.podspec"
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  VEUI: fc72a326d07cc2f459497c1d6844df08cce47df8
+  VEUI: a2ad6faa3c0a6b43fd4392cad700227537b68536
 
-PODFILE CHECKSUM: 5711db9f22e3a6513c5de18a4779200cb939b65f
+PODFILE CHECKSUM: 492a60769336b34672c33ad559ba58ae476bec57
 
 COCOAPODS: 1.10.0

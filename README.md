@@ -23,9 +23,14 @@ pod 'VEUI'
 
 ## Author
 
-Drake, it8360@vedeng.com
+Drake, it8360@vedeng.com<br>
 Coder, it8359@vedeng.com
 
 ## License
 
 VEUI is available under the MIT license. See the LICENSE file for more info.
+
+## Update
+```ruby
+pod repo push ivedeng-veui-vdpod VEUI.podspec
+```

@@ -1,9 +1,9 @@
 {
   "name": "VEUI",
   "version": "0.1.0",
-  "summary": "A short description of VEUI.",
+  "summary": "VEUI 组件库",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/Coder/VEUI",
+  "homepage": "http://gitlab.ivedeng.com/veui/veui.ios",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,11 @@
     "Coder": "it8359@vedeng.com"
   },
   "source": {
-    "git": "https://github.com/Coder/VEUI.git",
+    "git": "http://gitlab.ivedeng.com/veui/veui.ios.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "9.0"
+    "ios": "10.0"
   },
   "source_files": "VEUI/Classes/**/*"
 }
