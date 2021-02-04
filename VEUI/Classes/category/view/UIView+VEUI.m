@@ -1,0 +1,153 @@
+//
+//  UIView+VEUI.m
+//  Store
+//
+//  Created by Coder on 2021/1/12.
+//  Copyright © 2021 Vedeng. All rights reserved.
+//
+
+#import "UIView+VEUI.h"
+#import <objc/runtime.h>
+
+@implementation UIView (VEUI)
+
+- (UIViewController *)viewController {
+    for(UIView *next = self.superview; next; next = next.superview){
+        UIResponder *nextResponder = [next nextResponder];
+        if([nextResponder isKindOfClass:[UIViewController class]]){
+            return (UIViewController*)nextResponder;
+        }
+    }
+    return nil;
+}
+
+- (id)concat {
+    NSData *tmpData = [NSKeyedArchiver archivedDataWithRootObject:self];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:tmpData];
+}
+
+//Category
+- (void)setStrTag:(NSString *)strTag{
+    objc_setAssociatedObject(self, @selector(strTag), strTag, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (NSString *)strTag{
+    return objc_getAssociatedObject(self, @selector(strTag));
+}
+
+- (nullable UIView *)viewWithStrTag:(nullable NSString *)strTag{
+    for (UIView *tempView in self.subviews) {
+        if ([tempView.strTag isEqualToString:strTag]) {
+            return tempView;
+        }
+    }
+    return nil;
+}
+
+#pragma mark - set
+- (void)setOrign:(CGPoint)orign{
+    CGRect tempFrame = self.frame;
+    tempFrame.origin = orign;
+    self.frame = tempFrame;
+}
+
+- (void)setOrignX:(CGFloat)orignX{
+    CGRect tempFrame = self.frame;
+    tempFrame.origin.x = orignX;
+    self.frame = tempFrame;
+}
+
+- (void)setOrignY:(CGFloat)orignY{
+    CGRect tempFrame = self.frame;
+    tempFrame.origin.y = orignY;
+    self.frame = tempFrame;
+}
+
+- (void)setCenterX:(CGFloat)centerX{
+    CGPoint tempPoint = self.center;
+    tempPoint.x = centerX;
+    self.center = tempPoint;
+}
+
+- (void)setCenterY:(CGFloat)centerY{
+    CGPoint tempPoint = self.center;
+    tempPoint.y = centerY;
+    self.center = tempPoint;
+}
+
+- (void)setSize:(CGSize)size{
+    CGRect tempFrame = self.frame;
+    CGPoint center = self.center;
+    tempFrame.size = size;
+    self.frame = tempFrame;
+    self.center = center;
+}
+
+- (void)setWidth:(CGFloat)width{
+    CGRect tempFrame = self.frame;
+    CGPoint center = self.center;
+    tempFrame.size.width = width;
+    self.frame = tempFrame;
+    self.center = center;
+}
+
+- (void)setHeight:(CGFloat)height{
+    CGRect tempFrame = self.frame;
+    CGPoint center = self.center;
+    tempFrame.size.height = height;
+    self.frame = tempFrame;
+    self.center = center;
+}
+
+- (void)setMaxX:(CGFloat)maxX{
+    self.frame = CGRectMake(maxX - self.frame.size.width, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
+}
+
+- (void)setMaxY:(CGFloat)maxY{
+    self.frame = CGRectMake(self.frame.origin.x, maxY - self.frame.size.height, self.frame.size.width, self.frame.size.height);
+}
+
+
+#pragma mark - get
+- (CGPoint)orign{
+    return self.frame.origin;
+}
+
+- (CGFloat)orignX{
+    return self.frame.origin.x;
+}
+
+- (CGFloat)orignY{
+    return self.frame.origin.y;
+}
+
+- (CGFloat)centerX{
+    return self.center.x;
+}
+
+- (CGFloat)centerY{
+    return self.center.y;
+}
+
+- (CGSize)size{
+    return self.frame.size;
+}
+
+- (CGFloat)width{
+    return self.frame.size.width;
+}
+
+- (CGFloat)height{
+    return self.frame.size.height;
+}
+
+- (CGFloat)maxX{
+    return self.frame.size.width + self.frame.origin.x;
+}
+
+- (CGFloat)maxY{
+    return self.frame.size.height + self.frame.origin.y;
+}
+
+
+@end

@@ -26,7 +26,7 @@
 
 - (void)initParams {
     _edgeInsets = UIEdgeInsetsZero;
-    _verticalAligment = VELabelTextVerticalAligmentDefault;
+    _textVerticalAlignment = VELabelTextVerticalAlignmentDefault;
 }
 
 #pragma mark - draw rect
@@ -34,11 +34,11 @@
     bounds.size.width -= self.edgeInsets.left + self.edgeInsets.right;
     bounds.size.height -= self.edgeInsets.top + self.edgeInsets.bottom;
     CGRect textRect = [super textRectForBounds:bounds limitedToNumberOfLines:numberOfLines];
-    switch (self.verticalAligment) {
-        case VELabelTextVerticalAligmentTop:
+    switch (self.textVerticalAlignment) {
+        case VELabelTextVerticalAlignmentTop:
             textRect.origin.y = bounds.origin.y;
             break;
-        case VELabelTextVerticalAligmentBottom:
+        case VELabelTextVerticalAlignmentBottom:
             textRect.origin.y = bounds.origin.y + bounds.size.height - textRect.size.height;
             break;
         default:
@@ -70,8 +70,8 @@
 }
 
 #pragma mark - public func
-- (void)setVerticalAligment:(VELabelTextVerticalAligment)verticalAligment {
-    _verticalAligment = verticalAligment;
+- (void)setTextVerticalAlignment:(VELabelTextVerticalAlignment)textVerticalAlignment {
+    _textVerticalAlignment = textVerticalAlignment;
     [self setNeedsDisplay];
 }
 
@@ -83,6 +83,5 @@
 - (CGFloat)suggestWidth {
     return [self sizeThatFits:self.frame.size].width;
 }
-
 
 @end

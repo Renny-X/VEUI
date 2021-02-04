@@ -1,5 +1,5 @@
 //
-//  NSDictionary+Category.h
+//  NSArray+Category.h
 //  Vedeng
 //
 //  Created by Coder on 2020/11/13.
@@ -10,11 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSDictionary (VEUI)
+@interface NSArray (VEUI)
 
-+ (NSDictionary *)dictionaryFromJsonStr:(NSString *)jsonStr;
-
-- (NSString *)toJsonString;
+/**
+ * Json 字符串转 NSArray
+ */
++ (NSArray *)arrayFromJsonStr:(NSString *)jsonStr;
 
 @end
 

@@ -74,6 +74,7 @@
     CGFloat w = contentFrame.size.width - self.cornerRadius * 2;
     CGFloat h = contentFrame.size.height - self.cornerRadius * 2;
     CGPoint start = CGPointMake(contentFrame.origin.x + self.cornerRadius, contentFrame.origin.y);
+    
     // 绘制矩形
     UIBezierPath *rectPath = [UIBezierPath bezierPath];
     [rectPath moveToPoint:start];

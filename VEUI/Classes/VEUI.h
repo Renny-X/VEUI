@@ -8,20 +8,23 @@
 #ifndef VEUI_h
 #define VEUI_h
 
-// category
+// category object
 #import "NSArray+VEUI.h"
 #import "NSDate+VEUI.h"
 #import "NSDictionary+VEUI.h"
+#import "NSObject+VEUI.h"
 #import "NSString+VEUI.h"
 #import "UIColor+VEUI.h"
+#import "UIImage+VEUI.h"
+
+// category view
+#import "UIButton+VEUI.h"
 #import "UITextField+VEUI.h"
 #import "UIView+VEUI.h"
 
-// extension
-
-// view
-#import "VETipView.h"
+// custom view
 #import "VEBubbleView.h"
 #import "VELabel.h"
+#import "VETipView.h"
 
 #endif /* VEUI_h */

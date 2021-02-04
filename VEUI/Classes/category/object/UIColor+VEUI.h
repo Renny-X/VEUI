@@ -11,6 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (VEUI)
 
+/**
+ * Hex 字符串 转 UIColor，支持3、4、6、8位 Hex
+ */
 + (UIColor *)colorWithHexString:(NSString *)hexStr;
 
 @end

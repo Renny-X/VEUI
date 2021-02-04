@@ -9,10 +9,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, VELabelTextVerticalAligment) {
-    VELabelTextVerticalAligmentDefault = 0,
-    VELabelTextVerticalAligmentTop,
-    VELabelTextVerticalAligmentBottom,
+typedef NS_ENUM(NSInteger, VELabelTextVerticalAlignment) {
+    VELabelTextVerticalAlignmentDefault = 0,
+    VELabelTextVerticalAlignmentTop,
+    VELabelTextVerticalAlignmentBottom,
 };
 
 @interface VELabel : UILabel
@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, VELabelTextVerticalAligment) {
 /**
  * verticalAligment: Label的垂直对齐方式，默认垂直居中
  */
-@property (nonatomic, assign)VELabelTextVerticalAligment verticalAligment;
+@property (nonatomic, assign)VELabelTextVerticalAlignment textVerticalAlignment;
 
 @end
 
