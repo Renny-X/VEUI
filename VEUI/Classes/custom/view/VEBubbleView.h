@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, VEBubbleContentPosition) {
 @interface VEBubbleView : UIView
 
 /**
- * contentBackgroundColor: 内容区域背景色
+ * contentBackgroundColor: 内容区域背景色， 默认为白色
  */
 @property(nonatomic, assign)UIColor *contentColor;
 /**
@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, VEBubbleContentPosition) {
  */
 @property(nonatomic, assign)CGFloat cornerRadius;
 /**
- * direction: 内容方向
+ * direction: 内容方向，默认内容在上面，箭头在下面
  */
 @property(nonatomic, assign)VEBubbleContentPosition position;
 /**

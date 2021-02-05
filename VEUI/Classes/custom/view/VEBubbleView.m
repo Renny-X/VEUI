@@ -71,37 +71,9 @@
             contentFrame = CGRectMake(0, 0, rect.size.width, aEnd.y);
             break;
     }
-    CGFloat w = contentFrame.size.width - self.cornerRadius * 2;
-    CGFloat h = contentFrame.size.height - self.cornerRadius * 2;
-    CGPoint start = CGPointMake(contentFrame.origin.x + self.cornerRadius, contentFrame.origin.y);
     
     // 绘制矩形
-    UIBezierPath *rectPath = [UIBezierPath bezierPath];
-    [rectPath moveToPoint:start];
-    [rectPath addLineToPoint:CGPointMake(start.x + w, start.y)];
-    [rectPath addArcWithCenter:CGPointMake(start.x + w, start.y + self.cornerRadius)
-                        radius:self.cornerRadius
-                    startAngle:-M_PI_2
-                      endAngle:0
-                     clockwise:YES];
-    [rectPath addLineToPoint:CGPointMake(start.x + w + self.cornerRadius, start.y + h + self.cornerRadius)];
-    [rectPath addArcWithCenter:CGPointMake(start.x + w, start.y + h + self.cornerRadius)
-                        radius:self.cornerRadius
-                    startAngle:0
-                      endAngle:M_PI_2
-                     clockwise:YES];
-    [rectPath addLineToPoint:CGPointMake(start.x, start.y + h + self.cornerRadius * 2)];
-    [rectPath addArcWithCenter:CGPointMake(start.x, start.y + h + self.cornerRadius)
-                        radius:self.cornerRadius
-                    startAngle:M_PI_2
-                      endAngle:M_PI
-                     clockwise:YES];
-    [rectPath addLineToPoint:CGPointMake(start.x - self.cornerRadius, start.y - self.cornerRadius * 2)];
-    [rectPath addArcWithCenter:CGPointMake(start.x, start.y + self.cornerRadius)
-                        radius:self.cornerRadius
-                    startAngle:M_PI
-                      endAngle:M_PI + M_PI_2
-                     clockwise:YES];
+    UIBezierPath *rectPath = [UIBezierPath bezierPathWithRoundedRect:contentFrame byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(self.cornerRadius, self.cornerRadius)];
     [self.contentColor setFill];
     [rectPath fill];
     [rectPath closePath];
