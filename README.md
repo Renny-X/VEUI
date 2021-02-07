@@ -33,5 +33,5 @@ VEUI is available under the MIT license. See the LICENSE file for more info.
 
 ## Update
 ```ruby
-pod repo push ivedeng-veui-vdpod VEUI.podspec
+pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 ```

@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'http://gitlab.ivedeng.com/veui/veui.ios.git', :tag => s.version.to_s }
   s.ios.deployment_target = '10.0'
   s.source_files = 'VEUI/Classes/**/*'
-  s.public_header_files = 'Pods/Classes/VEUI.h'
   s.dependency 'Masonry', '~> 1.1.0'
   # s.resource_bundles = {
   #   'VEUI' => ['VEUI/Assets/*.png']
