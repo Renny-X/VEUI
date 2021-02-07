@@ -1,11 +1,11 @@
-source 'http://gitlab.ivedeng.com/veui/vdpod.git'
+source 'https://github.com/CocoaPods/Specs.git'
+# source 'http://gitlab.ivedeng.com/veui/vdpod.git'
 platform :ios, '10.0'
 
 use_frameworks!
 
 target 'VEUI_Example' do
   pod 'VEUI', :path => '../VEUI.podspec'
-
   target 'VEUI_Tests' do
     inherit! :search_paths
 
