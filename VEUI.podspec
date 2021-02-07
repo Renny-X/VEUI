@@ -36,8 +36,8 @@ TODO: Add long description of the pod here.
   #   'VEUI' => ['VEUI/Assets/*.png']
   # }
 
-   s.public_header_files = 'Pod/Classes/VEUI.h'
+   s.public_header_files = 'Pods/Classes/VEUI.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
-  s.dependency 'Masonry'
+  s.dependency 'Masonry', '~> 1.1.0'
 end

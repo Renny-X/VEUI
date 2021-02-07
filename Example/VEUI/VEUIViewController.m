@@ -23,7 +23,6 @@
     label.text = @"asdfasdfasdf";
     label.edgeInsets = UIEdgeInsetsMake(10, 20, 2, 5);
     label.textVerticalAlignment = VELabelTextVerticalAlignmentTop;
-    
     [self.view addSubview:label];
     
     NSDictionary *dict = @{
@@ -32,11 +31,9 @@
         }],
     };
     NSArray *arr = @[@"数组1", [NSNull null], dict];
-    
-//    NSLog(@"%@", arr);
-//    NSLog(@"%@", [arr formatValue]);
-    
-//    NSLog(@"%@", [dict stringValueForKey:@"键1"]);
+
+    NSLog(@"%@", [arr formatValue]);
+    NSLog(@"%@", [dict safeValueForKey:@"键1"]);
 }
 
 - (void)didReceiveMemoryWarning
