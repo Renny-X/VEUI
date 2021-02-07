@@ -6,7 +6,7 @@ PODS:
     - FBSnapshotTestCase/Core
   - Masonry (1.1.0)
   - VEUI (0.1.1):
-    - Masonry
+    - Masonry (~> 1.1.0)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -24,7 +24,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  VEUI: 90e976e8aa5500828025b355a97ecfe196c5e31a
+  VEUI: 517b6b7c7c7b89f1ec204690373bbb93ce204d86
 
 PODFILE CHECKSUM: 53c9d706ac595d2dfec94515b3634a69145fcc8f
 
