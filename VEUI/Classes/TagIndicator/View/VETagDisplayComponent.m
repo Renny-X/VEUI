@@ -30,14 +30,14 @@ typedef void(^ButtonCloseBlock)(void);//关闭
     return objct;
 }
 
-- (void)setState:(KeywordButtonState)state
+- (void)setState:(VEKeywordButtonState)state
 {
     _state = state;
-    if (state == stateNormal) {
+    if (state == StateNormal) {
         
-    } else if (state == stateShowCheck) {
+    } else if (state == StateShowCheck) {
         
-    } else if (state == stateShowClose) {
+    } else if (state == StateShowClose) {
         
     }
 }
@@ -52,8 +52,8 @@ typedef void(^ButtonCloseBlock)(void);//关闭
 @property (nonatomic,strong) UILabel                        *checkIcon;
 @property (nonatomic,copy) ButtonClickBlock                 clickBlock;
 @property (nonatomic,copy) ButtonCloseBlock                 closeBlock;
-@property (nonatomic,assign) KeywordButtonState             state;
-@property (nonatomic,assign) VEKeywordItem             *model;
+@property (nonatomic,assign) VEKeywordButtonState           state;
+@property (nonatomic,assign) VEKeywordItem                  *model;
 
 - (void)reloadButton:(VEKeywordItem *)data;
 
@@ -72,7 +72,7 @@ typedef void(^ButtonCloseBlock)(void);//关闭
         self.layer.borderColor = [UIColor clearColor].CGColor;//默认没有边框
         self.layer.borderWidth = 1;
         self.layer.cornerRadius = 3;
-        _state = stateNormal;
+        _state = StateNormal;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textLabelAction)];
         [self addGestureRecognizer:tap];
     }
@@ -129,13 +129,13 @@ typedef void(^ButtonCloseBlock)(void);//关闭
     self.textLabel.text = self.model.text;
     self.layer.borderColor = self.model.borderColor.CGColor;
     
-    if (self.model.state == stateNormal) {//普通状态
+    if (self.model.state == StateNormal) {//普通状态
         self.checkIcon.hidden = YES;
         self.closeButton.hidden = YES;
-    } else if (self.model.state == stateShowClose) {//显示叉号
+    } else if (self.model.state == StateShowClose) {//显示叉号
         self.checkIcon.hidden = YES;
         self.closeButton.hidden = NO;
-    } else if (self.model.state == stateShowCheck) {//显示勾√
+    } else if (self.model.state == StateShowCheck) {//显示勾√
         self.checkIcon.hidden = NO;
         self.closeButton.hidden = YES;
     }
@@ -339,10 +339,10 @@ typedef void(^ButtonCloseBlock)(void);//关闭
         
         VEKeywordItem *model = VD_SafeObjectAtIndex(self.keyModelArray, index);
         
-        if (model.state == stateNormal) {
+        if (model.state == StateNormal) {
             model.textColor = self.itemTextColorOnNormal;
             model.borderColor = self.itemBorderColorOnNormal;
-        } else if (model.state == stateShowClose || model.state == stateShowCheck) {
+        } else if (model.state == StateShowClose || model.state == StateShowCheck) {
             model.textColor = self.itemTextColorOnHighlight;
             model.borderColor = self.itemBorderColorOnHighlight;
         }

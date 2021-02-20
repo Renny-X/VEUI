@@ -11,15 +11,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
-    stateNormal,//普通状态
-    stateShowCheck,//显示勾√
-    stateShowClose,//显示叉号
-} KeywordButtonState;
+    StateNormal,//普通状态
+    StateShowCheck,//显示勾√
+    StateShowClose,//显示叉号
+} VEKeywordButtonState;
 
 @interface VEKeywordItem : NSObject
 
 @property(nonatomic,copy)NSString               *text;//文字
-@property (nonatomic,assign)KeywordButtonState  state; //⚠️这可以设置不同按钮 不同状态
+@property (nonatomic,assign)VEKeywordButtonState  state; //⚠️这可以设置不同按钮 不同状态
 
 - (instancetype)copyModel;
 
