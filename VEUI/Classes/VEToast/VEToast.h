@@ -13,31 +13,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)hide;
 
-+ (void)toastDuration:(CGFloat)duration;
++ (void)toastDuration:(NSTimeInterval)duration;
 
 // Toast String
 + (void)toast:(NSString *)string;
 
-+ (void)toast:(NSString *)string duration:(CGFloat)duration;
++ (void)toast:(NSString *)string duration:(NSTimeInterval)duration;
 
 // Toast Success
 + (void)success:(NSString *)string;
 
-+ (void)success:(NSString *)string duration:(CGFloat)duration;
++ (void)success:(NSString *)string duration:(NSTimeInterval)duration;
 
 // Toast Error
 + (void)error:(NSString *)string;
 
-+ (void)error:(NSString *)string duration:(CGFloat)duration;
++ (void)error:(NSString *)string duration:(NSTimeInterval)duration;
 
 // Toast Custom image string
 + (void)toast:(NSString *)string image:(UIImage *)img;
 
-+ (void)toast:(NSString *)string image:(UIImage *)img imgSize:(CGSize *)imgSize;
++ (void)toast:(NSString *)string image:(UIImage *)img imgSize:(CGSize)imgSize;
 
-+ (void)toast:(NSString *)string image:(UIImage *)img duration:(CGFloat)duration;
++ (void)toast:(NSString *)string image:(UIImage *)img duration:(NSTimeInterval)duration;
 
-+ (void)toast:(NSString *)string image:(UIImage *)img imgSize:(CGSize *)imgSize duration:(CGFloat)duration;
++ (void)toast:(NSString *)string image:(UIImage *)img imgSize:(CGSize)imgSize duration:(NSTimeInterval)duration;
 
 // Toast Loading
 + (void)loading:(NSString *)string;
@@ -51,11 +51,14 @@ NS_ASSUME_NONNULL_BEGIN
 // Toast Custom images Loading
 + (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images;
 
-+ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images imgSize:(CGSize *)imgSize;
++ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images imgSize:(CGSize)imgSize;
 
 + (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images mask:(BOOL)mask;
 
-+ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images imgSize:(CGSize *)imgSize mask:(BOOL)mask;
++ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images imgSize:(CGSize)imgSize mask:(BOOL)mask;
+
+// entry
++ (void)toastView:(UIView * _Nullable)view string:(NSString *)string duration:(NSTimeInterval)duration mask:(BOOL)mask;
 
 @end
 

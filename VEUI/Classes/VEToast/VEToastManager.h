@@ -11,11 +11,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VEToastManager : NSObject
 
-@property(nonatomic, assign)CGFloat duration;
+@property(nonatomic, assign)NSTimeInterval animateDuration;
+@property(nonatomic, assign)NSTimeInterval duration;
+@property(nonatomic, assign)CGSize imgSize;
+@property(nonatomic, assign)CGFloat textFont;
+@property(nonatomic, strong)UIColor *toastColor;
+@property(nonatomic, strong)UIColor *tintColor;
 
 + (instancetype)manager;
 
-- (void)show:(UIView *)view toView:(UIView *)superView;
+- (void)show:(UIView *)view duration:(NSTimeInterval)duration;
 
 - (void)hide;
 

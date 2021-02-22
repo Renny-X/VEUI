@@ -62,4 +62,20 @@
     return self;
 }
 
+- (BOOL)isEmpty {
+    if ([self isKindOfClass:[NSNull class]] || self == NULL || self == nil) {
+        return true;
+    }
+    if ([self isKindOfClass:[NSString class]]) {
+        return !((NSString *)self).length;
+    }
+    if ([self isKindOfClass:[NSArray class]]) {
+        return !((NSArray *)self).count;
+    }
+    if ([self isKindOfClass:[NSDictionary class]]) {
+        return !((NSDictionary *)self).allKeys.count;
+    }
+    return false;
+}
+
 @end

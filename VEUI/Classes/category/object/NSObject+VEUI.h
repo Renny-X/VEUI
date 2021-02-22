@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 将NSArray、NSDictionary中null 替换为 @"" 空字符串
  */
 - (id)formatValue;
+/**
+ * 判断是否为Null 或 空字符串、空数组、空字典等
+ */
+- (BOOL)isEmpty;
 
 @end
 
