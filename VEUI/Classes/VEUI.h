@@ -15,6 +15,7 @@
 #import "NSObject+VEUI.h"
 #import "NSString+VEUI.h"
 #import "UIColor+VEUI.h"
+#import "UIFont+VEUI.h"
 #import "UIImage+VEUI.h"
 
 // category view
@@ -26,5 +27,6 @@
 #import "VEBubbleView.h"
 #import "VELabel.h"
 #import "VETipView.h"
+#import "VEToast.h"
 
 #endif /* VEUI_h */
