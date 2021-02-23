@@ -171,6 +171,6 @@ UIColor *colorWithHexString(NSString *color)
     return VE_ColorWithHexString(color, 1.0);
 }
 
-@implementation VDConstant
+@implementation VEConstant
 
 @end
