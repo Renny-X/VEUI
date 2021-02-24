@@ -63,7 +63,7 @@
 }
 
 - (BOOL)isEmpty {
-    if ([self isKindOfClass:[NSNull class]] || self == NULL || self == nil) {
+    if ([self isKindOfClass:[NSNull class]] || self == nil) {
         return true;
     }
     if ([self isKindOfClass:[NSString class]]) {

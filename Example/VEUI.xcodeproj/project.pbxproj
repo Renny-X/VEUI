@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		178CFF9E25E493CA00699E7D /* VEToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178CFF9D25E493CA00699E7D /* VEToastViewController.m */; };
+		178CFFA325E4943300699E7D /* VEUIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 178CFFA225E4943300699E7D /* VEUIModel.m */; };
+		178CFFC125E50AD100699E7D /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 178CFFC025E50AD100699E7D /* refresh@2x.png */; };
 		228939E394DA370A7C8F31D4 /* Pods_VEUI_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B161678FBE5DC59FC24CE76E /* Pods_VEUI_Tests.framework */; };
 		3F98BEDF2E40DAD015490C97 /* Pods_VEUI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563EA48E22F46418A26F074F /* Pods_VEUI_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -37,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		178CFF9C25E493CA00699E7D /* VEToastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VEToastViewController.h; sourceTree = "<group>"; };
+		178CFF9D25E493CA00699E7D /* VEToastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VEToastViewController.m; sourceTree = "<group>"; };
+		178CFFA125E4943300699E7D /* VEUIModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEUIModel.h; sourceTree = "<group>"; };
+		178CFFA225E4943300699E7D /* VEUIModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEUIModel.m; sourceTree = "<group>"; };
+		178CFFC025E50AD100699E7D /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
 		1E109A29C6B4F1DBACEEE42A /* Pods-VEUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VEUI_Tests.release.xcconfig"; path = "Target Support Files/Pods-VEUI_Tests/Pods-VEUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		27CAF832562C2A5EBF6623ED /* VEUI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VEUI.podspec; path = ../VEUI.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		563EA48E22F46418A26F074F /* Pods_VEUI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VEUI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +103,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		178CFF9B25E493CA00699E7D /* VEToast */ = {
+			isa = PBXGroup;
+			children = (
+				178CFFC025E50AD100699E7D /* refresh@2x.png */,
+				178CFF9C25E493CA00699E7D /* VEToastViewController.h */,
+				178CFF9D25E493CA00699E7D /* VEToastViewController.m */,
+			);
+			path = VEToast;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +155,9 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* VEUIViewController.h */,
 				6003F5A6195388D20070C39A /* VEUIViewController.m */,
+				178CFFA125E4943300699E7D /* VEUIModel.h */,
+				178CFFA225E4943300699E7D /* VEUIModel.m */,
+				178CFF9B25E493CA00699E7D /* VEToast */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -281,6 +302,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				178CFFC125E50AD100699E7D /* refresh@2x.png in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +410,8 @@
 				6003F59E195388D20070C39A /* VEUIAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* VEUIViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				178CFFA325E4943300699E7D /* VEUIModel.m in Sources */,
+				178CFF9E25E493CA00699E7D /* VEToastViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

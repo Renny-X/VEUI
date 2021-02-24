@@ -6,6 +6,8 @@
 //
 
 #import "VEToastManager.h"
+#import "VEUIDEVTool.h"
+#import "UIIMage+VEUI.h"
 
 @interface VEToastManager()
 
@@ -32,7 +34,10 @@
     [UIView animateWithDuration:self.animateDuration animations:^{
         v.alpha = 1;
     } completion:^(BOOL finished) {
-        [weakSelf performSelector:@selector(hide) withObject:nil afterDelay:duration];
+        if (finished && duration > 0) {
+            NSTimeInterval after = duration < weakSelf.animateDuration ? duration : duration - weakSelf.animateDuration;
+            [weakSelf performSelector:@selector(hide) withObject:nil afterDelay:after];
+        }
     }];
 }
 
@@ -63,6 +68,23 @@
         _toastArr = [NSMutableArray array];
     }
     return _toastArr;
+}
+
+- (NSArray *)loadingImages {
+    if (!_loadingImages) {
+        NSMutableArray *imgArr = [NSMutableArray array];
+        NSBundle *bundle = [VEUIDEVTool vebundle];
+        
+        UIImage *oImg = [UIImage imageNamed:@"loading" inBundle:bundle compatibleWithTraitCollection:nil];
+        oImg = [UIImage imageWithCGImage:oImg.CGImage scale:oImg.scale orientation:UIImageOrientationDownMirrored];
+        for (int i = 0; i < 12; i++) {
+            UIImage *img = [oImg imageRotatedByDegrees:i * 30];
+            [imgArr addObject:img];
+        }
+        _loadingImages = [NSArray arrayWithArray:imgArr];
+    }
+    
+    return _loadingImages;
 }
 
 #pragma mark - Singleton

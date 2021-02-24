@@ -49,13 +49,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)loading:(NSString *)string mask:(BOOL)mask;
 
 // Toast Custom images Loading
-+ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images;
++ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images animateDuration:(NSTimeInterval)aDuration;
 
-+ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images imgSize:(CGSize)imgSize;
++ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images animateDuration:(NSTimeInterval)aDuration imgSize:(CGSize)imgSize;
 
-+ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images mask:(BOOL)mask;
++ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images animateDuration:(NSTimeInterval)aDuration mask:(BOOL)mask;
 
-+ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images imgSize:(CGSize)imgSize mask:(BOOL)mask;
++ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images animateDuration:(NSTimeInterval)aDuration imgSize:(CGSize)imgSize mask:(BOOL)mask;
 
 // entry
 + (void)toastView:(UIView * _Nullable)view string:(NSString *)string duration:(NSTimeInterval)duration mask:(BOOL)mask;

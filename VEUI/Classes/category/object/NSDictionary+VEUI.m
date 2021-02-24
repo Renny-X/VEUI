@@ -6,8 +6,9 @@
 //  Copyright © 2020 Vedeng. All rights reserved.
 //
 
-#import <objc/runtime.h>
 #import "NSDictionary+VEUI.h"
+#import <objc/runtime.h>
+
 #import "NSString+VEUI.h"
 #import "NSObject+VEUI.h"
 
@@ -19,7 +20,7 @@
 
 - (NSString *)safeValueForKey:(NSString *)aKey {
     id temp = [self objectForKey:aKey];
-    if (temp == nil || temp == [NSNull null]) {
+    if ([temp isEmpty]) {
         temp = @"";
     }
     return temp;

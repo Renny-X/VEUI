@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VEUI'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'VEUI 组件库'
   s.homepage         = 'http://gitlab.ivedeng.com/veui/veui.ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
   s.source_files = 'VEUI/Classes/**/*'
   s.dependency 'Masonry', '~> 1.1.0'
   s.resource_bundles = {
-    'VEUI' => ['VEUI/Assets/HC.ttf']
+    'VEUI' => ['VEUI/Assets/HC.ttf', 'VEUI/Assets/imgs/**/*']
   }
 end

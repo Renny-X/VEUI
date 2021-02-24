@@ -8,6 +8,8 @@
 #import "VEToast.h"
 #import "NSObject+VEUI.h"
 #import "UIFont+VEUI.h"
+#import "UIIMage+VEUI.h"
+#import "VEUIDEVTool.h"
 
 #import "VEToastManager.h"
 #import "VEToastLabel.h"
@@ -80,16 +82,33 @@
  * @param string toast 文字内容
  * @param mask 是否遮挡操作，Loading默认为true
  */
-+ (void)loading:(NSString *)string mask:(BOOL)mask {}
++ (void)loading:(NSString *)string mask:(BOOL)mask {
+    return [VEToast loading:string images:[VEToastManager manager].loadingImages animateDuration:[VEToastManager manager].loadingImages.count / 12.0 mask:YES];
+}
 
 // Toast Custom images Loading
-+ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images {}
++ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images animateDuration:(NSTimeInterval)aDuration {
+    return [VEToast loading:string images:images animateDuration:aDuration imgSize:[VEToastManager manager].imgSize mask:YES];
+}
 
-+ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images imgSize:(CGSize)imgSize {}
++ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images animateDuration:(NSTimeInterval)aDuration imgSize:(CGSize)imgSize {
+    return [VEToast loading:string images:images animateDuration:aDuration imgSize:imgSize mask:YES];
+}
 
-+ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images mask:(BOOL)mask {}
++ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images animateDuration:(NSTimeInterval)aDuration mask:(BOOL)mask {
+    return [VEToast loading:string images:images animateDuration:aDuration imgSize:[VEToastManager manager].imgSize mask:mask];
+}
 
-+ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images imgSize:(CGSize)imgSize mask:(BOOL)mask {}
++ (void)loading:(NSString *)string images:(NSArray<UIImage *> *)images animateDuration:(NSTimeInterval)aDuration imgSize:(CGSize)imgSize mask:(BOOL)mask {
+    UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, imgSize.width, imgSize.height)];
+    imgV.contentMode = UIViewContentModeScaleAspectFit;
+    imgV.animationImages = images;
+    [imgV setAnimationDuration:aDuration];
+    [imgV setAnimationRepeatCount:0];
+    [imgV startAnimating];
+    
+    return [VEToast toastView:imgV string:string duration:0 mask:mask];
+}
 
 // entry
 + (void)toastView:(UIView * _Nullable)view string:(NSString *)string duration:(NSTimeInterval)duration mask:(BOOL)mask {

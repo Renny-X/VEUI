@@ -31,11 +31,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * view 的左上顶点 x 坐标
  */
-@property (nonatomic, assign) CGFloat orignX;
+@property (nonatomic, assign) CGFloat x;
 /**
  * view 的左上顶点 y 坐标
  */
-@property (nonatomic, assign) CGFloat orignY;
+@property (nonatomic, assign) CGFloat y;
 /**
  * view 的中心点 x 坐标
  */
@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * view 的大小 size
  */
-@property (nonatomic, assign) CGSize  size;
+@property (nonatomic, assign) CGSize size;
 /**
  * view 的宽度 width
  */
@@ -68,6 +68,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 通过strTag 返回对应的 view
  */
 - (nullable UIView *)viewWithStrTag:(nullable NSString *)strTag;
+/**
+ * 将当前view 添加到superView
+ */
+- (void)addToSuperView:(UIView *)superView;
 
 @end
 

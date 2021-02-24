@@ -7,8 +7,15 @@
 
 #import "VEToastView.h"
 #import "UIView+VEUI.h"
+#import "NSObject+VEUI.h"
 
 #import "VEToastManager.h"
+
+typedef NS_ENUM(NSInteger, VEToastType) {
+    VEToastTypeDefault = 0, // 有图有真相
+    VEToastTypeIconOnly,
+    VEToastTypeStringOnly,
+};
 
 @interface VEToastView()
 
@@ -18,13 +25,14 @@
 @property(nonatomic, strong)UILabel *textLabel;
 @property(nonatomic, assign)BOOL mask;
 
-@property(nonatomic, assign)BOOL onlyString;
+@property(nonatomic, assign)VEToastType toastType;
 @property(nonatomic, assign)CGSize maxIconSize;
 @property(nonatomic, assign)CGFloat verticalPadding;
 @property(nonatomic, assign)CGFloat horizontalPadding;
 @property(nonatomic, assign)CGFloat textMargin;
 
-@property(nonatomic, assign)CGFloat maxWidth;
+@property(nonatomic, assign)CGFloat maxTextWidth;
+@property(nonatomic, assign)CGFloat maxToastWidth;
 
 @end
 
@@ -32,19 +40,16 @@
 
 - (instancetype)initWithView:(UIView *)view string:(NSString *)string mask:(BOOL)mask {
     if (self = [super init]) {
-        self.maxIconSize = CGSizeMake(120, 120);
-        self.mask = mask;
         self.iconView = view;
-        self.textLabel.text = string;
+        self.textLabel.text = [string isEmpty] ? @"" : string;
+        self.mask = mask;
         
         self.backgroundColor = UIColor.clearColor;
         self.layer.zPosition = FLT_MAX;
         [self addSubview:self.maskView];
-        CGSize tmpLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.maxWidth, 100)];
+        CGSize tmpLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.maxTextWidth, 100)];
         self.textLabel.frame = CGRectMake(0, 0, tmpLabelSize.width, tmpLabelSize.height);
         
-        [self.toastView.layer setMasksToBounds:YES];
-        [self.toastView.layer setCornerRadius:self.onlyString ? 3 : 12];
         [self addSubview:self.toastView];
         
         if (self.iconView) {
@@ -57,16 +62,26 @@
 }
 
 - (void)layout {
-    if (self.onlyString) {
-        self.toastView.frame = CGRectMake(0, 0, self.textLabel.width + self.horizontalPadding * 2, self.textLabel.height + self.verticalPadding * 2);
-        self.textLabel.center = self.toastView.center;
-    } else {
-        self.toastView.frame = CGRectMake(0, 0, 150, MAX(100, self.verticalPadding * 2 + self.textMargin + self.textLabel.height + self.iconView.height));
-        self.iconView.centerX = self.toastView.centerX;
-        self.iconView.orignY = self.verticalPadding;
-        
-        self.textLabel.centerX = self.toastView.centerX;
-        self.textLabel.orignY = self.iconView.maxY + self.textMargin;
+    CGFloat cornerRadius = self.toastType = 12;
+    
+    switch (self.toastType) {
+        case VEToastTypeStringOnly:
+            self.toastView.frame = CGRectMake(0, 0, self.textLabel.width + self.horizontalPadding * 2, self.textLabel.height + self.verticalPadding * 2);
+            self.textLabel.center = self.toastView.center;
+            cornerRadius = 3;
+            break;
+        case VEToastTypeIconOnly:
+            self.toastView.frame = CGRectMake(0, 0, self.iconView.width + self.horizontalPadding * 2, self.iconView.height + self.verticalPadding * 2);
+            self.iconView.center = self.toastView.center;
+            break;
+        default:
+            self.toastView.frame = CGRectMake(0, 0, self.maxToastWidth, MAX(self.maxToastWidth, self.verticalPadding * 2 + self.textMargin + self.textLabel.height + self.iconView.height));
+            self.iconView.centerX = self.toastView.centerX;
+            self.iconView.y = self.verticalPadding;
+            
+            self.textLabel.centerX = self.toastView.centerX;
+            self.textLabel.y = self.iconView.maxY + self.textMargin;
+            break;
     }
     
     if (self.mask) {
@@ -78,6 +93,12 @@
         self.center = [UIApplication sharedApplication].keyWindow.center;
         [self.maskView removeFromSuperview];
     }
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.toastView.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(cornerRadius, cornerRadius)];
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = self.toastView.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.toastView.layer.mask = maskLayer;
 }
 
 #pragma mark - Get
@@ -103,29 +124,69 @@
 - (UIView *)maskView {
     if (!_maskView) {
         _maskView = [[UIView alloc] init];
-        _maskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.1];
+        _maskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.15];
     }
     return _maskView;
 }
 
-- (BOOL)onlyString {
-    return !self.iconView;
+- (VEToastType)toastType {
+    if (self.iconView && self.textLabel.text.length) {
+        return VEToastTypeDefault;
+    }
+    if (!self.iconView) {
+        return VEToastTypeStringOnly;
+    }
+    return VEToastTypeIconOnly;
 }
 
 - (CGFloat)verticalPadding {
-    return self.onlyString ? 5 : 30;
+    switch (self.toastType) {
+        case VEToastTypeStringOnly:
+            return 5;
+        case VEToastTypeIconOnly:
+            return 15;
+        default:
+            return 30;
+    }
 }
 
 - (CGFloat)horizontalPadding {
-    return self.onlyString ? 15 : 0;
+    switch (self.toastType) {
+        case VEToastTypeStringOnly:
+            return 15;
+        case VEToastTypeIconOnly:
+            return 15;
+        default:
+            return 10;
+    }
+    return self.toastType == VEToastTypeStringOnly ? 15 : 10;
 }
 
 - (CGFloat)textMargin {
-    return self.onlyString ? 0 : 12;
+    return self.toastType == VEToastTypeStringOnly ? 0 : 12;
 }
 
-- (CGFloat)maxWidth {
-    return self.onlyString ? [UIApplication sharedApplication].keyWindow.width - 60 - self.horizontalPadding * 2 : 135;
+- (CGSize)maxIconSize {
+    if (self.toastType == VEToastTypeStringOnly) {
+        return CGSizeZero;
+    }
+    return CGSizeMake(self.maxToastWidth - self.horizontalPadding * 2, self.maxToastWidth - self.horizontalPadding * 2);
+}
+
+- (CGFloat)maxTextWidth {
+    return self.maxToastWidth - self.horizontalPadding * 2;
+}
+
+- (CGFloat)maxToastWidth {
+    switch (self.toastType) {
+        case VEToastTypeStringOnly:
+            return [UIApplication sharedApplication].keyWindow.width - 60;
+        case VEToastTypeIconOnly:
+            return 145;
+        default:
+            return 145;
+    }
+    return self.toastType == VEToastTypeStringOnly ? [UIApplication sharedApplication].keyWindow.width - 60 : 145;
 }
 
 #pragma mark - Set
@@ -133,6 +194,7 @@
     if (!iconView) {
         return;
     }
+    _iconView = iconView;
     if (iconView.frame.size.width > self.maxIconSize.width || iconView.frame.size.height > self.maxIconSize.height) {
         CGRect tmpFrame;
         CGFloat scale = iconView.frame.size.width / iconView.frame.size.height;
@@ -141,9 +203,8 @@
         } else {
             tmpFrame = CGRectMake(0, 0, self.maxIconSize.height * scale, self.maxIconSize.height);
         }
-        iconView.frame = tmpFrame;
+        _iconView.frame = tmpFrame;
     }
-    _iconView = iconView;
 }
 
 @end

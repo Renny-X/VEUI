@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)UIColor *toastColor;
 @property(nonatomic, strong)UIColor *tintColor;
 
+@property(nonatomic, strong)NSArray *loadingImages;
+
 + (instancetype)manager;
 
 - (void)show:(UIView *)view duration:(NSTimeInterval)duration;

@@ -44,6 +44,10 @@
     return nil;
 }
 
+- (void)addToSuperView:(UIView *)superView {
+    [superView addSubview:self];
+}
+
 #pragma mark - set
 - (void)setOrign:(CGPoint)orign{
     CGRect tempFrame = self.frame;
@@ -51,15 +55,15 @@
     self.frame = tempFrame;
 }
 
-- (void)setOrignX:(CGFloat)orignX{
+- (void)setX:(CGFloat)x {
     CGRect tempFrame = self.frame;
-    tempFrame.origin.x = orignX;
+    tempFrame.origin.x = x;
     self.frame = tempFrame;
 }
 
-- (void)setOrignY:(CGFloat)orignY{
+- (void)setY:(CGFloat)y {
     CGRect tempFrame = self.frame;
-    tempFrame.origin.y = orignY;
+    tempFrame.origin.y = y;
     self.frame = tempFrame;
 }
 
@@ -113,11 +117,11 @@
     return self.frame.origin;
 }
 
-- (CGFloat)orignX{
+- (CGFloat)x{
     return self.frame.origin.x;
 }
 
-- (CGFloat)orignY{
+- (CGFloat)y{
     return self.frame.origin.y;
 }
 

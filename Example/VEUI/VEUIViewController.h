@@ -7,7 +7,6 @@
 //
 
 @import UIKit;
-#import <VEUI/VEUI.h>
 
 @interface VEUIViewController : UIViewController
 

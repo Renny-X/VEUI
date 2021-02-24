@@ -7,20 +7,12 @@
 
 #import "UIFont+VEUI.h"
 #import <CoreText/CoreText.h>
+#import "VEUIDEVTool.h"
 
 @implementation UIFont (VEUI)
 
 + (nullable UIFont *)VEFontWithSize:(CGFloat)fontSize {
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSURL *bundleUrl = [[NSBundle mainBundle] URLForResource:@"VEUI" withExtension:@"bundle"];
-    if (!bundleUrl) {
-        bundleUrl = [[NSBundle mainBundle] URLForResource:@"Frameworks" withExtension:nil];
-        bundleUrl = [bundleUrl URLByAppendingPathComponent:@"VEUI.framework"];
-        bundleUrl = [bundleUrl URLByAppendingPathComponent:@"VEUI.bundle"];
-    }
-    if (bundleUrl) {
-        bundle = [NSBundle bundleWithURL:bundleUrl];
-    }
+    NSBundle *bundle = [VEUIDEVTool vebundle];
     NSURL *fontURL = [bundle URLForResource:@"HC" withExtension:@"ttf"];
     
     NSData *inData = [NSData dataWithContentsOfURL:fontURL];
