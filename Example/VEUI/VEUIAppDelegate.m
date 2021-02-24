@@ -7,12 +7,19 @@
 //
 
 #import "VEUIAppDelegate.h"
+#import "VEUIViewController.h"
 
 @implementation VEUIAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    UINavigationController *rootVC = [[UINavigationController alloc] initWithRootViewController:[VEUIViewController new]];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    self.window.rootViewController = rootVC;
+    
     return YES;
 }
 

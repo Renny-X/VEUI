@@ -139,7 +139,7 @@ bottom = 34;\
 bottom;\
 })
 
-@interface VDConstant : NSObject
+@interface VEConstant : NSObject
 
 
 @end

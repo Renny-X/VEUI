@@ -8,19 +8,16 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VEUI'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'VEUI 组件库'
   s.homepage         = 'http://gitlab.ivedeng.com/veui/veui.ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Coder' => 'it8359@vedeng.com' }
+  s.author           = { 'Coder' => 'it8359@vedeng.com', 'Drake' => 'it8360@vedeng.com' }
   s.source           = { :git => 'http://gitlab.ivedeng.com/veui/veui.ios.git', :tag => s.version.to_s }
   s.ios.deployment_target = '10.0'
   s.source_files = 'VEUI/Classes/**/*'
   s.dependency 'Masonry', '~> 1.1.0'
-  # s.resource_bundles = {
-  #   'VEUI' => ['VEUI/Assets/*.png']
-  # }
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
-
+  s.resource_bundles = {
+    'VEUI' => ['VEUI/Assets/HC.ttf', 'VEUI/Assets/imgs/**/*']
+  }
 end

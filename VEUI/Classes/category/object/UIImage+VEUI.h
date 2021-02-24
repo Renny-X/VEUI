@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (UIImage *)resetToSize:(CGSize)size withScale:(CGFloat)scale;
 
+- (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
+
 @end
 
 NS_ASSUME_NONNULL_END
