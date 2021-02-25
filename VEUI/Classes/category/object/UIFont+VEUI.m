@@ -8,10 +8,19 @@
 #import "UIFont+VEUI.h"
 #import <CoreText/CoreText.h>
 #import "VEUIDEVTool.h"
+#import "NSObject+VEUI.h"
 
 @implementation UIFont (VEUI)
 
 + (nullable UIFont *)VEFontWithSize:(CGFloat)fontSize {
+    NSString *fontName = [UIFont VEFontName];
+    if (![fontName isEmpty]) {
+        return [UIFont fontWithName:fontName size:fontSize];
+    }
+    return [UIFont systemFontOfSize:fontSize];
+}
+
++ (NSString *)VEFontName {
     NSBundle *bundle = [VEUIDEVTool vebundle];
     NSURL *fontURL = [bundle URLForResource:@"HC" withExtension:@"ttf"];
     
@@ -23,15 +32,15 @@
         CFStringRef errorDescription = CFErrorCopyDescription(error);
         CFRelease(errorDescription);
     }
-    if (font) {
-        NSString *fontName = (NSString *)CFBridgingRelease(CGFontCopyPostScriptName(font));
-        CFRelease(font);
-        return [UIFont fontWithName:fontName size:fontSize];
-    }
     if (provider) {
         CFRelease(provider);
     }
-    return [UIFont systemFontOfSize:fontSize];
+    if (font) {
+        NSString *fontName = (NSString *)CFBridgingRelease(CGFontCopyPostScriptName(font));
+        CFRelease(font);
+        return fontName;
+    }
+    return @"";
 }
 
 @end

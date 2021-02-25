@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (nullable UIFont *)VEFontWithSize:(CGFloat)fontSize;
 
++ (NSString *)VEFontName;
+
 @end
 
 NS_ASSUME_NONNULL_END
