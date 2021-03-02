@@ -23,6 +23,9 @@
 #import "UITextField+VEUI.h"
 #import "UIView+VEUI.h"
 
+// category view controller
+#import "UIViewController+VEUI.h"
+
 // custom view
 #import "VEBubbleView.h"
 #import "VELabel.h"

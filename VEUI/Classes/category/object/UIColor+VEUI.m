@@ -59,4 +59,16 @@
     return [UIColor colorWithRed:((float)r * fn / 255.0f) green:((float)g * fn / 255.0f) blue:((float)b * fn / 255.0f) alpha:((float)a * fn / 255.0f)];
 }
 
+- (UIColor *)inverseColor {
+    CGFloat r, g, b, a;
+    [self getRed:&r green:&g blue:&b alpha:&a];
+    return [UIColor colorWithRed:1.0 - r green:1.0 - g blue:1.0 - b alpha:1.0 - a];
+}
+
+- (UIColor *)colorWithAlpha:(CGFloat)alpha {
+    CGFloat r, g, b;
+    [self getRed:&r green:&g blue:&b alpha:nil];
+    return [UIColor colorWithRed:r green:g blue:b alpha:alpha];
+}
+
 @end
