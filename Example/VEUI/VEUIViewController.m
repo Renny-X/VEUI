@@ -10,6 +10,7 @@
 #import "VEUIModel.h"
 
 #import "VEToastViewController.h"
+#import "VEImageBrowserViewController.h"
 
 @interface VEUIViewController ()<UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 
@@ -27,9 +28,12 @@
 - (NSArray *)dataArr {
     if (!_dataArr) {
         _dataArr = @[
+            [VEUIGroupModel modelWithTitle:@"Data Display" cellArr:@[
+                [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:[VEImageBrowserViewController new]],
+            ]],
             [VEUIGroupModel modelWithTitle:@"Feedback" cellArr:@[
-                [VEUICellModel modelWithTitle:@"VEToast" controller:[VEToastViewController new]]
-            ]]
+                [VEUICellModel modelWithTitle:@"VEToast" controller:[VEToastViewController new]],
+            ]],
         ];
     }
     return _dataArr;
@@ -83,12 +87,12 @@
 //    [btn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
 //    [self.view addSubview:btn];
     
-    NSDictionary *dict = @{
-        @"键1": @[@"值1", [NSNull null], @{
-                     @"数组键1": @"数组值1", @"数组键2": [NSNull null], @"数组键3": @[@"11", [NSNull null], @"22"]
-        }],
-    };
-    NSLog(@"%@", dict);
+//    NSDictionary *dict = @{
+//        @"键1": @[@"值1", [NSNull null], @{
+//                     @"数组键1": @"数组值1", @"数组键2": [NSNull null], @"数组键3": @[@"11", [NSNull null], @"22"]
+//        }],
+//    };
+//    NSLog(@"%@", dict);
 //    NSArray *arr = @[@"数组1", [NSNull null], dict];
 //
 //    NSLog(@"%@", [arr formatValue]);
@@ -136,7 +140,7 @@
     
     VEUIGroupModel *model = self.dataArr[section];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 100, header.height)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, header.width - 60, header.height)];
     titleLabel.text = model.title;
     titleLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightBold];
     titleLabel.textColor = [UIColor blackColor];

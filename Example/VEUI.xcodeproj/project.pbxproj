@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */; };
 		178CFF9E25E493CA00699E7D /* VEToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178CFF9D25E493CA00699E7D /* VEToastViewController.m */; };
 		178CFFA325E4943300699E7D /* VEUIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 178CFFA225E4943300699E7D /* VEUIModel.m */; };
 		178CFFC125E50AD100699E7D /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 178CFFC025E50AD100699E7D /* refresh@2x.png */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		177708E725E76BFA00B9937B /* VEImageBrowserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEImageBrowserViewController.h; sourceTree = "<group>"; };
+		177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEImageBrowserViewController.m; sourceTree = "<group>"; };
 		178CFF9C25E493CA00699E7D /* VEToastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VEToastViewController.h; sourceTree = "<group>"; };
 		178CFF9D25E493CA00699E7D /* VEToastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VEToastViewController.m; sourceTree = "<group>"; };
 		178CFFA125E4943300699E7D /* VEUIModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEUIModel.h; sourceTree = "<group>"; };
@@ -103,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		177708DF25E76B9400B9937B /* VEImageBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				177708E725E76BFA00B9937B /* VEImageBrowserViewController.h */,
+				177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */,
+			);
+			path = VEImageBrowser;
+			sourceTree = "<group>";
+		};
 		178CFF9B25E493CA00699E7D /* VEToast */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +169,7 @@
 				6003F5A6195388D20070C39A /* VEUIViewController.m */,
 				178CFFA125E4943300699E7D /* VEUIModel.h */,
 				178CFFA225E4943300699E7D /* VEUIModel.m */,
+				177708DF25E76B9400B9937B /* VEImageBrowser */,
 				178CFF9B25E493CA00699E7D /* VEToast */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -269,6 +282,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Coder;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 4GC9T5YF3L;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -411,6 +427,7 @@
 				6003F5A7195388D20070C39A /* VEUIViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				178CFFA325E4943300699E7D /* VEUIModel.m in Sources */,
+				177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */,
 				178CFF9E25E493CA00699E7D /* VEToastViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,12 +556,13 @@
 			baseConfigurationReference = 65D9A319D96955CFFDA0C504 /* Pods-VEUI_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4GC9T5YF3L;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VEUI/VEUI-Prefix.pch";
 				INFOPLIST_FILE = "VEUI/VEUI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vedeng.veui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -556,12 +574,13 @@
 			baseConfigurationReference = DFA54D22401755049A4188B8 /* Pods-VEUI_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4GC9T5YF3L;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VEUI/VEUI-Prefix.pch";
 				INFOPLIST_FILE = "VEUI/VEUI-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vedeng.veui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
