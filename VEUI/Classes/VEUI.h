@@ -17,6 +17,7 @@
 #import "UIColor+VEUI.h"
 #import "UIFont+VEUI.h"
 #import "UIImage+VEUI.h"
+#import "UIScreen+VEUI.h"
 
 // category view
 #import "UIButton+VEUI.h"
@@ -27,6 +28,7 @@
 #import "UIViewController+VEUI.h"
 
 // custom view
+#import "VEBanner.h"
 #import "VEBubbleView.h"
 #import "VELabel.h"
 #import "VETipView.h"
