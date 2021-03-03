@@ -61,6 +61,7 @@
 
 #pragma mark - VEImageBrowserBannerDelegate
 - (void)bannerOnSingleTap {
+    self.banner.banner.showPageControl = !self.control.userInteractionEnabled;
     [self.control show:!self.control.userInteractionEnabled];
 }
 
@@ -71,6 +72,9 @@
 - (void)bannerShouldChangeSuperAlpha:(CGFloat)alpha inContentFrame:(CGRect)frame {
     self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:alpha];
     self.contentFrame = frame;
+    
+    self.control.hidden = alpha < 1;
+    self.banner.banner.showPageControl = alpha == 1;
 }
 
 #pragma mark - Init

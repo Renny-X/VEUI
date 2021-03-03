@@ -34,10 +34,6 @@
     }
 }
 
-#pragma mark - Set
-
-#pragma mark - Get
-
 #pragma mark - Init
 - (instancetype)initWithDataSource:(NSArray<UIView *> *)dataSource {
     return [self initWithDataSource:dataSource selectIndex:0];

@@ -55,13 +55,20 @@
             return;
         }
         if (self.containerView.zoomScale > 1) {
-            [self.containerView setZoomScale:1.0 animated:YES];
+            [UIView animateWithDuration:0.3 animations:^{
+                [self changeSizeWithContentOffset:CGPointZero animated:NO];
+                [self.containerView setZoomScale:1.0 animated:NO];
+            }];
         } else {
-            CGPoint touchPoint = [tap locationInView:self.contentView];
+            CGPoint touchPoint = [tap locationInView:tap.view];
             CGFloat maxZoomScale = self.containerView.maximumZoomScale;
-            CGFloat width = self.frame.size.width / maxZoomScale;
-            CGFloat height = self.frame.size.height / maxZoomScale;
-            [self.containerView zoomToRect:CGRectMake(touchPoint.x - width/2, touchPoint.y = height/2, width, height) animated:YES];
+            CGFloat width = self.containerView.width / maxZoomScale;
+            CGFloat height = self.containerView.height / maxZoomScale;
+            CGRect targetRect = CGRectMake(touchPoint.x - width / 2.0, touchPoint.y - height / 2.0, width, height);
+            [UIView animateWithDuration:0.3 animations:^{
+                [self.containerView zoomToRect:targetRect animated:NO];
+                self.containerView.orign = CGPointZero;
+            }];
         }
     }
 }
@@ -78,6 +85,9 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.zoomScale > 1) {
+        return;
+    }
     if (self.touchFingerNumber == 1 && scrollView.contentOffset.y != 0) {
         [self changeSizeWithContentOffset:scrollView.contentOffset animated:NO];
     }
@@ -90,6 +100,9 @@
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    if (scrollView.zoomScale > 1) {
+        return;
+    }
     CGFloat offsetY = scrollView.contentOffset.y;
     if (
         self.touchFingerNumber == 1
