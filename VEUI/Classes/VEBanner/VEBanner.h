@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, assign)UIColor *tintColor;
 
+@property(nonatomic, assign)BOOL disableSuperScrollViewEnabledWhenDragging;
+
 - (instancetype)initWithDataSource:(NSArray<UIView *> *)dataSource;
 
 - (instancetype)initWithFrame:(CGRect)frame DataSource:(NSArray<UIView *> *)dataSource;

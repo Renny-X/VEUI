@@ -42,6 +42,7 @@
 - (void)setupUI {
     self.backgroundColor = [UIColor blackColor];
     [self addSubview:self.colV];
+    self.disableSuperScrollViewEnabledWhenDragging = YES;
     
     self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectZero];
     self.pageControl.currentPage = 0;
@@ -87,18 +88,41 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    for (UIScrollView *s in self.superScrollViews) {
-        s.scrollEnabled = YES;
-    }
+    [self setSuperScrollEnabled:YES];
     int index = scrollView.contentOffset.x  / scrollView.width;
     self.selectIndex = (int)index;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView == self.colV && (self.colV.isDragging || self.colV.isDecelerating)) {
-        // 禁用父组件scrollview 滑动
+    [self setSuperScrollEnabled:NO];
+}
+
+#pragma mark - disableSuperScrollViewEnabledWhenDragging handler
+- (NSArray *)superScrollViews {
+    if (!self.superview) {
+        return @[];
+    }
+    if (!_superScrollViews) {
+        NSMutableArray *arr = [NSMutableArray array];
+        for(UIView *next = self.superview; next; next = next.superview){
+            if ([next isKindOfClass:[UIScrollView class]] && ((UIScrollView *)next).scrollEnabled) {
+                [arr addObject:(UIScrollView *)next];
+            }
+        }
+        _superScrollViews = [NSArray arrayWithArray:arr];
+    }
+    return _superScrollViews;
+}
+
+- (void)setSuperScrollEnabled:(BOOL)enabled {
+    if (!self.disableSuperScrollViewEnabledWhenDragging) {
+        return;
+    }
+    // 禁用条件  !enabled && (self.colV.isDragging || self.colV.isDecelerating)
+    // 启用条件  enabled
+    if ((!enabled && (self.colV.isDragging || self.colV.isDecelerating)) || enabled) {
         for (UIScrollView *s in self.superScrollViews) {
-            s.scrollEnabled = NO;
+            s.scrollEnabled = enabled;
         }
     }
 }
@@ -129,22 +153,6 @@
         [_colV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:VEBANNER_CELL_REUSE_IDENTIFIER];
     }
     return _colV;
-}
-
-- (NSArray *)superScrollViews {
-    if (!self.superview) {
-        return @[];
-    }
-    if (!_superScrollViews) {
-        NSMutableArray *arr = [NSMutableArray array];
-        for(UIView *next = self.superview; next; next = next.superview){
-            if ([next isKindOfClass:[UIScrollView class]] && ((UIScrollView *)next).scrollEnabled) {
-                [arr addObject:(UIScrollView *)next];
-            }
-        }
-        _superScrollViews = [NSArray arrayWithArray:arr];
-    }
-    return _superScrollViews;
 }
 
 - (BOOL)scrollEnabled {
