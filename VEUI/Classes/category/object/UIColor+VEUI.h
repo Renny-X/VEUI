@@ -13,12 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong, readonly)UIColor *inverseColor;
 
+@property(nonatomic, assign, readonly)CGFloat alpha;
+
 /**
  * Hex 字符串 转 UIColor，支持3、4、6、8位 Hex
  */
 + (UIColor *)colorWithHexString:(NSString *)hexStr;
-
-- (UIColor *)colorWithAlpha:(CGFloat)alpha;
 
 @end
 

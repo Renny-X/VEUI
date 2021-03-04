@@ -31,7 +31,7 @@
     VEImageBrowserModel *model1 = [[VEImageBrowserModel alloc] initWithImage:[UIImage imageNamed:@"refresh"] originFrame:CGRectMake(0, 0, 50, 50)];
     VEImageBrowserModel *model2 = [[VEImageBrowserModel alloc] initWithImage:[UIImage imageNamed:@"refresh"] originFrame:CGRectMake(90, 200, 100, 190)];
     VEImageBrowser *ib = [[VEImageBrowser alloc] initWithModelArray:@[model0, model1, model2]];
-//    VEImageBrowser *ib = [[VEImageBrowser alloc] initWithImageArray:@[[UIImage imageNamed:@"refresh"], [UIImage imageNamed:@"refresh"]]];
+    ib.selectIndex = 1;
     
     [ib show];
 }

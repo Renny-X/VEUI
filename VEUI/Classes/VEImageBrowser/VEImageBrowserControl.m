@@ -219,13 +219,13 @@
 - (void)setTintColor:(UIColor *)tintColor {
     _tintColor = tintColor ? tintColor : [UIColor whiteColor];
     self.closeBtn.titleLabel.textColor = tintColor;
-    self.closeBtn.backgroundColor = [[tintColor inverseColor] colorWithAlpha:0.2];
+    self.closeBtn.backgroundColor = [[tintColor inverseColor] colorWithAlphaComponent:0.2];
     self.moreBtnImgV.tintColor = tintColor;
-    self.moreBtn.backgroundColor = [[tintColor inverseColor] colorWithAlpha:0.2];
+    self.moreBtn.backgroundColor = [[tintColor inverseColor] colorWithAlphaComponent:0.2];
 }
 
 - (void)setCoverColor:(UIColor *)coverColor {
-    _coverColor = coverColor ? coverColor : [[UIColor blackColor] colorWithAlpha:0.7];
+    _coverColor = coverColor ? coverColor : [[UIColor blackColor] colorWithAlphaComponent:0.7];
     
     self.topLayer.colors = @[(__bridge id)coverColor.CGColor, (__bridge id)[UIColor clearColor].CGColor];
     self.bottomLayer.colors = @[(__bridge id)[UIColor clearColor].CGColor, (__bridge id)coverColor.CGColor];

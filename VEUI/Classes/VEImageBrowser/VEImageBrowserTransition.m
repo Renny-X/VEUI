@@ -7,6 +7,7 @@
 
 #import "VEImageBrowserTransition.h"
 #import "VEImageBrowserModel.h"
+#import "UIColor+VEUI.h"
 
 @implementation VEImageBrowserTransition
 
@@ -16,6 +17,9 @@
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     [self.target setSubViewHidden:YES];
+    __block CGRect fromRect, toRect;
+    __block CGFloat imgVFromAlpha, imgVToAlpha, vcFromAlpha, vcToAlpha;
+    
     UIView * containerView = [transitionContext containerView];
     UIViewController * toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     VEImageBrowserModel *model = [self.target.imgModelArr objectAtIndex:self.target.banner.banner.selectIndex];
@@ -23,33 +27,41 @@
     if (self.isEnter) {
         [containerView addSubview:toViewController.view];
     }
-    UIImageView *imgV = [self getImamgeViewWithModel:model onFull:!self.isEnter];
-    CGFloat targetAlpha = 1.0;
-    if (CGRectEqualToRect(model.originFrame, CGRectZero)) {
-        imgV.alpha = self.isEnter ? 0.0 : 1.0;
-        self.target.view.alpha = self.isEnter ? 0.0 : 1.0;
-        targetAlpha = self.isEnter ? 1.0 : 0.0;
-    }
-    CGRect targetFrame = model.enterFrame;
-    if (!self.isEnter) {
-        imgV.alpha = self.target.view.alpha;
-        imgV.frame = self.target.contentFrame;
-        
-        targetFrame = CGRectEqualToRect(model.originFrame, CGRectZero) ? (CGRectEqualToRect(self.target.contentFrame, CGRectZero) ? model.exitFrame : self.target.contentFrame) : model.exitFrame;
+    __block UIImageView *imgV = [self getImamgeViewWithModel:model onFull:!self.isEnter];
+    if (self.isEnter) {
+        fromRect = model.exitFrame;
+        toRect = model.enterFrame;
+        imgVFromAlpha = CGRectEqualToRect(model.originFrame, CGRectZero) ? 0.0 : 1.0;
+        imgVToAlpha = 1.0;
+        vcFromAlpha = 0;
+        vcToAlpha = 1.0;
+    } else {
+        fromRect = CGRectEqualToRect(self.target.contentFrame, CGRectZero) ? model.enterFrame : self.target.contentFrame;
+        toRect = CGRectEqualToRect(model.originFrame, CGRectZero) ? (CGRectEqualToRect(self.target.contentFrame, CGRectZero) ? model.exitFrame : self.target.contentFrame) : model.exitFrame;
+        imgVFromAlpha = self.target.view.alpha;
+        imgVToAlpha = CGRectEqualToRect(model.originFrame, CGRectZero) ? 0.0 : 1.0;
+        vcFromAlpha = self.target.view.backgroundColor.alpha;
+        vcToAlpha = 0.0;
     }
     
+    imgV.frame = fromRect;
+    imgV.alpha = imgVFromAlpha;
+    self.target.view.backgroundColor = [self.target.view.backgroundColor colorWithAlphaComponent:vcFromAlpha];
+    
+    __weak typeof(self) ws = self;
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        imgV.frame = targetFrame;
-        imgV.alpha = targetAlpha;
-        self.target.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:self.isEnter ? 1.0 : 0.0];
-        self.target.view.alpha = targetAlpha;
+        __strong typeof(self) ss = ws;
+        imgV.frame = toRect;
+        imgV.alpha = imgVToAlpha;
+        ss.target.view.backgroundColor = [ss.target.view.backgroundColor colorWithAlphaComponent:vcToAlpha];
     } completion:^(BOOL finished) {
+        __strong typeof(self) ss = ws;
         if ([transitionContext transitionWasCancelled]) {
             [transitionContext completeTransition:NO];
         } else {
             [transitionContext completeTransition:YES];
             [imgV removeFromSuperview];
-            [self.target setSubViewHidden:NO];
+            [ss.target setSubViewHidden:NO];
         }
     }];
 }
@@ -57,7 +69,6 @@
 - (UIImageView *)getImamgeViewWithModel:(VEImageBrowserModel *)model onFull:(BOOL)full {
     UIImageView *imgV = [[UIImageView alloc] initWithImage:model.image];
     imgV.frame = full ? [model enterFrame] : [model exitFrame];
-//    imgV.contentMode = UIViewContentModeScaleAspectFill;
     imgV.contentMode = UIViewContentModeScaleAspectFit;
     imgV.clipsToBounds = YES;
     [self.target.view addSubview:imgV];

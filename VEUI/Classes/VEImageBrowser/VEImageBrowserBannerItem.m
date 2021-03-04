@@ -35,9 +35,10 @@
     
     __block CGAffineTransform transform = CGAffineTransformMakeScale(multiple, multiple);
     __block CGPoint center = CGPointMake([UIScreen width] / 2 - contentOffset.x * 0.5, [UIScreen height] / 2 - contentOffsetY * 0.5);
+    __weak typeof(self) ws = self;
     [UIView animateWithDuration:animate ? 0.17 : CGFLOAT_MIN animations:^{
-        self.contentView.transform = transform;
-        self.contentView.center = center;
+        ws.contentView.transform = transform;
+        ws.contentView.center = center;
     }];
     if ([self.delegate respondsToSelector:@selector(bannerItemShouldChangeSuperAlpha:inContentFrame:)]) {
         CGRect currentFrame = [self.contentView convertRect:self.contentView.bounds toView:nil];
@@ -54,20 +55,21 @@
         if (!self.canZoomIn) {
             return;
         }
+        __weak typeof(self) ws = self;
         if (self.containerView.zoomScale > 1) {
             [UIView animateWithDuration:0.3 animations:^{
-                [self changeSizeWithContentOffset:CGPointZero animated:NO];
-                [self.containerView setZoomScale:1.0 animated:NO];
+                [ws changeSizeWithContentOffset:CGPointZero animated:NO];
+                [ws.containerView setZoomScale:1.0 animated:NO];
             }];
         } else {
             CGPoint touchPoint = [tap locationInView:tap.view];
             CGFloat maxZoomScale = self.containerView.maximumZoomScale;
             CGFloat width = self.containerView.width / maxZoomScale;
             CGFloat height = self.containerView.height / maxZoomScale;
-            CGRect targetRect = CGRectMake(touchPoint.x - width / 2.0, touchPoint.y - height / 2.0, width, height);
+            __block CGRect targetRect = CGRectMake(touchPoint.x - width / 2.0, touchPoint.y - height / 2.0, width, height);
             [UIView animateWithDuration:0.3 animations:^{
-                [self.containerView zoomToRect:targetRect animated:NO];
-                self.containerView.orign = CGPointZero;
+                [ws.containerView zoomToRect:targetRect animated:NO];
+                ws.containerView.orign = CGPointZero;
             }];
         }
     }

@@ -63,10 +63,10 @@
     return [UIColor colorWithRed:1.0 - r green:1.0 - g blue:1.0 - b alpha:1.0 - a];
 }
 
-- (UIColor *)colorWithAlpha:(CGFloat)alpha {
-    CGFloat r, g, b;
-    [self getRed:&r green:&g blue:&b alpha:nil];
-    return [UIColor colorWithRed:r green:g blue:b alpha:alpha];
+- (CGFloat)alpha {
+    CGFloat a;
+    [self getRed:nil green:nil blue:nil alpha:&a];
+    return a;
 }
 
 @end
