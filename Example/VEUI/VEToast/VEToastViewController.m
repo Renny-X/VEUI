@@ -48,9 +48,9 @@
 - (void)btnClicked {
 
 //    [VEToast toast:@"aaaaaaa"];
-//    [VEToast success:@"success"];
-    [VEToast loading:@"loading"];
-//    [VEToast loading:nil images:@[[UIImage imageNamed:@"refresh"]] animateDuration:2 mask:NO];
+//    [VEToast success:nil];
+//    [VEToast loading:@"loading"];
+    [VEToast loading:nil images:@[[UIImage imageNamed:@"refresh"]] animateDuration:2 mask:NO];
 }
 
 @end

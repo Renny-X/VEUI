@@ -144,7 +144,7 @@ typedef NS_ENUM(NSInteger, VEToastType) {
         case VEToastTypeStringOnly:
             return 5;
         case VEToastTypeIconOnly:
-            return 15;
+            return 25;
         default:
             return 30;
     }
@@ -155,11 +155,10 @@ typedef NS_ENUM(NSInteger, VEToastType) {
         case VEToastTypeStringOnly:
             return 15;
         case VEToastTypeIconOnly:
-            return 15;
+            return self.verticalPadding;
         default:
             return 10;
     }
-    return self.toastType == VEToastTypeStringOnly ? 15 : 10;
 }
 
 - (CGFloat)textMargin {
@@ -186,7 +185,6 @@ typedef NS_ENUM(NSInteger, VEToastType) {
         default:
             return 145;
     }
-    return self.toastType == VEToastTypeStringOnly ? [UIApplication sharedApplication].keyWindow.width - 60 : 145;
 }
 
 #pragma mark - Set

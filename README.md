@@ -35,3 +35,26 @@ VEUI is available under the MIT license. See the LICENSE file for more info.
 ```ruby
 pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 ```
+
+## Release Note
+
+### 0.1.3
+* 代码修复 优化
+* add VEBanner
+* add VEImageBrowser 全屏图片浏览
+* add 添加UIImage扩展方法 UIView导出UIImage
+
+### 0.1.2
+* 代码修复 优化
+* add 添加HC字体引用到UIFont 扩展
+* add VEToast
+
+### 0.1.1
+* add 添加扩展类方法
+* add VEBubbleView
+* add VETipView
+* add VELabel
+* add 城市选中 tag组件
+
+### 0.1.0
+* 测试发布
