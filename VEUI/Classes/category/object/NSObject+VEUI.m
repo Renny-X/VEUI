@@ -6,8 +6,18 @@
 //
 
 #import "NSObject+VEUI.h"
+#import <objc/runtime.h>
 
 @implementation NSObject (VEUI)
+
+//Category
+- (void)setStrTag:(NSString *)strTag{
+    objc_setAssociatedObject(self, @selector(strTag), strTag, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (NSString *)strTag{
+    return objc_getAssociatedObject(self, @selector(strTag));
+}
 
 + (NSString *)stringByReplaceUnicode:(NSString *)string {
     NSMutableString *convertedString = [string mutableCopy];

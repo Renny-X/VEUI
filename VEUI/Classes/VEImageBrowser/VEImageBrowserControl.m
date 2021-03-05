@@ -9,6 +9,7 @@
 #import "UIColor+VEUI.h"
 #import "UIFont+VEUI.h"
 #import "UIView+VEUI.h"
+#import "NSObject+VEUI.h"
 
 @interface VEImageBrowserControl()
 

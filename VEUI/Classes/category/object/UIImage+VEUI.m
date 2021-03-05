@@ -101,4 +101,20 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     return img;
 }
 
++ (UIImage*)imageWithIcon:(NSString*)iconCode inFont:(NSString*)fontName size:(CGSize)size color:(UIColor*)color {
+    CGFloat scale = [[UIScreen mainScreen] scale];
+    
+    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.width)];
+    label.font = [UIFont fontWithName:fontName size:MIN(size.width, size.height)];
+    label.text = iconCode;
+    if(color) {
+        label.textColor = color;
+    }
+    [label.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *retImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return retImage;
+}
+
 @end

@@ -43,10 +43,6 @@
     return _dataArr;
 }
 
-- (void)willMoveToParentViewController:(UIViewController *)parent {
-    
-}
-
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (@available(iOS 11.0, *)) {
         self.navigationItem.largeTitleDisplayMode = [viewController.title isEqualToString:self.title] ? UINavigationItemLargeTitleDisplayModeAutomatic : UINavigationItemLargeTitleDisplayModeNever;

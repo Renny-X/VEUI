@@ -21,10 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (id)concat;
 /**
- * 字符串tag，跟tag一样的作用
- */
-@property (nonatomic, strong) NSString *__nullable strTag;
-/**
  * view 的左上顶点坐标
  */
 @property (nonatomic, assign) CGPoint orign;
@@ -72,6 +68,14 @@ NS_ASSUME_NONNULL_BEGIN
  * 将当前view 添加到superView
  */
 - (void)addToSuperView:(UIView *)superView;
+/**
+ * 添加圆角 使用layer.mask需要确定frame后调用
+ */
+- (void)addCornerRadius:(CGFloat)radius;
+/**
+ * 添加圆角 到指定corner 使用layer.mask需要确定frame后调用
+ */
+- (void)addCornerRadius:(CGFloat)radius toCorners:(UIRectCorner)corners;
 
 @end
 

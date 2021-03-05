@@ -38,6 +38,9 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.4
+* 添加部分扩展类方法
+
 ### 0.1.3
 * 代码修复 优化
 * add VEBanner
