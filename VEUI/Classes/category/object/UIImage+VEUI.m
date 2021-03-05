@@ -6,6 +6,7 @@
 //
 
 #import "UIImage+VEUI.h"
+#import "UIView+VEUI.h"
 
 CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
@@ -83,7 +84,21 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     UIGraphicsEndImageContext();
     newImage = [UIImage imageWithData:UIImagePNGRepresentation(newImage) scale:self.scale];
     return newImage;
+}
 
++ (UIImage *)imageFromView:(UIView *)view {
+    CGFloat scale = [UIScreen mainScreen].scale;
+    CGSize size = CGSizeMake(view.width * scale, view.height * scale);
+    return [self imageFromView:view size:size];
+}
+
++ (UIImage *)imageFromView:(UIView *)view size:(CGSize)size {
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 1);
+    [view drawViewHierarchyInRect:rect afterScreenUpdates:YES];
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
 }
 
 @end

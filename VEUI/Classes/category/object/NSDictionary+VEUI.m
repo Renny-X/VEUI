@@ -20,7 +20,7 @@
 
 - (NSString *)safeValueForKey:(NSString *)aKey {
     id temp = [self objectForKey:aKey];
-    if ([temp isEmpty]) {
+    if (temp == nil || [temp isEmpty]) {
         temp = @"";
     }
     return temp;

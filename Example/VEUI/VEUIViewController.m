@@ -11,6 +11,7 @@
 
 #import "VEToastViewController.h"
 #import "VEImageBrowserViewController.h"
+#import "VEUIImageCategoryViewController.h"
 
 @interface VEUIViewController ()<UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 
@@ -33,6 +34,9 @@
             ]],
             [VEUIGroupModel modelWithTitle:@"Feedback" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEToast" controller:[VEToastViewController new]],
+            ]],
+            [VEUIGroupModel modelWithTitle:@"Category" cellArr:@[
+                [VEUICellModel modelWithTitle:@"UIImage+VEUI" controller:[VEUIImageCategoryViewController new]],
             ]],
         ];
     }

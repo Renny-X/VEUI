@@ -27,9 +27,9 @@
 }
 
 - (void)btnClicked {
-    VEImageBrowserModel *model0 = [[VEImageBrowserModel alloc] initWithImage:[UIImage imageNamed:@"refresh"] originFrame:CGRectZero];
-    VEImageBrowserModel *model1 = [[VEImageBrowserModel alloc] initWithImage:[UIImage imageNamed:@"refresh"] originFrame:CGRectMake(0, 0, 50, 50)];
-    VEImageBrowserModel *model2 = [[VEImageBrowserModel alloc] initWithImage:[UIImage imageNamed:@"refresh"] originFrame:CGRectMake(90, 200, 100, 190)];
+    VEImageBrowserModel *model0 = [[VEImageBrowserModel alloc] initWithImage:[UIImage imageNamed:@"test"] originFrame:CGRectZero];
+    VEImageBrowserModel *model1 = [[VEImageBrowserModel alloc] initWithImage:[UIImage imageNamed:@"test"] originFrame:CGRectMake(0, 0, 50, 50)];
+    VEImageBrowserModel *model2 = [[VEImageBrowserModel alloc] initWithImage:[UIImage imageNamed:@"test"] originFrame:CGRectMake(90, 200, 100, 190)];
     VEImageBrowser *ib = [[VEImageBrowser alloc] initWithModelArray:@[model0, model1, model2]];
     ib.selectIndex = 1;
     
