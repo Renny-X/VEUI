@@ -42,6 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIImage *)imageFromView:(UIView *)view size:(CGSize)size;
 
++ (UIImage*)imageWithIcon:(NSString*)iconCode inFont:(NSString*)fontName size:(CGSize)size color:(UIColor*)color;
+
 @end
 
 NS_ASSUME_NONNULL_END

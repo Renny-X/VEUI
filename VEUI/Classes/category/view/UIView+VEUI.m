@@ -7,6 +7,7 @@
 //
 
 #import "UIView+VEUI.h"
+#import "NSObject+VEUI.h"
 #import <objc/runtime.h>
 
 @implementation UIView (VEUI)
@@ -26,15 +27,6 @@
     return [NSKeyedUnarchiver unarchiveObjectWithData:tmpData];
 }
 
-//Category
-- (void)setStrTag:(NSString *)strTag{
-    objc_setAssociatedObject(self, @selector(strTag), strTag, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-
-- (NSString *)strTag{
-    return objc_getAssociatedObject(self, @selector(strTag));
-}
-
 - (nullable UIView *)viewWithStrTag:(nullable NSString *)strTag{
     for (UIView *tempView in self.subviews) {
         if ([tempView.strTag isEqualToString:strTag]) {
@@ -46,6 +38,19 @@
 
 - (void)addToSuperView:(UIView *)superView {
     [superView addSubview:self];
+}
+
+- (void)addCornerRadius:(CGFloat)radius {
+    [self.layer setMasksToBounds:YES];
+    [self.layer setCornerRadius:radius];
+}
+
+- (void)addCornerRadius:(CGFloat)radius toCorners:(UIRectCorner)corners {
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(radius, radius)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
 }
 
 #pragma mark - set
@@ -152,6 +157,5 @@
 - (CGFloat)maxY{
     return self.frame.size.height + self.frame.origin.y;
 }
-
 
 @end

@@ -9,15 +9,28 @@
 
 @implementation UIColor (VEUI)
 
+- (UIColor *)inverseColor {
+    CGFloat r, g, b, a;
+    [self getRed:&r green:&g blue:&b alpha:&a];
+    return [UIColor colorWithRed:1.0 - r green:1.0 - g blue:1.0 - b alpha:1.0 - a];
+}
+
+- (CGFloat)alpha {
+    CGFloat a;
+    [self getRed:nil green:nil blue:nil alpha:&a];
+    return a;
+}
+
 + (UIColor *)colorWithHexString:(NSString *)hexStr {
-    hexStr = [[hexStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    NSString *reg = @"^(#|0x|0X){0,1}([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})";
+    NSPredicate *prd = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", reg];
+    BOOL isColor = [prd evaluateWithObject:hexStr];
+    if (!isColor) {
+        return [UIColor clearColor];
+    }
     hexStr = [hexStr lowercaseString];
     hexStr = [hexStr stringByReplacingOccurrencesOfString:@"0x" withString:@""];
     hexStr = [hexStr stringByReplacingOccurrencesOfString:@"#" withString:@""];
-    
-    if (hexStr.length != 3 && hexStr.length != 4 && hexStr.length != 6 && hexStr.length != 8) {
-        return [UIColor clearColor];
-    }
     if (hexStr.length == 3) {
         hexStr = [hexStr stringByAppendingString:@"f"];
     }
@@ -57,16 +70,8 @@
     return [UIColor colorWithRed:((float)r / 255.0f) green:((float)g / 255.0f) blue:((float)b / 255.0f) alpha:((float)a / 255.0f)];
 }
 
-- (UIColor *)inverseColor {
-    CGFloat r, g, b, a;
-    [self getRed:&r green:&g blue:&b alpha:&a];
-    return [UIColor colorWithRed:1.0 - r green:1.0 - g blue:1.0 - b alpha:1.0 - a];
-}
-
-- (CGFloat)alpha {
-    CGFloat a;
-    [self getRed:nil green:nil blue:nil alpha:&a];
-    return a;
++ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha {
+    return [[UIColor colorWithHexString:color] colorWithAlphaComponent:alpha];
 }
 
 @end

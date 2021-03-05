@@ -10,6 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (VEUI)
+/**
+ * 字符串tag，跟tag一样的作用
+ */
+@property (nonatomic, strong) NSString *__nullable strTag;
+
 
 + (NSString *)stringByReplaceUnicode:(NSString *)string;
 /**
