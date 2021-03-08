@@ -22,7 +22,7 @@
 }
 
 + (UIColor *)colorWithHexString:(NSString *)hexStr {
-    NSString *reg = @"^(#|0x|0X){0,1}([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})";
+    NSString *reg = @"^(#|0x|0X){0,1}([0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})";
     NSPredicate *prd = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", reg];
     BOOL isColor = [prd evaluateWithObject:hexStr];
     if (!isColor) {
