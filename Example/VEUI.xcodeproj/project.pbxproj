@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176DC55025F6591A006F6BAA /* VEPopoverViewController.m */; };
 		177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */; };
 		178AE4B425F1CFD400B3863E /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 178AE4B325F1CFD400B3863E /* test.png */; };
 		178AE4BA25F1D08000B3863E /* VEUIImageCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178AE4B925F1D08000B3863E /* VEUIImageCategoryViewController.m */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		176DC54F25F6591A006F6BAA /* VEPopoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEPopoverViewController.h; sourceTree = "<group>"; };
+		176DC55025F6591A006F6BAA /* VEPopoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEPopoverViewController.m; sourceTree = "<group>"; };
 		177708E725E76BFA00B9937B /* VEImageBrowserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEImageBrowserViewController.h; sourceTree = "<group>"; };
 		177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEImageBrowserViewController.m; sourceTree = "<group>"; };
 		178AE4B325F1CFD400B3863E /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
@@ -111,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		176DC54E25F65902006F6BAA /* VEPopover */ = {
+			isa = PBXGroup;
+			children = (
+				176DC54F25F6591A006F6BAA /* VEPopoverViewController.h */,
+				176DC55025F6591A006F6BAA /* VEPopoverViewController.m */,
+			);
+			path = VEPopover;
+			sourceTree = "<group>";
+		};
 		177708DF25E76B9400B9937B /* VEImageBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +198,7 @@
 				178CFFA225E4943300699E7D /* VEUIModel.m */,
 				178AE4B725F1D04400B3863E /* Category */,
 				177708DF25E76B9400B9937B /* VEImageBrowser */,
+				176DC54E25F65902006F6BAA /* VEPopover */,
 				178CFF9B25E493CA00699E7D /* VEToast */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -441,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* VEUIAppDelegate.m in Sources */,
+				176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* VEUIViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				178CFFA325E4943300699E7D /* VEUIModel.m in Sources */,

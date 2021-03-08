@@ -86,26 +86,20 @@
 
 - (void)setSize:(CGSize)size{
     CGRect tempFrame = self.frame;
-    CGPoint center = self.center;
     tempFrame.size = size;
     self.frame = tempFrame;
-    self.center = center;
 }
 
 - (void)setWidth:(CGFloat)width{
     CGRect tempFrame = self.frame;
-    CGPoint center = self.center;
     tempFrame.size.width = width;
     self.frame = tempFrame;
-    self.center = center;
 }
 
 - (void)setHeight:(CGFloat)height{
     CGRect tempFrame = self.frame;
-    CGPoint center = self.center;
     tempFrame.size.height = height;
     self.frame = tempFrame;
-    self.center = center;
 }
 
 - (void)setMaxX:(CGFloat)maxX{

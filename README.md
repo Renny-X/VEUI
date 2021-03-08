@@ -38,6 +38,10 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.7
+* 添加 VEPopover 组件
+* 优化 UIView 扩展类方法
+
 ### 0.1.6
 * 修复 UIColor 扩展hexString 方法，兼容大小写16进制色值
 
