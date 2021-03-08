@@ -5,16 +5,16 @@
 //  Created by Drake on 2021/2/23.
 //
 
-#import "VESwitch.h"
+#import "VESwitcher.h"
 #import <Masonry/Masonry.h>
 
-@interface VESwitch ()
+@interface VESwitcher ()
 @property (nonatomic,strong)UIView *backgroundView;
 @property (nonatomic,strong)UISwitch *veSwitch;
 
 @end
 
-@implementation VESwitch
+@implementation VESwitcher
 
 + (UIColor *)HEX_RGB:(long)hexValue
 {
@@ -56,6 +56,33 @@
 - (void)setOn:(BOOL)on
 {
     self.veSwitch.on = on;
+}
+
+- (void)setSwitchFrame:(CGRect)frame
+{
+    self.frame = frame;
+}
+
+- (void)setOnTintColor:(UIColor *)onTintColor
+{
+    self.veSwitch.onTintColor = onTintColor;
+}
+
+- (void)setThumbTintColor:(UIColor *)thumbTintColor
+{
+    [self.veSwitch setThumbTintColor:thumbTintColor];
+}
+
+- (void)setOnImage:(UIImage *)onImage
+{
+    if (onImage) {
+        [self.veSwitch setOnImage:onImage];
+    }
+}
+
+- (void)setOffImage:(UIImage *)offImage
+{
+    [self.veSwitch setOffImage:offImage];
 }
 
 #pragma mark - private method

@@ -147,7 +147,7 @@
         [self addSubview:self.contentView];
         
         [self.contentView layoutIfNeeded];
-        VD_WS(ws);
+        VE_WS(ws);
         [UIView animateWithDuration:(animation?.3f:0) animations:^{
             ws.contentView.frame = CGRectMake(0, 0, CGRectGetWidth(ws.bounds), ws.contentHeight);
         } completion:^(BOOL finished) {
@@ -177,7 +177,7 @@
 
 - (void)doDismiss:(BOOL)animation
 {
-    VD_WS(ws);
+    VE_WS(ws);
     _isShowOverScreen = NO;
     self.originalSelectedIndexArray = nil;//置空
     [UIView animateWithDuration:(animation?.3f:0) animations:^{
@@ -271,7 +271,7 @@
         [_contentView addSubview:self.listTableView];
         [_contentView addSubview:self.toolView];
         _contentView.clipsToBounds = YES;
-        VD_WS(ws);
+        VE_WS(ws);
         [self.listTableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.mas_equalTo(0);
             make.top.mas_equalTo(0);
@@ -351,8 +351,8 @@
     if (tableView == self.listTableView) {
         VECommonCheckCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VECommonCheckCell"];
         [cell setOnlyShowSelectedCheckIcon:_onlyShowSelectedCheckIcon];
-        NSString *title = VD_SafeObjectAtIndex(self.allTitleArray, row);
-        [cell reloadCellData:VD_EMPTYSTRING(title)];
+        NSString *title = VE_SafeObjectAtIndex(self.allTitleArray, row);
+        [cell reloadCellData:VE_EMPTYSTRING(title)];
         if ([self.localSelectedIndexArray containsObject:@(row).stringValue]) {
             [cell setChosed:YES];//选中
         } else {//未选中

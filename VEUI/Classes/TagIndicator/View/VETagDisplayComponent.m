@@ -278,7 +278,7 @@ typedef void(^ButtonCloseBlock)(void);//关闭
     
     for (int index = 0; index < self.keyModelArray.count; index++) {
         
-        VEKeywordItem *keyModel = VD_SafeObjectAtIndex(self.keyModelArray, index);
+        VEKeywordItem *keyModel = VE_SafeObjectAtIndex(self.keyModelArray, index);
         
         CGFloat buttonWidth = [self size4String:keyModel.text
                                        withFont:self.itemTextFont
@@ -332,12 +332,12 @@ typedef void(^ButtonCloseBlock)(void);//关闭
     
     for (int index = 0; index < self.itemFrameArray.count; index++) {
         
-        CGRect frame = CGRectFromString(VD_SafeObjectAtIndex(self.itemFrameArray, index));
+        CGRect frame = CGRectFromString(VE_SafeObjectAtIndex(self.itemFrameArray, index));
         
         VEKeyButton *button = [VEKeyButton new];
         button.textLabel.font = self.itemTextFont;
         
-        VEKeywordItem *model = VD_SafeObjectAtIndex(self.keyModelArray, index);
+        VEKeywordItem *model = VE_SafeObjectAtIndex(self.keyModelArray, index);
         
         if (model.state == StateNormal) {
             model.textColor = self.itemTextColorOnNormal;
@@ -350,7 +350,7 @@ typedef void(^ButtonCloseBlock)(void);//关闭
         [button setLeftMargin:self.itemTextLeftPadding rightMargin:self.itemTextRightPadding];
         [button reloadButton:model];
         button.backgroundColor = self.itemBgColor;
-        VD_WS(ws);
+        VE_WS(ws);
         button.clickBlock = ^{
             if (ws.itemClickBlock) {
                 ws.itemClickBlock(index);

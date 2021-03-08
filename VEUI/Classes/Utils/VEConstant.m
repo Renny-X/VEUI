@@ -1,7 +1,7 @@
 
 #import "VEConstant.h"
 
-NSString *VD_EncodeStringFromDic(NSDictionary *dic, NSString *key)
+NSString *VE_EncodeStringFromDic(NSDictionary *dic, NSString *key)
 {
     if (nil != dic && [dic isKindOfClass:[NSDictionary class]]) {
         id temp = [dic objectForKey:key];
@@ -15,7 +15,7 @@ NSString *VD_EncodeStringFromDic(NSDictionary *dic, NSString *key)
     return @"";
 }
 
-NSNumber *VD_EncodeNumberFromDic(NSDictionary *dic, NSString *key)
+NSNumber *VE_EncodeNumberFromDic(NSDictionary *dic, NSString *key)
 {
     if (![dic isKindOfClass:[NSDictionary class]]) {
         return nil;
@@ -30,7 +30,7 @@ NSNumber *VD_EncodeNumberFromDic(NSDictionary *dic, NSString *key)
     return nil;
 }
 
-BOOL VD_EncodeBoolFromDic(NSDictionary *dic, NSString *key)
+BOOL VE_EncodeBoolFromDic(NSDictionary *dic, NSString *key)
 {
     if (![dic isKindOfClass:[NSDictionary class]]) {
         return NO;
@@ -42,7 +42,7 @@ BOOL VD_EncodeBoolFromDic(NSDictionary *dic, NSString *key)
     return NO;
 }
 
-NSDictionary *VD_EncodeDicFromDic(NSDictionary *dic, NSString *key)
+NSDictionary *VE_EncodeDicFromDic(NSDictionary *dic, NSString *key)
 {
     if (![dic isKindOfClass:[NSDictionary class]]) {
         return nil;
@@ -54,7 +54,7 @@ NSDictionary *VD_EncodeDicFromDic(NSDictionary *dic, NSString *key)
     return nil;
 }
 
-id VD_EncodeObjectFromDic(NSDictionary *dic, NSString *key,Class objectClass)
+id VE_EncodeObjectFromDic(NSDictionary *dic, NSString *key,Class objectClass)
 {
     if (![dic isKindOfClass:[NSDictionary class]]) {
         return nil;
@@ -66,7 +66,7 @@ id VD_EncodeObjectFromDic(NSDictionary *dic, NSString *key,Class objectClass)
     return nil;
 }
 
-NSArray *VD_EncodeArrayFromDic(NSDictionary *dic, NSString *key)
+NSArray *VE_EncodeArrayFromDic(NSDictionary *dic, NSString *key)
 {
     if (![dic isKindOfClass:[NSDictionary class]]) {
         return nil;
@@ -78,10 +78,10 @@ NSArray *VD_EncodeArrayFromDic(NSDictionary *dic, NSString *key)
     return nil;
 }
 
-NSArray *VD_EncodeArrayFromDicUsingParseBlock(NSDictionary *dic, NSString *key,
+NSArray *VE_EncodeArrayFromDicUsingParseBlock(NSDictionary *dic, NSString *key,
                                            id(^parseBlock)(id innerDic))
 {
-    NSArray *tempList = VD_EncodeArrayFromDic(dic, key);
+    NSArray *tempList = VE_EncodeArrayFromDic(dic, key);
     if (tempList) {
         NSMutableArray *array = [NSMutableArray arrayWithCapacity:[tempList count]];
         for (NSDictionary *item in tempList) {
@@ -97,7 +97,7 @@ NSArray *VD_EncodeArrayFromDicUsingParseBlock(NSDictionary *dic, NSString *key,
     return nil;
 }
 
-NSArray *VD_ParseArrayWithBlock(NSArray *tempList,
+NSArray *VE_ParseArrayWithBlock(NSArray *tempList,
                                 id(^parseBlock)(id innerDic))
 {
     if (![tempList isKindOfClass:[NSArray class]]) {

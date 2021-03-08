@@ -61,7 +61,7 @@
 
 - (void)reloadCellData:(NSString *)cellData
 {
-    self.mainLabel.text = VD_EMPTYSTRING(cellData);
+    self.mainLabel.text = VE_EMPTYSTRING(cellData);
 }
 
 - (void)setChosed:(BOOL)chose
