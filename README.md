@@ -38,6 +38,9 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.6
+* 修复 UIColor 扩展hexString 方法，兼容大小写16进制色值
+
 ### 0.1.4
 * 添加部分扩展类方法
 
