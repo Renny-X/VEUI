@@ -32,6 +32,7 @@
 #import "VEBubbleView.h"
 #import "VEImageBrowser.h"
 #import "VELabel.h"
+#import "VEPopover.h"
 #import "VETipView.h"
 #import "VEToast.h"
 
