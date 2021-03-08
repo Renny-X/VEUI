@@ -49,9 +49,9 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dict
 {
     if (self = [super init]) {
-        self.infoCategoryId = VD_EncodeStringFromDic(dict, @"infoCategoryId");
-        self.infoCategoryName = VD_EncodeStringFromDic(dict, @"infoCategoryName");
-        self.parentId = VD_EncodeStringFromDic(dict, @"parentId");
+        self.infoCategoryId = VE_EncodeStringFromDic(dict, @"infoCategoryId");
+        self.infoCategoryName = VE_EncodeStringFromDic(dict, @"infoCategoryName");
+        self.parentId = VE_EncodeStringFromDic(dict, @"parentId");
     }
     return self;
 }
@@ -59,13 +59,13 @@
 - (instancetype)initWithJson:(NSDictionary *)json
 {
     if (self = [super init]) {
-        self.infoCategoryId = VD_EncodeStringFromDic(json, @"infoCategoryId");
-        self.infoCategoryName = VD_EncodeStringFromDic(json, @"infoCategoryName");
-        self.parentId = VD_EncodeStringFromDic(json, @"parentId");
+        self.infoCategoryId = VE_EncodeStringFromDic(json, @"infoCategoryId");
+        self.infoCategoryName = VE_EncodeStringFromDic(json, @"infoCategoryName");
+        self.parentId = VE_EncodeStringFromDic(json, @"parentId");
         
-        NSArray <NSDictionary *>*cityModelArray = VD_EncodeArrayFromDic(json, @"cityModelArray");
+        NSArray <NSDictionary *>*cityModelArray = VE_EncodeArrayFromDic(json, @"cityModelArray");
         
-        if (cityModelArray && !VD_IsArrEmpty(cityModelArray)) {
+        if (cityModelArray && !VE_IsArrEmpty(cityModelArray)) {
             NSMutableArray *cityModels = [NSMutableArray array];
             [cityModelArray enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull json, NSUInteger idx, BOOL * _Nonnull stop) {
                 VEProvinceModel *mod = [[VEProvinceModel alloc] initWithJson:json];
@@ -82,11 +82,11 @@
 - (NSDictionary *)json
 {
     NSMutableDictionary *json = [NSMutableDictionary dictionary];
-    [json setValue:VD_EMPTYSTRING(self.infoCategoryId) forKey:@"infoCategoryId"];
-    [json setValue:VD_EMPTYSTRING(self.infoCategoryName) forKey:@"infoCategoryName"];
-    [json setValue:VD_EMPTYSTRING(self.parentId) forKey:@"parentId"];
+    [json setValue:VE_EMPTYSTRING(self.infoCategoryId) forKey:@"infoCategoryId"];
+    [json setValue:VE_EMPTYSTRING(self.infoCategoryName) forKey:@"infoCategoryName"];
+    [json setValue:VE_EMPTYSTRING(self.parentId) forKey:@"parentId"];
     
-    if (!VD_IsArrEmpty(self.cityModelArray)) {
+    if (!VE_IsArrEmpty(self.cityModelArray)) {
         NSMutableArray *cityModelArray = [NSMutableArray array];
         [self.cityModelArray enumerateObjectsUsingBlock:^(VEProvinceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [cityModelArray addObject:[obj json]];
@@ -119,7 +119,7 @@
 
 - (void)addCategoryId:(NSString *)categoryId
 {
-    VD_WS(ws);
+    VE_WS(ws);
     if (!categoryId.length) {
         return;
     }
@@ -230,7 +230,7 @@
 {
     NSMutableArray *ids = [NSMutableArray array];
     [self.cityModelArray enumerateObjectsUsingBlock:^(VEProvinceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (!VD_IsStringEmpty(obj.infoCategoryId)) {
+        if (!VE_IsStringEmpty(obj.infoCategoryId)) {
             [ids addObject:obj.infoCategoryId];
         }
     }];
@@ -241,7 +241,7 @@
 {
     NSMutableArray *names = [NSMutableArray array];
     [self.cityModelArray enumerateObjectsUsingBlock:^(VEProvinceModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (!VD_IsStringEmpty(obj.infoCategoryId)) {
+        if (!VE_IsStringEmpty(obj.infoCategoryId)) {
             [names addObject:obj.infoCategoryName];
         }
     }];

@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^VESwitchClickBlock)(BOOL on);
 
-@interface VESwitch : UIView
+@interface VESwitcher : UIView
 
 @property(nullable, nonatomic, strong) UIColor *onTintColor;
 @property(nullable, nonatomic, strong) UIColor *thumbTintColor;

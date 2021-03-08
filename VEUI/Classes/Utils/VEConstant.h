@@ -1,31 +1,31 @@
 
 #import <Foundation/Foundation.h>
 
-#define VD_IsIOS7OrLater ([UIDevice currentDevice].systemVersion.floatValue >= 7.0f)
-#define VD_IsIOS8OrLater ([UIDevice currentDevice].systemVersion.floatValue >= 8.0f)
-#define VD_IsIOS9OrLater ([UIDevice currentDevice].systemVersion.floatValue >= 9.0f)
-#define VD_IsIOS9_1OrLater ([UIDevice currentDevice].systemVersion.floatValue >= 9.1f)
+#define VE_IsIOS7OrLater ([UIDevice currentDevice].systemVersion.floatValue >= 7.0f)
+#define VE_IsIOS8OrLater ([UIDevice currentDevice].systemVersion.floatValue >= 8.0f)
+#define VE_IsIOS9OrLater ([UIDevice currentDevice].systemVersion.floatValue >= 9.0f)
+#define VE_IsIOS9_1OrLater ([UIDevice currentDevice].systemVersion.floatValue >= 9.1f)
 
-#define VD_IsNilOrNull(_ref)   (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]))
+#define VE_IsNilOrNull(_ref)   (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]))
 
 //字符串是否为空
-#define VD_IsStringEmpty(_ref)    (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]) ||([(_ref)isEqualToString:@""])||([(_ref)isEqualToString:@"(null)"]))
+#define VE_IsStringEmpty(_ref)    (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]) ||([(_ref)isEqualToString:@""])||([(_ref)isEqualToString:@"(null)"]))
 //数组是否为空
-#define VD_IsArrEmpty(_ref)    (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]) ||([(_ref) count] == 0))
+#define VE_IsArrEmpty(_ref)    (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]) ||([(_ref) count] == 0))
 //返回非空""字符串
-#define VD_NotNilString(__str) (([(__str) isKindOfClass:[NSString class]]) ? (VD_IsStringEmpty((__str)) ? @"" : ((__str))) : @"")
+#define VE_NotNilString(__str) (([(__str) isKindOfClass:[NSString class]]) ? (VE_IsStringEmpty((__str)) ? @"" : ((__str))) : @"")
 
 //跳转系统隐私
-#define VD_GO_APP_PRIVACY       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+#define VE_GO_APP_PRIVACY       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
 
-extern NSString     *VD_EncodeStringFromDic(NSDictionary *dic, NSString *key);
-extern NSNumber     *VD_EncodeNumberFromDic(NSDictionary *dic, NSString *key);
-extern BOOL         VD_EncodeBoolFromDic(NSDictionary *dic, NSString *key);
-extern NSDictionary *VD_EncodeDicFromDic(NSDictionary *dic, NSString *key);
-extern NSArray      *VD_EncodeArrayFromDic(NSDictionary *dic, NSString *key);
-extern NSArray      *VD_EncodeArrayFromDicUsingParseBlock(NSDictionary *dic, NSString *key, id(^parseBlock)(id innerDic));
-extern id VD_EncodeObjectFromDic(NSDictionary *dic, NSString *key,Class objectClass);
-extern NSArray *VD_ParseArrayWithBlock(NSArray *tempList,
+extern NSString     *VE_EncodeStringFromDic(NSDictionary *dic, NSString *key);
+extern NSNumber     *VE_EncodeNumberFromDic(NSDictionary *dic, NSString *key);
+extern BOOL         VE_EncodeBoolFromDic(NSDictionary *dic, NSString *key);
+extern NSDictionary *VE_EncodeDicFromDic(NSDictionary *dic, NSString *key);
+extern NSArray      *VE_EncodeArrayFromDic(NSDictionary *dic, NSString *key);
+extern NSArray      *VE_EncodeArrayFromDicUsingParseBlock(NSDictionary *dic, NSString *key, id(^parseBlock)(id innerDic));
+extern id VE_EncodeObjectFromDic(NSDictionary *dic, NSString *key,Class objectClass);
+extern NSArray *VE_ParseArrayWithBlock(NSArray *tempList,
                                        id(^parseBlock)(id innerDic));
 
 extern UIColor *VE_ColorWithHexString(NSString *color,CGFloat alpha);
@@ -52,32 +52,32 @@ color;\
 })
 
 
-#define VD_IsNilOrNull(_ref)   (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]))
+#define VE_IsNilOrNull(_ref)   (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]))
 
 //字符串是否为空
-#define VD_IsStringEmpty(_ref)    (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]) ||([(_ref)isEqualToString:@""])||([(_ref)isEqualToString:@"(null)"]))
+#define VE_IsStringEmpty(_ref)    (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]) ||([(_ref)isEqualToString:@""])||([(_ref)isEqualToString:@"(null)"]))
 //数组是否为空
-#define VD_IsArrEmpty(_ref)    (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]) ||([(_ref) count] == 0))
+#define VE_IsArrEmpty(_ref)    (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]) ||([(_ref) count] == 0))
 //返回非空""字符串
-#define VD_NotNilString(__str) (([(__str) isKindOfClass:[NSString class]]) ? (VD_IsStringEmpty((__str)) ? @"" : ((__str))) : @"")
+#define VE_NotNilString(__str) (([(__str) isKindOfClass:[NSString class]]) ? (VE_IsStringEmpty((__str)) ? @"" : ((__str))) : @"")
 
-#define VD_EMPTYSTRING(emptyString) ((emptyString) != nil ? [NSString stringWithFormat:@"%@",(emptyString)] : @"")
+#define VE_EMPTYSTRING(emptyString) ((emptyString) != nil ? [NSString stringWithFormat:@"%@",(emptyString)] : @"")
 
-#define VD_Weakify(oriInstance, weakInstance) __weak typeof(oriInstance) weakInstance = oriInstance;
-#define VD_WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
-#define VD_Strongify(weakInstance, strongInstance) __strong typeof(weakInstance) strongInstance = weakInstance;
+#define VE_Weakify(oriInstance, weakInstance) __weak typeof(oriInstance) weakInstance = oriInstance;
+#define VE_WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+#define VE_Strongify(weakInstance, strongInstance) __strong typeof(weakInstance) strongInstance = weakInstance;
 
-#define VD_SafeObjectAtIndex(array, index) ((index) >= ((array).count) ?nil:[(array) objectAtIndex:(index)])
+#define VE_SafeObjectAtIndex(array, index) ((index) >= ((array).count) ?nil:[(array) objectAtIndex:(index)])
 
 // iPhoneX 设置
 #define Device_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 #define Device_Is_iPhoneX_Or_Later (Device_Is_iPhoneX?YES:((([UIDevice currentDevice].systemVersion.floatValue >= 11.0f)&&([[[UIApplication sharedApplication] delegate] window].safeAreaInsets.bottom > 0.0f))))//表示iPhone X及之后的屏幕（带刘海）
 
 
-#define VD_UserDefault ([NSUserDefaults standardUserDefaults])
+#define VE_UserDefault ([NSUserDefaults standardUserDefaults])
 
 //缓存数据
-#define VD_UserDefault_Set(key,value) ({\
+#define VE_UserDefault_Set(key,value) ({\
 if ([(key) isKindOfClass:NSString.class]) {\
 if ((value) == nil) {\
 [[NSUserDefaults standardUserDefaults] removeObjectForKey:(key)];\
@@ -91,7 +91,7 @@ printf("%s,%d 参数错误%s %s",__FUNCTION__,__LINE__,object_getClassName((key)
 })
 
 //缓存数据
-#define VD_UserDefault_Get(key) ({\
+#define VE_UserDefault_Get(key) ({\
 id value = nil;\
 if ([(key) isKindOfClass:NSString.class]) {\
 value = [[NSUserDefaults standardUserDefaults] objectForKey:(key)];\
@@ -102,7 +102,7 @@ value;\
 })
 
 //toast提示
-#define VD_MakeToast(text,view) ({\
+#define VE_MakeToast(text,view) ({\
 CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];\
 style.cornerRadius = 3;\
 [((view)?(view):([UIApplication sharedApplication].keyWindow)) makeToast:(text) duration:2 position:CSToastPositionCenter style:style];\
@@ -129,11 +129,11 @@ typedef void(^EMCommonObjectBlock)(id reuslt);
 #define GCD_Main_Queue_Excute_AfterSecond(seconds, block)    (dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((seconds) * NSEC_PER_SEC)), dispatch_get_main_queue(), (block)))
 
 //全局 获取视图下 安全区域
-#define VD_ViewSafeAreaInsetsBottom ({\
+#define VE_ViewSafeAreaInsetsBottom ({\
 CGFloat bottom = 0;\
 if (@available(iOS 11.0, *)) {\
 bottom = [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom;\
-} else if ([VDGlobal instance].isIphoneX) {\
+} else if (Device_Is_iPhoneX_Or_Later) {\
 bottom = 34;\
 }\
 bottom;\

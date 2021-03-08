@@ -80,7 +80,7 @@
              dotNumber:(NSInteger)dot
              isCountry:(BOOL)isCountry
 {
-    self.mainLabel.text = VD_EMPTYSTRING(province);
+    self.mainLabel.text = VE_EMPTYSTRING(province);
     if (isCountry) {
         //如果是国家
         self.dotLabel.hidden = YES;
@@ -96,7 +96,7 @@
         if (dot <= 0) {
             self.dotLabel.text = @"";
         } else {
-            self.dotLabel.text = VD_EMPTYSTRING(@(dot).stringValue);
+            self.dotLabel.text = VE_EMPTYSTRING(@(dot).stringValue);
         }
     }
 }
@@ -124,7 +124,7 @@
     [self.contentView addSubview:self.mainLabel];
     [self.contentView addSubview:self.dotLabel];
     [self.contentView addSubview:self.checkIcon];
-    VD_WS(ws);
+    VE_WS(ws);
     [self.mainLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
         make.height.mas_equalTo(17);
@@ -266,7 +266,7 @@
         [self addSubview:self.contentView];
         
         [self.contentView layoutIfNeeded];
-        VD_WS(ws);
+        VE_WS(ws);
         [UIView animateWithDuration:(animation?.3f:0) animations:^{
             ws.contentView.frame = CGRectMake(0, 0, CGRectGetWidth(ws.bounds), ws.contentHeight);
         } completion:^(BOOL finished) {
@@ -292,7 +292,7 @@
 
 - (void)doDismiss:(BOOL)animation
 {
-    VD_WS(ws);
+    VE_WS(ws);
     _isShowOverScreen = NO;
     [UIView animateWithDuration:(animation?.3f:0) animations:^{
         ws.contentView.frame = CGRectMake(0, -ws.contentHeight, CGRectGetWidth(ws.bounds), ws.contentHeight);
@@ -337,12 +337,12 @@
 - (void)autoSelectProvince
 {
     for (VEProvinceModel *mod in self.localAllProvinceArray) {
-        if (!VD_IsArrEmpty(mod.selectCityCategoryIdArray)) {
+        if (!VE_IsArrEmpty(mod.selectCityCategoryIdArray)) {
             self.currentProvince = mod;
             break;
         }
     }
-    if (!self.currentProvince && !VD_IsArrEmpty(self.localAllProvinceArray)) {
+    if (!self.currentProvince && !VE_IsArrEmpty(self.localAllProvinceArray)) {
         self.currentProvince = [self.localAllProvinceArray firstObject];
     }
     
@@ -363,12 +363,12 @@
 
 - (void)selectProvinceIndex:(NSInteger)index
 {
-    if (VD_IsArrEmpty(self.localAllProvinceArray)) {
+    if (VE_IsArrEmpty(self.localAllProvinceArray)) {
         self.currentProvince = nil;
     } else if (index < self.localAllProvinceArray.count) {
-        self.currentProvince = VD_SafeObjectAtIndex(self.localAllProvinceArray, index);
+        self.currentProvince = VE_SafeObjectAtIndex(self.localAllProvinceArray, index);
     } else {
-        self.currentProvince = VD_SafeObjectAtIndex(self.localAllProvinceArray, 0);
+        self.currentProvince = VE_SafeObjectAtIndex(self.localAllProvinceArray, 0);
     }
 }
 
@@ -426,7 +426,7 @@
 {
     VEProvinceModel *tableProvince = nil;
     for (VEProvinceModel *pro in self.localAllProvinceArray) {
-        if ([VD_EMPTYSTRING(province.infoCategoryId) isEqualToString:VD_EMPTYSTRING(pro.infoCategoryId)]) {
+        if ([VE_EMPTYSTRING(province.infoCategoryId) isEqualToString:VE_EMPTYSTRING(pro.infoCategoryId)]) {
             tableProvince = pro;
             break;
         }
@@ -461,7 +461,7 @@
         [_contentView addSubview:self.cityTableView];
         [_contentView addSubview:self.toolView];
         
-        VD_WS(ws);
+        VE_WS(ws);
         [self.provinceTableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(0);
             make.top.mas_equalTo(0);
@@ -527,7 +527,7 @@
         _toolView.clipsToBounds = YES;
         [_toolView addSubview:self.resetButton];
         [_toolView addSubview:self.confirmButton];
-        VD_WS(ws);
+        VE_WS(ws);
         [self.resetButton mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(15);
             make.right.equalTo(ws.toolView.mas_centerX).offset(-5);
@@ -598,7 +598,7 @@
     
     if (tableView == self.provinceTableView) {//省列表
         
-        VEProvinceModel *province = VD_SafeObjectAtIndex(self.localAllProvinceArray, row);
+        VEProvinceModel *province = VE_SafeObjectAtIndex(self.localAllProvinceArray, row);
         
         VEProvinceCell *cell = [self.provinceTableView dequeueReusableCellWithIdentifier:@"VEProvinceCell"];
         [cell reloadCellData:province.infoCategoryName dotNumber:province.selectCityNumber isCountry:([province.infoCategoryId isEqualToString:kVE_CountryId_ALL])];
@@ -613,7 +613,7 @@
     } else if (tableView == self.cityTableView) {//当前省的所有市列表
         
         NSArray *cityArray = self.currentProvince.cityModelArray;
-        VEProvinceModel *city = VD_SafeObjectAtIndex(cityArray, row);
+        VEProvinceModel *city = VE_SafeObjectAtIndex(cityArray, row);
         
         VECommonCheckCell *cell = [self.cityTableView dequeueReusableCellWithIdentifier:@"VECommonCheckCell"];
         
@@ -659,19 +659,19 @@
     NSInteger row = indexPath.row;
     
     if (tableView == self.provinceTableView) {
-        VEProvinceModel *province = VD_SafeObjectAtIndex(self.localAllProvinceArray, row);
+        VEProvinceModel *province = VE_SafeObjectAtIndex(self.localAllProvinceArray, row);
         self.currentProvince = province;
         [self reloadData:self.localAllProvinceArray];
     } else if (tableView == self.cityTableView) {
         if (self.currentProvince) {
             NSArray *cityArray = self.currentProvince.cityModelArray;
-            VEProvinceModel *city = VD_SafeObjectAtIndex(cityArray, row);
+            VEProvinceModel *city = VE_SafeObjectAtIndex(cityArray, row);
             if ([self.currentProvince.selectCityCategoryIdArray containsObject:city.infoCategoryId]) {
                 [self.currentProvince removeCategoryId:city.infoCategoryId];
             } else {
                 [self.currentProvince addCategoryId:city.infoCategoryId];
             }
-            VD_WS(ws);
+            VE_WS(ws);
             if ([self.currentProvince.infoCategoryId isEqualToString:kVE_CountryId_ALL]) {
                 /**1、如果是全国  需要取消所有的省市选择*/
                 if ([city.infoCategoryId isEqualToString:kVE_CityId_ALL]) {
