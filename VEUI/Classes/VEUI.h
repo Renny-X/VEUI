@@ -27,6 +27,9 @@
 // category view controller
 #import "UIViewController+VEUI.h"
 
+// base
+#import "VEModel.h"
+
 // custom view
 #import "VEBanner.h"
 #import "VEBubbleView.h"

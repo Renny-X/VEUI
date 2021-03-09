@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176DC55025F6591A006F6BAA /* VEPopoverViewController.m */; };
 		177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */; };
+		177B02CE25F748D90006D692 /* VEModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B02CD25F748D90006D692 /* VEModelController.m */; };
+		177B02D525F7490A0006D692 /* VETestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B02D425F7490A0006D692 /* VETestModel.m */; };
 		178AE4B425F1CFD400B3863E /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 178AE4B325F1CFD400B3863E /* test.png */; };
 		178AE4BA25F1D08000B3863E /* VEUIImageCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178AE4B925F1D08000B3863E /* VEUIImageCategoryViewController.m */; };
 		178CFF9E25E493CA00699E7D /* VEToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178CFF9D25E493CA00699E7D /* VEToastViewController.m */; };
@@ -48,6 +50,10 @@
 		176DC55025F6591A006F6BAA /* VEPopoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEPopoverViewController.m; sourceTree = "<group>"; };
 		177708E725E76BFA00B9937B /* VEImageBrowserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEImageBrowserViewController.h; sourceTree = "<group>"; };
 		177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEImageBrowserViewController.m; sourceTree = "<group>"; };
+		177B02CC25F748D90006D692 /* VEModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEModelController.h; sourceTree = "<group>"; };
+		177B02CD25F748D90006D692 /* VEModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEModelController.m; sourceTree = "<group>"; };
+		177B02D325F7490A0006D692 /* VETestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VETestModel.h; sourceTree = "<group>"; };
+		177B02D425F7490A0006D692 /* VETestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VETestModel.m; sourceTree = "<group>"; };
 		178AE4B325F1CFD400B3863E /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		178AE4B825F1D08000B3863E /* VEUIImageCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEUIImageCategoryViewController.h; sourceTree = "<group>"; };
 		178AE4B925F1D08000B3863E /* VEUIImageCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEUIImageCategoryViewController.m; sourceTree = "<group>"; };
@@ -132,6 +138,17 @@
 			path = VEImageBrowser;
 			sourceTree = "<group>";
 		};
+		177B02CB25F748A60006D692 /* VEModel */ = {
+			isa = PBXGroup;
+			children = (
+				177B02CC25F748D90006D692 /* VEModelController.h */,
+				177B02CD25F748D90006D692 /* VEModelController.m */,
+				177B02D325F7490A0006D692 /* VETestModel.h */,
+				177B02D425F7490A0006D692 /* VETestModel.m */,
+			);
+			path = VEModel;
+			sourceTree = "<group>";
+		};
 		178AE4B725F1D04400B3863E /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +214,7 @@
 				178CFFA125E4943300699E7D /* VEUIModel.h */,
 				178CFFA225E4943300699E7D /* VEUIModel.m */,
 				178AE4B725F1D04400B3863E /* Category */,
+				177B02CB25F748A60006D692 /* VEModel */,
 				177708DF25E76B9400B9937B /* VEImageBrowser */,
 				176DC54E25F65902006F6BAA /* VEPopover */,
 				178CFF9B25E493CA00699E7D /* VEToast */,
@@ -454,8 +472,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* VEUIAppDelegate.m in Sources */,
+				177B02CE25F748D90006D692 /* VEModelController.m in Sources */,
 				176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* VEUIViewController.m in Sources */,
+				177B02D525F7490A0006D692 /* VETestModel.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				178CFFA325E4943300699E7D /* VEUIModel.m in Sources */,
 				177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */,

@@ -13,6 +13,7 @@
 #import "VEImageBrowserViewController.h"
 #import "VEUIImageCategoryViewController.h"
 #import "VEPopoverViewController.h"
+#import "VEModelController.h"
 
 @interface VEUIViewController ()<UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 
@@ -38,6 +39,9 @@
             ]],
             [VEUIGroupModel modelWithTitle:@"Navigation" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEPopover" controller:[VEPopoverViewController new]],
+            ]],
+            [VEUIGroupModel modelWithTitle:@"Base" cellArr:@[
+                [VEUICellModel modelWithTitle:@"VEModel" controller:[VEModelController new]],
             ]],
         ];
     }
