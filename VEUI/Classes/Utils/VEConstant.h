@@ -102,11 +102,17 @@ value;\
 })
 
 //toast提示
+//#define VE_MakeToast(text,view) ({\
+//CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];\
+//style.cornerRadius = 3;\
+//[((view)?(view):([UIApplication sharedApplication].keyWindow)) makeToast:(text) duration:2 position:CSToastPositionCenter style:style];\
+//})
+
 #define VE_MakeToast(text,view) ({\
-CSToastStyle *style = [[CSToastStyle alloc] initWithDefaultStyle];\
-style.cornerRadius = 3;\
-[((view)?(view):([UIApplication sharedApplication].keyWindow)) makeToast:(text) duration:2 position:CSToastPositionCenter style:style];\
+[VEToast toast:text];\
 })
+
+
 
 #pragma mark - GCD in block
 //normal queue block
