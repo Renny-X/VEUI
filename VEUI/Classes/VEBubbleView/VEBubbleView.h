@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, VEBubbleContentPosition) {
 /**
  * contentBackgroundColor: 内容区域背景色， 默认为白色
  */
-@property(nonatomic, assign)UIColor *contentColor;
+@property(nonatomic, strong)UIColor *contentColor;
 /**
  * cornerRadius: contentView圆角弧度，默认为5
  */
