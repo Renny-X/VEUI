@@ -15,6 +15,7 @@
 #import "VEPopoverViewController.h"
 #import "VEModelController.h"
 #import "VETabController.h"
+#import "VENoticeBarController.h"
 
 @interface VEUIViewController ()<UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 
@@ -34,6 +35,7 @@
             ]],
             [VEUIGroupModel modelWithTitle:@"Data Display" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:[VEImageBrowserViewController new]],
+                [VEUICellModel modelWithTitle:@"VENoticeBar" controller:[VENoticeBarController new]],
             ]],
             [VEUIGroupModel modelWithTitle:@"Feedback" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEToast" controller:[VEToastViewController new]],
