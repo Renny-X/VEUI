@@ -14,6 +14,7 @@
 #import "VEUIImageCategoryViewController.h"
 #import "VEPopoverViewController.h"
 #import "VEModelController.h"
+#import "VETabController.h"
 
 @interface VEUIViewController ()<UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 
@@ -39,6 +40,7 @@
             ]],
             [VEUIGroupModel modelWithTitle:@"Navigation" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEPopover" controller:[VEPopoverViewController new]],
+                [VEUICellModel modelWithTitle:@"VETab" controller:[VETabController new]],
             ]],
             [VEUIGroupModel modelWithTitle:@"Base" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEModel" controller:[VEModelController new]],
@@ -64,7 +66,7 @@
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     }
     self.navigationController.delegate = self;
-    
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.closeSections = [NSMutableArray array];
     
     self.tableV = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];

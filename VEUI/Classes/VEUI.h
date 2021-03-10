@@ -38,5 +38,6 @@
 #import "VEPopover.h"
 #import "VETipView.h"
 #import "VEToast.h"
+#import "VETab.h"
 
 #endif /* VEUI_h */
