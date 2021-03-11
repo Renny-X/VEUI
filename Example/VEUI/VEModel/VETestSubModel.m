@@ -11,7 +11,7 @@
 @implementation VETestSubModel
 
 - (NSDictionary *)reMapKeys {
-    return @{@"subTitle":@"subtitle"};
+    return @{@"cc":@"subtitle"};
 }
 
 @end

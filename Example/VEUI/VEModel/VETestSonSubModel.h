@@ -1,18 +1,18 @@
 //
-//  VETestSubModel.h
+//  VETestSonSubModel.h
 //  VEUI_Example
 //
 //  Created by Coder on 2021/3/11.
 //  Copyright © 2021 Coder. All rights reserved.
 //
 
-#import <VEUI/VEUI.h>
+#import "VETestSubModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VETestSubModel : VEModel
+@interface VETestSonSubModel : VETestSubModel
 
-@property(nonatomic, strong)NSString *cc;
+@property(nonatomic, strong)NSString *son;
 
 @end
 

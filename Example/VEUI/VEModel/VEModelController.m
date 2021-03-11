@@ -26,11 +26,11 @@
         @"test":@"this is des",
         @"subModel":@{
                 @"subtitle": @"this is subModel subTitle",
+                @"son": @"son",
         },
     };
     VETestModel *model = [[VETestModel alloc] initWithDictionary:dict];
-    NSLog(@"%@", model);
-    NSLog(@"%@", model.subModel);
+    NSLog(@"========================================\n%@", model.subModel);
 }
 
 @end
