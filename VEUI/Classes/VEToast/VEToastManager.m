@@ -19,26 +19,28 @@
 
 - (void)show:(UIView *)view duration:(NSTimeInterval)duration {
     @synchronized (self.toastArr) {
+        UIView *window = [[UIApplication sharedApplication] keyWindow];
+        [window.layer removeAllAnimations];
+        [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(hide) object:nil];
         while (self.toastArr.count) {
             UIView *v = [self.toastArr firstObject];
             [v removeFromSuperview];
             [self.toastArr removeObject:v];
         }
+        __block UIView *v = view;
+        v.alpha = 0;
+        [window addSubview:v];
+        [self.toastArr addObject:v];
+        __weak __typeof(self)weakSelf = self;
+        [UIView animateWithDuration:self.animateDuration animations:^{
+            v.alpha = 1;
+        } completion:^(BOOL finished) {
+            if (finished && duration > 0) {
+                NSTimeInterval after = duration < weakSelf.animateDuration ? duration : duration - weakSelf.animateDuration;
+                [weakSelf performSelector:@selector(hide) withObject:nil afterDelay:after];
+            }
+        }];
     }
-    [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(hide) object:nil];
-    __block UIView *v = view;
-    [self.toastArr addObject:v];
-    v.alpha = 0;
-    [[UIApplication sharedApplication].keyWindow addSubview:v];
-    __weak __typeof(self)weakSelf = self;
-    [UIView animateWithDuration:self.animateDuration animations:^{
-        v.alpha = 1;
-    } completion:^(BOOL finished) {
-        if (finished && duration > 0) {
-            NSTimeInterval after = duration < weakSelf.animateDuration ? duration : duration - weakSelf.animateDuration;
-            [weakSelf performSelector:@selector(hide) withObject:nil afterDelay:after];
-        }
-    }];
 }
 
 - (void)hide {
@@ -96,7 +98,7 @@ static VEToastManager *_instance;
             _instance = [[VEToastManager alloc] init];
             _instance.duration = 2.3;
             _instance.imgSize = CGSizeMake(50, 50);
-            _instance.animateDuration = 0.3;
+            _instance.animateDuration = 0.2;
             _instance.textFont = 14;
             _instance.toastColor = [UIColor colorWithWhite:0 alpha:0.6];
             _instance.tintColor = [UIColor whiteColor];
