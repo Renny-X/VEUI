@@ -23,9 +23,14 @@
     NSDictionary *dict = @{
         @"title":@"this is title",
         @"subtitle":@"this is sub title",
-        @"des":@"this is des"
+        @"test":@"this is des",
+        @"subModel":@{
+                @"subtitle": @"this is subModel subTitle",
+        },
     };
-    NSLog(@"%@", [[[VETestModel alloc] initWithDictionary:dict] debugDescription]);
+    VETestModel *model = [[VETestModel alloc] initWithDictionary:dict];
+    NSLog(@"%@", model);
+    NSLog(@"%@", model.subModel);
 }
 
 @end

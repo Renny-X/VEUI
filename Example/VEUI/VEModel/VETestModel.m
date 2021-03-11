@@ -11,11 +11,18 @@
 @implementation VETestModel
 
 - (NSDictionary *)reMapKeys {
-    NSLog(@"aaaaaaa");
+    // model.property --> data.key
     return @{
-        @"subtitle": @"subTitle",
-        @"xx": @"test",
+        @"subTitle": @"subtitle",
+        @"des": @"test",
     };
+}
+- (BOOL)reMapValue:(id)value onKey:(NSString *)key {
+    if ([key isEqualToString:@"subModel"]) {
+        self.subModel = [[VETestSubModel alloc] initWithDictionary:value];
+        return YES;
+    }
+    return nil;
 }
 
 @end

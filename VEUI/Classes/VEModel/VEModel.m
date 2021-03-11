@@ -13,8 +13,8 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dict {
     if (self = [super init]) {
         NSDictionary *reMap = [self reMapKeys];
-        NSArray *dkeys = reMap.allKeys;
-        NSArray *pkeys = reMap.allValues;
+        NSArray *pkeys = reMap.allKeys;
+        NSArray *dkeys = reMap.allValues;
         unsigned int outCount;
         objc_property_t *properties = class_copyPropertyList([self class], &outCount);
         for (int i = 0; i < outCount; i++) {
@@ -23,17 +23,27 @@
             NSString *propertyName = [NSString stringWithUTF8String:char_f];
             if ([pkeys containsObject:propertyName]) {
                 NSInteger index = [pkeys indexOfObject:propertyName];
-                [self setValue:[dict valueForKey:dkeys[index]] forKey:propertyName];
+                [self handleValue:[dict valueForKey:dkeys[index]] onKey:propertyName];
             } else if ([dict.allKeys containsObject:propertyName]) {
-                [self setValue:[dict valueForKey:propertyName] forKey:propertyName];
+                [self handleValue:[dict valueForKey:propertyName] onKey:propertyName];
             }
         }
     }
     return self;
 }
 
+- (void)handleValue:(id)value onKey:(NSString *)key {
+    if (![self reMapValue:value onKey:key]) {
+        [self setValue:value forKey:key];
+    }
+}
+
 - (NSDictionary *)reMapKeys {
     return @{};
+}
+
+- (BOOL)reMapValue:(id)value onKey:(NSString *)key {
+    return NO;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -51,7 +61,7 @@
     return props;
 }
 
-- (NSString *)debugDescription {
+- (NSString *)description {
     return [[self dictionaryValue] description];
 }
 
