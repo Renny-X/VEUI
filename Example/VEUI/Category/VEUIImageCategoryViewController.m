@@ -58,6 +58,7 @@
 }
 
 - (void)btnClicked:(UIButton *)sender {
+    self.sourceImgV.hidden = YES;
     self.viewImage = sender.tag % 10 ? [UIImage imageFromView:self.sourceImgV] : [UIImage imageFromView:self.view];
     self.viewImgV.image = self.viewImage;
 }

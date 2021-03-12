@@ -93,25 +93,27 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 }
 
 + (UIImage *)imageFromView:(UIView *)view size:(CGSize)size {
-    CGFloat hidden = view.hidden;
+    BOOL hidden = view.hidden;
     CGRect frame = view.frame;
-    UIView *superView = view.superview;
     
-    if (!superView) {
-        view.orign = CGPointMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-        [[UIApplication sharedApplication].keyWindow addSubview:view];
+    if (hidden) {
+        view.orign = CGPointMake(-view.width, -view.height);
+        view.hidden = NO;
     }
     
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
     UIGraphicsBeginImageContextWithOptions(size, NO, 1);
-    [view drawViewHierarchyInRect:rect afterScreenUpdates:YES];
+    if (view.superview) {
+        [view drawViewHierarchyInRect:rect afterScreenUpdates:YES];
+    } else {
+        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    }
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    view.hidden = hidden;
-    view.frame = frame;
-    if (!superView) {
-        [view removeFromSuperview];
+    if (hidden) {
+        view.frame = frame;
+        view.hidden = hidden;
     }
     
     return img;
