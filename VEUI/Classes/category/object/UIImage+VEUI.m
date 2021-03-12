@@ -87,12 +87,24 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 }
 
 + (UIImage *)imageFromView:(UIView *)view {
-    CGFloat scale = [UIScreen mainScreen].scale;
-    CGSize size = CGSizeMake(view.width * scale, view.height * scale);
-    return [self imageFromView:view size:size];
+    return [self createImageWithView:view size:view.size scale:[UIScreen mainScreen].scale];
 }
 
 + (UIImage *)imageFromView:(UIView *)view size:(CGSize)size {
+    return [self createImageWithView:view size:size scale:1];
+}
+
++ (UIImage *)imageWithIcon:(NSString*)iconCode inFont:(NSString*)fontName size:(CGSize)size color:(UIColor*)color {
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.width)];
+    label.font = [UIFont fontWithName:fontName size:MIN(size.width, size.height)];
+    label.text = iconCode;
+    if(color) {
+        label.textColor = color;
+    }
+    return [self createImageWithView:label size:size scale:[UIScreen mainScreen].scale];
+}
+
++ (UIImage *)createImageWithView:(UIView *)view size:(CGSize)size scale:(CGFloat)scale {
     BOOL hidden = view.hidden;
     CGRect frame = view.frame;
     
@@ -100,9 +112,8 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         view.orign = CGPointMake(-view.width, -view.height);
         view.hidden = NO;
     }
-    
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
-    UIGraphicsBeginImageContextWithOptions(size, NO, 1);
+    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
     if (view.superview) {
         [view drawViewHierarchyInRect:rect afterScreenUpdates:YES];
     } else {
@@ -115,24 +126,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         view.frame = frame;
         view.hidden = hidden;
     }
-    
     return img;
-}
-
-+ (UIImage*)imageWithIcon:(NSString*)iconCode inFont:(NSString*)fontName size:(CGSize)size color:(UIColor*)color {
-//    CGFloat scale = [[UIScreen mainScreen] scale];
-//    UIGraphicsBeginImageContextWithOptions(size, NO, scale);
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.width)];
-    label.font = [UIFont fontWithName:fontName size:MIN(size.width, size.height)];
-    label.text = iconCode;
-    if(color) {
-        label.textColor = color;
-    }
-//    [label.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage *retImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    return retImage;
-    return [UIImage imageFromView:label size:size];
 }
 
 @end
