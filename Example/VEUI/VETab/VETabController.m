@@ -12,6 +12,7 @@
 @interface VETabController ()<VETabDelegate>
 
 @property(nonatomic, strong)UIView *testView;
+@property(nonatomic, strong)VETab *tab;
 
 @end
 
@@ -26,6 +27,7 @@
     tab.frame = CGRectMake(0, 100, self.view.width, 60);
     tab.backgroundColor = [UIColor whiteColor];
     tab.delegate = self;
+    self.tab = tab;
     [self.view addSubview:tab];
 //    [self test];
 }
@@ -38,6 +40,7 @@
     tabItem.style = VETabItemStyleFullLine;
     if (index == 0) {
         tabItem.activeColor = UIColor.redColor;
+        tabItem.title = [NSDate dateStringWithFormatter:@"mm:ss"];
         return tabItem;
     }
     return tabItem;
@@ -51,9 +54,16 @@
     if (index == 1) {
         UIView *v = [[UIView alloc] init];
         v.backgroundColor = [UIColor yellowColor];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+        [v addGestureRecognizer:tap];
         return v;
     }
     return nil;
+}
+
+- (void)tapAction {
+    NSLog(@"current selected index: %d", (int)self.tab.selectedIndex);
+    [self.tab reloadTab];
 }
 
 

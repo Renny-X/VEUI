@@ -47,6 +47,7 @@
 - (void)reloadTab {
     if (self.colV) {
         [self.colV reloadData];
+        [self setSelectedIndex:self.selectedIndex animate:YES];
     }
 }
 
@@ -134,10 +135,11 @@
         [collectionView deselectItemAtIndexPath:indexPath animated:NO];
     } else {
         // tab
+        self.contentV.contentOffset = CGPointMake(indexPath.row * self.contentV.width, 0);
+        _selectedIndex = indexPath.row;
         if ([self.delegate respondsToSelector:@selector(didSelectAtIndex:)]) {
             [self.delegate didSelectAtIndex:indexPath.row];
         }
-        self.contentV.contentOffset = CGPointMake(indexPath.row * self.contentV.width, 0);
     }
 }
 
@@ -157,11 +159,12 @@
 
 #pragma mark - Set
 - (void)setSelectedIndex:(NSInteger)selectedIndex animate:(BOOL)animate {
-    if (self.selectedIndex != selectedIndex || !self.layoutTag) {
-        if (self.titleArr.count > selectedIndex) {
-            [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
-            [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
-        }
+    if (self.titleArr.count > selectedIndex) {
+        _selectedIndex = selectedIndex;
+        [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
+        [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+        
+        self.contentV.contentOffset = CGPointMake(selectedIndex * self.contentV.width, 0);
     }
 }
 
