@@ -18,14 +18,34 @@
         NSArray *properties = [self allProperties];
         for (NSString *propertyName in properties) {
             if ([pkeys containsObject:propertyName]) {
-                NSInteger index = [pkeys indexOfObject:propertyName];
-                [self handleValue:[dict valueForKey:dkeys[index]] onKey:propertyName];
+                NSArray *indexArr = [self getAllIndexWithKey:propertyName fromArray:pkeys];
+                for (NSNumber *cc in indexArr) {
+                    NSInteger index = [cc integerValue];
+                    id tmpValue = [dict valueForKey:dkeys[index]];
+                    if (tmpValue != nil) {
+                        [self handleValue:[dict valueForKey:dkeys[index]] onKey:propertyName];
+                    }
+                }
             } else if ([dict.allKeys containsObject:propertyName]) {
                 [self handleValue:[dict valueForKey:propertyName] onKey:propertyName];
             }
         }
     }
     return self;
+}
+
+- (NSArray *)getAllIndexWithKey:(NSString *)key fromArray:(NSArray *)source {
+    if (!key || !key.length || !source || !source.count) {
+        return @[];
+    }
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0; i < source.count; i++) {
+        NSString *tmpKey = source[i];
+        if ([tmpKey isEqualToString:key]) {
+            [arr addObject:[NSNumber numberWithInt:i]];
+        }
+    }
+    return arr;
 }
 
 - (NSArray *)allProperties {
