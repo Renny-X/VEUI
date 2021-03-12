@@ -13,8 +13,8 @@
 - (NSDictionary *)reMapKeys {
     // model.property --> data.key
     return @{
-        @"subTitle": @"subtitle",
-        @"des": @"test",
+        @"subtitle": @"subTitle",
+        @"test": @"des",
     };
 }
 - (BOOL)reMapValue:(id)value onKey:(NSString *)key {

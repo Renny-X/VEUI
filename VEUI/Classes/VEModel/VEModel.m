@@ -13,8 +13,8 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dict {
     if (self = [super init]) {
         NSDictionary *reMap = [self reMapKeys];
-        NSArray *pkeys = reMap.allKeys;
-        NSArray *dkeys = reMap.allValues;
+        NSArray *pkeys = reMap.allValues;
+        NSArray *dkeys = reMap.allKeys;
         NSArray *properties = [self allProperties];
         for (NSString *propertyName in properties) {
             if ([pkeys containsObject:propertyName]) {
