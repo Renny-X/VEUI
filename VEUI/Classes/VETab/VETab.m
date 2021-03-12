@@ -27,9 +27,11 @@
 
 @implementation VETab
 
+#pragma mark - Public
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles {
     return [self initWithTitles:titles contentViews:nil];
 }
+
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles contentViews:(NSArray<UIView *> * __nullable)contentViews {
     if (self = [super init]) {
         [self initParams];
@@ -42,6 +44,19 @@
     return self;
 }
 
+- (void)reloadTab {
+    if (self.colV) {
+        [self.colV reloadData];
+    }
+}
+
+- (void)reloadContent {
+    if (self.contentV) {
+        [self.contentV reloadData];
+    }
+}
+
+#pragma mark - UI
 - (void)initParams {
     self.backgroundColor = [UIColor whiteColor];
     self.itemWidth = 60;

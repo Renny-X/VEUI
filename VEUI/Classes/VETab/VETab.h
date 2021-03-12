@@ -63,6 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles;
 - (instancetype)initWithTitles:(NSArray<NSString *> *)titles contentViews:(NSArray<UIView *> * __nullable)contentViews;
 
+- (void)reloadTab;
+- (void)reloadContent;
+
 - (void)setSelectedIndex:(NSInteger)selectedIndex animate:(BOOL)animate;
 
 @end
