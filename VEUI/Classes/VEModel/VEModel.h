@@ -21,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 重定向Value，返回 手动处理后的 Value，nil时 不处理
  */
 - (BOOL)reMapValue:(id)value onKey:(NSString *)key;
+/**
+ * 指定属性对应的ClassName { "model.property": "class name" }
+ */
+- (NSDictionary *)valueOnModelClass;
 
 @end
 

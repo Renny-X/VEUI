@@ -18,9 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)NSString *subTitle;
 @property(nonatomic, strong)NSString *des;
 
-@property(nonatomic, strong)NSString *xxxx;
+@property(nonatomic, strong)VETestSubModel *subModel;
+@property(nonatomic, strong)VETestSonSubModel *sonModel;
 
-@property(nonatomic, strong)VETestSonSubModel *subModel;
+@property(nonatomic, strong)NSArray<VETestSubModel *> *dataArr;
 
 @end
 

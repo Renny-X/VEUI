@@ -34,6 +34,66 @@
     return self;
 }
 
+#pragma mark - public
+- (NSDictionary *)valueOnModelClass {
+    // key --> className
+    return @{};
+}
+
+- (NSDictionary *)reMapKeys {
+    return @{};
+}
+
+- (BOOL)reMapValue:(id)value onKey:(NSString *)key {
+    return NO;
+}
+
+- (NSDictionary *)dictionaryValue {
+    NSArray *arr = [self allProperties];
+    NSMutableDictionary *props = [NSMutableDictionary dictionary];
+    for (int i = 0; i < arr.count; i++) {
+        NSString *propertyName = arr[i];
+        id propertyValue = [self valueForKey:(NSString *)propertyName];
+        if (propertyValue) [props setObject:propertyValue forKey:propertyName];
+    }
+    return props;
+}
+
+#pragma mark - Data Handler
+- (void)handleValue:(id)value onKey:(NSString *)key {
+    if (![self reMapValue:value onKey:key]) {
+        id obj = value;
+        NSDictionary *vmDict = [self valueOnModelClass];
+        if (
+            [vmDict.allKeys containsObject:key]
+            && (
+                [obj isKindOfClass:[NSArray class]]
+                || [obj isKindOfClass:[NSDictionary class]]
+            )
+        ) {
+            NSString *className = [vmDict objectForKey:key];
+            Class modelClass = NSClassFromString(className);
+            if ([self isSubclass:modelClass]) {
+                if ([value isKindOfClass:[NSArray class]]){
+                    // Array
+                    NSMutableArray *tmpArr = [NSMutableArray array];
+                    NSArray *valueArr = (NSArray *)value;
+                    for (int i = 0; i < valueArr.count; i++) {
+                        NSDictionary *vdict = valueArr[i];
+                        id modelValue = [[modelClass alloc] initWithDictionary:vdict];
+                        [tmpArr addObject: modelValue];
+                    }
+                    obj = [NSArray arrayWithArray:tmpArr];
+                } else {
+                    // Dictionary
+                    obj = [[modelClass alloc] initWithDictionary:value];
+                }
+            }
+        }
+        [self setValue:obj forKey:key];
+    }
+}
+
 - (NSArray *)getAllIndexWithKey:(NSString *)key fromArray:(NSArray *)source {
     if (!key || !key.length || !source || !source.count) {
         return @[];
@@ -65,31 +125,20 @@
     return tmpArr;
 }
 
-- (void)handleValue:(id)value onKey:(NSString *)key {
-    if (![self reMapValue:value onKey:key]) {
-        [self setValue:value forKey:key];
+- (BOOL)isSubclass:(Class)class {
+    BOOL flag = NO;
+    Class superClass = class_getSuperclass(class);
+    while (superClass) {
+        if (superClass == [VEModel class]) {
+            flag = YES;
+            break;
+        }
+        superClass = class_getSuperclass(superClass);
     }
+    return flag;
 }
 
-- (NSDictionary *)reMapKeys {
-    return @{};
-}
-
-- (BOOL)reMapValue:(id)value onKey:(NSString *)key {
-    return NO;
-}
-
-- (NSDictionary *)dictionaryValue {
-    NSArray *arr = [self allProperties];
-    NSMutableDictionary *props = [NSMutableDictionary dictionary];
-    for (int i = 0; i < arr.count; i++) {
-        NSString *propertyName = arr[i];
-        id propertyValue = [self valueForKey:(NSString *)propertyName];
-        if (propertyValue) [props setObject:propertyValue forKey:propertyName];
-    }
-    return props;
-}
-
+#pragma mark - NSLog
 - (NSString *)description {
     return [[self dictionaryValue] description];
 }

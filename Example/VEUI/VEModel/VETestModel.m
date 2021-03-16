@@ -17,12 +17,17 @@
         @"test": @"des",
     };
 }
-- (BOOL)reMapValue:(id)value onKey:(NSString *)key {
-    if ([key isEqualToString:@"subModel"]) {
-        self.subModel = [[VETestSonSubModel alloc] initWithDictionary:value];
-        return YES;
-    }
-    return nil;
+
+//- (BOOL)reMapValue:(id)value onKey:(NSString *)key {
+//    if ([key isEqualToString:@"subModel"]) {
+//        self.subModel = [[VETestSonSubModel alloc] initWithDictionary:value];
+//        return YES;
+//    }
+//    return nil;
+//}
+
+- (NSDictionary *)valueOnModelClass {
+    return @{@"subModel": @"VETestSubModel", @"sonModel": @"VETestSonSubModel", @"dataArr": @"VETestSubModel"};
 }
 
 @end
