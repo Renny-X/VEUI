@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 指定属性对应的ClassName { "model.property": "class name" }
  */
 - (NSDictionary *)valueOnModelClass;
+/**
+ * initWithDictionary 方法执行之后的回调方法，用于初始化后 对数据 再进行处理
+ */
+- (void)didMapValuesFromDictionary:(NSDictionary *)dict;
 
 @end
 

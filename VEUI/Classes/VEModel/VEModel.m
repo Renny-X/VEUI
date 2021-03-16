@@ -31,6 +31,7 @@
             }
         }
     }
+    [self didMapValuesFromDictionary:dict];
     return self;
 }
 
@@ -58,6 +59,8 @@
     }
     return props;
 }
+
+- (void)didMapValuesFromDictionary:(NSDictionary *)dict {}
 
 #pragma mark - Data Handler
 - (void)handleValue:(id)value onKey:(NSString *)key {
