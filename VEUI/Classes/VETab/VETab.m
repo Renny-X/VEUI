@@ -14,8 +14,7 @@
 
 @interface VETab ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@property(nonatomic, strong)NSArray<NSString *> *titleArr;
-@property(nonatomic, strong)NSArray<UIView *> *subContentViews;
+@property(nonatomic, strong)NSMutableArray *contentArr;
 
 @property(nonatomic, strong)UICollectionView *colV;
 @property(nonatomic, strong)UICollectionView *contentV;
@@ -23,27 +22,24 @@
 
 @property(nonatomic, assign)NSInteger layoutTag;
 
+@property(nonatomic, assign)NSInteger itemCount;
+
 @end
 
 @implementation VETab
 
-#pragma mark - Public
-- (instancetype)initWithTitles:(NSArray<NSString *> *)titles {
-    return [self initWithTitles:titles contentViews:nil];
-}
-
-- (instancetype)initWithTitles:(NSArray<NSString *> *)titles contentViews:(NSArray<UIView *> * __nullable)contentViews {
+- (instancetype)initWithStyle:(VETabStyle)style {
     if (self = [super init]) {
-        [self initParams];
-        
-        self.titleArr = titles && titles.count ? [NSArray arrayWithArray:titles] : [NSArray array];
-        self.subContentViews = contentViews && contentViews.count ? [NSArray arrayWithArray:contentViews] : [NSArray array];
-        
         [self setUI];
+        _style = style;
+        self.itemCount = 0;
+        
+        self.contentArr = [NSMutableArray array];
     }
     return self;
 }
 
+#pragma mark - Public
 - (void)reloadTab {
     if (self.colV) {
         [self.colV reloadData];
@@ -53,27 +49,27 @@
 
 - (void)reloadContent {
     if (self.contentV) {
+        self.contentArr = [NSMutableArray array];
         [self.contentV reloadData];
     }
+}
+
+- (VETabItem *)tabItemAtIndex:(NSInteger)index {
+    return (VETabItem *)[self.colV dequeueReusableCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER forIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
 }
 
 #pragma mark - UI
 - (void)initParams {
     self.backgroundColor = [UIColor whiteColor];
     self.itemWidth = 60;
-    self.activeColor = [UIColor colorWithHexString:@"#09f"];
-    self.inactiveColor = [UIColor colorWithHexString:@"#000"];
     self.itemHeight = 40;
-    self.titleFont = [UIFont systemFontOfSize:16];
 }
 
 - (void)setUI {
+    [self initParams];
     [self addSubview:self.colV];
     [self addSubview:self.contentV];
     
-    if (self.titleArr.count) {
-        [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    }
 }
 
 - (void)layoutSubviews {
@@ -83,7 +79,6 @@
     
     if (!self.layoutTag) {
         [self setSelectedIndex:self.selectedIndex || 0 animate:YES];
-        [self.contentV reloadData];
         self.layoutTag = 1;
     }
     
@@ -91,41 +86,49 @@
     self.contentV.frame = CGRectMake(0, self.itemHeight, self.width, self.height - self.itemHeight);
 }
 
+#pragma mark - Data Handler
+- (void)checkArrWithCount:(NSInteger)count {
+    while (self.contentArr.count < count) {
+        [self.contentArr addObject:[NSNull null]];
+    }
+}
+
 #pragma mark - UICollectionViewDelegate && UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.titleArr.count;
+    if ([self.dataSource respondsToSelector:@selector(numberOfTabItems)]) {
+        self.itemCount = [self.dataSource numberOfTabItems];
+        return self.itemCount;
+    }
+    return 0;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self checkArrWithCount:indexPath.row + 1];
     if (collectionView.tag % 10) {
         // 内容页
         VETabContentItem *cell = (VETabContentItem *)[collectionView dequeueReusableCellWithReuseIdentifier:VETAB_Content_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
-        UIView *layoutView;
-        if ([self.delegate respondsToSelector:@selector(tabContentViewAtIndex:)]) {
-            layoutView = [self.delegate tabContentViewAtIndex:indexPath.row];
-        }
-        if (!layoutView && self.subContentViews && self.subContentViews.count > indexPath.row) {
-            UIView *v = [self.subContentViews objectAtIndex:indexPath.row];
-            layoutView = v;
-        }
-        if (!layoutView) {
-            layoutView = [[UIView alloc] init];
-            layoutView.backgroundColor = [UIColor whiteColor];
+        UIView *layoutView = [self.contentArr objectAtIndex:indexPath.row];
+        if (![layoutView isKindOfClass:[UIView class]]) {
+            layoutView = nil;
+            if ([self.dataSource respondsToSelector:@selector(tab:contentViewAtIndex:)]) {
+                layoutView = [self.dataSource tab:self contentViewAtIndex:indexPath.row];
+            }
+            if (!layoutView) {
+                layoutView = [[UIView alloc] init];
+                layoutView.backgroundColor = [UIColor whiteColor];
+            }
+            [self.contentArr replaceObjectAtIndex:indexPath.row withObject:layoutView];
         }
         cell.layoutView = layoutView;
         return cell;
     }
     // tab
-    VETabItem *cell = (VETabItem *)[collectionView dequeueReusableCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
-    cell.activeColor = self.activeColor;
-    cell.inactiveColor = self.inactiveColor;
-    cell.titleFont = self.titleFont;
-    cell.title = self.titleArr[indexPath.row];
-    if ([self.delegate respondsToSelector:@selector(tabItemAtIndex:title:tabItem:)]) {
-        VETabItem *tmp = [self.delegate tabItemAtIndex:indexPath.row title:self.titleArr[indexPath.row] tabItem:cell];
-        if (tmp) {
-            return tmp;
-        }
+    VETabItem *cell;
+    if ([self.dataSource respondsToSelector:@selector(tab:tabItemAtIndex:)]) {
+        cell = [self.dataSource tab:self tabItemAtIndex:indexPath.row];
+    }
+    if (!cell) {
+        cell = (VETabItem *)[collectionView dequeueReusableCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
     }
     return cell;
 }
@@ -146,10 +149,13 @@
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (collectionView.tag % 10) {
+        if (collectionView.width <= 0 || collectionView.height <= 0) {
+            return CGSizeMake(CGFLOAT_MIN, CGFLOAT_MIN);
+        }
         return collectionView.size;
     }
-    if ([self.delegate respondsToSelector:@selector(tabItemWidthAtIndex:title:)]) {
-        CGFloat width = [self.delegate tabItemWidthAtIndex:indexPath.row title:self.titleArr[indexPath.row]];
+    if ([self.dataSource respondsToSelector:@selector(tab:tabItemWidthAtIndex:)]) {
+        CGFloat width = [self.dataSource tab:self tabItemWidthAtIndex:indexPath.row];
         if (width > 0) {
             return CGSizeMake(width, self.itemHeight);
         }
@@ -159,7 +165,10 @@
 
 #pragma mark - Set
 - (void)setSelectedIndex:(NSInteger)selectedIndex animate:(BOOL)animate {
-    if (self.titleArr.count > selectedIndex) {
+    if ([self.dataSource respondsToSelector:@selector(numberOfTabItems)]) {
+        self.itemCount = [self.dataSource numberOfTabItems];
+    }
+    if (self.itemCount > selectedIndex) {
         _selectedIndex = selectedIndex;
         [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
         [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
@@ -172,7 +181,6 @@
 - (UICollectionView *)colV {
     if (!_colV) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.itemSize = self.size;
         layout.minimumLineSpacing = 0;
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         layout.sectionHeadersPinToVisibleBounds = NO;
@@ -194,7 +202,6 @@
 - (UICollectionView *)contentV {
     if (!_contentV) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.itemSize = self.size;
         layout.minimumLineSpacing = 0;
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         layout.sectionHeadersPinToVisibleBounds = NO;

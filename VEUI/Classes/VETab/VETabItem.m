@@ -34,6 +34,10 @@
     self.label.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:self.label];
     
+    self.activeColor = [UIColor colorWithHexString:@"#09f"];
+    self.inactiveColor = [UIColor colorWithHexString:@"#000"];
+    self.titleFont = [UIFont systemFontOfSize:16];
+    
     self.line = [[UIView alloc] init];
     [self.contentView addSubview:self.line];
 }
