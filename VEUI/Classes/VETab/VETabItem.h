@@ -25,13 +25,13 @@ typedef NS_ENUM(NSInteger, VETabItemStyle) {
  */
 @property(nonatomic, strong)NSString *title;
 /**
- * 高亮颜色
- */
-@property(nonatomic, strong)UIColor *activeColor;
-/**
  * 正常颜色
  */
 @property(nonatomic, strong)UIColor *inactiveColor;
+/**
+ * 高亮颜色
+ */
+@property(nonatomic, strong)UIColor *activeColor;
 /**
  * title font 默认为16
  */

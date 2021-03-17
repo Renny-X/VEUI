@@ -8,8 +8,9 @@
 
 #import "VETabController.h"
 #import <CoreText/CoreText.h>
+#import "VETabContentView.h"
 
-@interface VETabController ()<VETabDelegate>
+@interface VETabController ()<VETabDelegate, VETabDataSource>
 
 @property(nonatomic, strong)UIView *testView;
 @property(nonatomic, strong)VETab *tab;
@@ -23,42 +24,46 @@
     self.view.backgroundColor = UIColor.lightGrayColor;
     
     
-    VETab *tab = [[VETab alloc] initWithTitles:@[@"aaa", @"bbb", @"ccc"]];
-    tab.frame = CGRectMake(0, 100, self.view.width, 60);
+    VETab *tab = [[VETab alloc] initWithStyle:VETabStyleDefault];
+    tab.frame = CGRectMake(0, 100, self.view.width, 100);
     tab.backgroundColor = [UIColor whiteColor];
     tab.delegate = self;
+    tab.dataSource = self;
     self.tab = tab;
     [self.view addSubview:tab];
 //    [self test];
 }
 
-- (CGFloat)tabItemWidthAtIndex:(NSInteger)index title:(NSString *)title {
+- (NSInteger)numberOfTabItems {
+    return 3;
+}
+
+- (CGFloat)tab:(VETab *)tab tabItemWidthAtIndex:(NSInteger)index {
     return self.view.width / 3.0;
 }
 
-- (VETabItem *)tabItemAtIndex:(NSInteger)index title:(NSString *)title tabItem:(VETabItem *)tabItem {
+- (__kindof VETabItem *)tab:(VETab *)tab tabItemAtIndex:(NSInteger)index {
+    VETabItem *tabItem = [tab tabItemAtIndex:index];
     tabItem.style = VETabItemStyleFullLine;
+    tabItem.title = [NSString stringWithFormat:@"标题 %d", (int)index];
     if (index == 0) {
-        tabItem.activeColor = UIColor.redColor;
-        tabItem.title = [NSDate dateStringWithFormatter:@"mm:ss"];
+        tabItem.title = [NSString stringWithFormat:@"%@ - %@", tabItem.title, [NSDate dateStringWithFormatter:@"HH:mm:ss"]];
         return tabItem;
     }
     return tabItem;
 }
 
-- (void)didSelectAtIndex:(NSInteger)index {
-    NSLog(@"%d", (int)index);
+- (UIView *)tab:(VETab *)tab contentViewAtIndex:(NSInteger)index {
+    VETabContentView *v = [[VETabContentView alloc] init];
+    __weak typeof(self) ws = self;
+    v.clickBack = ^(BOOL begin) {
+        [ws tapAction];
+    };
+    return v;
 }
 
-- (UIView *)tabContentViewAtIndex:(NSInteger)index {
-    if (index == 1) {
-        UIView *v = [[UIView alloc] init];
-        v.backgroundColor = [UIColor yellowColor];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
-        [v addGestureRecognizer:tap];
-        return v;
-    }
-    return nil;
+- (void)didSelectAtIndex:(NSInteger)index {
+    NSLog(@"%d", (int)index);
 }
 
 - (void)tapAction {
