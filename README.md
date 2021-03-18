@@ -38,6 +38,10 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.9
+#### fix
+* VEToast 修复偶现不隐藏问题
+
 ### 0.1.8
 #### feature
 * 添加 VENoticeBar 组件
