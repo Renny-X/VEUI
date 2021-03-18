@@ -74,8 +74,6 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.colV.scrollEnabled = self.tabScrollEnable;
-    self.contentV.scrollEnabled = self.contentScrollEnable;
     
     if (!self.layoutTag) {
         [self setSelectedIndex:self.selectedIndex || 0 animate:YES];
@@ -226,6 +224,26 @@
         _selectedIndex = 0;
     }
     return _selectedIndex;
+}
+
+#pragma mark- tab scroll enabled
+@synthesize tabScrollEnabled = _tabScrollEnabled;
+- (BOOL)tabScrollEnabled {
+    return self.colV.scrollEnabled;
+}
+
+- (void)setTabScrollEnabled:(BOOL)tabScrollEnabled {
+    self.colV.scrollEnabled = tabScrollEnabled;
+}
+
+#pragma mark- tab scroll enabled
+@synthesize contentScrollEnabled = _contentScrollEnabled;
+- (BOOL)contentScrollEnabled {
+    return self.contentV.scrollEnabled;
+}
+
+- (void)setcontentScrollEnabled:(BOOL)contentScrollEnabled {
+    self.contentV.scrollEnabled = contentScrollEnabled;
 }
 
 @end

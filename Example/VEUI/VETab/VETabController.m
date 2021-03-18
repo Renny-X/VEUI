@@ -25,13 +25,17 @@
     
     
     VETab *tab = [[VETab alloc] initWithStyle:VETabStyleDefault];
-    tab.frame = CGRectMake(0, 100, self.view.width, 100);
     tab.backgroundColor = [UIColor whiteColor];
     tab.delegate = self;
     tab.dataSource = self;
     self.tab = tab;
     [self.view addSubview:tab];
 //    [self test];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self.tab.frame = self.view.bounds;
 }
 
 - (NSInteger)numberOfTabItems {
