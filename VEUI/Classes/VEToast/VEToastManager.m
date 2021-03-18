@@ -22,20 +22,16 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         __strong typeof(self) ss = ws;
         UIView *window = [[UIApplication sharedApplication] keyWindow];
-        [window.layer removeAllAnimations];
-        [[ss class] cancelPreviousPerformRequestsWithTarget:ss selector:@selector(hide) object:nil];
-        while (ss.toastArr.count) {
-            UIView *v = [ss.toastArr firstObject];
-            [v removeFromSuperview];
-            [ss.toastArr removeObject:v];
-        }
+        [ss prepareHide:NO];
         __block UIView *v = view;
         v.alpha = 0;
+        v.transform = CGAffineTransformMakeScale(0.9, 0.9);
         [window addSubview:v];
         [ss.toastArr addObject:v];
         __weak typeof(self)weakSelf = ss;
         [UIView animateWithDuration:ss.animateDuration animations:^{
             v.alpha = 1;
+            v.transform = CGAffineTransformMakeScale(1, 1);
         } completion:^(BOOL finished) {
             if (finished && duration > 0) {
                 NSTimeInterval after = duration < weakSelf.animateDuration ? duration : duration - weakSelf.animateDuration;
@@ -45,6 +41,28 @@
     });
 }
 
+- (void)prepareHide:(BOOL)animated {
+    __weak typeof(self)ws = self;
+    @synchronized (self.toastArr) {
+        __strong typeof(self) ss = ws;
+        [[ss class] cancelPreviousPerformRequestsWithTarget:ss selector:@selector(hide) object:nil];
+        if (!animated) {
+            UIView *window = [[UIApplication sharedApplication] keyWindow];
+            [window.layer removeAllAnimations];
+            for (UIView *v in ss.toastArr) {
+                [v removeFromSuperview];
+            }
+            ss.toastArr = [NSMutableArray array];
+        } else {
+            while (ss.toastArr.count > 1) {
+                UIView *v = [ss.toastArr firstObject];
+                [v removeFromSuperview];
+                [ss.toastArr removeObject:v];
+            }
+        }
+    }
+}
+
 - (void)hide {
     if (self.toastArr.count == 0) {
         return;
@@ -52,18 +70,16 @@
     __weak typeof(self) ws = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         __strong typeof(self) ss = ws;
-        while (ss.toastArr.count > 1) {
-            UIView *v = [ss.toastArr firstObject];
-            [v removeFromSuperview];
-            [ss.toastArr removeObject:v];
-        }
+        [ss prepareHide:YES];
         __block UIView *v = [ss.toastArr firstObject];
         __weak typeof(self)weakSelf = ss;
         [UIView animateWithDuration:ss.animateDuration animations:^{
             v.alpha = 0;
+            v.transform = CGAffineTransformMakeScale(0.9, 0.9);
         } completion:^(BOOL finished) {
-            [v removeFromSuperview];
-            [weakSelf.toastArr removeAllObjects];
+            if ([weakSelf.toastArr containsObject:v] && v.superview) {
+                [weakSelf prepareHide:NO];
+            }
         }];
     });
 }
