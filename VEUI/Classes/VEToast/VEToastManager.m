@@ -18,48 +18,54 @@
 @implementation VEToastManager
 
 - (void)show:(UIView *)view duration:(NSTimeInterval)duration {
-    @synchronized (self.toastArr) {
-        while (self.toastArr.count) {
-            UIView *v = [self.toastArr firstObject];
+    __weak typeof(self) ws = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        __strong typeof(self) ss = ws;
+        UIView *window = [[UIApplication sharedApplication] keyWindow];
+        [window.layer removeAllAnimations];
+        [[ss class] cancelPreviousPerformRequestsWithTarget:ss selector:@selector(hide) object:nil];
+        while (ss.toastArr.count) {
+            UIView *v = [ss.toastArr firstObject];
             [v removeFromSuperview];
-            [self.toastArr removeObject:v];
+            [ss.toastArr removeObject:v];
         }
-    }
-    [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(hide) object:nil];
-    __block UIView *v = view;
-    [self.toastArr addObject:v];
-    v.alpha = 0;
-    [[UIApplication sharedApplication].keyWindow addSubview:v];
-    __weak __typeof(self)weakSelf = self;
-    [UIView animateWithDuration:self.animateDuration animations:^{
-        v.alpha = 1;
-    } completion:^(BOOL finished) {
-        if (finished && duration > 0) {
-            NSTimeInterval after = duration < weakSelf.animateDuration ? duration : duration - weakSelf.animateDuration;
-            [weakSelf performSelector:@selector(hide) withObject:nil afterDelay:after];
-        }
-    }];
+        __block UIView *v = view;
+        v.alpha = 0;
+        [window addSubview:v];
+        [ss.toastArr addObject:v];
+        __weak typeof(self)weakSelf = ss;
+        [UIView animateWithDuration:ss.animateDuration animations:^{
+            v.alpha = 1;
+        } completion:^(BOOL finished) {
+            if (finished && duration > 0) {
+                NSTimeInterval after = duration < weakSelf.animateDuration ? duration : duration - weakSelf.animateDuration;
+                [weakSelf performSelector:@selector(hide) withObject:nil afterDelay:after];
+            }
+        }];
+    });
 }
 
 - (void)hide {
     if (self.toastArr.count == 0) {
         return;
     }
-    @synchronized (self.toastArr) {
-        while (self.toastArr.count > 1) {
-            UIView *v = [self.toastArr firstObject];
+    __weak typeof(self) ws = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        __strong typeof(self) ss = ws;
+        while (ss.toastArr.count > 1) {
+            UIView *v = [ss.toastArr firstObject];
             [v removeFromSuperview];
-            [self.toastArr removeObject:v];
+            [ss.toastArr removeObject:v];
         }
-    }
-    __block UIView *v = [self.toastArr firstObject];
-    __weak __typeof(self)weakSelf = self;
-    [UIView animateWithDuration:self.animateDuration animations:^{
-        v.alpha = 0;
-    } completion:^(BOOL finished) {
-        [v removeFromSuperview];
-        [weakSelf.toastArr removeAllObjects];
-    }];
+        __block UIView *v = [ss.toastArr firstObject];
+        __weak typeof(self)weakSelf = ss;
+        [UIView animateWithDuration:ss.animateDuration animations:^{
+            v.alpha = 0;
+        } completion:^(BOOL finished) {
+            [v removeFromSuperview];
+            [weakSelf.toastArr removeAllObjects];
+        }];
+    });
 }
 
 #pragma mark - Get
@@ -96,7 +102,7 @@ static VEToastManager *_instance;
             _instance = [[VEToastManager alloc] init];
             _instance.duration = 2.3;
             _instance.imgSize = CGSizeMake(50, 50);
-            _instance.animateDuration = 0.3;
+            _instance.animateDuration = 0.2;
             _instance.textFont = 14;
             _instance.toastColor = [UIColor colorWithWhite:0 alpha:0.6];
             _instance.tintColor = [UIColor whiteColor];

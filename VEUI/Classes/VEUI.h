@@ -27,13 +27,19 @@
 // category view controller
 #import "UIViewController+VEUI.h"
 
+// base
+#import "VEModel.h"
+
 // custom view
 #import "VEBanner.h"
 #import "VEBubbleView.h"
 #import "VEImageBrowser.h"
 #import "VELabel.h"
+#import "VENoticeBar.h"
 #import "VEPopover.h"
 #import "VETipView.h"
 #import "VEToast.h"
+#import "VETab.h"
+#import "VEConstant.h"
 
 #endif /* VEUI_h */

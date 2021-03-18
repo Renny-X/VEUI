@@ -19,6 +19,13 @@
 
 @implementation VEPopover
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (!@available(iOS 11.0, *)) {
+        [self startAnimate:YES];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
