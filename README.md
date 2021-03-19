@@ -38,6 +38,10 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.10
+* VETab 支持content 左右滑动
+* VETab scrollEnabled处理
+
 ### 0.1.9
 #### fix
 * VEToast 修复偶现不隐藏问题

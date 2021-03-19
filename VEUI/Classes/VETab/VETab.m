@@ -33,7 +33,7 @@
         [self setUI];
         _style = style;
         self.itemCount = 0;
-        
+        _selectedIndex = -1;
         self.contentArr = [NSMutableArray array];
     }
     return self;
@@ -74,14 +74,13 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.colV.scrollEnabled = self.tabScrollEnable;
-    self.contentV.scrollEnabled = self.contentScrollEnable;
     
     if (!self.layoutTag) {
-        [self setSelectedIndex:self.selectedIndex || 0 animate:YES];
+        [self setSelectedIndex:self.selectedIndex >= 0 ?: 0 animate:YES];
         self.layoutTag = 1;
     }
-    
+    self.colV.scrollEnabled = self.tabScrollEnabled;
+    self.contentV.scrollEnabled = self.contentScrollEnabled;
     self.colV.frame = CGRectMake(0, 0, self.width, self.itemHeight);
     self.contentV.frame = CGRectMake(0, self.itemHeight, self.width, self.height - self.itemHeight);
 }
@@ -138,8 +137,8 @@
         [collectionView deselectItemAtIndexPath:indexPath animated:NO];
     } else {
         // tab
-        self.contentV.contentOffset = CGPointMake(indexPath.row * self.contentV.width, 0);
         _selectedIndex = indexPath.row;
+        [self setSelectedIndex:indexPath.row animate:YES];
         if ([self.delegate respondsToSelector:@selector(didSelectAtIndex:)]) {
             [self.delegate didSelectAtIndex:indexPath.row];
         }
@@ -163,17 +162,24 @@
     return CGSizeMake(self.itemWidth, self.itemHeight);
 }
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSInteger index = scrollView.contentOffset.x / scrollView.width;
+    [self setSelectedIndex:index animate:NO];
+}
+
 #pragma mark - Set
 - (void)setSelectedIndex:(NSInteger)selectedIndex animate:(BOOL)animate {
     if ([self.dataSource respondsToSelector:@selector(numberOfTabItems)]) {
         self.itemCount = [self.dataSource numberOfTabItems];
     }
-    if (self.itemCount > selectedIndex) {
-        _selectedIndex = selectedIndex;
-        [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
-        [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
-        
-        self.contentV.contentOffset = CGPointMake(selectedIndex * self.contentV.width, 0);
+    if (self.itemCount > selectedIndex && selectedIndex >= 0) {
+        if (self.selectedIndex != selectedIndex) {
+            _selectedIndex = selectedIndex;
+            [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
+            [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+        }
+        [self.contentV setContentOffset:CGPointMake(selectedIndex * self.contentV.width, 0) animated:animate];
     }
 }
 
@@ -193,7 +199,6 @@
         _colV.dataSource = self;
         _colV.showsHorizontalScrollIndicator = NO;
         _colV.showsVerticalScrollIndicator = NO;
-        _colV.scrollEnabled = NO;
         [_colV registerClass:[VETabItem class] forCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER];
     }
     return _colV;
@@ -214,7 +219,7 @@
         _contentV.dataSource = self;
         _contentV.showsHorizontalScrollIndicator = NO;
         _contentV.showsVerticalScrollIndicator = NO;
-        _contentV.scrollEnabled = NO;
+        _contentV.pagingEnabled = YES;
         [_contentV registerClass:[VETabContentItem class] forCellWithReuseIdentifier:VETAB_Content_CELL_REUSE_IDENTIFIER];
     }
     return _contentV;
@@ -226,6 +231,28 @@
         _selectedIndex = 0;
     }
     return _selectedIndex;
+}
+
+#pragma mark- tab scroll enabled
+@synthesize tabScrollEnabled = _tabScrollEnabled;
+- (BOOL)tabScrollEnabled {
+    return self.colV.scrollEnabled;
+}
+
+- (void)setTabScrollEnabled:(BOOL)tabScrollEnabled {
+    _tabScrollEnabled = tabScrollEnabled;
+    self.colV.scrollEnabled = tabScrollEnabled;
+}
+
+#pragma mark- tab scroll enabled
+@synthesize contentScrollEnabled = _contentScrollEnabled;
+- (BOOL)contentScrollEnabled {
+    return self.contentV.scrollEnabled;
+}
+
+- (void)setcontentScrollEnabled:(BOOL)contentScrollEnabled {
+    _contentScrollEnabled = contentScrollEnabled;
+    self.contentV.scrollEnabled = contentScrollEnabled;
 }
 
 @end

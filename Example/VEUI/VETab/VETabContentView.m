@@ -18,7 +18,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor yellowColor];
-        NSLog(@" ==> 11");
     }
     return self;
 }

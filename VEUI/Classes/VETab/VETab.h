@@ -24,11 +24,11 @@ typedef NS_ENUM(NSInteger, VETabStyle) {
 /**
  * tab 能否滚动 默认为NO
  */
-@property(nonatomic, assign)BOOL tabScrollEnable;
+@property(nonatomic, assign)BOOL tabScrollEnabled;
 /**
  * content 能否滚动 默认为NO
  */
-@property(nonatomic, assign)BOOL contentScrollEnable;
+@property(nonatomic, assign)BOOL contentScrollEnabled;
 /**
  * item 高度，剩余高度给subView，默认高度为40
  */
