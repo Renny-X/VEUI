@@ -25,13 +25,20 @@
     
     
     VETab *tab = [[VETab alloc] initWithStyle:VETabStyleDefault];
-    tab.frame = CGRectMake(0, 100, self.view.width, 100);
+    tab.frame = CGRectMake(100, 100, self.view.width, 100);
     tab.backgroundColor = [UIColor whiteColor];
     tab.delegate = self;
     tab.dataSource = self;
+    tab.contentScrollEnabled = YES;
     self.tab = tab;
     [self.view addSubview:tab];
 //    [self test];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self.tab.frame = self.view.bounds;
+    self.tab.frame = CGRectMake(0, 100, self.view.width, self.view.height - 100);
 }
 
 - (NSInteger)numberOfTabItems {
@@ -55,6 +62,19 @@
 
 - (UIView *)tab:(VETab *)tab contentViewAtIndex:(NSInteger)index {
     VETabContentView *v = [[VETabContentView alloc] init];
+    switch (index) {
+        case 0:
+            v.backgroundColor = [UIColor redColor];
+            break;
+        case 1:
+            v.backgroundColor = [UIColor greenColor];
+            break;
+        case 2:
+            v.backgroundColor = [UIColor blueColor];
+            break;
+        default:
+            break;
+    }
     __weak typeof(self) ws = self;
     v.clickBack = ^(BOOL begin) {
         [ws tapAction];
@@ -67,8 +87,9 @@
 }
 
 - (void)tapAction {
-    NSLog(@"current selected index: %d", (int)self.tab.selectedIndex);
-    [self.tab reloadTab];
+    self.tab.contentScrollEnabled = YES;
+//    NSLog(@"current selected index: %d", (int)self.tab.selectedIndex);
+//    [self.tab reloadTab];
 }
 
 

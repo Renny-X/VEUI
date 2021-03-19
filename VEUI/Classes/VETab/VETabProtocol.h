@@ -25,7 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol VETabDataSource <NSObject>
 
-@optional
 /**
  * 返回 tabItem 总数，默认 0
  */
@@ -38,6 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
  * 返回 VETabItem 用于自定义tabItem样式，返回nil时使用默认item
  */
 - (__kindof VETabItem *)tab:(VETab *)tab tabItemAtIndex:(NSInteger)index;
+
+@optional
 /**
  * 返回 tabItem 关联的subView，nil时 返回默认页面
  */
