@@ -138,7 +138,7 @@
     } else {
         // tab
         _selectedIndex = indexPath.row;
-        [self setSelectedIndex:indexPath.row animate:YES];
+        [self setSelectedIndex:indexPath.row animate:collectionView.scrollEnabled];
         if ([self.delegate respondsToSelector:@selector(didSelectAtIndex:)]) {
             [self.delegate didSelectAtIndex:indexPath.row];
         }
@@ -174,11 +174,9 @@
         self.itemCount = [self.dataSource numberOfTabItems];
     }
     if (self.itemCount > selectedIndex && selectedIndex >= 0) {
-        if (self.selectedIndex != selectedIndex) {
-            _selectedIndex = selectedIndex;
-            [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
-            [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
-        }
+        _selectedIndex = selectedIndex;
+//        [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
+        [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         [self.contentV setContentOffset:CGPointMake(selectedIndex * self.contentV.width, 0) animated:animate];
     }
 }
@@ -250,9 +248,12 @@
     return self.contentV.scrollEnabled;
 }
 
-- (void)setcontentScrollEnabled:(BOOL)contentScrollEnabled {
+- (void)setContentScrollEnabled:(BOOL)contentScrollEnabled {
     _contentScrollEnabled = contentScrollEnabled;
-    self.contentV.scrollEnabled = contentScrollEnabled;
+//    self.contentV.scrollEnabled = contentScrollEnabled;
+    [self.contentV setScrollEnabled:contentScrollEnabled];
 }
+
+
 
 @end
