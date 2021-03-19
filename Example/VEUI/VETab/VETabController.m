@@ -29,7 +29,7 @@
     tab.backgroundColor = [UIColor whiteColor];
     tab.delegate = self;
     tab.dataSource = self;
-    tab.contentScrollEnabled = YES;
+    
     self.tab = tab;
     [self.view addSubview:tab];
 //    [self test];
@@ -87,10 +87,9 @@
 }
 
 - (void)tapAction {
-    self.tab.contentScrollEnabled = YES;
-    NSLog(@"scroll ==> %d", self.tab.contentScrollEnabled);
+    self.tab.contentScrollEnabled = !self.tab.contentScrollEnabled;
 //    NSLog(@"current selected index: %d", (int)self.tab.selectedIndex);
-//    [self.tab reloadTab];
+    [self.tab reloadTab];
 }
 
 
