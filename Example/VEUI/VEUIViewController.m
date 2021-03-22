@@ -175,6 +175,7 @@
     VEUICellModel *cellModel = groupModel.cellArr[indexPath.row];
     if (cellModel.controller) {
         cellModel.controller.title = cellModel.title;
+        cellModel.controller.edgesForExtendedLayout = UIRectEdgeNone;
         [self.navigationController pushViewController:cellModel.controller animated:YES];
     }
 }

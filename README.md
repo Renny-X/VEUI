@@ -38,6 +38,33 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.12
+#### fix
+* VETab 适配13.5系统 点击collectionViewCell后需要手动更新UI
+
+### 0.1.11
+#### fix
+* VETab 左右滑动
+
+### 0.1.10
+* VETab 支持content 左右滑动
+* VETab scrollEnabled处理
+
+### 0.1.9
+#### fix
+* VEToast 修复偶现不隐藏问题
+
+### 0.1.8
+#### feature
+* 添加 VENoticeBar 组件
+* 添加 VETab 组件
+* 添加 VEModel 基类 支持嵌套解析
+
+#### fix
+* VEToast 修复偶现不隐藏问题
+* UIimage VEUI 扩展方法 从View生成Image方法优化
+* VEBubbleView 修复设置contentColor 导致闪退的问题
+
 ### 0.1.7
 * 添加 VEPopover 组件
 * 优化 UIView 扩展类方法

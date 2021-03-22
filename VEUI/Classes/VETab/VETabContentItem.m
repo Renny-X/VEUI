@@ -29,4 +29,9 @@
     [self.contentView addSubview:_layoutView];
 }
 
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    [self setNeedsLayout];
+}
+
 @end
