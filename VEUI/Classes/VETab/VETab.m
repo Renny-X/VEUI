@@ -175,8 +175,7 @@
     }
     if (self.itemCount > selectedIndex && selectedIndex >= 0) {
         _selectedIndex = selectedIndex;
-//        [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
-        [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+        [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] animated:animate scrollPosition:UICollectionViewScrollPositionNone];
         [self.contentV setContentOffset:CGPointMake(selectedIndex * self.contentV.width, 0) animated:animate];
     }
 }

@@ -29,7 +29,7 @@
 - (void)setup {
     self.clipsToBounds = YES;
 
-    _style = VETabItemStyleShortLine;
+    self.style = VETabItemStyleShortLine;
     self.label = [[UILabel alloc] init];
     self.label.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:self.label];
@@ -76,6 +76,11 @@
         return 3;
     }
     return _lineHeight;
+}
+
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    [self setNeedsLayout];
 }
 
 @end

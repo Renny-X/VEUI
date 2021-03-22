@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'VEUI'
-  s.version          = '0.1.11'
+  s.version          = '0.1.12'
   s.summary          = 'VEUI 组件库'
   s.homepage         = 'http://gitlab.ivedeng.com/veui/veui.ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
