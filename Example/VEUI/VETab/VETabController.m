@@ -38,7 +38,6 @@
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.tab.frame = self.view.bounds;
-    self.tab.frame = CGRectMake(0, 100, self.view.width, self.view.height - 100);
 }
 
 - (NSInteger)numberOfTabItems {

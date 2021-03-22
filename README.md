@@ -38,6 +38,10 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.12
+#### fix
+* VETab 适配13.5系统 点击collectionViewCell后需要手动更新UI
+
 ### 0.1.11
 #### fix
 * VETab 左右滑动
