@@ -164,8 +164,10 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSInteger index = scrollView.contentOffset.x / scrollView.width;
-    [self setSelectedIndex:index animate:NO];
+    if (scrollView.tag % 10) {
+        NSInteger index = scrollView.contentOffset.x / scrollView.width;
+        [self setSelectedIndex:index animate:NO];
+    }
 }
 
 #pragma mark - Set

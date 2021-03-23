@@ -42,4 +42,7 @@
 #import "VETab.h"
 #import "VEConstant.h"
 
+// Utils
+#import "VETools.h"
+
 #endif /* VEUI_h */
