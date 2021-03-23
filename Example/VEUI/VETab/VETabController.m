@@ -29,7 +29,6 @@
     tab.backgroundColor = [UIColor whiteColor];
     tab.delegate = self;
     tab.dataSource = self;
-    
     self.tab = tab;
     [self.view addSubview:tab];
 //    [self test];

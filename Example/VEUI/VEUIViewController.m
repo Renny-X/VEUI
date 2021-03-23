@@ -94,6 +94,21 @@
 //
 //    NSLog(@"%@", [arr formatValue]);
 //    NSLog(@"%@", [dict safeValueForKey:@"键1"]);
+    
+    NSArray *strArr = @[
+        @"xxxxx/x.html",
+        @"xxxxx.com",
+        @"www.xxxxx.com",
+        @"http://www.xxxxx.com",
+        @"http://xxxxx.com/",
+        @"xxxxx.com/x",
+        @"xxxxx.com/x.html",
+        @"xxxxx/x.html",
+    ];
+    for (int i = 0; i < strArr.count; i++) {
+        NSString *link = [strArr objectAtIndex:i];
+        NSLog(@"%@ ==> %d", link, [link isUrlString]);
+    }
 }
 
 - (void)btnClicked:(UIButton *)btn {
