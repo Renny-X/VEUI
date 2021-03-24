@@ -29,7 +29,7 @@
     tab.backgroundColor = [UIColor whiteColor];
     tab.delegate = self;
     tab.dataSource = self;
-    
+    tab.tabScrollEnabled = YES;
     self.tab = tab;
     [self.view addSubview:tab];
 //    [self test];
@@ -41,11 +41,11 @@
 }
 
 - (NSInteger)numberOfTabItems {
-    return 3;
+    return 5;
 }
 
 - (CGFloat)tab:(VETab *)tab tabItemWidthAtIndex:(NSInteger)index {
-    return self.view.width / 3.0;
+    return self.view.width / 2.4;
 }
 
 - (__kindof VETabItem *)tab:(VETab *)tab tabItemAtIndex:(NSInteger)index {
