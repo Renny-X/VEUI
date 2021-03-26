@@ -22,6 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
 
+// 获取两个颜色的中间颜色
++ (UIColor *)colorFromColor:(UIColor *)fromColor toColor:(UIColor *)toColor progress:(CGFloat)progress;
+
++ (UIColor *)randomColor;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -6,6 +6,7 @@
 //
 
 #import "UIColor+VEUI.h"
+#import <VEUI/VEUI.h>
 
 @implementation UIColor (VEUI)
 
@@ -72,6 +73,33 @@
 
 + (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha {
     return [[UIColor colorWithHexString:color] colorWithAlphaComponent:alpha];
+}
+
+// 获取两个颜色的中间颜色
++ (UIColor *)colorFromColor:(UIColor *)fromColor toColor:(UIColor *)toColor progress:(CGFloat)progress {
+    if (!fromColor || !toColor) {
+        return [UIColor clearColor];
+    }
+    progress = progress < 0 ? 0 : progress;
+    progress = progress > 1 ? 1 : progress;
+    
+    CGFloat fr, fg, fb, fa;
+    [fromColor getRed:&fr green:&fg blue:&fb alpha:&fa];
+    
+    CGFloat tr, tg, tb, ta;
+    [toColor getRed:&tr green:&tg blue:&tb alpha:&ta];
+    
+    CGFloat dr, dg, db, da;
+    dr = fr + (tr - fr) * progress;
+    dg = fg + (tg - fg) * progress;
+    db = fb + (tb - fb) * progress;
+    da = fa + (ta - fa) * progress;
+    
+    return [UIColor colorWithRed:dr green:dg blue:db alpha:da];
+}
+
++ (UIColor *)randomColor {
+    return [UIColor colorWithRed:randomNum(0, 100) / 100.0 green:randomNum(0, 100) / 100.0 blue:randomNum(0, 100) / 100.0 alpha:1];
 }
 
 @end

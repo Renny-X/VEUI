@@ -7,6 +7,13 @@
 
 #import "VETools.h"
 
+int randomNum(int from, int to) {
+    if (to < from) {
+        return 0;
+    }
+    return rand() % (to - from + 1) + from;
+}
+
 @implementation VETools
 
 + (CGFloat)statusBarHeight {

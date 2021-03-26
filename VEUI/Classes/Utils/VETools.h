@@ -9,6 +9,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern int randomNum(int from, int to);
+
 @interface VETools : NSObject
 
 + (CGFloat)statusBarHeight;

@@ -21,8 +21,14 @@
 @property(nonatomic, assign)CGFloat itemWidth;
 
 @property(nonatomic, assign)NSInteger layoutTag;
+@property(nonatomic, assign)BOOL contentIsDrag;
 
 @property(nonatomic, assign)NSInteger itemCount;
+
+@property(nonatomic, strong)UIView *lineView;
+
+@property(nonatomic, assign)NSInteger nextIndex;
+@property(nonatomic, assign)CGFloat selectProgress;
 
 @end
 
@@ -63,6 +69,7 @@
     self.backgroundColor = [UIColor whiteColor];
     self.itemWidth = 60;
     self.itemHeight = 40;
+    self.lineHeight = 1.5;
 }
 
 - (void)setUI {
@@ -70,6 +77,9 @@
     [self addSubview:self.colV];
     [self addSubview:self.contentV];
     
+    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, self.lineHeight)];
+    self.lineView.backgroundColor = [UIColor clearColor];
+    [self.colV addSubview:self.lineView];
 }
 
 - (void)layoutSubviews {
@@ -83,6 +93,7 @@
     self.contentV.scrollEnabled = self.contentScrollEnabled;
     self.colV.frame = CGRectMake(0, 0, self.width, self.itemHeight);
     self.contentV.frame = CGRectMake(0, self.itemHeight, self.width, self.height - self.itemHeight);
+    self.lineView.maxY = self.itemHeight;
 }
 
 #pragma mark - Data Handler
@@ -127,8 +138,28 @@
         cell = [self.dataSource tab:self tabItemAtIndex:indexPath.row];
     }
     if (!cell) {
-        cell = (VETabItem *)[collectionView dequeueReusableCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
     }
+    if (self.contentIsDrag) {
+        if (indexPath.row == self.selectedIndex) {
+            cell.selectProgress = self.selectProgress;
+        } else if (indexPath.row == self.nextIndex) {
+            cell.selectProgress = 1 - self.selectProgress;
+        } else {
+            cell.selectProgress = 0;
+        }
+    } else {
+        if (cell.selected) {
+            cell.selectProgress = 1;
+        }
+    }
+    if (!self.lineView.width && cell.selected) {
+        [self.colV bringSubviewToFront:self.colV];
+        self.lineView.width = cell.width;
+        self.lineView.x = cell.x;
+        self.lineView.backgroundColor = cell.activeColor;
+    }
+    
     return cell;
 }
 
@@ -138,7 +169,10 @@
     } else {
         // tab
         _selectedIndex = indexPath.row;
-        [self setSelectedIndex:indexPath.row animate:collectionView.scrollEnabled];
+        [self setSelectedIndex:indexPath.row animate:NO];
+        self.contentIsDrag = YES;
+        [self.contentV.delegate scrollViewDidScroll:self.contentV];
+        self.contentIsDrag = NO;
         if ([self.delegate respondsToSelector:@selector(didSelectAtIndex:)]) {
             [self.delegate didSelectAtIndex:indexPath.row];
         }
@@ -165,8 +199,51 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView.tag % 10) {
+        // content
         NSInteger index = scrollView.contentOffset.x / scrollView.width;
         [self setSelectedIndex:index animate:NO];
+        self.contentIsDrag = NO;
+    }
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if (scrollView.tag % 10) {
+        self.contentIsDrag = YES;
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.colV bringSubviewToFront:self.lineView];
+    if (scrollView.tag % 10) {
+        // content
+        if (self.contentIsDrag) {
+            NSInteger total = [self collectionView:self.colV numberOfItemsInSection:0];
+            if (total) {
+                CGFloat shouldOffset = self.selectedIndex * self.contentV.width;
+                CGFloat progress = (self.contentV.contentOffset.x - shouldOffset) / self.contentV.width;
+                self.selectProgress = 1 - fabs(progress);
+                self.nextIndex = self.selectedIndex + (progress >= 0 ? 1 : -1);
+                if (self.nextIndex > total - 1) {
+                    self.nextIndex = total - 1;
+                }
+                if (self.nextIndex < 0) {
+                    self.nextIndex = 0;
+                }
+                NSIndexPath *thisIndexPath = [NSIndexPath indexPathForRow:self.selectedIndex inSection:0];
+                NSIndexPath *nextIndexPath = [NSIndexPath indexPathForRow:self.nextIndex inSection:0];
+                [self.colV reloadItemsAtIndexPaths:@[thisIndexPath, nextIndexPath]];
+                [self.colV selectItemAtIndexPath:thisIndexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+                
+                VETabItem *thisItem = [self collectionView:self.colV cellForItemAtIndexPath:thisIndexPath];
+                VETabItem *nextItem = [self collectionView:self.colV cellForItemAtIndexPath:nextIndexPath];
+                CGRect thisItemFrame = thisItem.frame;
+                CGRect nextItemFrame = nextItem.frame;
+                
+                self.lineView.backgroundColor = [UIColor colorFromColor:thisItem.activeColor toColor:nextItem.activeColor progress:fabs(progress)];
+                self.lineView.x = thisItemFrame.origin.x + (nextItemFrame.origin.x - thisItemFrame.origin.x) * fabs(progress);
+                self.lineView.width = thisItem.width + (nextItem.width - thisItem.width) * fabs(progress);
+            }
+        }
     }
 }
 
@@ -179,6 +256,22 @@
         _selectedIndex = selectedIndex;
         [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] animated:animate scrollPosition:UICollectionViewScrollPositionNone];
         [self.contentV setContentOffset:CGPointMake(selectedIndex * self.contentV.width, 0) animated:animate];
+        
+        VETabItem *item = [self collectionView:self.colV cellForItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
+        // 检查是否显示不完全
+        if (item.x < self.colV.contentOffset.x || item.maxX - self.colV.contentOffset.x > self.colV.width) {
+            // 左边被遮挡 || 右边被遮挡
+            CGFloat maxOffset = self.colV.contentSize.width - self.colV.width;
+            CGFloat minOffset = 0;
+            CGFloat shouldOffset = item.x - (self.colV.width - item.width) / 2.0;
+            if (shouldOffset < minOffset) {
+                shouldOffset = minOffset;
+            }
+            if (shouldOffset > maxOffset) {
+                shouldOffset = maxOffset;
+            }
+            [self.colV setContentOffset:CGPointMake(shouldOffset, 0) animated:YES];
+        }
     }
 }
 
@@ -193,11 +286,12 @@
         
         _colV = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
         _colV.tag = 1000;
-        _colV.backgroundColor = [UIColor clearColor];
+        _colV.bounces = NO;
         _colV.delegate = self;
         _colV.dataSource = self;
-        _colV.showsHorizontalScrollIndicator = NO;
         _colV.showsVerticalScrollIndicator = NO;
+        _colV.showsHorizontalScrollIndicator = NO;
+        _colV.backgroundColor = [UIColor clearColor];
         [_colV registerClass:[VETabItem class] forCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER];
     }
     return _colV;
@@ -213,12 +307,13 @@
         
         _contentV = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
         _contentV.tag = 1001;
-        _contentV.backgroundColor = [UIColor clearColor];
+        _contentV.bounces = NO;
         _contentV.delegate = self;
         _contentV.dataSource = self;
-        _contentV.showsHorizontalScrollIndicator = NO;
-        _contentV.showsVerticalScrollIndicator = NO;
         _contentV.pagingEnabled = YES;
+        _contentV.showsVerticalScrollIndicator = NO;
+        _contentV.showsHorizontalScrollIndicator = NO;
+        _contentV.backgroundColor = [UIColor clearColor];
         [_contentV registerClass:[VETabContentItem class] forCellWithReuseIdentifier:VETAB_Content_CELL_REUSE_IDENTIFIER];
     }
     return _contentV;
@@ -251,7 +346,6 @@
 
 - (void)setContentScrollEnabled:(BOOL)contentScrollEnabled {
     _contentScrollEnabled = contentScrollEnabled;
-//    self.contentV.scrollEnabled = contentScrollEnabled;
     [self.contentV setScrollEnabled:contentScrollEnabled];
 }
 

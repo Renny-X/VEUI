@@ -33,6 +33,10 @@ typedef NS_ENUM(NSInteger, VETabStyle) {
  * item 高度，剩余高度给subView，默认高度为40
  */
 @property(nonatomic, assign)CGFloat itemHeight;
+/**
+ * 选中tab 下面的线条高度
+ */
+@property(nonatomic, assign)CGFloat lineHeight;
 
 @property(nonatomic, assign, readonly)NSInteger selectedIndex;
 
