@@ -38,6 +38,14 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.13
+#### add
+* UIColor 添加随机颜色方法
+* UIColor 添加两种颜色 取任意中间颜色 的方法
+
+#### upgrade
+* VETab 升级滚动样式
+
 ### 0.1.12
 #### fix
 * VETab 适配13.5系统 点击collectionViewCell后需要手动更新UI

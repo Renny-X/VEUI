@@ -11,8 +11,7 @@
 @interface VETabItem ()
 
 @property(nonatomic, strong)UILabel *label;
-
-@property(nonatomic, strong)UIView *line;
+//@property(nonatomic, strong)UILabel *activeLabel;
 
 @end
 
@@ -28,58 +27,31 @@
 
 - (void)setup {
     self.clipsToBounds = YES;
-
-    self.style = VETabItemStyleShortLine;
     self.label = [[UILabel alloc] init];
     self.label.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:self.label];
     
     self.activeColor = [UIColor colorWithHexString:@"#09f"];
     self.inactiveColor = [UIColor colorWithHexString:@"#000"];
-    self.titleFont = [UIFont systemFontOfSize:16];
-    
-    self.line = [[UIView alloc] init];
-    [self.contentView addSubview:self.line];
+    self.activeFont = [UIFont systemFontOfSize:16];
+    self.inactiveFont = [UIFont systemFontOfSize:16];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.label.font = self.titleFont;
+    self.label.font = self.inactiveFont;
     self.label.text = self.title;
-    
-    CGSize tmpSize = [self.label sizeThatFits:CGSizeMake(self.width, self.height)];
     self.label.frame = self.bounds;
-    self.label.height -= self.lineHeight;
-    self.label.textColor = self.selected ? self.activeColor : self.inactiveColor;
-    
-    switch (self.style) {
-        case VETabItemStyleShortLine:
-            self.line.frame = CGRectMake(0, self.height - self.lineHeight, tmpSize.width, self.lineHeight);
-            break;
-        case VETabItemStyleFullLine:
-            self.line.frame = CGRectMake(0, self.height - self.lineHeight, self.label.width, self.lineHeight);
-            break;
-        default:
-            self.line.frame = CGRectZero;
-            break;
-    }
-    if (!self.selected) {
-        self.line.frame = CGRectZero;
-    }
-    self.line.centerX = self.label.width * 0.5;
-    self.line.backgroundColor = self.label.textColor;
+    self.label.textColor = [UIColor colorFromColor:self.inactiveColor toColor:self.activeColor progress:self.selectProgress];
 }
 
 #pragma mark - Get
-- (CGFloat)lineHeight {
-    if (!_lineHeight) {
-        return 3;
-    }
-    return _lineHeight;
-}
 
 - (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
+    if (!selected) {
+        self.selectProgress = 0;
+    }
     [self setNeedsLayout];
 }
 

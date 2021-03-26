@@ -45,15 +45,19 @@
 }
 
 - (CGFloat)tab:(VETab *)tab tabItemWidthAtIndex:(NSInteger)index {
+    if (index == 1) {
+        return 60;
+    }
     return self.view.width / 2.4;
 }
 
 - (__kindof VETabItem *)tab:(VETab *)tab tabItemAtIndex:(NSInteger)index {
     VETabItem *tabItem = [tab tabItemAtIndex:index];
-    tabItem.style = VETabItemStyleFullLine;
     tabItem.title = [NSString stringWithFormat:@"标题 %d", (int)index];
+    tabItem.activeColor = [UIColor colorWithHexString:@"#09f"];
     if (index == 0) {
         tabItem.title = [NSString stringWithFormat:@"%@ - %@", tabItem.title, [NSDate dateStringWithFormatter:@"HH:mm:ss"]];
+        tabItem.activeColor = [UIColor colorWithHexString:@"#f90"];
         return tabItem;
     }
     return tabItem;
@@ -74,6 +78,7 @@
         default:
             break;
     }
+    v.backgroundColor = [UIColor randomColor];
     __weak typeof(self) ws = self;
     v.clickBack = ^(BOOL begin) {
         [ws tapAction];
@@ -87,7 +92,6 @@
 
 - (void)tapAction {
     self.tab.contentScrollEnabled = !self.tab.contentScrollEnabled;
-//    NSLog(@"current selected index: %d", (int)self.tab.selectedIndex);
     [self.tab reloadTab];
 }
 
