@@ -18,7 +18,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     VENoticeBar *notice = [[VENoticeBar alloc] initWithStyle:VENoticeBarStyleInfo info:@"这里是info字符串"];
-    notice.y = 100;
     [notice layoutWithWidth:self.view.width];
     [self.view addSubview:notice];
     

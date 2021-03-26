@@ -46,6 +46,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 校验是否为合法手机号
  */
 - (BOOL)isPhone;
+/**
+ * 校验是否为纯链接
+ */
+- (BOOL)isUrlString;
 
 @end
 

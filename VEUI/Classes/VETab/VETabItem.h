@@ -9,17 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, VETabItemStyle) {
-    VETabItemStyleDefault = 0, // 默认效果 选中文字高亮
-    VETabItemStyleShortLine, // 高亮文字下方 显示与文字等宽的线条
-    VETabItemStyleFullLine, // 高亮文字下方 显示与点击区域等宽的线条
-};
-
 @interface VETabItem : UICollectionViewCell
-/**
- * tabItem 样式
- */
-@property(nonatomic, assign)VETabItemStyle style;
 /**
  * tabitem标题
  */
@@ -33,11 +23,17 @@ typedef NS_ENUM(NSInteger, VETabItemStyle) {
  */
 @property(nonatomic, strong)UIColor *activeColor;
 /**
- * title font 默认为16
+ * 高亮 title 字体 默认为16
  */
-@property(nonatomic, strong)UIFont *titleFont;
-
-@property(nonatomic, assign)CGFloat lineHeight;
+@property(nonatomic, strong)UIFont *activeFont;
+/**
+ * 正常 title 字体 默认为16
+ */
+@property(nonatomic, strong)UIFont *inactiveFont;
+/**
+ * 选中进度 用来调整高亮和非高亮的变化
+ */
+@property(nonatomic, assign)CGFloat selectProgress;
 
 @end
 

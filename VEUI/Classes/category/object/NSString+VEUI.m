@@ -84,4 +84,23 @@
     return YES;
 }
 
+/**
+ * 校验是否为纯链接
+ */
+- (BOOL)isUrlString {
+    NSError* error = nil;
+    NSDataDetector *linkDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:&error];
+    NSArray *arr = [linkDetector matchesInString:self options:0 range:NSMakeRange(0, self.length)];
+    for (NSTextCheckingResult *result in arr) {
+        NSRange range = [result range];
+        if (range.location == 0 && range.length == self.length) {
+            NSURL *url = [result URL];
+            if (![url.scheme isEqual:@"tel"]) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
 @end
