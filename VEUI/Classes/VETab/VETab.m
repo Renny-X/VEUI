@@ -47,7 +47,7 @@
 - (void)reloadTab {
     if (self.colV) {
         [self.colV reloadData];
-        [self setSelectedIndex:self.selectedIndex animate:NO];
+        [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:0]];
     }
 }
 
@@ -68,7 +68,7 @@
     self.itemWidth = 60;
     self.itemHeight = 40;
     self.lineHeight = 1.5;
-    _selectedIndex = 0;
+    [self setCurrentIndex:0];
 }
 
 - (void)setUI {
@@ -89,8 +89,8 @@
     self.contentV.frame = CGRectMake(0, self.itemHeight, self.width, self.height - self.itemHeight);
     self.lineView.maxY = self.itemHeight;
     
-    if (!self.layoutTag && self.contentV.width) {
-        [self setSelectedIndex:self.selectedIndex >= 0 ?: 0 animate:NO];
+    if (!self.layoutTag && self.contentV.width && self.itemCount) {
+        [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:0]];
         self.layoutTag = 1;
     }
 }
@@ -142,15 +142,11 @@
     }
     // 处理渐变色
     cell.selectProgress = 0;
-//    if (self.selectedIndex == self.nextIndex) {
-//        cell.selectProgress = 1;
-//    } else {
-        if (indexPath.row == self.selectedIndex) {
-            cell.selectProgress = self.selectProgress;
-        } else if (indexPath.row == self.nextIndex) {
-            cell.selectProgress = 1 - self.selectProgress;
-        }
-//    }
+    if (indexPath.row == self.selectedIndex) {
+        cell.selectProgress = self.selectProgress;
+    } else if (indexPath.row == self.nextIndex) {
+        cell.selectProgress = 1 - self.selectProgress;
+    }
     return cell;
 }
 
@@ -160,9 +156,10 @@
     } else {
         // tab
         self.isClickTab = YES;
-        [self.contentV setContentOffset:CGPointMake(indexPath.row * self.contentV.width, 0)];
-        if ([self.delegate respondsToSelector:@selector(didSelectAtIndex:)]) {
-            [self.delegate didSelectAtIndex:indexPath.row];
+        if (self.contentV.contentOffset.x == indexPath.row * self.contentV.width) {
+            [self scrollViewDidScroll:self.contentV];
+        } else {
+            [self.contentV setContentOffset:CGPointMake(indexPath.row * self.contentV.width, 0)];
         }
     }
 }
@@ -190,13 +187,12 @@
     if (scrollView.tag % 10) {
         // content
         // 从selected -> next
-        if (self.itemCount && scrollView.width && self.selectedIndex * scrollView.width != scrollView.contentOffset.x) {
+        if (self.itemCount && scrollView.width) {
             CGFloat shouldOffset = 0;
             CGFloat progress = 1;
             //
             if (self.isClickTab) {
                 // 直接干它
-//                _selectedIndex = scrollView.contentOffset.x / scrollView.width;
                 self.nextIndex = scrollView.contentOffset.x / scrollView.width;
             } else {
                 // 慢慢干
@@ -204,7 +200,7 @@
                 progress = (self.contentV.contentOffset.x - shouldOffset) / self.contentV.width;
                 if (fabs(progress) > 1) {
                     int tmp = (int)progress;
-                    [self setSelectedIndex:self.nextIndex];
+                    [self setCurrentIndex:self.selectedIndex + tmp];
                     progress -= tmp;
                 }
                 self.nextIndex = self.selectedIndex + (progress >= 0 ? 1 : -1);
@@ -248,11 +244,9 @@
             
             if (self.selectProgress == 0) {
                 // 切换下选中状态
-                [self setSelectedIndex:self.nextIndex];
-                self.nextIndex = -1;
+                [self setCurrentIndex:self.nextIndex];
                 self.selectProgress = 1;
-            } else {
-                // 不用切换
+                self.nextIndex = -1;
             }
             [self.colV reloadItemsAtIndexPaths:@[thisIndexPath, nextIndexPath]];
             [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
@@ -262,16 +256,18 @@
 }
 
 #pragma mark - Set
-- (void)setSelectedIndex:(NSInteger)selectedIndex animate:(BOOL)animate {
-    [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
+- (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated {
+    if (self.selectedIndex != selectedIndex) {
+        [self.contentV setContentOffset:CGPointMake(selectedIndex * self.contentV.width, 0) animated:animated];
+    }
 }
 
-- (void)setSelectedIndex:(NSInteger)selectedIndex {
-    if (_selectedIndex != selectedIndex) {
-        _selectedIndex = selectedIndex;
+- (void)setCurrentIndex:(NSInteger)currentIndex {
+    if (_selectedIndex != currentIndex) {
+        _selectedIndex = currentIndex;
     }
     if ([self.delegate respondsToSelector:@selector(didSelectAtIndex:)]) {
-        [self.delegate didSelectAtIndex:selectedIndex];
+        [self.delegate didSelectAtIndex:currentIndex];
     }
 }
 

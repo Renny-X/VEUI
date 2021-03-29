@@ -110,7 +110,8 @@
 
 - (void)tapAction {
 //    self.tab.contentScrollEnabled = !self.tab.contentScrollEnabled;
-    [self.tab reloadTab];
+//    [self.tab reloadTab];
+    [self.tab setSelectedIndex:randomNum(0, self.randomWidth.count - 1) animated:randomNum(0, 1)];
 }
 
 
