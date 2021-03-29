@@ -50,11 +50,23 @@
         [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:0]];
     }
 }
+- (void)forceReloadTab {
+    if (self.colV) {
+        [self.colV reloadSections:[NSIndexSet indexSetWithIndex:0]];
+        [self collectionView:self.colV didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:0]];
+    }
+}
 
 - (void)reloadContent {
     if (self.contentV) {
         self.contentArr = [NSMutableArray array];
         [self.contentV reloadData];
+    }
+}
+- (void)forceReloadContent {
+    if (self.contentV) {
+        self.contentArr = [NSMutableArray array];
+        [self.contentV reloadSections:[NSIndexSet indexSetWithIndex:0]];
     }
 }
 

@@ -43,7 +43,10 @@ typedef NS_ENUM(NSInteger, VETabStyle) {
 - (instancetype)initWithStyle:(VETabStyle)style;
 
 - (void)reloadTab;
+- (void)forceReloadTab;
+
 - (void)reloadContent;
+- (void)forceReloadContent;
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated;
 
