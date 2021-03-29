@@ -109,7 +109,7 @@
 }
 
 - (void)tapAction {
-    self.tab.contentScrollEnabled = !self.tab.contentScrollEnabled;
+//    self.tab.contentScrollEnabled = !self.tab.contentScrollEnabled;
     [self.tab reloadTab];
 }
 
