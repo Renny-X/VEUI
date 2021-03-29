@@ -38,6 +38,10 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.15
+#### upgrade
+* VETab 添加强制刷新数据方法 处理刷新数据不生效的问题
+
 ### 0.1.14
 #### upgrade
 * VETab支持滑动 + 点击切换，支持主动调用方法切换
