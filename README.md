@@ -38,6 +38,10 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.14
+#### upgrade
+* VETab支持滑动 + 点击切换，支持主动调用方法切换
+
 ### 0.1.13
 #### add
 * UIColor 添加随机颜色方法
