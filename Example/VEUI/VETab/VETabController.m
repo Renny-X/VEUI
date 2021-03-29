@@ -14,6 +14,7 @@
 
 @property(nonatomic, strong)UIView *testView;
 @property(nonatomic, strong)VETab *tab;
+@property(nonatomic, strong)NSArray *randomWidth;
 
 @end
 
@@ -33,6 +34,21 @@
     self.tab = tab;
     [self.view addSubview:tab];
 //    [self test];
+    
+    self.randomWidth = @[
+        [NSNumber numberWithInt:randomNum(20, 110)],
+        [NSNumber numberWithInt:randomNum(20, 110)],
+        [NSNumber numberWithInt:randomNum(20, 110)],
+        [NSNumber numberWithInt:randomNum(20, 110)],
+        [NSNumber numberWithInt:randomNum(20, 110)],
+        [NSNumber numberWithInt:randomNum(20, 110)],
+        [NSNumber numberWithInt:randomNum(20, 110)],
+        [NSNumber numberWithInt:randomNum(20, 110)],
+        [NSNumber numberWithInt:randomNum(20, 110)],
+        [NSNumber numberWithInt:randomNum(20, 110)],
+        [NSNumber numberWithInt:randomNum(20, 110)],
+        [NSNumber numberWithInt:randomNum(20, 110)],
+    ];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -41,14 +57,16 @@
 }
 
 - (NSInteger)numberOfTabItems {
-    return 5;
+//    return 10;
+    return self.randomWidth.count;
 }
 
 - (CGFloat)tab:(VETab *)tab tabItemWidthAtIndex:(NSInteger)index {
-    if (index == 1) {
-        return 60;
+    if (index == 0) {
+        return 150;
     }
-    return self.view.width / 2.4;
+//    return self.view.width / 2.4;
+    return [self.randomWidth[index] floatValue];
 }
 
 - (__kindof VETabItem *)tab:(VETab *)tab tabItemAtIndex:(NSInteger)index {
@@ -91,8 +109,9 @@
 }
 
 - (void)tapAction {
-    self.tab.contentScrollEnabled = !self.tab.contentScrollEnabled;
+//    self.tab.contentScrollEnabled = !self.tab.contentScrollEnabled;
     [self.tab reloadTab];
+    [self.tab setSelectedIndex:randomNum(0, self.randomWidth.count - 1) animated:randomNum(0, 1)];
 }
 
 
