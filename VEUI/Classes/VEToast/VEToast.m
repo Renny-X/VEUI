@@ -31,7 +31,7 @@
 }
 
 + (void)toast:(NSString *)string duration:(NSTimeInterval)duration {
-    return [VEToast toastView:nil string:string duration:duration mask:NO];
+    return [VEToast toastView:nil string:string duration:duration mask:NO tapToHide:NO];
 }
 
 // Toast Success
@@ -41,7 +41,7 @@
 
 + (void)success:(NSString * _Nullable)string duration:(NSTimeInterval)duration {
     VEToastLabel *label = [[VEToastLabel alloc] initWithCode:@"\U0000e919" size:[VEToastManager manager].imgSize];
-    return [VEToast toastView:label string:string duration:duration mask:NO];
+    return [VEToast toastView:label string:string duration:duration mask:NO tapToHide:NO];
 }
 
 // Toast Error
@@ -51,7 +51,7 @@
 
 + (void)error:(NSString * _Nullable)string duration:(NSTimeInterval)duration {
     VEToastLabel *label = [[VEToastLabel alloc] initWithCode:@"\U0000e917" size:[VEToastManager manager].imgSize];
-    return [VEToast toastView:label string:string duration:duration mask:NO];
+    return [VEToast toastView:label string:string duration:duration mask:NO tapToHide:NO];
 }
 
 // Toast Custom image string
@@ -70,7 +70,7 @@
 + (void)toast:(NSString * _Nullable)string image:(UIImage *)img imgSize:(CGSize)imgSize duration:(NSTimeInterval)duration {
     UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, imgSize.width, imgSize.height)];
     imgV.image = img;
-    return [VEToast toastView:imgV string:string duration:duration mask:NO];
+    return [VEToast toastView:imgV string:string duration:duration mask:NO tapToHide:NO];
 }
 
 // Toast Loading
@@ -78,12 +78,20 @@
     return [VEToast loading:string mask:YES];
 }
 
++ (void)loading:(NSString * _Nullable)string tapToHide:(BOOL)tapToHide {
+    return [VEToast loading:string mask:YES tapToHide:tapToHide];
+}
+
 /**
  * @param string toast 文字内容
  * @param mask 是否遮挡操作，Loading默认为true
  */
 + (void)loading:(NSString * _Nullable)string mask:(BOOL)mask {
-    return [VEToast loading:string images:[VEToastManager manager].loadingImages animateDuration:[VEToastManager manager].loadingImages.count / 12.0 mask:YES];
+    return [VEToast loading:string images:[VEToastManager manager].loadingImages animateDuration:[VEToastManager manager].loadingImages.count / 12.0 mask:YES tapToHide:NO];
+}
+
++ (void)loading:(NSString * _Nullable)string mask:(BOOL)mask tapToHide:(BOOL)tapToHide {
+    return [VEToast loading:string images:[VEToastManager manager].loadingImages animateDuration:[VEToastManager manager].loadingImages.count / 12.0 mask:YES tapToHide:tapToHide];
 }
 
 // Toast Custom images Loading
@@ -91,32 +99,66 @@
     return [VEToast loading:string images:images animateDuration:aDuration imgSize:[VEToastManager manager].imgSize mask:YES];
 }
 
-+ (void)loading:(NSString * _Nullable)string images:(NSArray<UIImage *> *)images animateDuration:(NSTimeInterval)aDuration imgSize:(CGSize)imgSize {
++ (void)loading:(NSString * _Nullable)string
+         images:(NSArray<UIImage *> *)images
+animateDuration:(NSTimeInterval)aDuration
+        imgSize:(CGSize)imgSize {
     return [VEToast loading:string images:images animateDuration:aDuration imgSize:imgSize mask:YES];
 }
 
-+ (void)loading:(NSString * _Nullable)string images:(NSArray<UIImage *> *)images animateDuration:(NSTimeInterval)aDuration mask:(BOOL)mask {
-    return [VEToast loading:string images:images animateDuration:aDuration imgSize:[VEToastManager manager].imgSize mask:mask];
++ (void)loading:(NSString * _Nullable)string
+         images:(NSArray<UIImage *> *)images
+animateDuration:(NSTimeInterval)aDuration
+           mask:(BOOL)mask {
+    return [VEToast loading:string images:images animateDuration:aDuration imgSize:[VEToastManager manager].imgSize mask:mask tapToHide:NO];
 }
 
-+ (void)loading:(NSString * _Nullable)string images:(NSArray<UIImage *> *)images animateDuration:(NSTimeInterval)aDuration imgSize:(CGSize)imgSize mask:(BOOL)mask {
++ (void)loading:(NSString * _Nullable)string
+         images:(NSArray<UIImage *> *)images
+animateDuration:(NSTimeInterval)aDuration
+           mask:(BOOL)mask
+      tapToHide:(BOOL)tapToHide {
+    return [VEToast loading:string images:images animateDuration:aDuration imgSize:[VEToastManager manager].imgSize mask:mask tapToHide:tapToHide];
+}
+
++ (void)loading:(NSString * _Nullable)string
+         images:(NSArray<UIImage *> *)images
+animateDuration:(NSTimeInterval)aDuration
+        imgSize:(CGSize)imgSize
+           mask:(BOOL)mask {
+    return [VEToast loading:string images:images animateDuration:aDuration imgSize:imgSize mask:mask tapToHide:NO];
+}
+
++ (void)loading:(NSString * _Nullable)string
+         images:(NSArray<UIImage *> *)images
+animateDuration:(NSTimeInterval)aDuration
+        imgSize:(CGSize)imgSize
+           mask:(BOOL)mask
+      tapToHide:(BOOL)tapToHide {
     UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, imgSize.width, imgSize.height)];
     imgV.contentMode = UIViewContentModeScaleAspectFit;
     imgV.animationImages = images;
     [imgV setAnimationDuration:aDuration];
     [imgV setAnimationRepeatCount:0];
     [imgV startAnimating];
-    
-    return [VEToast toastView:imgV string:string duration:0 mask:mask];
+    return [VEToast toastView:imgV string:string duration:0 mask:mask tapToHide:tapToHide];
 }
 
 // entry
-+ (void)toastView:(UIView * _Nullable)view string:(NSString *)string duration:(NSTimeInterval)duration mask:(BOOL)mask {
+//+ (void)toastView:(UIView * _Nullable)view string:(NSString *)string duration:(NSTimeInterval)duration mask:(BOOL)mask {
+//    if (!view && [string isEmpty]) {
+//        return;
+//    }
+//    VEToastView *toastV = [[VEToastView alloc] initWithView:view string:string];
+//    return [[VEToastManager manager] show:toastV duration:duration mask:mask tapToHide:YES];
+//}
+
++ (void)toastView:(UIView * _Nullable)view string:(NSString *)string duration:(NSTimeInterval)duration mask:(BOOL)mask tapToHide:(BOOL)tapToHide {
     if (!view && [string isEmpty]) {
         return;
     }
     VEToastView *toastV = [[VEToastView alloc] initWithView:view string:string];
-    return [[VEToastManager manager] show:toastV duration:duration mask:mask];
+    return [[VEToastManager manager] show:toastV duration:duration mask:mask tapToHide:tapToHide];
 }
 
 @end
