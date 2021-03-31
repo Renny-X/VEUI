@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)manager;
 
-- (void)show:(UIView *)view duration:(NSTimeInterval)duration mask:(BOOL)mask;
+- (void)show:(UIView *)view duration:(NSTimeInterval)duration mask:(BOOL)mask tapToHide:(BOOL)hide;
 
 - (void)hide;
 

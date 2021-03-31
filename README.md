@@ -38,6 +38,10 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.17
+#### upgrade
+* VEToast 优化代码结构 优化toast交互
+
 ### 0.1.16
 #### upgrade
 * VEToast 优化代码结构 修改toast mask时交互效果
