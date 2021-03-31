@@ -115,8 +115,8 @@
     if (!view && [string isEmpty]) {
         return;
     }
-    VEToastView *toastV = [[VEToastView alloc] initWithView:view string:string mask:mask];
-    return [[VEToastManager manager] show:toastV duration:duration];
+    VEToastView *toastV = [[VEToastView alloc] initWithView:view string:string];
+    return [[VEToastManager manager] show:toastV duration:duration mask:mask];
 }
 
 @end

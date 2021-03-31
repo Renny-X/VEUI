@@ -17,19 +17,35 @@
 
 @implementation VEToastManager
 
-- (void)show:(UIView *)view duration:(NSTimeInterval)duration {
+- (void)show:(UIView *)view duration:(NSTimeInterval)duration mask:(BOOL)mask {
     __weak typeof(self) ws = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         __strong typeof(self) ss = ws;
+        
         UIView *window = [[UIApplication sharedApplication] keyWindow];
         [ss prepareHide:NO];
+        
         __block UIView *v = view;
         v.alpha = 0;
+        
+        __block UIView *maskView = [[UIView alloc] init];
+        maskView.alpha = 0;
+        if (mask) {
+            maskView.frame = window.bounds;
+            maskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.15];
+        } else {
+            maskView.frame = v.frame;
+            v.frame = v.bounds;
+            maskView.backgroundColor = [UIColor clearColor];
+        }
+        [maskView addSubview:v];
         v.transform = CGAffineTransformMakeScale(0.9, 0.9);
-        [window addSubview:v];
+        
+        [window addSubview:maskView];
         [ss.toastArr addObject:v];
         __weak typeof(self)weakSelf = ss;
         [UIView animateWithDuration:ss.animateDuration animations:^{
+            maskView.alpha = 1;
             v.alpha = 1;
             v.transform = CGAffineTransformMakeScale(1, 1);
         } completion:^(BOOL finished) {

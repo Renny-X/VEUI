@@ -19,11 +19,10 @@ typedef NS_ENUM(NSInteger, VEToastType) {
 
 @interface VEToastView()
 
-@property(nonatomic, strong)UIView *maskView;
-@property(nonatomic, strong)UIView *iconView;
 @property(nonatomic, strong)UIView *toastView;
+
+@property(nonatomic, strong)UIView *iconView;
 @property(nonatomic, strong)UILabel *textLabel;
-@property(nonatomic, assign)BOOL mask;
 
 @property(nonatomic, assign)VEToastType toastType;
 @property(nonatomic, assign)CGSize maxIconSize;
@@ -38,15 +37,13 @@ typedef NS_ENUM(NSInteger, VEToastType) {
 
 @implementation VEToastView
 
-- (instancetype)initWithView:(UIView *)view string:(NSString *)string mask:(BOOL)mask {
+- (instancetype)initWithView:(UIView *)view string:(NSString *)string {
     if (self = [super init]) {
         self.iconView = view;
         self.textLabel.text = [string isEmpty] ? @"" : string;
-        self.mask = mask;
         
         self.backgroundColor = UIColor.clearColor;
         self.layer.zPosition = FLT_MAX;
-        [self addSubview:self.maskView];
         CGSize tmpLabelSize = [self.textLabel sizeThatFits:CGSizeMake(self.maxTextWidth, 100)];
         self.textLabel.frame = CGRectMake(0, 0, tmpLabelSize.width, tmpLabelSize.height);
         
@@ -83,16 +80,8 @@ typedef NS_ENUM(NSInteger, VEToastType) {
             self.textLabel.y = self.iconView.maxY + self.textMargin;
             break;
     }
-    
-    if (self.mask) {
-        self.frame = [UIApplication sharedApplication].keyWindow.bounds;
-        self.toastView.center = self.center;
-        self.maskView.frame = self.frame;
-    } else {
-        self.frame = self.toastView.frame;
-        self.center = [UIApplication sharedApplication].keyWindow.center;
-        [self.maskView removeFromSuperview];
-    }
+    self.frame = self.toastView.frame;
+    self.center = [UIApplication sharedApplication].keyWindow.center;
     
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.toastView.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(cornerRadius, cornerRadius)];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
@@ -119,14 +108,6 @@ typedef NS_ENUM(NSInteger, VEToastType) {
         _textLabel.numberOfLines = 2;
     }
     return _textLabel;
-}
-
-- (UIView *)maskView {
-    if (!_maskView) {
-        _maskView = [[UIView alloc] init];
-        _maskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.15];
-    }
-    return _maskView;
 }
 
 - (VEToastType)toastType {
