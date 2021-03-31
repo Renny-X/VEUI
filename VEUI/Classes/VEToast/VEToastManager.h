@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)manager;
 
-- (void)show:(UIView *)view duration:(NSTimeInterval)duration;
+- (void)show:(UIView *)view duration:(NSTimeInterval)duration mask:(BOOL)mask;
 
 - (void)hide;
 
