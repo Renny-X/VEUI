@@ -13,6 +13,16 @@
 
 @implementation NSArray (VEUI)
 
+
+- (id)safeObjectAtIndex:(NSUInteger)index
+{
+    if (self.count > index) {
+        return [self objectAtIndex:index];
+    }
+    return nil;
+}
+
+
 + (NSArray *)arrayFromJsonStr:(NSString *)jsonStr {
     return [jsonStr toNSArray];
 }

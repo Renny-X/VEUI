@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSArray *)arrayFromJsonStr:(NSString *)jsonStr;
 
+- (instancetype)safeObjectAtIndex:(NSUInteger)index;
+
 @end
 
 NS_ASSUME_NONNULL_END
