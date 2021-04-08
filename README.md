@@ -38,6 +38,10 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.1.18
+#### upgrade
+* 更新 VE 字体文件
+
 ### 0.1.17
 #### upgrade
 * VEToast 优化代码结构 优化toast交互
