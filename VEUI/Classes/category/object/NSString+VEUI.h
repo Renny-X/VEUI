@@ -36,6 +36,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 返回随机 md5 字符串
  */
 - (NSString *)md5String;
+/**
+ * 是否包含中文
+ */
+- (BOOL)containsCN;
 
 #pragma mark - Validate
 /**
