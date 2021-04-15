@@ -21,19 +21,17 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (!@available(iOS 11.0, *)) {
+    if (@available(iOS 11.0, *)) {
+    } else {
         [self startAnimate:YES];
     }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
-    self.tapToHide = NO;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesHandler)];
     [self.view addGestureRecognizer:tap];
-
     [self.view addSubview:self.contentView];
 }
 
@@ -57,6 +55,7 @@
 
 #pragma mark - public
 - (void)show {
+    self.view.backgroundColor = self.coverColor ? : [UIColor colorWithWhite:0 alpha:0.6];
     self.modalPresentationStyle = UIModalPresentationOverFullScreen;
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
@@ -133,6 +132,20 @@
         return UIEdgeInsetsMake(self.view.safeAreaInsets.top, 0, self.view.safeAreaInsets.bottom, 0);
     }
     return UIEdgeInsetsMake(20, 0, 0, 0);
+}
+
+#pragma mark - Cover Color
+@synthesize coverColor = _coverColor;
+- (UIColor *)coverColor {
+    if (!_coverColor) {
+        _coverColor = self.view.backgroundColor;
+    }
+    return _coverColor;
+}
+
+- (void)setCoverColor:(UIColor *)coverColor {
+    _coverColor = coverColor;
+    self.view.backgroundColor = coverColor;
 }
 
 @end

@@ -28,12 +28,16 @@
 
 - (void)btnClicked {
     VEPopover *vc = [[VEPopover alloc] init];
-    vc.contentAnimationStyle = VEPopoverContentAnimationStyleFromBottom;
+    
+    vc.contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     vc.contentPosition = VEPopoverContentPositionTop;
-    vc.contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 200)];
+    vc.contentAnimationStyle = VEPopoverContentAnimationStyleFromBottom;
+    
+    
     vc.contentView.backgroundColor = [UIColor greenColor];
-    [vc show];
     vc.tapToHide = YES;
+    
+    [vc show];
 }
 
 @end

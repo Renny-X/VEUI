@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, VEPopoverContentPosition) {
 
 @interface VEPopover : UIViewController
 
+@property(nonatomic, strong)UIColor *coverColor;
 @property(nonatomic, strong)UIView *contentView;
 
 @property(nonatomic, assign)UIEdgeInsets edgeInsets;
