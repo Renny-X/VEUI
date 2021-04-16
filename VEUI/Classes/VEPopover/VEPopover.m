@@ -10,6 +10,8 @@
 
 @interface VEPopover ()
 
+@property(nonatomic, strong)UIColor *toColor;
+
 @property(nonatomic, assign)CGRect fromFrame;
 @property(nonatomic, assign)CGRect toFrame;
 
@@ -18,14 +20,6 @@
 @end
 
 @implementation VEPopover
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if (@available(iOS 11.0, *)) {
-    } else {
-        [self startAnimate:YES];
-    }
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,29 +42,32 @@
     return self.view;
 }
 
-- (void)viewSafeAreaInsetsDidChange {
-    [super viewSafeAreaInsetsDidChange];
-    [self startAnimate:YES];
-}
-
 #pragma mark - public
 - (void)show {
     self.view.backgroundColor = self.coverColor ? : [UIColor colorWithWhite:0 alpha:0.6];
     self.modalPresentationStyle = UIModalPresentationOverFullScreen;
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
     self.contentView.frame = self.fromFrame;
-    [[UIViewController currentController] presentViewController:self animated:YES completion:nil];
+    
+    __weak typeof(self) ws = self;
+    [[UIViewController currentController] presentViewController:self animated:NO completion:^{
+        [ws startAnimate:YES];
+    }];
 }
 
 - (void)hide {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{}];
     [self startAnimate:NO];
 }
 
 - (void)startAnimate:(BOOL)show {
+    if (show) {
+        self.view.backgroundColor = [UIColor clearColor];
+    }
+    __weak typeof(self) ws = self;
     [UIView animateWithDuration:0.25 animations:^{
-        self.contentView.frame = show ? self.toFrame : self.fromFrame;
+        ws.view.backgroundColor = ws.coverColor;
+        ws.contentView.frame = show ? ws.toFrame : ws.fromFrame;
     }];
 }
 
@@ -138,14 +135,13 @@
 @synthesize coverColor = _coverColor;
 - (UIColor *)coverColor {
     if (!_coverColor) {
-        _coverColor = self.view.backgroundColor;
+        _coverColor = [UIColor colorWithWhite:0 alpha:0.6];
     }
     return _coverColor;
 }
 
 - (void)setCoverColor:(UIColor *)coverColor {
     _coverColor = coverColor;
-    self.view.backgroundColor = coverColor;
 }
 
 @end
