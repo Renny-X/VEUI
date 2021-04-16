@@ -38,6 +38,14 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.2.0
+#### add
+* NSString 添加 是否包含中文 实例方法
+
+#### upgrade
+* UIColor 更新 colorWithHexString 方法，使用 P3Color
+* VEpopover 修复点击收起功能、添加背景色设置入口
+
 ### 0.1.18
 #### upgrade
 * 更新 VE 字体文件

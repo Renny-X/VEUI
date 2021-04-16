@@ -68,6 +68,19 @@
     return [outPutStr lowercaseString];
 }
 
+/**
+ * 是否包含中文
+ */
+- (BOOL)containsCN {
+    for(int i=0; i< [self length];i++) {
+        int a = [self characterAtIndex:i];
+        if( a > 0x4E00 && a < 0x9FFF) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 #pragma mark - Validate
 - (BOOL)isEmail {
 //    /\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}/
