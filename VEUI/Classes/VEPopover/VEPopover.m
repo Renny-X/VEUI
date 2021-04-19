@@ -44,7 +44,7 @@
 
 #pragma mark - public
 - (void)show {
-    self.view.backgroundColor = self.coverColor ? : [UIColor colorWithWhite:0 alpha:0.6];
+    self.view.backgroundColor = [UIColor clearColor];
     self.modalPresentationStyle = UIModalPresentationOverFullScreen;
     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     self.contentView.frame = self.fromFrame;
