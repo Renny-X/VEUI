@@ -41,6 +41,15 @@ typedef NS_ENUM(NSInteger, VEPopoverContentPosition) {
 
 - (void)hide;
 
+/**
+ * 显示时动画添加
+ */
+- (void)withinShowAnimation;
+/**
+ * 隐藏时动画添加
+ */
+- (void)withinHideAnimation;
+
 @end
 
 NS_ASSUME_NONNULL_END

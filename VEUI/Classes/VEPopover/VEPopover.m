@@ -61,15 +61,21 @@
 }
 
 - (void)startAnimate:(BOOL)show {
-    if (show) {
-        self.view.backgroundColor = [UIColor clearColor];
-    }
     __weak typeof(self) ws = self;
     [UIView animateWithDuration:0.25 animations:^{
         ws.view.backgroundColor = ws.coverColor;
         ws.contentView.frame = show ? ws.toFrame : ws.fromFrame;
+        if (show) {
+            [ws withinShowAnimation];
+        } else {
+            [ws withinHideAnimation];
+        }
     }];
 }
+
+- (void)withinShowAnimation {}
+
+- (void)withinHideAnimation {}
 
 #pragma mark - Get
 - (UIView *)contentView {
