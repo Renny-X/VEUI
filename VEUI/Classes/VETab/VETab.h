@@ -38,6 +38,10 @@ typedef NS_ENUM(NSInteger, VETabStyle) {
  * 选中tab 下面的线条高度
  */
 @property(nonatomic, assign)CGFloat lineHeight;
+/**
+ * tab 两边留空宽度
+ */
+@property(nonatomic, assign)CGFloat tabVerticalGap;
 
 @property(nonatomic, assign, readonly)NSInteger selectedIndex;
 
@@ -52,6 +56,8 @@ typedef NS_ENUM(NSInteger, VETabStyle) {
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated;
 
 - (VETabItem *)tabItemAtIndex:(NSInteger)index;
+
+- (void)registerTabItemClass:(nullable Class)itemClass forItemWithReuseIdentifier:(NSString *)identifier;
 
 @end
 

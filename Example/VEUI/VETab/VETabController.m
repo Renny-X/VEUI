@@ -25,7 +25,8 @@
     self.view.backgroundColor = UIColor.lightGrayColor;
     
     
-    VETab *tab = [[VETab alloc] initWithStyle:VETabStyleLineEqual];
+//    VETab *tab = [[VETab alloc] initWithStyle:VETabStyleLineEqual];
+    VETab *tab = [[VETab alloc] initWithStyle:VETabStyleDefault];
     tab.frame = CGRectMake(100, 100, self.view.width, 100);
     tab.backgroundColor = [UIColor whiteColor];
     tab.delegate = self;

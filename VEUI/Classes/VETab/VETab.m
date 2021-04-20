@@ -75,6 +75,10 @@
     return (VETabItem *)[self.colV dequeueReusableCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER forIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
 }
 
+- (void)registerTabItemClass:(nullable Class)itemClass forItemWithReuseIdentifier:(NSString *)identifier {
+    [self.colV registerClass:itemClass forCellWithReuseIdentifier:identifier];
+}
+
 #pragma mark - UI
 - (void)initParams {
     self.backgroundColor = [UIColor whiteColor];
@@ -188,6 +192,13 @@
         }
     }
     return CGSizeMake(self.itemWidth, self.itemHeight);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if (collectionView == self.colV) {
+        return UIEdgeInsetsMake(0, self.tabVerticalGap, 0, self.tabVerticalGap);
+    }
+    return UIEdgeInsetsZero;
 }
 
 #pragma mark - UIScrollViewDelegate
