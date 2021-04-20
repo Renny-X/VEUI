@@ -206,6 +206,20 @@
     return UIEdgeInsetsZero;
 }
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+//    if (collectionView == self.colV) {
+//        return self.tabItemGap;
+//    }
+    return 0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    if (collectionView == self.colV) {
+        return self.tabItemGap;
+    }
+    return 0;
+}
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.colV bringSubviewToFront:self.lineView];

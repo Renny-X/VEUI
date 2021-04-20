@@ -42,6 +42,10 @@ typedef NS_ENUM(NSInteger, VETabStyle) {
  * tab 两边留空宽度
  */
 @property(nonatomic, assign)CGFloat tabVerticalGap;
+/**
+ * tab tabItem 间隔
+ */
+@property(nonatomic, assign)CGFloat tabItemGap;
 
 @property(nonatomic, assign, readonly)NSInteger selectedIndex;
 
