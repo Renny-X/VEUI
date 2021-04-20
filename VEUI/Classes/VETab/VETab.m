@@ -8,6 +8,7 @@
 #import "VETab.h"
 #import <VEUI/VEUI.h>
 #import "VETabContentItem.h"
+#import "VETabLineView.h"
 
 #define VETAB_Tab_CELL_REUSE_IDENTIFIER @"VETAB_Tab_CELL_REUSE_IDENTIFIER"
 #define VETAB_Content_CELL_REUSE_IDENTIFIER @"VETAB_Content_CELL_REUSE_IDENTIFIER"
@@ -18,7 +19,7 @@
 
 @property(nonatomic, strong)UICollectionView *colV;
 @property(nonatomic, strong)UICollectionView *contentV;
-@property(nonatomic, strong)UIView *lineView;
+@property(nonatomic, strong)VETabLineView *lineView;
 
 @property(nonatomic, assign)CGFloat itemWidth;
 @property(nonatomic, assign)NSInteger itemCount;
@@ -88,7 +89,7 @@
     [self addSubview:self.colV];
     [self addSubview:self.contentV];
     
-    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, self.lineHeight)];
+    self.lineView = [[VETabLineView alloc] initWithFrame:CGRectMake(0, 0, 0, self.lineHeight)];
     self.lineView.backgroundColor = [UIColor clearColor];
     [self.colV addSubview:self.lineView];
 }
@@ -239,23 +240,27 @@
             self.lineView.x = thisItemFrame.origin.x + (nextItemFrame.origin.x - thisItemFrame.origin.x) * fabs(progress);
             self.lineView.width = thisItem.width + (nextItem.width - thisItem.width) * fabs(progress);
             
+            if (self.style == VETabStyleLineEqual) {
+                CGFloat curProgress = fabs(progress);
+                CGFloat thisGap = thisItem.width - thisItem.textWidth;
+                CGFloat nextGap = nextItem.width - nextItem.textWidth;
+                self.lineView.verticalGap = thisGap * (1 - curProgress) + nextGap * curProgress;
+            }
+            
             // 检查是否显示不完全
             if (self.lineView.x < self.colV.contentOffset.x || self.lineView.maxX - self.colV.contentOffset.x > self.colV.width) {
                 // 左边被遮挡 || 右边被遮挡
-                CGFloat maxOffset = self.colV.contentSize.width - self.colV.width;
-                CGFloat minOffset = 0;
-                CGFloat shouldOffset = self.lineView.x - (self.colV.width - self.lineView.width) / 2.0;
-                if (shouldOffset < minOffset) {
-                    shouldOffset = minOffset;
+                CGFloat shouldAdjust = 0;
+                if (self.lineView.x < self.colV.contentOffset.x) {
+                    shouldAdjust = self.lineView.x;
                 }
-                if (shouldOffset > maxOffset) {
-                    shouldOffset = maxOffset;
+                if (self.lineView.maxX - self.colV.contentOffset.x > self.colV.width) {
+                    shouldAdjust = self.lineView.maxX - self.colV.width;
                 }
-                [self.colV setContentOffset:CGPointMake(shouldOffset, 0) animated:YES];
+                [self.colV setContentOffset:CGPointMake(shouldAdjust, 0) animated:NO];
             }
             
             // 刷新 Tab
-            
             if (self.selectProgress == 0) {
                 // 切换下选中状态
                 [self setCurrentIndex:self.nextIndex];

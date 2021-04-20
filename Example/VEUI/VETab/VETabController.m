@@ -25,7 +25,7 @@
     self.view.backgroundColor = UIColor.lightGrayColor;
     
     
-    VETab *tab = [[VETab alloc] initWithStyle:VETabStyleDefault];
+    VETab *tab = [[VETab alloc] initWithStyle:VETabStyleLineEqual];
     tab.frame = CGRectMake(100, 100, self.view.width, 100);
     tab.backgroundColor = [UIColor whiteColor];
     tab.delegate = self;
@@ -73,6 +73,8 @@
     VETabItem *tabItem = [tab tabItemAtIndex:index];
     tabItem.title = [NSString stringWithFormat:@"标题 %d", (int)index];
     tabItem.activeColor = [UIColor colorWithHexString:@"#09f"];
+    tabItem.inactiveFontSize = 14;
+    tabItem.activeFontSize = 16;
     if (index == 0) {
         tabItem.title = [NSString stringWithFormat:@"%@ - %@", tabItem.title, [NSDate dateStringWithFormatter:@"HH:mm:ss"]];
         tabItem.activeColor = [UIColor colorWithHexString:@"#f90"];

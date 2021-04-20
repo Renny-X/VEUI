@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, VETabStyle) {
     VETabStyleDefault = 0,
+    VETabStyleLineEqual,
 };
 
 @interface VETab : UIView

@@ -23,17 +23,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong)UIColor *activeColor;
 /**
+ * 字体名称
+ */
+@property(nonatomic, strong)NSString *fontName;
+/**
  * 高亮 title 字体 默认为16
  */
-@property(nonatomic, strong)UIFont *activeFont;
+@property(nonatomic, assign)CGFloat activeFontSize;
 /**
  * 正常 title 字体 默认为16
  */
-@property(nonatomic, strong)UIFont *inactiveFont;
+@property(nonatomic, assign)CGFloat inactiveFontSize;
 /**
  * 选中进度 用来调整高亮和非高亮的变化
  */
 @property(nonatomic, assign)CGFloat selectProgress;
+/**
+ * 文字标题宽度 用于给线条设置宽度
+ */
+@property(nonatomic, assign, readonly)CGFloat textWidth;
 
 @end
 
