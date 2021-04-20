@@ -32,6 +32,7 @@
     tab.delegate = self;
     tab.dataSource = self;
     tab.tabScrollEnabled = YES;
+    tab.tabVerticalGap = 15;
     self.tab = tab;
     [self.view addSubview:tab];
 //    [self test];

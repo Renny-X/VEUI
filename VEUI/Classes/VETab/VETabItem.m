@@ -10,8 +10,6 @@
 
 @interface VETabItem ()
 
-@property(nonatomic, strong)UILabel *label;
-
 @end
 
 @implementation VETabItem
@@ -26,7 +24,7 @@
 
 - (void)setup {
     self.clipsToBounds = YES;
-    self.label = [[UILabel alloc] init];
+    _label = [[UILabel alloc] init];
     self.label.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:self.label];
     

@@ -57,6 +57,9 @@ typedef NS_ENUM(NSInteger, VETabStyle) {
 
 - (VETabItem *)tabItemAtIndex:(NSInteger)index;
 
+// 子类使用
+- (__kindof VETabItem *)tabItemAtIndex:(NSInteger)index withReuseIdentifier:(NSString *)identifier;
+
 - (void)registerTabItemClass:(nullable Class)itemClass forItemWithReuseIdentifier:(NSString *)identifier;
 
 @end

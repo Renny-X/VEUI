@@ -75,6 +75,10 @@
     return (VETabItem *)[self.colV dequeueReusableCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER forIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
 }
 
+- (__kindof VETabItem *)tabItemAtIndex:(NSInteger)index withReuseIdentifier:(NSString *)identifier {
+    return [self.colV dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+}
+
 - (void)registerTabItemClass:(nullable Class)itemClass forItemWithReuseIdentifier:(NSString *)identifier {
     [self.colV registerClass:itemClass forCellWithReuseIdentifier:identifier];
 }
@@ -104,6 +108,7 @@
     self.contentV.scrollEnabled = self.contentScrollEnabled;
     self.colV.frame = CGRectMake(0, 0, self.width, self.itemHeight);
     self.contentV.frame = CGRectMake(0, self.itemHeight, self.width, self.height - self.itemHeight);
+    self.lineView.height = self.lineHeight;
     self.lineView.maxY = self.itemHeight;
     
     if (!self.layoutTag && self.contentV.width && self.itemCount) {

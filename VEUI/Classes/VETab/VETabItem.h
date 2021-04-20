@@ -10,6 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VETabItem : UICollectionViewCell
+
+@property(nonatomic, strong, readonly)UILabel *label;
 /**
  * tabitem标题
  */
