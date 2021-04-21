@@ -25,8 +25,8 @@
     self.view.backgroundColor = UIColor.lightGrayColor;
     
     
-//    VETab *tab = [[VETab alloc] initWithStyle:VETabStyleLineEqual];
-    VETab *tab = [[VETab alloc] initWithStyle:VETabStyleDefault];
+    VETab *tab = [[VETab alloc] initWithStyle:VETabStyleLineEqual];
+//    VETab *tab = [[VETab alloc] initWithStyle:VETabStyleDefault];
     tab.frame = CGRectMake(100, 100, self.view.width, 100);
     tab.backgroundColor = [UIColor whiteColor];
     tab.delegate = self;
@@ -116,7 +116,7 @@
 - (void)tapAction {
 //    self.tab.contentScrollEnabled = !self.tab.contentScrollEnabled;
     [self.tab reloadTab];
-    [self.tab setSelectedIndex:randomNum(0, self.randomWidth.count - 1) animated:randomNum(0, 1)];
+    [self.tab setSelectedIndex:randomNum(0, (int)self.randomWidth.count - 1) animated:randomNum(0, 1)];
 }
 
 

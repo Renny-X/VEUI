@@ -59,12 +59,15 @@
     return [UIFont systemFontOfSize:fontSize];
 }
 
+@synthesize textWidth = _textWidth;
 - (CGFloat)textWidth {
-    UILabel *label = [[UILabel alloc] init];
-    label.font = self.fontName ? [UIFont fontWithName:self.fontName size:self.activeFontSize] : [UIFont systemFontOfSize:self.activeFontSize];
-    label.text = self.title;
-    [label sizeToFit];
-    return label.width > self.width ? self.width : label.width;
+    if (!_textWidth) {
+        CGRect rect = [self.title boundingRectWithSize:CGSizeMake(self.width, self.height) options:0 attributes:@{
+            NSFontAttributeName:self.fontName ? [UIFont fontWithName:self.fontName size:self.activeFontSize] : [UIFont systemFontOfSize:self.activeFontSize]
+        } context:nil];
+        _textWidth = rect.size.width;
+    }
+    return _textWidth;
 }
 
 @end

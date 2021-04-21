@@ -274,7 +274,7 @@
                 CGFloat curProgress = fabs(progress);
                 CGFloat thisGap = thisItem.width - thisItem.textWidth;
                 CGFloat nextGap = nextItem.width - nextItem.textWidth;
-                self.lineView.verticalGap = thisGap * (1 - curProgress) + nextGap * curProgress;
+                self.lineView.horizontalGap = thisGap * (1 - curProgress) + nextGap * curProgress;
             }
             
             // 检查是否显示不完全

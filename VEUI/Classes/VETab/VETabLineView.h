@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VETabLineView : UIView
 
-@property(nonatomic, assign)CGFloat verticalGap;
+@property(nonatomic, assign)CGFloat horizontalGap;
 
 @end
 

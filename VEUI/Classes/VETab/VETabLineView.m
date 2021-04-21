@@ -26,8 +26,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.lineView.frame = self.bounds;
-    if (self.verticalGap) {
-        self.lineView.width = self.width - self.verticalGap;
+    if (self.horizontalGap) {
+        self.lineView.width = self.width - self.horizontalGap;
     }
     self.lineView.centerX = self.width * 0.5;
 }
@@ -35,6 +35,11 @@
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
     [super setBackgroundColor:[UIColor clearColor]];
     self.lineView.backgroundColor = backgroundColor;
+}
+
+- (void)setHorizontalGap:(CGFloat)horizontalGap {
+    _horizontalGap = horizontalGap;
+    [self setNeedsLayout];
 }
 
 @end
