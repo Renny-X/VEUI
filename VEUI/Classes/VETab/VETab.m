@@ -207,17 +207,17 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-//    if (collectionView == self.colV) {
-//        return self.tabItemGap;
-//    }
-    return 0;
+    if (collectionView == self.colV) {
+        return self.tabItemGap;
+    }
+    return CGFLOAT_MIN;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     if (collectionView == self.colV) {
         return self.tabItemGap;
     }
-    return 0;
+    return CGFLOAT_MIN;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -326,10 +326,11 @@
 - (UICollectionView *)colV {
     if (!_colV) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.minimumLineSpacing = 0;
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         layout.sectionHeadersPinToVisibleBounds = NO;
         layout.sectionFootersPinToVisibleBounds = NO;
+        layout.minimumLineSpacing = 0;
+        layout.minimumInteritemSpacing = 0;
         
         _colV = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
         _colV.tag = 1000;
@@ -347,10 +348,11 @@
 - (UICollectionView *)contentV {
     if (!_contentV) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.minimumLineSpacing = 0;
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         layout.sectionHeadersPinToVisibleBounds = NO;
         layout.sectionFootersPinToVisibleBounds = NO;
+        layout.minimumLineSpacing = 0;
+        layout.minimumInteritemSpacing = 0;
         
         _contentV = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
         _contentV.tag = 1001;

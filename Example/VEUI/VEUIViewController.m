@@ -52,22 +52,15 @@
     return _dataArr;
 }
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if (@available(iOS 11.0, *)) {
-        self.navigationItem.largeTitleDisplayMode = [viewController.title isEqualToString:self.title] ? UINavigationItemLargeTitleDisplayModeAutomatic : UINavigationItemLargeTitleDisplayModeNever;
-    }
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"VEUI Example";
     if (@available(iOS 11.0, *)) {
-        self.navigationController.navigationBar.prefersLargeTitles = YES;
         self.navigationItem.backButtonTitle = @"";
     } else {
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     }
-    self.navigationController.delegate = self;
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.closeSections = [NSMutableArray array];
     
