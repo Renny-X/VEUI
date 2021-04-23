@@ -225,13 +225,14 @@
     [self.colV bringSubviewToFront:self.lineView];
     if (scrollView.tag % 10) {
         // content
-        // 从selected -> next
+        // 从selected -> selected
         if (self.isClickTab && self.selectedIndex * self.contentV.width == self.contentV.contentOffset.x) {
             // 点击了选中状态的tab
             [self.colV selectItemAtIndexPath:[NSIndexPath indexPathForRow:self.selectedIndex inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
             self.isClickTab = NO;
             return;
         }
+        // 从selected -> next
         if (self.itemCount && scrollView.width) {
             CGFloat shouldOffset = 0;
             CGFloat progress = 1;
@@ -287,7 +288,7 @@
                 if (self.lineView.maxX - self.colV.contentOffset.x > self.colV.width) {
                     shouldAdjust = self.lineView.maxX - self.colV.width;
                 }
-                [self.colV setContentOffset:CGPointMake(shouldAdjust, 0) animated:NO];
+                [self.colV setContentOffset:CGPointMake(shouldAdjust, 0) animated:self.isClickTab];
             }
             
             // 刷新 Tab
