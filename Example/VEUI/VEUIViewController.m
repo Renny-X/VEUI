@@ -31,21 +31,21 @@
     if (!_dataArr) {
         _dataArr = @[
             [VEUIGroupModel modelWithTitle:@"Category" cellArr:@[
-                [VEUICellModel modelWithTitle:@"UIImage+VEUI" controller:[VEUIImageCategoryViewController new]],
+                [VEUICellModel modelWithTitle:@"UIImage+VEUI" controller:@"VEUIImageCategoryViewController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Data Display" cellArr:@[
-                [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:[VEImageBrowserViewController new]],
-                [VEUICellModel modelWithTitle:@"VENoticeBar" controller:[VENoticeBarController new]],
+                [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:@"VEImageBrowserViewController"],
+                [VEUICellModel modelWithTitle:@"VENoticeBar" controller:@"VENoticeBarController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Feedback" cellArr:@[
-                [VEUICellModel modelWithTitle:@"VEToast" controller:[VEToastViewController new]],
+                [VEUICellModel modelWithTitle:@"VEToast" controller:@"VEToastViewController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Navigation" cellArr:@[
-                [VEUICellModel modelWithTitle:@"VEPopover" controller:[VEPopoverViewController new]],
-                [VEUICellModel modelWithTitle:@"VETab" controller:[VETabController new]],
+                [VEUICellModel modelWithTitle:@"VEPopover" controller:@"VEPopoverViewController"],
+                [VEUICellModel modelWithTitle:@"VETab" controller:@"VETabController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Base" cellArr:@[
-                [VEUICellModel modelWithTitle:@"VEModel" controller:[VEModelController new]],
+                [VEUICellModel modelWithTitle:@"VEModel" controller:@"VEModelController"],
             ]],
         ];
     }
@@ -166,10 +166,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     VEUIGroupModel *groupModel = self.dataArr[indexPath.section];
     VEUICellModel *cellModel = groupModel.cellArr[indexPath.row];
-    if (cellModel.controller) {
-        cellModel.controller.title = cellModel.title;
-        cellModel.controller.edgesForExtendedLayout = UIRectEdgeNone;
-        [self.navigationController pushViewController:cellModel.controller animated:YES];
+    if (cellModel.controller && cellModel.controller.length) {
+        Class VCClass = NSClassFromString(cellModel.controller);
+        UIViewController *controller = [VCClass new];
+        controller.title = cellModel.title;
+        controller.edgesForExtendedLayout = UIRectEdgeNone;
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 

@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong)NSString *title;
 
-@property(nonatomic, strong)UIViewController *controller;
+@property(nonatomic, strong)NSString *controller;
 
-+ (instancetype)modelWithTitle:(NSString *)title controller:(UIViewController *)vc;
++ (instancetype)modelWithTitle:(NSString *)title controller:(NSString *)controller;
 
 @end
 

@@ -10,14 +10,14 @@
 
 @implementation VEUICellModel
 
-+ (instancetype)modelWithTitle:(NSString *)title controller:(UIViewController *)vc {
-    return [[VEUICellModel alloc] initWithTitle:title controller:vc];
++ (instancetype)modelWithTitle:(NSString *)title controller:(NSString *)controller {
+    return [[VEUICellModel alloc] initWithTitle:title controller:controller];
 }
 
-- (instancetype)initWithTitle:(NSString *)title controller:(UIViewController *)vc {
+- (instancetype)initWithTitle:(NSString *)title controller:(NSString *)controller {
     if (self = [super init]) {
         self.title = title;
-        self.controller = vc;
+        self.controller = controller;
     }
     return self;
 }

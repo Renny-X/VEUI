@@ -19,6 +19,7 @@
     if (self) {
         self.backgroundColor = [UIColor yellowColor];
     }
+    [NSThread sleepForTimeInterval:0.5];
     return self;
 }
 

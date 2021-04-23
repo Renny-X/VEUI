@@ -88,29 +88,16 @@
 
 - (UIView *)tab:(VETab *)tab contentViewAtIndex:(NSInteger)index {
     VETabContentView *v = [[VETabContentView alloc] init];
-    switch (index) {
-        case 0:
-            v.backgroundColor = [UIColor redColor];
-            break;
-        case 1:
-            v.backgroundColor = [UIColor greenColor];
-            break;
-        case 2:
-            v.backgroundColor = [UIColor blueColor];
-            break;
-        default:
-            break;
-    }
     v.backgroundColor = [UIColor randomColor];
     __weak typeof(self) ws = self;
     v.clickBack = ^(BOOL begin) {
         [ws tapAction];
     };
+    NSLog(@"content view did init ==> %d", (int)index);
     return v;
 }
 
 - (void)didSelectAtIndex:(NSInteger)index {
-    NSLog(@"%d", (int)index);
 }
 
 - (void)tapAction {
