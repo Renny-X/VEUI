@@ -42,7 +42,7 @@
     self.label.textColor = [UIColor colorFromColor:self.inactiveColor toColor:self.activeColor progress:self.selectProgress];
 }
 
-#pragma mark - Get
+#pragma mark - Set
 - (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
     if (!selected) {
@@ -51,6 +51,7 @@
     [self setNeedsLayout];
 }
 
+#pragma mark - Get
 - (UIFont *)getFont {
     CGFloat fontSize = self.inactiveFontSize * (1 - self.selectProgress) + self.activeFontSize * self.selectProgress;
     if (self.fontName) {
