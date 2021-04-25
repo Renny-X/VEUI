@@ -30,9 +30,6 @@
 @property(nonatomic, strong)NSMutableDictionary *tabProgressCache;
 @property(nonatomic, assign)NSInteger contentScrollDirection; // -1 left -- 1 right
 
-@property(nonatomic, strong)NSOperationQueue *loadQueue;
-@property(nonatomic, strong)NSMutableArray *loadCache;
-
 @end
 
 @implementation VETab
@@ -44,7 +41,6 @@
         self.itemCount = 0;
         self.contentCache = [NSMutableDictionary dictionary];
         self.tabProgressCache = [NSMutableDictionary dictionary];
-        self.loadCache = [NSMutableArray array];
     }
     return self;
 }
@@ -71,7 +67,6 @@
 - (void)forceReloadContent {
     if (self.contentV) {
         self.contentCache = [NSMutableDictionary dictionary];
-        self.loadCache = [NSMutableArray array];
         [self.contentV reloadSections:[NSIndexSet indexSetWithIndex:0]];
     }
 }
@@ -130,7 +125,6 @@
 - (void)loadContentAtIndexPath:(NSIndexPath *)indexPath {
     [self.contentCache setValue:[self.dataSource tab:self contentViewAtIndex:indexPath.row]
                          forKey:[self stringKeyWithIndexPath:indexPath]];
-    [self.loadCache removeObject:[self stringKeyWithIndexPath:indexPath]];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.contentV reloadData];
     });
@@ -421,14 +415,6 @@
         [_contentV addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
     }
     return _contentV;
-}
-
-- (NSOperationQueue *)loadQueue {
-    if (!_loadQueue) {
-        _loadQueue = [[NSOperationQueue alloc] init];
-        _loadQueue.maxConcurrentOperationCount = 1;
-    }
-    return _loadQueue;
 }
 
 #pragma mark- tab scroll enabled
