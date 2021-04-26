@@ -46,6 +46,14 @@ typedef NS_ENUM(NSInteger, VETabStyle) {
  * tab tabItem 间隔
  */
 @property(nonatomic, assign)CGFloat tabItemGap;
+/**
+ * tab 能否滚动 默认为NO
+ */
+@property(nonatomic, strong)UIColor *tabBarBackgroundColor;
+/**
+ * tab 能否滚动 默认为NO
+ */
+@property(nonatomic, strong)UIColor *contentBackgroundColor;
 
 @property(nonatomic, assign, readonly)NSInteger selectedIndex;
 

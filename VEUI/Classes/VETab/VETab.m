@@ -90,6 +90,9 @@
     self.itemHeight = 40;
     self.lineHeight = 1.5;
     [self setCurrentIndex:0];
+    
+    self.tabBarBackgroundColor = [UIColor clearColor];
+    self.contentBackgroundColor = [UIColor clearColor];
 }
 
 - (void)setUI {
@@ -375,23 +378,20 @@
     }
 }
 
+- (void)setTabBarBackgroundColor:(UIColor *)tabBarBackgroundColor {
+    _tabBarBackgroundColor = tabBarBackgroundColor;
+    self.colV.backgroundColor = tabBarBackgroundColor;
+}
+
+- (void)setContentBackgroundColor:(UIColor *)contentBackgroundColor {
+    _contentBackgroundColor = contentBackgroundColor;
+    self.contentV.backgroundColor = contentBackgroundColor;
+}
+
 #pragma mark - Get
 - (UICollectionView *)colV {
     if (!_colV) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        layout.sectionHeadersPinToVisibleBounds = NO;
-        layout.sectionFootersPinToVisibleBounds = NO;
-        layout.minimumLineSpacing = 0;
-        layout.minimumInteritemSpacing = 0;
-        
-        _colV = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
-        _colV.bounces = NO;
-        _colV.delegate = self;
-        _colV.dataSource = self;
-        _colV.showsVerticalScrollIndicator = NO;
-        _colV.showsHorizontalScrollIndicator = NO;
-        _colV.backgroundColor = [UIColor clearColor];
+        _colV = [self getCommonCollectionView];
         [_colV registerClass:[VETabItem class] forCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER];
     }
     return _colV;
@@ -399,26 +399,31 @@
 
 - (UICollectionView *)contentV {
     if (!_contentV) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        layout.sectionHeadersPinToVisibleBounds = NO;
-        layout.sectionFootersPinToVisibleBounds = NO;
-        layout.minimumLineSpacing = 0;
-        layout.minimumInteritemSpacing = 0;
-        
-        _contentV = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
-        _contentV.bounces = NO;
-        _contentV.delegate = self;
-        _contentV.dataSource = self;
+        _contentV = [self getCommonCollectionView];
         _contentV.pagingEnabled = YES;
-        _contentV.showsVerticalScrollIndicator = NO;
-        _contentV.showsHorizontalScrollIndicator = NO;
-        _contentV.backgroundColor = [UIColor clearColor];
         [_contentV registerClass:[VETabContentItem class] forCellWithReuseIdentifier:VETAB_Content_CELL_REUSE_IDENTIFIER];
-        
         [_contentV addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
     }
     return _contentV;
+}
+
+- (UICollectionView *)getCommonCollectionView {
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.sectionHeadersPinToVisibleBounds = NO;
+    layout.sectionFootersPinToVisibleBounds = NO;
+    layout.minimumLineSpacing = CGFLOAT_MIN;
+    layout.minimumInteritemSpacing = CGFLOAT_MIN;
+    
+    UICollectionView *colV = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+    colV.bounces = NO;
+    colV.delegate = self;
+    colV.dataSource = self;
+    colV.showsVerticalScrollIndicator = NO;
+    colV.showsHorizontalScrollIndicator = NO;
+    colV.backgroundColor = [UIColor clearColor];
+    
+    return colV;
 }
 
 #pragma mark- tab scroll enabled
