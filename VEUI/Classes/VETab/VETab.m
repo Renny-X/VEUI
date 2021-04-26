@@ -329,7 +329,11 @@
             [self.tabProgressCache setValue:[NSNumber numberWithFloat:(1 - progress)] forKey:leftKey];
             [self.tabProgressCache setValue:[NSNumber numberWithFloat:progress] forKey:rightKey];
         }
-        [self.colV reloadItemsAtIndexPaths:@[leftIndexPath, rightIndexPath]];
+        if ([leftIndexPath isEqual:rightIndexPath]) {
+            [self.colV reloadItemsAtIndexPaths:@[leftIndexPath]];
+        } else {
+            [self.colV reloadItemsAtIndexPaths:@[leftIndexPath, rightIndexPath]];
+        }
         // 👆👆👆👆👆 refresh collectionView 👆👆👆👆👆
     }
 }
