@@ -160,7 +160,7 @@
             layoutView = [self.contentCache objectForKey:strKey];
         } else {
             layoutView = [[UIView alloc] init];
-            layoutView.backgroundColor = [UIColor whiteColor];
+            layoutView.backgroundColor = self.contentBackgroundColor;
         }
         cell.layoutView = layoutView;
         return cell;
