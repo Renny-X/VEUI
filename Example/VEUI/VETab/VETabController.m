@@ -32,6 +32,7 @@
     tab.delegate = self;
     tab.dataSource = self;
 //    tab.tabScrollEnabled = YES;
+    tab.contentScrollEnabled = NO;
     tab.tabVerticalGap = 15;
     tab.tabItemGap = 30;
     self.tab = tab;
@@ -99,7 +100,7 @@
 
 - (void)tapAction {
     [self.tab reloadTab];
-    [self.tab setSelectedIndex:randomNum(0, (int)self.randomWidth.count - 1) animated:randomNum(0, 1)];
+//    [self.tab setSelectedIndex:randomNum(0, (int)self.randomWidth.count - 1) animated:randomNum(0, 1)];
 }
 
 @end

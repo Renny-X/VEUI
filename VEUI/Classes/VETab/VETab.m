@@ -115,7 +115,7 @@
     self.lineView.maxY = self.itemHeight;
     
     if (!self.layoutTag && self.contentV.width && self.itemCount) {
-        [self setSelectedIndex:self.selectedIndex animated:YES];
+        [self setSelectedIndex:self.selectedIndex animated:self.contentScrollEnabled];
         self.layoutTag = 1;
     }
 }
@@ -190,7 +190,7 @@
     } else {
         // tab
         self.isClickTab = YES;
-        [self setSelectedIndex:indexPath.row animated:YES];
+        [self setSelectedIndex:indexPath.row animated:self.contentScrollEnabled];
     }
 }
 
@@ -361,8 +361,15 @@
 @synthesize selectedIndex = _selectedIndex;
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated {
     if (self.selectedIndex != selectedIndex) {
+        NSInteger oldIndex = self.selectedIndex;
         [self.contentV setContentOffset:CGPointMake(selectedIndex * self.contentV.width, 0) animated:animated];
-        
+        if (!animated) {
+            __weak typeof(self) ws = self;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [ws didEndScrollHandler];
+                [ws.colV reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:oldIndex inSection:0]]];
+            });
+        }
         [self.colV scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     } else {
         [self scrollViewDidScroll:self.contentV];
