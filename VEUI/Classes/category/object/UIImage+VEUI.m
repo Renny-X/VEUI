@@ -50,14 +50,21 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 }
 
 + (UIImage *)imageWithIcon:(NSString*)iconCode inFont:(NSString*)fontName size:(CGSize)size color:(UIColor*)color {
+    CGFloat fontSize = MIN(size.width, size.height);
+    if (!fontSize) {
+        return nil;
+    }
     NSAttributedString *attr = [[NSAttributedString alloc] initWithString:iconCode attributes:@{
         NSForegroundColorAttributeName:color ?: [UIColor blackColor],
-        NSFontAttributeName:fontName ? [UIFont fontWithName:fontName size:MIN(size.width, size.height)] : [UIFont systemFontSize]
+        NSFontAttributeName:fontName && fontName.length ? [UIFont fontWithName:fontName size:fontSize] : [UIFont systemFontOfSize:fontSize]
     }];
     return [self imageWithAttributedString:attr size:size];
 }
 
 + (UIImage*)imageWithAttributedString:(NSAttributedString *)attributedString size:(CGSize)size {
+    if (!size.width || !size.height || !attributedString) {
+        return nil;
+    }
     UILabel *label = [[UILabel alloc] init];
     label.size = size;
     label.textAlignment = NSTextAlignmentCenter;
@@ -121,7 +128,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     [path addClip];
     [self drawAtPoint:CGPointZero];
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext()
+    UIGraphicsEndImageContext();
     
     if (img) {
         return img;
