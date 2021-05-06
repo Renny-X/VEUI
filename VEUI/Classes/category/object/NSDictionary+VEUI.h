@@ -19,7 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * key-value 为null时 返回 @"" 空字符串
  */
-- (NSString *)safeValueForKey:(NSString *)aKey;
+- (id)safe_valueForKey:(NSString *)aKey;
+
+- (NSString *)string_valueForKey:(NSString *)aKey;
+
+- (NSInteger)integer_valueForKey:(NSString *)aKey;
+
+- (CGFloat)float_valueForKey:(NSString *)aKey;
 
 @end
 

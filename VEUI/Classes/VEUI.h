@@ -21,6 +21,7 @@
 
 // category view
 #import "UIButton+VEUI.h"
+#import "UIControl+VEUI.h"
 #import "UITextField+VEUI.h"
 #import "UIView+VEUI.h"
 

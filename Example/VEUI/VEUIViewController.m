@@ -87,6 +87,13 @@
 //
 //    NSLog(@"%@", [arr formatValue]);
 //    NSLog(@"%@", [dict safeValueForKey:@"键1"]);
+    
+    
+    
+    NSString *version1 = @"v1.0.8";
+    NSString *version2 = @"v1.1";
+    
+    NSLog(@"is higher ==> %d", [version2 compare:version1 options:NSNumericSearch] == NSOrderedDescending);
 }
 
 - (void)btnClicked:(UIButton *)btn {

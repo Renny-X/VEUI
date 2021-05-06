@@ -36,6 +36,12 @@
     return nil;
 }
 
+- (void)removeAllSubviews {
+    for (UIView *view in self.subviews) {
+        [view removeFromSuperview];
+    }
+}
+
 - (void)addToSuperView:(UIView *)superView {
     [superView addSubview:self];
 }

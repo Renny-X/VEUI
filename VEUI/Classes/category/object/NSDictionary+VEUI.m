@@ -18,12 +18,45 @@
     return [jsonStr toNSDictionary];
 }
 
-- (NSString *)safeValueForKey:(NSString *)aKey {
+- (id)safe_valueForKey:(NSString *)aKey {
     id temp = [self objectForKey:aKey];
     if (temp == nil || [temp isEmpty]) {
         temp = @"";
     }
     return temp;
+}
+
+- (NSString *)string_valueForKey:(NSString *)aKey {
+    id obj = [self valueForKey:aKey];
+    if ([obj isKindOfClass:[NSNumber class]]) {
+        return [(NSNumber *)obj stringValue];
+    }
+    if ([obj isKindOfClass:[NSString class]]) {
+        return (NSString *)obj;
+    }
+    return @"";
+}
+
+- (NSInteger)integer_valueForKey:(NSString *)aKey {
+    id obj = [self valueForKey:aKey];
+    if ([obj isKindOfClass:[NSNumber class]]) {
+        return [(NSNumber *)obj integerValue];
+    }
+    if ([obj isKindOfClass:[NSString class]]) {
+        return [(NSString *)obj integerValue];
+    }
+    return 0;
+}
+
+- (CGFloat)float_valueForKey:(NSString *)aKey {
+    id obj = [self valueForKey:aKey];
+    if ([obj isKindOfClass:[NSNumber class]]) {
+        return [(NSNumber *)obj floatValue];
+    }
+    if ([obj isKindOfClass:[NSString class]]) {
+        return [(NSString *)obj floatValue];
+    }
+    return 0;
 }
 
 //输出中文字符串

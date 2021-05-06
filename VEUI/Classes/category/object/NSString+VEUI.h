@@ -36,10 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
  * 返回随机 md5 字符串
  */
 - (NSString *)md5String;
-/**
- * 是否包含中文
- */
-- (BOOL)containsCN;
 
 #pragma mark - Validate
 /**
@@ -54,6 +50,14 @@ NS_ASSUME_NONNULL_BEGIN
  * 校验是否为纯链接
  */
 - (BOOL)isUrlString;
+/**
+ * 是否包含中文
+ */
+- (BOOL)containsCN;
+
+#pragma mark - Calculate
+- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)size;
+- (CGFloat)heightWithFont:(UIFont *)font maxWidth:(CGFloat)maxWidth;
 
 @end
 
