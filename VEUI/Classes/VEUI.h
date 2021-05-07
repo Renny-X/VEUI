@@ -21,6 +21,7 @@
 
 // category view
 #import "UIButton+VEUI.h"
+#import "UIControl+VEUI.h"
 #import "UITextField+VEUI.h"
 #import "UIView+VEUI.h"
 
@@ -40,7 +41,6 @@
 #import "VETipView.h"
 #import "VEToast.h"
 #import "VETab.h"
-#import "VEConstant.h"
 
 // Utils
 #import "VETools.h"

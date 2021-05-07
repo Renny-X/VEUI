@@ -13,14 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (VEUI)
 
 /**
- * viewController 当前view所在的controller
- */
-- (UIViewController *)viewController;
-/**
- * concat 复制当前view并返回
- */
-- (id)concat;
-/**
  * view 的左上顶点坐标
  */
 @property (nonatomic, assign) CGPoint orign;
@@ -61,9 +53,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) CGFloat maxY;
 /**
+ * viewController 当前view所在的controller
+ */
+- (UIViewController *)viewController;
+/**
+ * concat 复制当前view并返回
+ */
+- (id)concat;
+/**
  * 通过strTag 返回对应的 view
  */
 - (nullable UIView *)viewWithStrTag:(nullable NSString *)strTag;
+/**
+ * 移除当前view 所有subview
+ */
+- (void)removeAllSubviews;
 /**
  * 将当前view 添加到superView
  */

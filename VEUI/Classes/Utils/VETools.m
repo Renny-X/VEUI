@@ -14,6 +14,16 @@ int randomNum(int from, int to) {
     return rand() % (to - from + 1) + from;
 }
 
+BOOL NSRangeContainRange(NSRange range, NSRange subRange) {
+    if (subRange.location < range.location) {
+        return false;
+    }
+    if (subRange.location + subRange.length > range.location + range.length) {
+        return false;
+    }
+    return true;
+}
+
 @implementation VETools
 
 + (CGFloat)statusBarHeight {

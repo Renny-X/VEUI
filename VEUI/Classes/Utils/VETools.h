@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern int randomNum(int from, int to);
 
+extern BOOL NSRangeContainRange(NSRange range, NSRange subRange);
+
 @interface VETools : NSObject
 
 + (CGFloat)statusBarHeight;

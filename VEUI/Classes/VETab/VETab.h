@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, VETabStyle) {
     VETabStyleDefault = 0,
+    VETabStyleLineEqual,
 };
 
 @interface VETab : UIView
@@ -37,6 +38,22 @@ typedef NS_ENUM(NSInteger, VETabStyle) {
  * 选中tab 下面的线条高度
  */
 @property(nonatomic, assign)CGFloat lineHeight;
+/**
+ * tab 两边留空宽度
+ */
+@property(nonatomic, assign)CGFloat tabVerticalGap;
+/**
+ * tab tabItem 间隔
+ */
+@property(nonatomic, assign)CGFloat tabItemGap;
+/**
+ * tab 能否滚动 默认为NO
+ */
+@property(nonatomic, strong)UIColor *tabBarBackgroundColor;
+/**
+ * tab 能否滚动 默认为NO
+ */
+@property(nonatomic, strong)UIColor *contentBackgroundColor;
 
 @property(nonatomic, assign, readonly)NSInteger selectedIndex;
 
@@ -51,6 +68,11 @@ typedef NS_ENUM(NSInteger, VETabStyle) {
 - (void)setSelectedIndex:(NSInteger)selectedIndex animated:(BOOL)animated;
 
 - (VETabItem *)tabItemAtIndex:(NSInteger)index;
+
+// 子类使用
+- (__kindof VETabItem *)tabItemAtIndex:(NSInteger)index withReuseIdentifier:(NSString *)identifier;
+
+- (void)registerTabItemClass:(nullable Class)itemClass forItemWithReuseIdentifier:(NSString *)identifier;
 
 @end
 

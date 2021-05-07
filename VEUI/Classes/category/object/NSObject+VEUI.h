@@ -29,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 判断是否为Null 或 空字符串、空数组、空字典等
  */
 - (BOOL)isEmpty;
+/**
+ * 判断obj是否为Nil、Null 或 空字符串、空数组、空字典等
+ */
++ (BOOL)isNilorNull:(id)obj;
 
 @end
 

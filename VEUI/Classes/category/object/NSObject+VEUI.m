@@ -66,14 +66,14 @@
         }
         return tmpDict;
     }
-    if (self == nil || self == [NSNull null]) {
+    if (self == nil || [self isKindOfClass:[NSNull class]]) {
         return @"";
     }
     return self;
 }
 
 - (BOOL)isEmpty {
-    if ([self isKindOfClass:[NSNull class]] || self == nil) {
+    if ([self isKindOfClass:[NSNull class]]) {
         return true;
     }
     if ([self isKindOfClass:[NSString class]]) {
@@ -86,6 +86,13 @@
         return !((NSDictionary *)self).allKeys.count;
     }
     return false;
+}
+
++ (BOOL)isNilorNull:(id)obj {
+    if (obj == nil) {
+        return true;
+    }
+    return [obj isEmpty];
 }
 
 @end

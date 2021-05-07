@@ -31,43 +31,36 @@
     if (!_dataArr) {
         _dataArr = @[
             [VEUIGroupModel modelWithTitle:@"Category" cellArr:@[
-                [VEUICellModel modelWithTitle:@"UIImage+VEUI" controller:[VEUIImageCategoryViewController new]],
+                [VEUICellModel modelWithTitle:@"UIImage+VEUI" controller:@"VEUIImageCategoryViewController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Data Display" cellArr:@[
-                [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:[VEImageBrowserViewController new]],
-                [VEUICellModel modelWithTitle:@"VENoticeBar" controller:[VENoticeBarController new]],
+                [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:@"VEImageBrowserViewController"],
+                [VEUICellModel modelWithTitle:@"VENoticeBar" controller:@"VENoticeBarController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Feedback" cellArr:@[
-                [VEUICellModel modelWithTitle:@"VEToast" controller:[VEToastViewController new]],
+                [VEUICellModel modelWithTitle:@"VEToast" controller:@"VEToastViewController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Navigation" cellArr:@[
-                [VEUICellModel modelWithTitle:@"VEPopover" controller:[VEPopoverViewController new]],
-                [VEUICellModel modelWithTitle:@"VETab" controller:[VETabController new]],
+                [VEUICellModel modelWithTitle:@"VEPopover" controller:@"VEPopoverViewController"],
+                [VEUICellModel modelWithTitle:@"VETab" controller:@"VETabController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Base" cellArr:@[
-                [VEUICellModel modelWithTitle:@"VEModel" controller:[VEModelController new]],
+                [VEUICellModel modelWithTitle:@"VEModel" controller:@"VEModelController"],
             ]],
         ];
     }
     return _dataArr;
 }
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if (@available(iOS 11.0, *)) {
-        self.navigationItem.largeTitleDisplayMode = [viewController.title isEqualToString:self.title] ? UINavigationItemLargeTitleDisplayModeAutomatic : UINavigationItemLargeTitleDisplayModeNever;
-    }
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"VEUI Example";
     if (@available(iOS 11.0, *)) {
-        self.navigationController.navigationBar.prefersLargeTitles = YES;
         self.navigationItem.backButtonTitle = @"";
     } else {
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     }
-    self.navigationController.delegate = self;
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.closeSections = [NSMutableArray array];
     
@@ -94,6 +87,11 @@
 //
 //    NSLog(@"%@", [arr formatValue]);
 //    NSLog(@"%@", [dict safeValueForKey:@"键1"]);
+    
+    NSString *version1 = @"v1.0.8";
+    NSString *version2 = @"v1.0.8.1";
+    
+    NSLog(@"is higher ==> %d", [version2 compare:version1 options:NSNumericSearch] == NSOrderedDescending);
 }
 
 - (void)btnClicked:(UIButton *)btn {
@@ -173,10 +171,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     VEUIGroupModel *groupModel = self.dataArr[indexPath.section];
     VEUICellModel *cellModel = groupModel.cellArr[indexPath.row];
-    if (cellModel.controller) {
-        cellModel.controller.title = cellModel.title;
-        cellModel.controller.edgesForExtendedLayout = UIRectEdgeNone;
-        [self.navigationController pushViewController:cellModel.controller animated:YES];
+    if (cellModel.controller && cellModel.controller.length) {
+        Class VCClass = NSClassFromString(cellModel.controller);
+        UIViewController *controller = [VCClass new];
+        controller.title = cellModel.title;
+        controller.edgesForExtendedLayout = UIRectEdgeNone;
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 

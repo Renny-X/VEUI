@@ -18,7 +18,7 @@
         url = @" ";
     }
     NSString *charactersToEscape = @"\"%<>[\\]^`{|}";
-        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersToEscape] invertedSet];
+    NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersToEscape] invertedSet];
     return [url stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
 }
 
@@ -68,19 +68,6 @@
     return [outPutStr lowercaseString];
 }
 
-/**
- * 是否包含中文
- */
-- (BOOL)containsCN {
-    for(int i=0; i< [self length];i++) {
-        int a = [self characterAtIndex:i];
-        if( a > 0x4E00 && a < 0x9FFF) {
-            return YES;
-        }
-    }
-    return NO;
-}
-
 #pragma mark - Validate
 - (BOOL)isEmail {
 //    /\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}/
@@ -114,6 +101,35 @@
         }
     }
     return NO;
+}
+
+/**
+ * 是否包含中文
+ */
+- (BOOL)containsCN {
+    for(int i=0; i< [self length];i++) {
+        int a = [self characterAtIndex:i];
+        if( a > 0x4E00 && a < 0x9FFF) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+#pragma mark - Calculate
+- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)size {
+    if (!self.length || !font) {
+        return CGSizeZero;
+    }
+    CGSize tmpSize = [self boundingRectWithSize:size
+                                        options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                     attributes:@{NSFontAttributeName:font}
+                                        context:nil].size;
+    return CGSizeMake(ceilf(tmpSize.width), ceilf(tmpSize.height));
+}
+
+- (CGFloat)heightWithFont:(UIFont *)font maxWidth:(CGFloat)maxWidth {
+    return [self sizeWithFont:font maxSize:CGSizeMake(maxWidth, CGFLOAT_MAX)].height;
 }
 
 @end
