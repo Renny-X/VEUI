@@ -38,6 +38,13 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.2.2
+#### add
+* 扩展多个safe方法
+
+#### upgrade
+* 升级VETab组件
+
 ### 0.2.0
 #### add
 * NSString 添加 是否包含中文 实例方法

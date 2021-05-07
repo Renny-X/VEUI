@@ -41,7 +41,6 @@
 #import "VETipView.h"
 #import "VEToast.h"
 #import "VETab.h"
-#import "VEConstant.h"
 
 // Utils
 #import "VETools.h"
