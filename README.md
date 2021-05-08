@@ -38,6 +38,10 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.2.3
+#### upgrade
+* 升级VETab 支持左滑返回手势
+
 ### 0.2.2
 #### add
 * 扩展多个safe方法

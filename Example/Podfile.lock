@@ -4,15 +4,18 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - VEUI (0.2.0)
+  - FDFullscreenPopGesture (1.1)
+  - VEUI (0.2.2)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
+  - FDFullscreenPopGesture (= 1.1)
   - VEUI (from `../VEUI.podspec`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - FBSnapshotTestCase
+    - FDFullscreenPopGesture
 
 EXTERNAL SOURCES:
   VEUI:
@@ -20,8 +23,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  VEUI: 0b18b2a292eb02caf40a37308341f8abe2eb1c5b
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  VEUI: c03df9ddf528f0c1f277d19cc25a6bebfab13eb7
 
-PODFILE CHECKSUM: 53c9d706ac595d2dfec94515b3634a69145fcc8f
+PODFILE CHECKSUM: 8c6b89eff61efee6643b0f081e92fb5210d23822
 
 COCOAPODS: 1.10.1

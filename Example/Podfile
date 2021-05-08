@@ -6,9 +6,10 @@ use_frameworks!
 
 target 'VEUI_Example' do
   pod 'VEUI', :path => '../VEUI.podspec'
+  pod 'FDFullscreenPopGesture', '1.1'
+  
   target 'VEUI_Tests' do
     inherit! :search_paths
-
     pod 'FBSnapshotTestCase'
   end
 end
