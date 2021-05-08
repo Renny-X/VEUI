@@ -9,6 +9,7 @@
 #import <VEUI/VEUI.h>
 #import "VETabContentItem.h"
 #import "VETabLineView.h"
+#import "VETabContentCollectionView.h"
 
 #define VETAB_Tab_CELL_REUSE_IDENTIFIER @"VETAB_Tab_CELL_REUSE_IDENTIFIER"
 #define VETAB_Content_CELL_REUSE_IDENTIFIER @"VETAB_Content_CELL_REUSE_IDENTIFIER"
@@ -18,7 +19,7 @@
 @property(nonatomic, strong)NSMutableDictionary *contentCache;
 
 @property(nonatomic, strong)UICollectionView *colV;
-@property(nonatomic, strong)UICollectionView *contentV;
+@property(nonatomic, strong)VETabContentCollectionView *contentV;
 @property(nonatomic, strong)VETabLineView *lineView;
 
 @property(nonatomic, assign)CGFloat itemWidth;
@@ -303,7 +304,6 @@
         // 👇👇👇👇👇 tabItem check 👇👇👇👇👇
         if (!self.isClickTab && self.contentScrollDirection != 0) {
             // 不是点击tab的时候 -- 点击tab 不管它
-//            VETabItem *fromItem = self.contentScrollDirection == -1 ? rightItem : leftItem;
             if (self.lineView.x < self.colV.contentOffset.x || self.lineView.maxX - self.colV.width > self.colV.contentOffset.x) {
                 // lineView 被遮挡，操作一下放出来，
                 CGFloat shouldAdjust = 0;
@@ -398,39 +398,36 @@
 #pragma mark - Get
 - (UICollectionView *)colV {
     if (!_colV) {
-        _colV = [self getCommonCollectionView];
-        [_colV registerClass:[VETabItem class] forCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER];
+        
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        layout.sectionHeadersPinToVisibleBounds = NO;
+        layout.sectionFootersPinToVisibleBounds = NO;
+        layout.minimumLineSpacing = CGFLOAT_MIN;
+        layout.minimumInteritemSpacing = CGFLOAT_MIN;
+        
+        UICollectionView *colV = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+        colV.bounces = NO;
+        colV.delegate = self;
+        colV.dataSource = self;
+        colV.showsVerticalScrollIndicator = NO;
+        colV.showsHorizontalScrollIndicator = NO;
+        colV.backgroundColor = [UIColor clearColor];
+        [colV registerClass:[VETabItem class] forCellWithReuseIdentifier:VETAB_Tab_CELL_REUSE_IDENTIFIER];
+        _colV = colV;
     }
     return _colV;
 }
 
-- (UICollectionView *)contentV {
+- (VETabContentCollectionView *)contentV {
     if (!_contentV) {
-        _contentV = [self getCommonCollectionView];
-        _contentV.pagingEnabled = YES;
+        _contentV = [VETabContentCollectionView contentView];
+        _contentV.delegate = self;
+        _contentV.dataSource = self;
         [_contentV registerClass:[VETabContentItem class] forCellWithReuseIdentifier:VETAB_Content_CELL_REUSE_IDENTIFIER];
         [_contentV addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
     }
     return _contentV;
-}
-
-- (UICollectionView *)getCommonCollectionView {
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.sectionHeadersPinToVisibleBounds = NO;
-    layout.sectionFootersPinToVisibleBounds = NO;
-    layout.minimumLineSpacing = CGFLOAT_MIN;
-    layout.minimumInteritemSpacing = CGFLOAT_MIN;
-    
-    UICollectionView *colV = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
-    colV.bounces = NO;
-    colV.delegate = self;
-    colV.dataSource = self;
-    colV.showsVerticalScrollIndicator = NO;
-    colV.showsHorizontalScrollIndicator = NO;
-    colV.backgroundColor = [UIColor clearColor];
-    
-    return colV;
 }
 
 #pragma mark- tab scroll enabled

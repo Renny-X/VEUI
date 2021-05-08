@@ -10,6 +10,8 @@
 #import <CoreText/CoreText.h>
 #import "VETabContentView.h"
 
+//#import "UINavigationController+FDFullscreenPopGesture.h"
+
 @interface VETabController ()<VETabDelegate, VETabDataSource>
 
 @property(nonatomic, strong)UIView *testView;
@@ -24,7 +26,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.lightGrayColor;
     
-    
     VETab *tab = [[VETab alloc] initWithStyle:VETabStyleLineEqual];
 //    VETab *tab = [[VETab alloc] initWithStyle:VETabStyleDefault];
     tab.frame = CGRectMake(100, 100, self.view.width, 100);
@@ -32,7 +33,7 @@
     tab.delegate = self;
     tab.dataSource = self;
 //    tab.tabScrollEnabled = YES;
-    tab.contentScrollEnabled = NO;
+//    tab.contentScrollEnabled = NO;
     tab.tabVerticalGap = 15;
     tab.tabItemGap = 30;
     self.tab = tab;
@@ -91,7 +92,6 @@
     v.clickBack = ^(BOOL begin) {
         [ws tapAction];
     };
-    NSLog(@"content view did init ==> %d", (int)index);
     return v;
 }
 
