@@ -144,15 +144,6 @@ animateDuration:(NSTimeInterval)aDuration
     return [VEToast toastView:imgV string:string duration:0 mask:mask tapToHide:tapToHide];
 }
 
-// entry
-//+ (void)toastView:(UIView * _Nullable)view string:(NSString *)string duration:(NSTimeInterval)duration mask:(BOOL)mask {
-//    if (!view && [string isEmpty]) {
-//        return;
-//    }
-//    VEToastView *toastV = [[VEToastView alloc] initWithView:view string:string];
-//    return [[VEToastManager manager] show:toastV duration:duration mask:mask tapToHide:YES];
-//}
-
 + (void)toastView:(UIView * _Nullable)view string:(NSString *)string duration:(NSTimeInterval)duration mask:(BOOL)mask tapToHide:(BOOL)tapToHide {
     if (!view && [string isEmpty]) {
         return;

@@ -41,43 +41,9 @@
         if (hide) {
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)];
             [maskView addGestureRecognizer:tap];
+        } else if (!mask) {
+            maskView.layer.zPosition = CGFLOAT_MAX;
         }
-        
-        [window addSubview:maskView];
-        [ss.toastArr addObject:maskView];
-        __weak typeof(self)weakSelf = ss;
-        [UIView animateWithDuration:ss.animateDuration animations:^{
-            maskView.alpha = 1;
-            v.transform = CGAffineTransformMakeScale(1, 1);
-        } completion:^(BOOL finished) {
-            if (finished && duration > 0) {
-                NSTimeInterval after = duration < weakSelf.animateDuration ? duration : duration - weakSelf.animateDuration;
-                [weakSelf performSelector:@selector(hide) withObject:nil afterDelay:after];
-            }
-        }];
-    });
-}
-
-- (void)show:(UIView *)view duration:(NSTimeInterval)duration mask:(BOOL)mask {
-    __weak typeof(self) ws = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        __strong typeof(self) ss = ws;
-        
-        UIView *window = [[UIApplication sharedApplication] keyWindow];
-        [ss prepareHide:NO];
-        __block UIView *v = view;
-        __block UIView *maskView = [[UIView alloc] init];
-        maskView.alpha = 0;
-        if (mask) {
-            maskView.frame = window.bounds;
-            maskView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.15];
-        } else {
-            maskView.frame = v.frame;
-            v.frame = v.bounds;
-            maskView.backgroundColor = [UIColor clearColor];
-        }
-        [maskView addSubview:v];
-        v.transform = CGAffineTransformMakeScale(0.9, 0.9);
         
         [window addSubview:maskView];
         [ss.toastArr addObject:maskView];
