@@ -38,6 +38,10 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.2.4
+#### upgrade
+* 升级VEToast 支持VEToast 始终保持在最上层
+
 ### 0.2.3
 #### upgrade
 * 升级VETab 支持左滑返回手势
