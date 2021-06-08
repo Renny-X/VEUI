@@ -31,6 +31,7 @@
     if (!_dataArr) {
         _dataArr = @[
             [VEUIGroupModel modelWithTitle:@"Category" cellArr:@[
+                [VEUICellModel modelWithTitle:@"UITextView+VEUI" controller:@"VEUITextViewCategoryViewController"],
                 [VEUICellModel modelWithTitle:@"UIImage+VEUI" controller:@"VEUIImageCategoryViewController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Data Display" cellArr:@[

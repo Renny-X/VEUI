@@ -49,7 +49,7 @@
 
 //    [VEToast toast:@"aaaaaaa"];
 //    [VEToast success:nil];
-    [VEToast loading:@"loading" tapToHide:YES];
+    [VEToast loading:@"" tapToHide:YES];
 //    [VEToast loading:nil images:@[[UIImage imageNamed:@"refresh"]] animateDuration:2 mask:NO];
 }
 

@@ -23,6 +23,7 @@
 #import "UIButton+VEUI.h"
 #import "UIControl+VEUI.h"
 #import "UITextField+VEUI.h"
+#import "UITextView+Category.h"
 #import "UIView+VEUI.h"
 
 // category view controller

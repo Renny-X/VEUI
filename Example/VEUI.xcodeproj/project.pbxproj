@@ -21,6 +21,7 @@
 		1797416325F88FE40013F198 /* VETabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1797416225F88FE40013F198 /* VETabController.m */; };
 		179741C725F907A80013F198 /* VENoticeBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179741C625F907A80013F198 /* VENoticeBarController.m */; };
 		17B275B92601E3BD0064A173 /* VETabContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B275B82601E3BD0064A173 /* VETabContentView.m */; };
+		17C5BA80266F6326000AB312 /* VEUITextViewCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5BA7F266F6326000AB312 /* VEUITextViewCategoryViewController.m */; };
 		228939E394DA370A7C8F31D4 /* Pods_VEUI_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B161678FBE5DC59FC24CE76E /* Pods_VEUI_Tests.framework */; };
 		3F98BEDF2E40DAD015490C97 /* Pods_VEUI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563EA48E22F46418A26F074F /* Pods_VEUI_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -77,6 +78,8 @@
 		179741C625F907A80013F198 /* VENoticeBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENoticeBarController.m; sourceTree = "<group>"; };
 		17B275B72601E3BD0064A173 /* VETabContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VETabContentView.h; sourceTree = "<group>"; };
 		17B275B82601E3BD0064A173 /* VETabContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VETabContentView.m; sourceTree = "<group>"; };
+		17C5BA7E266F6326000AB312 /* VEUITextViewCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEUITextViewCategoryViewController.h; sourceTree = "<group>"; };
+		17C5BA7F266F6326000AB312 /* VEUITextViewCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEUITextViewCategoryViewController.m; sourceTree = "<group>"; };
 		1E109A29C6B4F1DBACEEE42A /* Pods-VEUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VEUI_Tests.release.xcconfig"; path = "Target Support Files/Pods-VEUI_Tests/Pods-VEUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		27CAF832562C2A5EBF6623ED /* VEUI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VEUI.podspec; path = ../VEUI.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		563EA48E22F46418A26F074F /* Pods_VEUI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VEUI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +176,8 @@
 			children = (
 				178AE4B825F1D08000B3863E /* VEUIImageCategoryViewController.h */,
 				178AE4B925F1D08000B3863E /* VEUIImageCategoryViewController.m */,
+				17C5BA7E266F6326000AB312 /* VEUITextViewCategoryViewController.h */,
+				17C5BA7F266F6326000AB312 /* VEUITextViewCategoryViewController.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -517,6 +522,7 @@
 				176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* VEUIViewController.m in Sources */,
 				177B02D525F7490A0006D692 /* VETestModel.m in Sources */,
+				17C5BA80266F6326000AB312 /* VEUITextViewCategoryViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				1797416325F88FE40013F198 /* VETabController.m in Sources */,
 				17B275B92601E3BD0064A173 /* VETabContentView.m in Sources */,
