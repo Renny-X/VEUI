@@ -5,7 +5,7 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - FDFullscreenPopGesture (1.1)
-  - VEUI (0.2.2)
+  - VEUI (0.2.4)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -24,7 +24,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  VEUI: c03df9ddf528f0c1f277d19cc25a6bebfab13eb7
+  VEUI: acfb288cc9a955928e10644cb045f9cf542205a1
 
 PODFILE CHECKSUM: 8c6b89eff61efee6643b0f081e92fb5210d23822
 

@@ -123,7 +123,7 @@ typedef NS_ENUM(NSInteger, VEToastType) {
 - (CGFloat)verticalPadding {
     switch (self.toastType) {
         case VEToastTypeStringOnly:
-            return 5;
+            return 12;
         case VEToastTypeIconOnly:
             return 25;
         default:
@@ -134,7 +134,7 @@ typedef NS_ENUM(NSInteger, VEToastType) {
 - (CGFloat)horizontalPadding {
     switch (self.toastType) {
         case VEToastTypeStringOnly:
-            return 15;
+            return 24;
         case VEToastTypeIconOnly:
             return self.verticalPadding;
         default:
