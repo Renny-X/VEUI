@@ -38,32 +38,40 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.2.5
+
+#### add
+* UITextView 添加 maxLength 属性
+#### upgrade
+* 更新 VEFont 字体文件
+* 更新 VEToast 样式
+
 ### 0.2.4
 #### upgrade
 * 升级VEToast 支持VEToast 始终保持在最上层
 
 ### 0.2.3
 #### upgrade
-* 升级VETab 支持左滑返回手势
+* 升级 VETab 支持左滑返回手势
 
 ### 0.2.2
 #### add
-* 扩展多个safe方法
+* 扩展多个 safe 取值方法
 
 #### upgrade
-* 升级VETab组件
+* 升级 VETab 组件
 
 ### 0.2.0
 #### add
-* NSString 添加 是否包含中文 实例方法
+* 添加 NSString 是否包含中文 实例方法
 
 #### upgrade
-* UIColor 更新 colorWithHexString 方法，使用 P3Color
+* 更新 UIColor colorWithHexString 方法，使用 P3Color
 * VEpopover 修复点击收起功能、添加背景色设置入口
 
 ### 0.1.18
 #### upgrade
-* 更新 VE 字体文件
+* 更新 VEFont 字体文件
 
 ### 0.1.17
 #### upgrade
