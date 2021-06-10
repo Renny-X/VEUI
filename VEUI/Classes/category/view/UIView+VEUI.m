@@ -71,11 +71,17 @@
     tempFrame.origin.x = x;
     self.frame = tempFrame;
 }
+- (void)setLeft:(CGFloat)left{
+    self.x = left;
+}
 
 - (void)setY:(CGFloat)y {
     CGRect tempFrame = self.frame;
     tempFrame.origin.y = y;
     self.frame = tempFrame;
+}
+- (void)setTop:(CGFloat)top {
+    self.y = top;
 }
 
 - (void)setCenterX:(CGFloat)centerX{
@@ -111,9 +117,15 @@
 - (void)setMaxX:(CGFloat)maxX{
     self.frame = CGRectMake(maxX - self.frame.size.width, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
 }
+- (void)setRight:(CGFloat)right {
+    self.maxX = right;
+}
 
 - (void)setMaxY:(CGFloat)maxY{
     self.frame = CGRectMake(self.frame.origin.x, maxY - self.frame.size.height, self.frame.size.width, self.frame.size.height);
+}
+- (void)setBottom:(CGFloat)bottom {
+    self.maxY = bottom;
 }
 
 
@@ -125,9 +137,15 @@
 - (CGFloat)x{
     return self.frame.origin.x;
 }
+- (CGFloat)left {
+    return self.x;
+}
 
 - (CGFloat)y{
     return self.frame.origin.y;
+}
+- (CGFloat)top {
+    return self.y;
 }
 
 - (CGFloat)centerX{
@@ -153,9 +171,15 @@
 - (CGFloat)maxX{
     return self.frame.size.width + self.frame.origin.x;
 }
+- (CGFloat)right {
+    return self.maxX;
+}
 
 - (CGFloat)maxY{
     return self.frame.size.height + self.frame.origin.y;
+}
+- (CGFloat)bottom {
+    return self.maxY;
 }
 
 @end

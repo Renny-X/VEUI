@@ -20,10 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
  * view 的左上顶点 x 坐标
  */
 @property (nonatomic, assign) CGFloat x;
+@property (nonatomic, assign) CGFloat left;
 /**
  * view 的左上顶点 y 坐标
  */
 @property (nonatomic, assign) CGFloat y;
+@property (nonatomic, assign) CGFloat top;
 /**
  * view 的中心点 x 坐标
  */
@@ -48,10 +50,12 @@ NS_ASSUME_NONNULL_BEGIN
  * view 的右下顶点 x 坐标
  */
 @property (nonatomic, assign) CGFloat maxX;
+@property (nonatomic, assign) CGFloat right;
 /**
  * view 的右下顶点 y 坐标
  */
 @property (nonatomic, assign) CGFloat maxY;
+@property (nonatomic, assign) CGFloat bottom;
 /**
  * viewController 当前view所在的controller
  */

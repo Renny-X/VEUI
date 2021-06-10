@@ -31,8 +31,9 @@
     if (!_dataArr) {
         _dataArr = @[
             [VEUIGroupModel modelWithTitle:@"Category" cellArr:@[
-                [VEUICellModel modelWithTitle:@"UITextView+VEUI" controller:@"VEUITextViewCategoryViewController"],
                 [VEUICellModel modelWithTitle:@"UIImage+VEUI" controller:@"VEUIImageCategoryViewController"],
+                [VEUICellModel modelWithTitle:@"UITabbarItem+VEUI" controller:@"VEUITabbarCategoryController"],
+                [VEUICellModel modelWithTitle:@"UITextView+VEUI" controller:@"VEUITextViewCategoryViewController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Data Display" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:@"VEImageBrowserViewController"],

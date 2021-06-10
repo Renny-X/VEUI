@@ -22,8 +22,10 @@
 // category view
 #import "UIButton+VEUI.h"
 #import "UIControl+VEUI.h"
+#import "UILabel+VEUI.h"
+#import "UITabBarItem+VEUI.h"
 #import "UITextField+VEUI.h"
-#import "UITextView+Category.h"
+#import "UITextView+VEUI.h"
 #import "UIView+VEUI.h"
 
 // category view controller

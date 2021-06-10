@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176DC55025F6591A006F6BAA /* VEPopoverViewController.m */; };
 		177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */; };
+		1778CE092671A6C500277EF1 /* VEUITabbarCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1778CE082671A6C500277EF1 /* VEUITabbarCategoryController.m */; };
 		177B02CE25F748D90006D692 /* VEModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B02CD25F748D90006D692 /* VEModelController.m */; };
 		177B02D525F7490A0006D692 /* VETestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B02D425F7490A0006D692 /* VETestModel.m */; };
 		177B0A8125F9F2C1003E37A0 /* VETestSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B0A8025F9F2C1003E37A0 /* VETestSubModel.m */; };
@@ -56,6 +57,8 @@
 		176DC55025F6591A006F6BAA /* VEPopoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEPopoverViewController.m; sourceTree = "<group>"; };
 		177708E725E76BFA00B9937B /* VEImageBrowserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEImageBrowserViewController.h; sourceTree = "<group>"; };
 		177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEImageBrowserViewController.m; sourceTree = "<group>"; };
+		1778CE072671A6C500277EF1 /* VEUITabbarCategoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEUITabbarCategoryController.h; sourceTree = "<group>"; };
+		1778CE082671A6C500277EF1 /* VEUITabbarCategoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEUITabbarCategoryController.m; sourceTree = "<group>"; };
 		177B02CC25F748D90006D692 /* VEModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEModelController.h; sourceTree = "<group>"; };
 		177B02CD25F748D90006D692 /* VEModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEModelController.m; sourceTree = "<group>"; };
 		177B02D325F7490A0006D692 /* VETestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VETestModel.h; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 				178AE4B925F1D08000B3863E /* VEUIImageCategoryViewController.m */,
 				17C5BA7E266F6326000AB312 /* VEUITextViewCategoryViewController.h */,
 				17C5BA7F266F6326000AB312 /* VEUITextViewCategoryViewController.m */,
+				1778CE072671A6C500277EF1 /* VEUITabbarCategoryController.h */,
+				1778CE082671A6C500277EF1 /* VEUITabbarCategoryController.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -532,6 +537,7 @@
 				177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */,
 				177B0A8125F9F2C1003E37A0 /* VETestSubModel.m in Sources */,
 				178AE4BA25F1D08000B3863E /* VEUIImageCategoryViewController.m in Sources */,
+				1778CE092671A6C500277EF1 /* VEUITabbarCategoryController.m in Sources */,
 				178CFF9E25E493CA00699E7D /* VEToastViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
