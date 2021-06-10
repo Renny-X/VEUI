@@ -6,11 +6,11 @@
 //  Copyright © 2021 Coder. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <VEUI/VEUI.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VEUITabbarCategoryController : UITabBarController
+@interface VEUITabbarCategoryController : VETabBarController
 
 @end
 

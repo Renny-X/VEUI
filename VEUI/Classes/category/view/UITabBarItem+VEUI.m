@@ -79,19 +79,52 @@
     }
 }
 
+- (void)animateWithImages:(NSArray<UIImage *> *)images duration:(NSTimeInterval)duration {
+    if (images == nil || [images isEmpty] || duration == 0) {
+        return;
+    }
+    __weak typeof(self) ws = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        __block UIImageView *imgV = nil;
+        UIView *container = [ws getContainer];
+        for (UIView *sub in container.subviews) {
+            NSString *subClassName = NSStringFromClass([sub class]);
+            if ([subClassName containsString:@"ImageView"]) {
+                imgV = (UIImageView *)sub;
+            }
+        }
+        if (imgV == nil) {
+            return;
+        }
+        [CATransaction begin];
+        [CATransaction setCompletionBlock:^{
+            imgV.animationImages = images;
+            imgV.animationRepeatCount = 1;
+            imgV.animationDuration = duration;
+            [imgV startAnimating];
+        }];
+        [imgV stopAnimating];
+        [CATransaction commit];
+
+    });
+}
+
 #pragma mark - Load
 + (void)load {
     method_exchangeImplementations(
         class_getInstanceMethod([self class], @selector(setBadgeValue:)),
-        class_getInstanceMethod([self class], @selector(setVEBadgeValue:))
+        class_getInstanceMethod([self class], @selector(_veSetBadgeValue:))
     );
 }
 
-- (void)setVEBadgeValue:(NSString *)badgeValue {
-    [self setVEBadgeValue:badgeValue];
+- (void)_veSetBadgeValue:(NSString *)badgeValue {
+    [self _veSetBadgeValue:badgeValue];
     
+    if (self.showBadgeDot == NO) {
+        return;
+    }
     UIView *dotV = [self getBadgeDotView];
-    if (dotV.hidden == true) {
+    if (dotV == nil) {
         return;
     }
     dotV.hidden = badgeValue != nil;
@@ -145,6 +178,7 @@
         dotV.backgroundColor = self.badgeDotColor;
         dotV.hidden = YES;
         dotV.layer.zPosition = 9999999999999999;
+        dotV.userInteractionEnabled = NO;
         [tabBarButton addSubview:dotV];
         [self updateBadgeDotCenter];
     }

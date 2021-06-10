@@ -38,6 +38,14 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.2.6
+
+#### add
+* UIView 添加 top、left、bottom、right 属性
+* UITabBarItem 添加 badgeDot 相关属性
+* UITabBarItem 添加 animateImages: duration: 方法
+* VETabBarController 添加 lastSelectedIndex 属性
+
 ### 0.2.5
 
 #### add

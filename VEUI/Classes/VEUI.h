@@ -41,6 +41,7 @@
 #import "VELabel.h"
 #import "VENoticeBar.h"
 #import "VEPopover.h"
+#import "VETabBarController.h"
 #import "VETipView.h"
 #import "VEToast.h"
 #import "VETab.h"
