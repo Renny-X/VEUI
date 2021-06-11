@@ -95,4 +95,53 @@
     return [obj isEmpty];
 }
 
+#pragma mark - Load
++ (void)load {
+    method_exchangeImplementations(
+        class_getClassMethod([self class], @selector(addObserver:forKeyPath:options:context:)),
+        class_getClassMethod([self class], @selector(safeAddObserver:forKeyPath:options:context:))
+    );
+    method_exchangeImplementations(
+        class_getClassMethod([self class], @selector(removeObserver:forKeyPath:)),
+        class_getClassMethod([self class], @selector(safeRemoveObserver:forKeyPath:))
+    );
+    method_exchangeImplementations(
+        class_getClassMethod([self class], @selector(removeObserver:forKeyPath:context:)),
+        class_getClassMethod([self class], @selector(safeRemoveObserver:forKeyPath:context:))
+    );
+}
+
+#pragma mark - KVO
+- (void)safeAddObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
+    if (![self observerKeyPath:keyPath observer:observer]) {
+        [self safeAddObserver:observer forKeyPath:keyPath options:options context:context];
+    }
+}
+
+- (void)safeRemoveObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath {
+    if ([self observerKeyPath:keyPath observer:observer]) {
+        [self safeRemoveObserver:observer forKeyPath:keyPath];
+    }
+}
+
+- (void)safeRemoveObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context {
+    if ([self observerKeyPath:keyPath observer:observer]) {
+        [self safeRemoveObserver:observer forKeyPath:keyPath context:context];
+    }
+}
+
+- (BOOL)observerKeyPath:(NSString *)key observer:(id)observer {
+    id info = self.observationInfo;
+    NSArray *array = [info valueForKey:@"_observances"];
+    for (id objc in array) {
+        id Properties = [objc valueForKeyPath:@"_property"];
+        id newObserver = [objc valueForKeyPath:@"_observer"];
+        NSString *keyPath = [Properties valueForKeyPath:@"_keyPath"];
+        if ([key isEqualToString:keyPath] && [newObserver isEqual:observer]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 @end

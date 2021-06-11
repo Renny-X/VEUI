@@ -6,8 +6,11 @@
 //
 
 #import "VETabBarController.h"
+#import "NSObject+VEUI.h"
 
 @interface VETabBarController ()
+
+@property(nonatomic, strong)NSMutableArray *_kvoArr;
 
 @end
 
@@ -23,6 +26,7 @@
     [self removeObserver:self forKeyPath:@"selectedViewController" context:nil];
 }
 
+#pragma mark - KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"selectedViewController"]) {
         NSInteger index = 0;
