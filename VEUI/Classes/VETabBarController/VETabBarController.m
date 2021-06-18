@@ -19,15 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (![self containObserver:self forKeyPath:@"selectedViewController"]) {
-        [self addObserver:self forKeyPath:@"selectedViewController" options:NSKeyValueObservingOptionOld context:nil];
-    }
+    [self addObserver:self forKeyPath:@"selectedViewController" options:NSKeyValueObservingOptionOld context:nil];
 }
 
 - (void)dealloc {
-    if ([self containObserver:self forKeyPath:@"selectedViewController"]) {
-        [self removeObserver:self forKeyPath:@"selectedViewController" context:nil];
-    }
+    [self removeObserver:self forKeyPath:@"selectedViewController" context:nil];
 }
 
 #pragma mark - KVO

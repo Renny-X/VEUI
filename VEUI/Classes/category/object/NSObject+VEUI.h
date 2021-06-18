@@ -34,12 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (BOOL)isNilorNull:(id)obj;
 
-#pragma mark - KVO
-/**
- * 是否包含KVO keyPath
- */
-- (BOOL)containObserver:(id)observer forKeyPath:(NSString *)key;
-
 @end
 
 NS_ASSUME_NONNULL_END
