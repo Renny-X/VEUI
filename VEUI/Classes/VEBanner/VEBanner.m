@@ -184,4 +184,12 @@
     self.pageControl.hidden = !showPageControl;
 }
 
+- (void)setDataSource:(NSArray<UIView *> *)dataSource {
+    _dataSource = dataSource;
+    
+    if (self.superview) {
+        [self.colV reloadData];
+    }
+}
+
 @end
