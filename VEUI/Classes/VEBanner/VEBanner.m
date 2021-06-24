@@ -20,6 +20,10 @@
 
 @property(nonatomic, strong)NSMutableDictionary *cacheDict;
 
+@property(nonatomic, strong)NSTimer *timer;
+
+@property(nonatomic, assign)BOOL shouldAutoPlay;
+
 @end
 
 @implementation VEBanner
@@ -54,6 +58,7 @@
     
     _selectIndex = -1;
     _pageControlBottomOffset = 20;
+    self.shouldAutoPlay = YES;
 }
 
 - (void)layoutSubviews {
@@ -80,6 +85,44 @@
 - (void)reloadData {
     self.cacheDict = [NSMutableDictionary dictionary];
     [self.colV reloadData];
+}
+
+#pragma mark - auto play
+- (void)startAutoPlay {
+    if (self.autoPlayTimeInterval < 0.5) {
+        return;
+    }
+    [self endAutoPlay];
+    __weak __typeof(self) ws = self;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.autoPlayTimeInterval repeats:YES block:^(NSTimer * _Nonnull timer) {
+        __strong __typeof(ws) ss = ws;
+        if (!ss.superview || ss.hidden == true) {
+            return;
+        }
+        if (!ss.delegate || !ss.shouldAutoPlay) {
+            return;
+        }
+        NSInteger count = [ss.delegate numberOfItemsForVEBanner:ss];
+        if (count <= 1) {
+            return;
+        }
+        NSInteger target = ss.selectIndex + 1;
+        if (!self.scrollCycled) {
+            target = target >= count ? 0 : target;
+            [ss setSelectIndex:target animated:YES];
+            return;
+        }
+        target += 1;
+        ss.colV.userInteractionEnabled = NO;
+        [ss.colV setContentOffset:CGPointMake(target * ss.colV.width, 0) animated:YES];
+    }];
+}
+
+- (void)endAutoPlay {
+    if (self.timer) {
+        [self.timer invalidate];
+        _timer = nil;
+    }
 }
 
 - (NSInteger)dataRowFor:(NSInteger)row {
@@ -158,7 +201,17 @@
     if (scrollView != self.colV) {
         return;
     }
+    self.shouldAutoPlay = YES;
     scrollView.userInteractionEnabled = YES;
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    if (scrollView != self.colV) {
+        return;
+    }
+    self.shouldAutoPlay = YES;
+    scrollView.userInteractionEnabled = YES;
+    
     NSInteger count = [self.delegate numberOfItemsForVEBanner:self];
     int index = scrollView.contentOffset.x  / scrollView.width;
     if (count > 1 && self.scrollCycled) {
@@ -166,9 +219,6 @@
         scrollView.contentOffset = CGPointMake((index + 1) * scrollView.width, 0);
     }
     self.selectIndex = (int)index;
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     if (self.delegate && [self.delegate respondsToSelector:@selector(vebanner:didScrollAtIndex:)]) {
         [self.delegate vebanner:self didScrollAtIndex:self.selectIndex];
     }
@@ -178,6 +228,7 @@
     if (scrollView != self.colV) {
         return;
     }
+    self.shouldAutoPlay = NO;
     [self setSuperScrollEnabled:NO];
 }
 
@@ -296,6 +347,23 @@
 - (void)setShowPageControl:(BOOL)showPageControl {
     _showPageControl = showPageControl;
     self.pageControl.hidden = !showPageControl;
+}
+
+- (void)setAutoPlayTimeInterval:(NSTimeInterval)autoPlayTimeInterval {
+    if (autoPlayTimeInterval < 0.5) {
+        return;
+    }
+    _autoPlayTimeInterval = autoPlayTimeInterval;
+    [self startAutoPlay];
+}
+
+- (void)setShouldAutoPlay:(BOOL)shouldAutoPlay {
+    _shouldAutoPlay = shouldAutoPlay;
+    if (shouldAutoPlay) {
+        [self startAutoPlay];
+    } else {
+        [self endAutoPlay];
+    }
 }
 
 @end

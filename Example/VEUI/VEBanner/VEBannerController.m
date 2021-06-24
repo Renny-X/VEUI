@@ -38,6 +38,8 @@
     [scrollV addGestureRecognizer:tap];
     
     VEBanner *banner = [[VEBanner alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 300)];
+    banner.autoPlayTimeInterval = 1.5;
+//    banner.scrollCycled = false;
     banner.centerY = scrollV.height * 0.5;
     banner.delegate = self;
     banner.disableSuperScrollViewEnabledWhenDragging = true;
@@ -51,15 +53,6 @@
 }
 
 - (__kindof UIView *)vebanner:(VEBanner *)banner viewForItemAtIndex:(NSInteger)index {
-//    UIView *v = [[UIView alloc] initWithFrame:banner.bounds];
-//    UILabel *label = [[UILabel alloc] initWithFrame:v.bounds];
-//    label.font = [UIFont systemFontOfSize:40];
-//    label.backgroundColor = [UIColor randomColor];
-//    label.text = [NSString stringWithFormat:@"%d", (int)index];
-//    label.textColor = [UIColor whiteColor];
-//    label.textAlignment = NSTextAlignmentCenter;
-//    [v addSubview:label];
-//    return v;
     NSString *picPath = self.sourceArr[index];
     NSURL *picUrl = [NSURL URLWithString:picPath];
     UIImageView *imgV = [[UIImageView alloc] initWithFrame:banner.bounds];
@@ -81,13 +74,15 @@
 }
 
 - (void)randomSet {
-    int count = (int)[self numberOfItemsForVEBanner:self.banner];
+    self.banner.autoPlayTimeInterval = 1.5;
     
-    int r = randomNum(0, count - 1);
-    BOOL animate = randomNum(0, 1);
-    [self.banner setSelectIndex:r animated:animate];
-    
-    NSLog(@"set select index ==> %d -- %d", r, animate);
+//    int count = (int)[self numberOfItemsForVEBanner:self.banner];
+//    
+//    int r = randomNum(0, count - 1);
+//    BOOL animate = randomNum(0, 1);
+//    [self.banner setSelectIndex:r animated:animate];
+//    
+//    NSLog(@"set select index ==> %d -- %d", r, animate);
 }
 
 @end

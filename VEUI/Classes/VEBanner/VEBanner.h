@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign)NSInteger selectIndex;
 /**
- * 自动轮播 间隔时长，为0时不执行
+ * 自动轮播 间隔时长，为0时 < 0.5时 不执行
  */
 @property(nonatomic, assign)NSTimeInterval autoPlayTimeInterval;
 /**
