@@ -23,7 +23,9 @@
 }
 
 - (void)dealloc {
-    [self removeObserver:self forKeyPath:@"selectedViewController" context:nil];
+    if ([self containObserver:self forKeyPath:@"selectedViewController"]) {
+        [self removeObserver:self forKeyPath:@"selectedViewController"];
+    }
 }
 
 #pragma mark - KVO

@@ -56,10 +56,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    [self removeObserver:self forKeyPath:@"aaa"];
-    
-    [self removeObserver:self forKeyPath:@"bbb" context:nil];
 }
 
 - (void)viewDidLoad {
