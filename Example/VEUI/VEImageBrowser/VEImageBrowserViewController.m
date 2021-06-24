@@ -22,7 +22,7 @@
     btn.backgroundColor = UIColor.greenColor;
     [btn addTarget:self action:@selector(btnClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
-    btn.center = CGPointMake(self.view.centerX, self.view.height - 100);
+    btn.center = CGPointMake(self.view.centerX, self.view.height - 150);
     // Do any additional setup after loading the view.
 }
 

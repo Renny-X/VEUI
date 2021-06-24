@@ -10,6 +10,7 @@
 		176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176DC55025F6591A006F6BAA /* VEPopoverViewController.m */; };
 		177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */; };
 		1778CE092671A6C500277EF1 /* VEUITabbarCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1778CE082671A6C500277EF1 /* VEUITabbarCategoryController.m */; };
+		177A43B52684182E00FC0B6E /* VEBannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177A43B42684182E00FC0B6E /* VEBannerController.m */; };
 		177B02CE25F748D90006D692 /* VEModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B02CD25F748D90006D692 /* VEModelController.m */; };
 		177B02D525F7490A0006D692 /* VETestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B02D425F7490A0006D692 /* VETestModel.m */; };
 		177B0A8125F9F2C1003E37A0 /* VETestSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B0A8025F9F2C1003E37A0 /* VETestSubModel.m */; };
@@ -59,6 +60,8 @@
 		177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEImageBrowserViewController.m; sourceTree = "<group>"; };
 		1778CE072671A6C500277EF1 /* VEUITabbarCategoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEUITabbarCategoryController.h; sourceTree = "<group>"; };
 		1778CE082671A6C500277EF1 /* VEUITabbarCategoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEUITabbarCategoryController.m; sourceTree = "<group>"; };
+		177A43B32684182E00FC0B6E /* VEBannerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEBannerController.h; sourceTree = "<group>"; };
+		177A43B42684182E00FC0B6E /* VEBannerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEBannerController.m; sourceTree = "<group>"; };
 		177B02CC25F748D90006D692 /* VEModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEModelController.h; sourceTree = "<group>"; };
 		177B02CD25F748D90006D692 /* VEModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEModelController.m; sourceTree = "<group>"; };
 		177B02D325F7490A0006D692 /* VETestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VETestModel.h; sourceTree = "<group>"; };
@@ -157,6 +160,15 @@
 				177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */,
 			);
 			path = VEImageBrowser;
+			sourceTree = "<group>";
+		};
+		177A43B22684180C00FC0B6E /* VEBanner */ = {
+			isa = PBXGroup;
+			children = (
+				177A43B32684182E00FC0B6E /* VEBannerController.h */,
+				177A43B42684182E00FC0B6E /* VEBannerController.m */,
+			);
+			path = VEBanner;
 			sourceTree = "<group>";
 		};
 		177B02CB25F748A60006D692 /* VEModel */ = {
@@ -262,6 +274,7 @@
 				178AE4B325F1CFD400B3863E /* test.png */,
 				178CFFA125E4943300699E7D /* VEUIModel.h */,
 				178CFFA225E4943300699E7D /* VEUIModel.m */,
+				177A43B22684180C00FC0B6E /* VEBanner */,
 				179741C425F9078E0013F198 /* VENoticeBar */,
 				178AE4B725F1D04400B3863E /* Category */,
 				1797416025F88FC10013F198 /* VETab */,
@@ -441,11 +454,13 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/VEUI/VEUI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VEUI.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,6 +537,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177A43B52684182E00FC0B6E /* VEBannerController.m in Sources */,
 				6003F59E195388D20070C39A /* VEUIAppDelegate.m in Sources */,
 				177B02CE25F748D90006D692 /* VEModelController.m in Sources */,
 				176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */,

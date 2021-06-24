@@ -38,6 +38,7 @@
             [VEUIGroupModel modelWithTitle:@"Data Display" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:@"VEImageBrowserViewController"],
                 [VEUICellModel modelWithTitle:@"VENoticeBar" controller:@"VENoticeBarController"],
+                [VEUICellModel modelWithTitle:@"VEBanner" controller:@"VEBannerController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Feedback" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEToast" controller:@"VEToastViewController"],

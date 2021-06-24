@@ -13,31 +13,48 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol VEBannerDelegate <NSObject>
 
 @optional
-- (void)didScrollAtIndex:(NSInteger)index;
+- (void)vebanner:(VEBanner *)banner didScrollAtIndex:(NSInteger)index;
+
+- (void)vebanner:(VEBanner *)banner didSelectAtIndex:(NSInteger)index;
+
+@required
+- (NSInteger)numberOfItemsForVEBanner:(VEBanner *)banner;
+
+- (__kindof UIView *)vebanner:(VEBanner *)banner viewForItemAtIndex:(NSInteger)index;
 
 @end
 
 @interface VEBanner : UIView
 
-@property(nonatomic, strong)NSArray<UIView *> *dataSource;
-
 @property(nonatomic, weak)id<VEBannerDelegate> delegate;
-
+/**
+ * 当前选中的index
+ */
 @property(nonatomic, assign)NSInteger selectIndex;
+/**
+ * 自动轮播 间隔时长，为0时不执行
+ */
+@property(nonatomic, assign)NSTimeInterval autoPlayTimeInterval;
+/**
+ * 循环滚动 默认为 true
+ */
+@property(nonatomic, assign)BOOL scrollCycled;
 
 @property(nonatomic, assign)BOOL scrollEnabled;
 
 @property(nonatomic, assign)BOOL showPageControl;
 
-@property(nonatomic, assign)UIColor *tintColor;
+@property(nonatomic, assign)BOOL pageControlBottomOffset;
 
+@property(nonatomic, assign)UIColor *tintColor;
+/**
+ * 嵌套 当前响应手势后 禁用super scrollView的滚动，默认为 false
+ */
 @property(nonatomic, assign)BOOL disableSuperScrollViewEnabledWhenDragging;
 
-- (instancetype)initWithDataSource:(NSArray<UIView *> *)dataSource;
-
-- (instancetype)initWithFrame:(CGRect)frame DataSource:(NSArray<UIView *> *)dataSource;
-
 - (void)setSelectIndex:(NSInteger)selectIndex animated:(BOOL)animate;
+
+- (void)reloadData;
 
 @end
 

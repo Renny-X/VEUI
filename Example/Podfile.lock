@@ -5,17 +5,22 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - FDFullscreenPopGesture (1.1)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
   - VEUI (0.2.5)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
   - FDFullscreenPopGesture (= 1.1)
+  - SDWebImage
   - VEUI (from `../VEUI.podspec`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - FBSnapshotTestCase
     - FDFullscreenPopGesture
+    - SDWebImage
 
 EXTERNAL SOURCES:
   VEUI:
@@ -24,8 +29,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   VEUI: 074dc64184fbaa303fb83dfc9d3d221d911116f3
 
-PODFILE CHECKSUM: 8c6b89eff61efee6643b0f081e92fb5210d23822
+PODFILE CHECKSUM: cc7d81058fc6485d682f26e3382f8759f7bcb814
 
 COCOAPODS: 1.10.1
