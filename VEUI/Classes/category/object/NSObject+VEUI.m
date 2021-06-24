@@ -105,10 +105,10 @@
         class_getClassMethod([self class], @selector(removeObserver:forKeyPath:)),
         class_getClassMethod([self class], @selector(safeRemoveObserver:forKeyPath:))
     );
-    method_exchangeImplementations(
-        class_getClassMethod([self class], @selector(removeObserver:forKeyPath:context:)),
-        class_getClassMethod([self class], @selector(safeRemoveObserver:forKeyPath:context:))
-    );
+//    method_exchangeImplementations(
+//        class_getClassMethod([self class], @selector(removeObserver:forKeyPath:context:)),
+//        class_getClassMethod([self class], @selector(safeRemoveObserver:forKeyPath:context:))
+//    );
 }
 
 #pragma mark - KVO
@@ -126,13 +126,13 @@
     }
 }
 
-- (void)safeRemoveObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context {
-    @try {
-        [self safeRemoveObserver:observer forKeyPath:keyPath context:context];
-    } @catch (NSException *exception) {
-    } @finally {
-    }
-}
+//- (void)safeRemoveObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context {
+//    @try {
+//        [self safeRemoveObserver:observer forKeyPath:keyPath context:context];
+//    } @catch (NSException *exception) {
+//    } @finally {
+//    }
+//}
 
 - (BOOL)observerKeyPath:(NSString *)key observer:(id)observer {
     id info = self.observationInfo;
