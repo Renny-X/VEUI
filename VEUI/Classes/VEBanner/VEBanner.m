@@ -69,6 +69,7 @@
     if (self.selectIndex == -1) {
         self.selectIndex = 0;
     }
+    self.colV.frame = self.bounds;
     [self.colV reloadData];
     
     CGFloat pcHeight = 10;

@@ -54,6 +54,8 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    
+    self.colV.frame = self.bounds;
     [self.colV reloadData];
     
     if (@available(iOS 11.0, *)) {
