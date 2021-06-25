@@ -46,6 +46,8 @@
 #import "VEToast.h"
 #import "VETab.h"
 
+#import "VECollectionViewLeftFlowLayout.h"
+
 // Utils
 #import "VETools.h"
 

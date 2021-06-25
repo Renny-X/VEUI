@@ -39,6 +39,7 @@
                 [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:@"VEImageBrowserViewController"],
                 [VEUICellModel modelWithTitle:@"VENoticeBar" controller:@"VENoticeBarController"],
                 [VEUICellModel modelWithTitle:@"VEBanner" controller:@"VEBannerController"],
+                [VEUICellModel modelWithTitle:@"VECollectionViewLeftFlowLayout" controller:@"VECollectionViewLeftFlowLayoutController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Feedback" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEToast" controller:@"VEToastViewController"],
