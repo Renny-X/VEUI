@@ -10,7 +10,7 @@
 
 #define VECOLLECTIONVIEW_LEFT_FLOWLAYOUT_ITEM @"VECOLLECTIONVIEW_LEFT_FLOWLAYOUT_ITEM"
 
-@interface VECollectionViewLeftFlowLayoutController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface VECollectionViewLeftFlowLayoutController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, VECollectionViewDelegateFlowLayout>
 
 @property(nonatomic, strong)UICollectionView *colV;
 
@@ -27,6 +27,10 @@
 }
 
 #pragma mark - UICollectionView DataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 10;
+}
+
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.randomWidthArray.count;
 }
@@ -44,6 +48,10 @@
     CGFloat width = [[self.randomWidthArray safe_objectAtIndex:indexPath.row] floatValue];
     
     return CGSizeMake(width, 25);
+}
+
+- (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout backgroundColorAtSection:(NSInteger)section {
+    return [UIColor randomColor];
 }
 
 #pragma mark - Get
@@ -65,7 +73,7 @@
 - (NSArray *)randomWidthArray {
     if (!_randomWidthArray) {
         NSMutableArray *tmpArr = [NSMutableArray array];
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 20; i++) {
             [tmpArr addObject:[NSNumber numberWithInt:randomNum(20, 200)]];
         }
         _randomWidthArray = [NSArray arrayWithArray:tmpArr];

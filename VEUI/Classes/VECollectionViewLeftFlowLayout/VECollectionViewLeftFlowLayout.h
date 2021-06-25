@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VECollectionViewFlowLayout.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VECollectionViewLeftFlowLayout : UICollectionViewFlowLayout
+@interface VECollectionViewLeftFlowLayout : VECollectionViewFlowLayout
 
 @end
 
