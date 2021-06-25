@@ -42,7 +42,7 @@
             sectionFrame.origin.y = first.frame.origin.y;
             
             UICollectionViewLayoutAttributes *last = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:numberOfItems - 1 inSection:section]];
-            sectionFrame.size.height = last.frame.origin.y + last.frame.size.height;
+            sectionFrame.size.height = last.frame.origin.y + last.frame.size.height - first.frame.origin.y;
         }
         
         VECollectionViewLayoutAttributes *attrs = [VECollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:VECollectionViewSection withIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
