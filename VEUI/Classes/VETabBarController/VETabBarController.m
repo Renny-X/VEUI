@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self addObserver:self forKeyPath:@"selectedViewController" options:NSKeyValueObservingOptionOld context:nil];
+    [self safe_AddObserver:self forKeyPath:@"selectedViewController" options:NSKeyValueObservingOptionOld context:nil];
 }
 
 - (void)dealloc {

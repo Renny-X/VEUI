@@ -33,6 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
  * 判断obj是否为Nil、Null 或 空字符串、空数组、空字典等
  */
 + (BOOL)isNilorNull:(id)obj;
+
+#pragma mark - KVO
+/**
+ * safe add obser 检查是否已添加kvo，避免重复添加
+ */
+- (void)safe_AddObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context;
 /**
  * 判断obj是否已包含KVO
  */

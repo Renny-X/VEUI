@@ -95,18 +95,10 @@
     return [obj isEmpty];
 }
 
-#pragma mark - Load
-+ (void)load {
-    method_exchangeImplementations(
-        class_getClassMethod([self class], @selector(addObserver:forKeyPath:options:context:)),
-        class_getClassMethod([self class], @selector(safeAddObserver:forKeyPath:options:context:))
-    );
-}
-
 #pragma mark - KVO
-- (void)safeAddObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
+- (void)safe_AddObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
     if (![self containObserver:observer forKeyPath:keyPath]) {
-        [self safeAddObserver:observer forKeyPath:keyPath options:options context:context];
+        [self addObserver:observer forKeyPath:keyPath options:options context:context];
     }
 }
 
