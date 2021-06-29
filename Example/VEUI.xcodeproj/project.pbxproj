@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		175A02F4268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175A02F3268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m */; };
 		176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176DC55025F6591A006F6BAA /* VEPopoverViewController.m */; };
 		177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */; };
 		1778CE092671A6C500277EF1 /* VEUITabbarCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1778CE082671A6C500277EF1 /* VEUITabbarCategoryController.m */; };
@@ -55,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		175A02F2268AB2EE008A6D79 /* VEUIAlertCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEUIAlertCategoryViewController.h; sourceTree = "<group>"; };
+		175A02F3268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEUIAlertCategoryViewController.m; sourceTree = "<group>"; };
 		176DC54F25F6591A006F6BAA /* VEPopoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEPopoverViewController.h; sourceTree = "<group>"; };
 		176DC55025F6591A006F6BAA /* VEPopoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEPopoverViewController.m; sourceTree = "<group>"; };
 		177708E725E76BFA00B9937B /* VEImageBrowserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEImageBrowserViewController.h; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 				17C5BA7F266F6326000AB312 /* VEUITextViewCategoryViewController.m */,
 				1778CE072671A6C500277EF1 /* VEUITabbarCategoryController.h */,
 				1778CE082671A6C500277EF1 /* VEUITabbarCategoryController.m */,
+				175A02F2268AB2EE008A6D79 /* VEUIAlertCategoryViewController.h */,
+				175A02F3268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -564,6 +569,7 @@
 				177B0ACD25FA259A003E37A0 /* VETestSonSubModel.m in Sources */,
 				179741C725F907A80013F198 /* VENoticeBarController.m in Sources */,
 				177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */,
+				175A02F4268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m in Sources */,
 				177B0A8125F9F2C1003E37A0 /* VETestSubModel.m in Sources */,
 				178AE4BA25F1D08000B3863E /* VEUIImageCategoryViewController.m in Sources */,
 				1778CE092671A6C500277EF1 /* VEUITabbarCategoryController.m in Sources */,

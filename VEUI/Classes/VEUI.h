@@ -30,6 +30,7 @@
 
 // category view controller
 #import "UIViewController+VEUI.h"
+#import "UIAlertController+VEUI.h"
 
 // base
 #import "VEModel.h"
