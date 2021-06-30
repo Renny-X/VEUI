@@ -54,6 +54,10 @@
     return [UIColor randomColor];
 }
 
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+
 #pragma mark - Get
 - (UICollectionView *)colV {
     if (!_colV) {

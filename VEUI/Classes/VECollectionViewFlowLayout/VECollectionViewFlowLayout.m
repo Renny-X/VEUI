@@ -41,8 +41,15 @@
             UICollectionViewLayoutAttributes *first = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
             sectionFrame.origin.y = first.frame.origin.y;
             
+            
             UICollectionViewLayoutAttributes *last = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:numberOfItems - 1 inSection:section]];
             sectionFrame.size.height = last.frame.origin.y + last.frame.size.height - first.frame.origin.y;
+        }
+        
+        if ([delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]) {
+            UIEdgeInsets insets = [delegate collectionView:self.collectionView layout:self insetForSectionAtIndex:section];
+            sectionFrame.origin.y -= insets.top;
+            sectionFrame.size.height += insets.top + insets.bottom;
         }
         
         VECollectionViewLayoutAttributes *attrs = [VECollectionViewLayoutAttributes layoutAttributesForDecorationViewOfKind:VECollectionViewSection withIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
