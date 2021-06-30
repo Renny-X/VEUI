@@ -45,8 +45,10 @@
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 1) {
+        return CGSizeMake(collectionView.width - 30, 25);
+    }
     CGFloat width = [[self.randomWidthArray safe_objectAtIndex:indexPath.row] floatValue];
-    
     return CGSizeMake(width, 25);
 }
 
