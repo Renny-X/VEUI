@@ -66,15 +66,23 @@
         ws.view.backgroundColor = ws.coverColor;
         ws.contentView.frame = show ? ws.toFrame : ws.fromFrame;
         if (show) {
-            [ws withinShowAnimation];
+            if ([ws respondsToSelector:@selector(withinShowAnimation)]) {
+                [ws withinShowAnimation];
+            }
         } else {
-            [ws withinHideAnimation];
+            if ([ws respondsToSelector:@selector(withinHideAnimation)]) {
+                [ws withinHideAnimation];
+            }
         }
     } completion:^(BOOL finished) {
         if (show) {
-            [ws didEndShowAnimation:finished];
+            if ([ws respondsToSelector:@selector(didEndShowAnimation:)]) {
+                [ws didEndShowAnimation:finished];
+            }
         } else {
-            [ws didEndHideAnimation:finished];
+            if ([ws respondsToSelector:@selector(didEndHideAnimation:)]) {
+                [ws didEndHideAnimation:finished];
+            }
         }
     }];
 }
