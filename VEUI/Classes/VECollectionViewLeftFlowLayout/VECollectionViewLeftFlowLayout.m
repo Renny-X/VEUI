@@ -30,6 +30,10 @@
             // 这个是背景色用的。
             continue;
         }
+        if (curAttr.indexPath.row == nil) {
+            // header footer用的, indexPath.length 不为空， .row 为空
+            continue;
+        }
         CGFloat left = 0;
         id<UICollectionViewDelegateFlowLayout> deleget = (id <UICollectionViewDelegateFlowLayout>)self.collectionView.delegate;
         if (deleget && [deleget respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]) {
