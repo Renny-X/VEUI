@@ -199,30 +199,11 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if (scrollView != self.colV) {
-        return;
-    }
-    self.shouldAutoPlay = YES;
-    scrollView.userInteractionEnabled = YES;
+    [self scrollViewDidEndScroll:scrollView];
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    if (scrollView != self.colV) {
-        return;
-    }
-    self.shouldAutoPlay = YES;
-    scrollView.userInteractionEnabled = YES;
-    
-    NSInteger count = [self.delegate numberOfItemsForVEBanner:self];
-    int index = scrollView.contentOffset.x  / scrollView.width;
-    if (count > 1 && self.scrollCycled) {
-        index = (int)[self dataRowFor:index];
-        scrollView.contentOffset = CGPointMake((index + 1) * scrollView.width, 0);
-    }
-    self.selectIndex = (int)index;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(vebanner:didScrollAtIndex:)]) {
-        [self.delegate vebanner:self didScrollAtIndex:self.selectIndex];
-    }
+    [self scrollViewDidEndScroll:scrollView];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -282,6 +263,26 @@
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return collectionView.size;
+}
+
+#pragma mark - Scroll Handler
+- (void)scrollViewDidEndScroll:(UIScrollView *)scrollView {
+    if (scrollView != self.colV) {
+        return;
+    }
+    self.shouldAutoPlay = YES;
+    scrollView.userInteractionEnabled = YES;
+    
+    NSInteger count = [self.delegate numberOfItemsForVEBanner:self];
+    int index = scrollView.contentOffset.x  / scrollView.width;
+    if (count > 1 && self.scrollCycled) {
+        index = (int)[self dataRowFor:index];
+        scrollView.contentOffset = CGPointMake((index + 1) * scrollView.width, 0);
+    }
+    self.selectIndex = (int)index;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(vebanner:didScrollAtIndex:)]) {
+        [self.delegate vebanner:self didScrollAtIndex:self.selectIndex];
+    }
 }
 
 #pragma mark - Get
