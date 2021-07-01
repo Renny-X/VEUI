@@ -50,6 +50,15 @@ typedef NS_ENUM(NSInteger, VEPopoverContentPosition) {
  */
 - (void)withinHideAnimation;
 
+/**
+ * 显示动画结束回调
+ */
+- (void)didEndShowAnimation:(BOOL)finished;
+/**
+ * 隐藏动画结束回调
+ */
+- (void)didEndHideAnimation:(BOOL)finished;
+
 @end
 
 NS_ASSUME_NONNULL_END

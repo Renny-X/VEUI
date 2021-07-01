@@ -70,12 +70,22 @@
         } else {
             [ws withinHideAnimation];
         }
+    } completion:^(BOOL finished) {
+        if (show) {
+            [ws didEndShowAnimation:finished];
+        } else {
+            [ws didEndHideAnimation:finished];
+        }
     }];
 }
 
 - (void)withinShowAnimation {}
 
 - (void)withinHideAnimation {}
+
+- (void)withinShowAnimation:(BOOL)finished {}
+
+- (void)withinHideAnimation:(BOOL)finished {}
 
 #pragma mark - Get
 - (UIView *)contentView {
