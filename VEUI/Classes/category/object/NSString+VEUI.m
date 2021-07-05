@@ -8,6 +8,7 @@
 
 #import "NSString+VEUI.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "NSObject+VEUI.h"
 
 @implementation NSString (VEUI)
 
@@ -46,6 +47,39 @@
         return arr;
     }
     return nil;
+}
+
+- (NSArray<NSDictionary *> *)rangeDictionaryArrayOfSubstring:(NSString *)sub {
+    if ([NSObject isNilorNull:sub]) {
+        return @[];
+    }
+    NSString *cc = [self mutableCopy];
+    NSMutableArray *marr = [NSMutableArray array];
+    NSArray *tmpArr = [cc componentsSeparatedByString:sub];
+    if (tmpArr) {
+        NSInteger prefixLength = 0;
+        if ([cc hasPrefix:sub]) {
+            [marr addObject:@{
+                @"location": [NSNumber numberWithInteger:0],
+                @"length": [NSNumber numberWithInteger:sub.length],
+            }];
+            tmpArr = [tmpArr subarrayWithRange:NSMakeRange(1, tmpArr.count - 1)];
+            prefixLength = sub.length;
+        }
+        for (int i = 0; i < tmpArr.count; i++) {
+            NSArray *ss = [tmpArr subarrayWithRange:NSMakeRange(0, i + 1)];
+            NSInteger location = [ss componentsJoinedByString:sub].length + prefixLength;
+            if (location + sub.length <= cc.length) {
+                [marr addObject:@{
+                    @"location": [NSNumber numberWithInteger:location],
+                    @"length": [NSNumber numberWithInteger:sub.length],
+                }];
+            } else {
+                break;
+            }
+        }
+    }
+    return marr;
 }
 
 + (NSString *)uuidString {

@@ -96,10 +96,16 @@
 //    NSLog(@"%@", [arr formatValue]);
 //    NSLog(@"%@", [dict safeValueForKey:@"键1"]);
     
-    NSString *version1 = @"v1.0.8";
-    NSString *version2 = @"v1.0.8.1";
+//    NSString *version1 = @"v1.0.8";
+//    NSString *version2 = @"v1.0.8.1";
+//
+//    NSLog(@"is higher ==> %d", [version2 compare:version1 options:NSNumericSearch] == NSOrderedDescending);
     
-    NSLog(@"is higher ==> %d", [version2 compare:version1 options:NSNumericSearch] == NSOrderedDescending);
+    
+    NSString *cc = @"123-123-123-123-123-123";
+    NSArray *arr = [cc rangeDictionaryArrayOfSubstring:@"23"];
+    NSLog(@"range array ==> %@", arr);
+    NSLog(@"range array ==> %ld", cc.length);
 }
 
 - (void)btnClicked:(UIButton *)btn {

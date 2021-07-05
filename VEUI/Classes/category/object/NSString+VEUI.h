@@ -29,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSArray *)toNSArray;
 /**
+ * 返回所有子字符串的range { @"location": @0, @"length": @0 }
+ */
+- (NSArray<NSDictionary *> *)rangeDictionaryArrayOfSubstring:(NSString *)sub;
+/**
  * 返回随机 UUID 字符串
  */
 + (NSString *)uuidString;
