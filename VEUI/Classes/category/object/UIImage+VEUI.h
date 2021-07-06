@@ -60,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (UIImage *)imageWithCornerRadius:(CGFloat)radius;
 
+- (UIImage *)resetTintColor:(UIColor *)color;
+
 @end
 
 NS_ASSUME_NONNULL_END

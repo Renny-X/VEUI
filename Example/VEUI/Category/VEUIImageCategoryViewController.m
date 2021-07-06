@@ -40,7 +40,7 @@
     [self.view addSubview:self.viewImgV];
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 45)];
-    btn.center = CGPointMake(self.view.centerX, self.view.height - 100);
+    btn.center = CGPointMake(self.view.centerX, self.view.height - 150);
     btn.maxX = self.view.centerX - 10;
     btn.tag = 1001;
     btn.backgroundColor = UIColor.greenColor;
@@ -58,8 +58,8 @@
 }
 
 - (void)btnClicked:(UIButton *)sender {
-    self.sourceImgV.hidden = YES;
-    self.viewImage = sender.tag % 10 ? [UIImage imageFromView:self.sourceImgV] : [UIImage imageFromView:self.view];
+//    self.sourceImgV.hidden = YES;
+    self.viewImage = sender.tag % 10 ? [[UIImage imageFromView:self.sourceImgV] resetTintColor:[UIColor greenColor]] : [UIImage imageFromView:self.view];
     self.viewImgV.image = self.viewImage;
 }
 

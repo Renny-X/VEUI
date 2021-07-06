@@ -7,6 +7,7 @@
 
 #import "UIImage+VEUI.h"
 #import "UIView+VEUI.h"
+//#import <CoreGraphics/CoreGraphics.h>
 
 CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
@@ -134,6 +135,22 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
         return img;
     }
     return self;
+}
+
+
+- (UIImage *)resetTintColor:(UIColor *)color {
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, 0, self.size.height);
+    CGContextScaleCTM(context, 1.0, -1.0);
+    CGContextSetBlendMode(context, kCGBlendModeNormal);
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
+    CGContextClipToMask(context, rect, self.CGImage);
+    [color setFill];
+    CGContextFillRect(context, rect);
+    UIImage*newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 // utils
