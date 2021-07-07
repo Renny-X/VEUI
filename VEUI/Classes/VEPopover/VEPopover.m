@@ -23,23 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesHandler)];
-    [self.view addGestureRecognizer:tap];
     [self.view addSubview:self.contentView];
 }
 
-- (void)tapGesHandler {
-    if (self.tapToHide) {
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    if (touch.view == self.view && self.tapToHide) {
         [self hide];
     }
-}
-
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    if ([self.contentView pointInside:point withEvent:event]) {
-        return self.contentView;
-    }
-    return self.view;
 }
 
 #pragma mark - public
