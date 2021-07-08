@@ -34,4 +34,8 @@
     return date;
 }
 
+- (NSString *)timeStamp {
+    return [NSString stringWithFormat:@"%.0f",[self timeIntervalSince1970] * 1000];
+}
+
 @end
