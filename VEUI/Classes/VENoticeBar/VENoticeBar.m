@@ -24,6 +24,9 @@
 
 #pragma mark - Layout
 - (void)layoutWithWidth:(CGFloat)width {
+    if (self.iconString && self.iconString.length) {
+        self.icon.text = self.iconString;
+    }
     float horizontalGap = 5;
     float gap = 10;
     if (self.style == VENoticeBarStyleText) {

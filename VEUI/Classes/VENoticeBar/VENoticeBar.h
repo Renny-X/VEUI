@@ -57,6 +57,10 @@ typedef NS_ENUM(NSInteger, VENoticeBarStyle) {
  */
 @property(nonatomic, assign)BOOL iconIsHidden;
 /**
+ * iconString: 左边的icon 字体
+ */
+@property(nonatomic, strong)NSString *iconString;
+/**
  * btnTitle: 右侧功能按钮标题，不设置不显示，设置后默认close按钮不隐藏
  */
 @property(nonatomic, strong)NSString *btnTitle;
