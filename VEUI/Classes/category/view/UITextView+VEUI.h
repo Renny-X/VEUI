@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign)NSInteger maxLength;
 
+@property(nonatomic, copy)void(^textDidChange)(void);
+
 @end
 
 NS_ASSUME_NONNULL_END

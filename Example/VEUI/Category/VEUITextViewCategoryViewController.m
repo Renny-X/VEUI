@@ -23,6 +23,9 @@
     UITextView *textV = [[UITextView alloc] initWithFrame:CGRectMake(0, 200, self.view.width, 60)];
     textV.maxLength = 20;
     textV.delegate = self;
+    textV.textDidChange = ^{
+        NSLog(@"===> aaaaa");
+    };
     [self.view addSubview:textV];
     
     UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(0, textV.bottom + 50, textV.width, textV.height)];
@@ -36,7 +39,6 @@
 
 - (void)textViewDidChange:(UITextView *)textView {
     NSLog(@"==> %@", textView.text);
-    
     self.tf.maxLength = 12;
 }
 
