@@ -25,10 +25,10 @@
     self.sourceImgV = [[UIImageView alloc] initWithFrame:CGRectMake(50, 100, self.view.width - 100, (self.view.height - 200 - 160) * 0.5)];
     self.sourceImgV.backgroundColor = [UIColor lightGrayColor];
     self.sourceImgV.contentMode = UIViewContentModeScaleAspectFill;
-    self.sourceImgV.image = [UIImage imageNamed:@"test"];
+    self.sourceImgV.image = [[UIImage imageNamed:@"test"] gaussianBlurImageWithBlurLevel:0.1];
     self.sourceImgV.clipsToBounds = YES;
-    [self.sourceImgV.layer setMasksToBounds:YES];
-    [self.sourceImgV.layer setCornerRadius:40];
+//    [self.sourceImgV.layer setMasksToBounds:YES];
+//    [self.sourceImgV.layer setCornerRadius:40];
     [self.view addSubview:self.sourceImgV];
     
     self.viewImgV = [self.sourceImgV concat];

@@ -62,6 +62,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (UIImage *)resetTintColor:(UIColor *)color;
 
+/**
+ * image 添加 高斯模糊 CoreImage
+ * @param blurLevel 模糊返回 0 ~ 1
+ * @return 返回模糊后的图片
+ */
+- (UIImage *)gaussianBlurImageWithBlurLevel:(CGFloat)blurLevel;
+
 @end
 
 NS_ASSUME_NONNULL_END
