@@ -61,6 +61,8 @@
 //    self.sourceImgV.hidden = YES;
     self.viewImage = sender.tag % 10 ? [[UIImage imageFromView:self.sourceImgV] resetTintColor:[UIColor greenColor]] : [UIImage imageFromView:self.view];
     self.viewImgV.image = self.viewImage;
+    
+    self.view.backgroundColor = [self.sourceImgV.image colorAtPoint:CGPointMake(10, 10)];
 }
 
 @end

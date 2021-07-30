@@ -68,6 +68,12 @@ NS_ASSUME_NONNULL_BEGIN
  * @return 返回模糊后的图片
  */
 - (UIImage *)gaussianBlurImageWithBlurLevel:(CGFloat)blurLevel;
+/**
+ * 返回 image 指定像素点的颜色
+ * @param point 指定像素点
+ * @return 指定像素点的颜色
+ */
+- (UIColor *)colorAtPoint:(CGPoint)point;
 
 @end
 
