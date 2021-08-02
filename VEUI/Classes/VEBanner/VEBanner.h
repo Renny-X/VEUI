@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, assign)BOOL showPageControl;
 
-@property(nonatomic, assign)BOOL pageControlBottomOffset;
+@property(nonatomic, assign)CGFloat pageControlBottomOffset;
 
 @property(nonatomic, assign)UIColor *tintColor;
 /**
