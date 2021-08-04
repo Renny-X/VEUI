@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		175A02F4268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175A02F3268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m */; };
 		176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176DC55025F6591A006F6BAA /* VEPopoverViewController.m */; };
 		177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */; };
+		1778CE092671A6C500277EF1 /* VEUITabbarCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1778CE082671A6C500277EF1 /* VEUITabbarCategoryController.m */; };
+		177A43B52684182E00FC0B6E /* VEBannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177A43B42684182E00FC0B6E /* VEBannerController.m */; };
 		177B02CE25F748D90006D692 /* VEModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B02CD25F748D90006D692 /* VEModelController.m */; };
 		177B02D525F7490A0006D692 /* VETestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B02D425F7490A0006D692 /* VETestModel.m */; };
 		177B0A8125F9F2C1003E37A0 /* VETestSubModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 177B0A8025F9F2C1003E37A0 /* VETestSubModel.m */; };
@@ -22,6 +25,7 @@
 		179741C725F907A80013F198 /* VENoticeBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 179741C625F907A80013F198 /* VENoticeBarController.m */; };
 		17B275B92601E3BD0064A173 /* VETabContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B275B82601E3BD0064A173 /* VETabContentView.m */; };
 		17C5BA80266F6326000AB312 /* VEUITextViewCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5BA7F266F6326000AB312 /* VEUITextViewCategoryViewController.m */; };
+		17CBB4D22685731E00193142 /* VECollectionViewLeftFlowLayoutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CBB4D12685731E00193142 /* VECollectionViewLeftFlowLayoutController.m */; };
 		228939E394DA370A7C8F31D4 /* Pods_VEUI_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B161678FBE5DC59FC24CE76E /* Pods_VEUI_Tests.framework */; };
 		3F98BEDF2E40DAD015490C97 /* Pods_VEUI_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563EA48E22F46418A26F074F /* Pods_VEUI_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -52,10 +56,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		175A02F2268AB2EE008A6D79 /* VEUIAlertCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEUIAlertCategoryViewController.h; sourceTree = "<group>"; };
+		175A02F3268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEUIAlertCategoryViewController.m; sourceTree = "<group>"; };
 		176DC54F25F6591A006F6BAA /* VEPopoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEPopoverViewController.h; sourceTree = "<group>"; };
 		176DC55025F6591A006F6BAA /* VEPopoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEPopoverViewController.m; sourceTree = "<group>"; };
 		177708E725E76BFA00B9937B /* VEImageBrowserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEImageBrowserViewController.h; sourceTree = "<group>"; };
 		177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEImageBrowserViewController.m; sourceTree = "<group>"; };
+		1778CE072671A6C500277EF1 /* VEUITabbarCategoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEUITabbarCategoryController.h; sourceTree = "<group>"; };
+		1778CE082671A6C500277EF1 /* VEUITabbarCategoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEUITabbarCategoryController.m; sourceTree = "<group>"; };
+		177A43B32684182E00FC0B6E /* VEBannerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEBannerController.h; sourceTree = "<group>"; };
+		177A43B42684182E00FC0B6E /* VEBannerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEBannerController.m; sourceTree = "<group>"; };
 		177B02CC25F748D90006D692 /* VEModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEModelController.h; sourceTree = "<group>"; };
 		177B02CD25F748D90006D692 /* VEModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEModelController.m; sourceTree = "<group>"; };
 		177B02D325F7490A0006D692 /* VETestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VETestModel.h; sourceTree = "<group>"; };
@@ -80,6 +90,8 @@
 		17B275B82601E3BD0064A173 /* VETabContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VETabContentView.m; sourceTree = "<group>"; };
 		17C5BA7E266F6326000AB312 /* VEUITextViewCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEUITextViewCategoryViewController.h; sourceTree = "<group>"; };
 		17C5BA7F266F6326000AB312 /* VEUITextViewCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEUITextViewCategoryViewController.m; sourceTree = "<group>"; };
+		17CBB4D02685731E00193142 /* VECollectionViewLeftFlowLayoutController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VECollectionViewLeftFlowLayoutController.h; sourceTree = "<group>"; };
+		17CBB4D12685731E00193142 /* VECollectionViewLeftFlowLayoutController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VECollectionViewLeftFlowLayoutController.m; sourceTree = "<group>"; };
 		1E109A29C6B4F1DBACEEE42A /* Pods-VEUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VEUI_Tests.release.xcconfig"; path = "Target Support Files/Pods-VEUI_Tests/Pods-VEUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		27CAF832562C2A5EBF6623ED /* VEUI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VEUI.podspec; path = ../VEUI.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		563EA48E22F46418A26F074F /* Pods_VEUI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VEUI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,7 +118,7 @@
 		65CE6B093FD9C0E15D9CC7D3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		65D9A319D96955CFFDA0C504 /* Pods-VEUI_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VEUI_Example.debug.xcconfig"; path = "Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8968CB0F7BFA7F29D787824B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		B161678FBE5DC59FC24CE76E /* Pods_VEUI_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VEUI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFA54D22401755049A4188B8 /* Pods-VEUI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VEUI_Example.release.xcconfig"; path = "Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +168,15 @@
 			path = VEImageBrowser;
 			sourceTree = "<group>";
 		};
+		177A43B22684180C00FC0B6E /* VEBanner */ = {
+			isa = PBXGroup;
+			children = (
+				177A43B32684182E00FC0B6E /* VEBannerController.h */,
+				177A43B42684182E00FC0B6E /* VEBannerController.m */,
+			);
+			path = VEBanner;
+			sourceTree = "<group>";
+		};
 		177B02CB25F748A60006D692 /* VEModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +199,10 @@
 				178AE4B925F1D08000B3863E /* VEUIImageCategoryViewController.m */,
 				17C5BA7E266F6326000AB312 /* VEUITextViewCategoryViewController.h */,
 				17C5BA7F266F6326000AB312 /* VEUITextViewCategoryViewController.m */,
+				1778CE072671A6C500277EF1 /* VEUITabbarCategoryController.h */,
+				1778CE082671A6C500277EF1 /* VEUITabbarCategoryController.m */,
+				175A02F2268AB2EE008A6D79 /* VEUIAlertCategoryViewController.h */,
+				175A02F3268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -210,6 +235,15 @@
 				179741C625F907A80013F198 /* VENoticeBarController.m */,
 			);
 			path = VENoticeBar;
+			sourceTree = "<group>";
+		};
+		17CBB4CF268572F300193142 /* VECollectionViewLeftFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				17CBB4D02685731E00193142 /* VECollectionViewLeftFlowLayoutController.h */,
+				17CBB4D12685731E00193142 /* VECollectionViewLeftFlowLayoutController.m */,
+			);
+			path = VECollectionViewLeftFlowLayout;
 			sourceTree = "<group>";
 		};
 		6003F581195388D10070C39A = {
@@ -251,21 +285,19 @@
 			children = (
 				6003F59C195388D20070C39A /* VEUIAppDelegate.h */,
 				6003F59D195388D20070C39A /* VEUIAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* VEUIViewController.h */,
-				6003F5A6195388D20070C39A /* VEUIViewController.m */,
-				178AE4B325F1CFD400B3863E /* test.png */,
 				178CFFA125E4943300699E7D /* VEUIModel.h */,
 				178CFFA225E4943300699E7D /* VEUIModel.m */,
-				179741C425F9078E0013F198 /* VENoticeBar */,
+				6003F5A5195388D20070C39A /* VEUIViewController.h */,
+				6003F5A6195388D20070C39A /* VEUIViewController.m */,
 				178AE4B725F1D04400B3863E /* Category */,
-				1797416025F88FC10013F198 /* VETab */,
-				177B02CB25F748A60006D692 /* VEModel */,
+				177A43B22684180C00FC0B6E /* VEBanner */,
+				17CBB4CF268572F300193142 /* VECollectionViewLeftFlowLayout */,
 				177708DF25E76B9400B9937B /* VEImageBrowser */,
+				177B02CB25F748A60006D692 /* VEModel */,
+				179741C425F9078E0013F198 /* VENoticeBar */,
 				176DC54E25F65902006F6BAA /* VEPopover */,
+				1797416025F88FC10013F198 /* VETab */,
 				178CFF9B25E493CA00699E7D /* VEToast */,
-				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for VEUI";
@@ -275,6 +307,10 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				178AE4B325F1CFD400B3863E /* test.png */,
+				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				6003F5A8195388D20070C39A /* Images.xcassets */,
+				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F595195388D20070C39A /* VEUI-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -436,11 +472,13 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VEUI_Example/Pods-VEUI_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/VEUI/VEUI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VEUI.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177A43B52684182E00FC0B6E /* VEBannerController.m in Sources */,
 				6003F59E195388D20070C39A /* VEUIAppDelegate.m in Sources */,
 				177B02CE25F748D90006D692 /* VEModelController.m in Sources */,
 				176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */,
@@ -530,8 +569,11 @@
 				177B0ACD25FA259A003E37A0 /* VETestSonSubModel.m in Sources */,
 				179741C725F907A80013F198 /* VENoticeBarController.m in Sources */,
 				177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */,
+				175A02F4268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m in Sources */,
 				177B0A8125F9F2C1003E37A0 /* VETestSubModel.m in Sources */,
 				178AE4BA25F1D08000B3863E /* VEUIImageCategoryViewController.m in Sources */,
+				1778CE092671A6C500277EF1 /* VEUITabbarCategoryController.m in Sources */,
+				17CBB4D22685731E00193142 /* VECollectionViewLeftFlowLayoutController.m in Sources */,
 				178CFF9E25E493CA00699E7D /* VEToastViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

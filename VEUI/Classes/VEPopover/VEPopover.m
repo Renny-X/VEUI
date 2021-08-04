@@ -23,23 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesHandler)];
-    [self.view addGestureRecognizer:tap];
     [self.view addSubview:self.contentView];
 }
 
-- (void)tapGesHandler {
-    if (self.tapToHide) {
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    if (touch.view == self.view && self.tapToHide) {
         [self hide];
     }
-}
-
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    if ([self.contentView pointInside:point withEvent:event]) {
-        return self.contentView;
-    }
-    return self.view;
 }
 
 #pragma mark - public
@@ -66,9 +57,23 @@
         ws.view.backgroundColor = ws.coverColor;
         ws.contentView.frame = show ? ws.toFrame : ws.fromFrame;
         if (show) {
-            [ws withinShowAnimation];
+            if ([ws respondsToSelector:@selector(withinShowAnimation)]) {
+                [ws withinShowAnimation];
+            }
         } else {
-            [ws withinHideAnimation];
+            if ([ws respondsToSelector:@selector(withinHideAnimation)]) {
+                [ws withinHideAnimation];
+            }
+        }
+    } completion:^(BOOL finished) {
+        if (show) {
+            if ([ws respondsToSelector:@selector(didEndShowAnimation:)]) {
+                [ws didEndShowAnimation:finished];
+            }
+        } else {
+            if ([ws respondsToSelector:@selector(didEndHideAnimation:)]) {
+                [ws didEndHideAnimation:finished];
+            }
         }
     }];
 }
@@ -76,6 +81,10 @@
 - (void)withinShowAnimation {}
 
 - (void)withinHideAnimation {}
+
+- (void)withinShowAnimation:(BOOL)finished {}
+
+- (void)withinHideAnimation:(BOOL)finished {}
 
 #pragma mark - Get
 - (UIView *)contentView {

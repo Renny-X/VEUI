@@ -38,6 +38,26 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.2.6
+
+#### add
+* UIView 添加 top、left、bottom、right 属性
+* UITabBarItem 添加 badgeDot 相关属性
+* UITabBarItem 添加 animateImages: duration: 方法
+* VETabBarController 添加 lastSelectedIndex 属性
+* NSObject KVO 安全添加KVO监听，避免重复添加
+* VECollectionViewFlowLayout 支持设置 section 背景色
+* VECollectionViewLeftFlowLayout collectionView 左对齐
+* UIAlertAction 添加颜色扩展
+* UIImage 添加 设置图片颜色 返回指定像素点颜色 高斯模糊 重绘边距等方法
+* NSDate 添加时间戳方法
+
+#### upgrade
+* VEBanner 交互优化，支持无限滚动，自动轮播
+* VEPopover 交互优化，添加动画入口
+* VENoticeBar 优化自定义入口
+* VEToast 优化自定义入口
+
 ### 0.2.5
 
 #### add

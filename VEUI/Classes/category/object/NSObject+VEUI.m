@@ -95,4 +95,26 @@
     return [obj isEmpty];
 }
 
+#pragma mark - KVO
+- (void)safe_AddObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context {
+    if (![self containObserver:observer forKeyPath:keyPath]) {
+        [self addObserver:observer forKeyPath:keyPath options:options context:context];
+    }
+}
+
+- (BOOL)containObserver:(id)observer forKeyPath:(NSString *)key {
+    id info = self.observationInfo;
+    NSArray *array = [info valueForKey:@"_observances"];
+    for (id objc in array) {
+        id Properties = [objc valueForKeyPath:@"_property"];
+        id newObserver = [objc valueForKeyPath:@"_observer"];
+        NSString *keyPath = [Properties valueForKeyPath:@"_keyPath"];
+        if ([key isEqualToString:keyPath] && [newObserver isEqual:observer]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
 @end

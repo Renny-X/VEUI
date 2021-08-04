@@ -28,6 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
  * 返回format格式 时间字符串
  */
 - (NSString *)format:(NSString *)format;
+/**
+ * timeStamp: 获取对应的时间戳
+ */
+- (NSString *)timeStamp;
 
 @end
 

@@ -34,6 +34,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (BOOL)isNilorNull:(id)obj;
 
+#pragma mark - KVO
+/**
+ * safe add obser 检查是否已添加kvo，避免重复添加
+ */
+- (void)safe_AddObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context;
+/**
+ * 判断obj是否已包含KVO
+ */
+- (BOOL)containObserver:(id)observer forKeyPath:(NSString *)key;
+
 @end
 
 NS_ASSUME_NONNULL_END

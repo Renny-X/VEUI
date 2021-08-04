@@ -24,6 +24,9 @@
 
 #pragma mark - Layout
 - (void)layoutWithWidth:(CGFloat)width {
+    if (self.iconString && self.iconString.length) {
+        self.icon.text = self.iconString;
+    }
     float horizontalGap = 5;
     float gap = 10;
     if (self.style == VENoticeBarStyleText) {
@@ -48,9 +51,9 @@
     CGSize tmpSize = [self.infoLabel sizeThatFits:CGSizeMake(wd, 30)];
     self.infoLabel.frame = CGRectMake(left, 12, wd, tmpSize.height);
     float height = self.infoLabel.height + self.infoLabel.y * 2;
-    if (height < 42) {
-        height = 42;
-    }
+//    if (height < 42) {
+//        height = 42;
+//    }
     self.size = CGSizeMake(width, height);
     self.moreBtn.centerY = self.height * 0.5;
     self.close.height = self.height - 23;

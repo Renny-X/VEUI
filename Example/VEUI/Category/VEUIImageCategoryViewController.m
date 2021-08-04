@@ -24,11 +24,17 @@
     
     self.sourceImgV = [[UIImageView alloc] initWithFrame:CGRectMake(50, 100, self.view.width - 100, (self.view.height - 200 - 160) * 0.5)];
     self.sourceImgV.backgroundColor = [UIColor lightGrayColor];
-    self.sourceImgV.contentMode = UIViewContentModeScaleAspectFill;
-    self.sourceImgV.image = [UIImage imageNamed:@"test"];
+    self.sourceImgV.contentMode = UIViewContentModeScaleAspectFit;
+//    self.sourceImgV.contentMode = UIViewContentModeScaleAspectFit;
+    
+    UIImage *img = [UIImage imageNamed:@"test"];
+//    img = [img gaussianBlurImageWithBlurLevel:0.1];
+    
+    self.sourceImgV.image = img;
+    
     self.sourceImgV.clipsToBounds = YES;
-    [self.sourceImgV.layer setMasksToBounds:YES];
-    [self.sourceImgV.layer setCornerRadius:40];
+//    [self.sourceImgV.layer setMasksToBounds:YES];
+//    [self.sourceImgV.layer setCornerRadius:40];
     [self.view addSubview:self.sourceImgV];
     
     self.viewImgV = [self.sourceImgV concat];
@@ -39,8 +45,13 @@
     self.viewImgV.y = self.sourceImgV.maxY + 20;
     [self.view addSubview:self.viewImgV];
     
+    NSLog(@"==> %@", NSStringFromCGSize(img.size));
+    img = [img resetWithInsets:UIEdgeInsetsMake(10, 30, 10, 0)];
+    NSLog(@"==> %@", NSStringFromCGSize(img.size));
+    self.viewImgV.image = img;
+    
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 45)];
-    btn.center = CGPointMake(self.view.centerX, self.view.height - 100);
+    btn.center = CGPointMake(self.view.centerX, self.view.height - 150);
     btn.maxX = self.view.centerX - 10;
     btn.tag = 1001;
     btn.backgroundColor = UIColor.greenColor;
@@ -58,9 +69,11 @@
 }
 
 - (void)btnClicked:(UIButton *)sender {
-    self.sourceImgV.hidden = YES;
-    self.viewImage = sender.tag % 10 ? [UIImage imageFromView:self.sourceImgV] : [UIImage imageFromView:self.view];
+//    self.sourceImgV.hidden = YES;
+    self.viewImage = sender.tag % 10 ? [[UIImage imageFromView:self.sourceImgV] resetTintColor:[UIColor greenColor]] : [UIImage imageFromView:self.view];
     self.viewImgV.image = self.viewImage;
+    
+//    self.view.backgroundColor = [self.sourceImgV.image colorAtPoint:CGPointMake(10, 10)];
 }
 
 @end

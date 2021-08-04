@@ -15,6 +15,7 @@ static NSString *maxLenKey = @"maxLenKey";
 
 - (void)setMaxLength:(NSInteger)maxLength {
     objc_setAssociatedObject(self, &maxLenKey, @(maxLength), OBJC_ASSOCIATION_ASSIGN);
+    [self removeTarget:self action:@selector(onChangeText:) forControlEvents:UIControlEventEditingChanged];
     [self addTarget:self action:@selector(onChangeText:) forControlEvents:UIControlEventEditingChanged];
 }
 

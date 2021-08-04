@@ -50,7 +50,7 @@
             [arr addObject:item];
         }
         
-        self.banner = [[VEBanner alloc] initWithFrame:self.bounds];
+        self.banner = [[VEImageBanner alloc] initWithFrame:self.bounds];
         self.banner.dataSource = [NSArray arrayWithArray:arr];
         self.banner.backgroundColor = [UIColor clearColor];
         [self addSubview:self.banner];

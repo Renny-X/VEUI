@@ -44,6 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIImage*)imageWithAttributedString:(NSAttributedString *)attributedString size:(CGSize)size;
 /**
+ * 重绘 image 添加边距，返回的图片size 为原size + insets
+ */
+- (UIImage *)resetWithInsets:(UIEdgeInsets)insets;
+/**
  * 将img.size 重置为 size
  */
 - (UIImage *)resetToSize:(CGSize)size;
@@ -59,6 +63,21 @@ NS_ASSUME_NONNULL_BEGIN
  * image 添加圆角
  */
 - (UIImage *)imageWithCornerRadius:(CGFloat)radius;
+
+- (UIImage *)resetTintColor:(UIColor *)color;
+
+/**
+ * image 添加 高斯模糊 CoreImage
+ * @param blurLevel 模糊返回 0 ~ 1
+ * @return 返回模糊后的图片
+ */
+- (UIImage *)gaussianBlurImageWithBlurLevel:(CGFloat)blurLevel;
+/**
+ * 返回 image 指定像素点的颜色
+ * @param point 指定像素点
+ * @return 指定像素点的颜色
+ */
+- (UIColor *)colorAtPoint:(CGPoint)point;
 
 @end
 

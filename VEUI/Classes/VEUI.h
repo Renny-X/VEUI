@@ -22,12 +22,15 @@
 // category view
 #import "UIButton+VEUI.h"
 #import "UIControl+VEUI.h"
+#import "UILabel+VEUI.h"
+#import "UITabBarItem+VEUI.h"
 #import "UITextField+VEUI.h"
-#import "UITextView+Category.h"
+#import "UITextView+VEUI.h"
 #import "UIView+VEUI.h"
 
 // category view controller
 #import "UIViewController+VEUI.h"
+#import "UIAlertController+VEUI.h"
 
 // base
 #import "VEModel.h"
@@ -39,9 +42,12 @@
 #import "VELabel.h"
 #import "VENoticeBar.h"
 #import "VEPopover.h"
+#import "VETabBarController.h"
 #import "VETipView.h"
 #import "VEToast.h"
 #import "VETab.h"
+
+#import "VECollectionViewLeftFlowLayout.h"
 
 // Utils
 #import "VETools.h"

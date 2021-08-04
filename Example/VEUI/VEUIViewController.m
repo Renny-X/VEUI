@@ -31,12 +31,16 @@
     if (!_dataArr) {
         _dataArr = @[
             [VEUIGroupModel modelWithTitle:@"Category" cellArr:@[
-                [VEUICellModel modelWithTitle:@"UITextView+VEUI" controller:@"VEUITextViewCategoryViewController"],
                 [VEUICellModel modelWithTitle:@"UIImage+VEUI" controller:@"VEUIImageCategoryViewController"],
+                [VEUICellModel modelWithTitle:@"UITabbarItem+VEUI" controller:@"VEUITabbarCategoryController"],
+                [VEUICellModel modelWithTitle:@"UITextView+VEUI" controller:@"VEUITextViewCategoryViewController"],
+                [VEUICellModel modelWithTitle:@"UIAlertController+VEUI" controller:@"VEUIAlertCategoryViewController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Data Display" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:@"VEImageBrowserViewController"],
                 [VEUICellModel modelWithTitle:@"VENoticeBar" controller:@"VENoticeBarController"],
+                [VEUICellModel modelWithTitle:@"VEBanner" controller:@"VEBannerController"],
+                [VEUICellModel modelWithTitle:@"VECollectionViewLeftFlowLayout" controller:@"VECollectionViewLeftFlowLayoutController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Feedback" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEToast" controller:@"VEToastViewController"],
@@ -53,6 +57,9 @@
     return _dataArr;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -89,10 +96,16 @@
 //    NSLog(@"%@", [arr formatValue]);
 //    NSLog(@"%@", [dict safeValueForKey:@"键1"]);
     
-    NSString *version1 = @"v1.0.8";
-    NSString *version2 = @"v1.0.8.1";
+//    NSString *version1 = @"v1.0.8";
+//    NSString *version2 = @"v1.0.8.1";
+//
+//    NSLog(@"is higher ==> %d", [version2 compare:version1 options:NSNumericSearch] == NSOrderedDescending);
     
-    NSLog(@"is higher ==> %d", [version2 compare:version1 options:NSNumericSearch] == NSOrderedDescending);
+    
+    NSString *cc = @"123-123-123-123-123-123";
+    NSArray *arr = [cc rangeDictionaryArrayOfSubstring:@"23"];
+    NSLog(@"range array ==> %@", arr);
+    NSLog(@"range array ==> %ld", cc.length);
 }
 
 - (void)btnClicked:(UIButton *)btn {

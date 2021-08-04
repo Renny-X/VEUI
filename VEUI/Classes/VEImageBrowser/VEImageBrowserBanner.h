@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VEBanner.h"
+#import "VEImageBanner.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, weak)id<VEImageBrowserBannerDelegate> delegate;
 
-@property(nonatomic, strong)VEBanner *banner;
+@property(nonatomic, strong)VEImageBanner *banner;
 
 - (instancetype)initWithDataSource:(NSArray<UIView *> *)dataSource;
 
