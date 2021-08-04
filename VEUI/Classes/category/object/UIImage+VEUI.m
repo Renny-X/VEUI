@@ -86,7 +86,7 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     toSize.height += insets.top + insets.bottom;
 
     UIGraphicsBeginImageContext(toSize);
-    [self drawInRect:CGRectMake(insets.left, insets.top, toSize.width, toSize.height)];
+    [self drawInRect:CGRectMake(insets.left, insets.top, self.size.width, self.size.height)];
     UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     scaledImage = [UIImage imageWithData:UIImagePNGRepresentation(scaledImage) scale:scale];
