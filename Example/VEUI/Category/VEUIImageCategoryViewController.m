@@ -25,7 +25,16 @@
     self.sourceImgV = [[UIImageView alloc] initWithFrame:CGRectMake(50, 100, self.view.width - 100, (self.view.height - 200 - 160) * 0.5)];
     self.sourceImgV.backgroundColor = [UIColor lightGrayColor];
     self.sourceImgV.contentMode = UIViewContentModeScaleAspectFill;
-    self.sourceImgV.image = [[UIImage imageNamed:@"test"] gaussianBlurImageWithBlurLevel:0.1];
+//    self.sourceImgV.contentMode = UIViewContentModeScaleAspectFit;
+    
+    UIImage *img = [UIImage imageNamed:@"test"];
+//    img = [img gaussianBlurImageWithBlurLevel:0.1];
+    NSLog(@"==> %@", NSStringFromCGSize(img.size));
+    img = [img resetWithInsets:UIEdgeInsetsMake(10, 30, 10, 0)];
+    NSLog(@"==> %@", NSStringFromCGSize(img.size));
+    
+    self.sourceImgV.image = img;
+    
     self.sourceImgV.clipsToBounds = YES;
 //    [self.sourceImgV.layer setMasksToBounds:YES];
 //    [self.sourceImgV.layer setCornerRadius:40];

@@ -74,6 +74,25 @@ CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     return [self createImageWithView:label size:size scale:[UIScreen mainScreen].scale];
 }
 
+/**
+ * 重绘 image 添加边距，返回的图片size 为原size + insets
+ */
+- (UIImage *)resetWithInsets:(UIEdgeInsets)insets {
+    CGFloat scale = self.scale;
+    CGSize toSize = CGSizeMake(self.size.width * scale, self.size.height * scale);
+    insets = UIEdgeInsetsMake(insets.top * scale, insets.left * scale, insets.bottom * scale, insets.right * scale);
+
+    toSize.width += insets.left + insets.right;
+    toSize.height += insets.top + insets.bottom;
+
+    UIGraphicsBeginImageContext(toSize);
+    [self drawInRect:CGRectMake(insets.left, insets.top, toSize.width, toSize.height)];
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    scaledImage = [UIImage imageWithData:UIImagePNGRepresentation(scaledImage) scale:scale];
+    return scaledImage;
+}
+
 - (UIImage *)resetToSize:(CGSize)size {
     UIGraphicsBeginImageContext(size);
     [self drawInRect:CGRectMake(0, 0, size.width, size.height)];

@@ -44,6 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIImage*)imageWithAttributedString:(NSAttributedString *)attributedString size:(CGSize)size;
 /**
+ * 重绘 image 添加边距，返回的图片size 为原size + insets
+ */
+- (UIImage *)resetWithInsets:(UIEdgeInsets)insets;
+/**
  * 将img.size 重置为 size
  */
 - (UIImage *)resetToSize:(CGSize)size;
