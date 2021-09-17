@@ -368,4 +368,13 @@
     }
 }
 
+- (void)setDirection:(VEBannerDirection)direction {
+    if (direction == self.direction) {
+        return;
+    }
+    _direction = direction;
+//    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.colV.collectionViewLayout;
+//    layout.scrollDirection = direction == VEBannerDirectionHorizontal ? UICollectionViewScrollDirectionHorizontal : UICollectionViewScrollDirectionVertical;
+}
+
 @end
