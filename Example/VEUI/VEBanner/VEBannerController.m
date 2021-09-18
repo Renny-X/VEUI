@@ -39,6 +39,7 @@
     
     VEBanner *banner = [[VEBanner alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 300)];
     banner.autoPlayTimeInterval = 1.5;
+    banner.direction = VEBannerDirectionVertical;
 //    banner.scrollCycled = false;
     banner.centerY = scrollV.height * 0.5;
     banner.delegate = self;

@@ -44,6 +44,7 @@
 
 - (void)setupUI {
     self.backgroundColor = [UIColor blackColor];
+    self.direction = VEBannerDirectionHorizontal;
     [self addSubview:self.colV];
     
     self.scrollCycled = YES;
@@ -115,7 +116,12 @@
         }
         target += 1;
         ss.colV.userInteractionEnabled = NO;
-        [ss.colV setContentOffset:CGPointMake(target * ss.colV.width, 0) animated:YES];
+        if (ss.direction == VEBannerDirectionHorizontal) {
+            [ss.colV setContentOffset:CGPointMake(target * ss.colV.width, 0) animated:YES];
+        } else {
+            [ss.colV setContentOffset:CGPointMake(0, target * ss.colV.height) animated:YES];
+        }
+        
     }];
 }
 
@@ -274,11 +280,22 @@
     scrollView.userInteractionEnabled = YES;
     
     NSInteger count = [self.delegate numberOfItemsForVEBanner:self];
-    int index = scrollView.contentOffset.x  / scrollView.width;
-    if (count > 1 && self.scrollCycled) {
-        index = (int)[self dataRowFor:index];
-        scrollView.contentOffset = CGPointMake((index + 1) * scrollView.width, 0);
+    
+    int index;
+    if (self.direction == VEBannerDirectionHorizontal) {
+        index = scrollView.contentOffset.x  / scrollView.width;
+        if (count > 1 && self.scrollCycled) {
+            index = (int)[self dataRowFor:index];
+            scrollView.contentOffset = CGPointMake((index + 1) * scrollView.width, 0);
+        }
+    } else {
+        index = scrollView.contentOffset.y  / scrollView.height;
+        if (count > 1 && self.scrollCycled) {
+            index = (int)[self dataRowFor:index];
+            scrollView.contentOffset = CGPointMake(0, (index + 1) * scrollView.height);
+        }
     }
+    
     self.selectIndex = (int)index;
     if (self.delegate && [self.delegate respondsToSelector:@selector(vebanner:didScrollAtIndex:)]) {
         [self.delegate vebanner:self didScrollAtIndex:self.selectIndex];
@@ -302,7 +319,8 @@
         _colV.showsHorizontalScrollIndicator = NO;
         _colV.showsVerticalScrollIndicator = NO;
         _colV.pagingEnabled = YES;
-        _colV.alwaysBounceHorizontal = YES;
+        _colV.alwaysBounceHorizontal = NO;
+        _colV.alwaysBounceVertical = NO;
         [_colV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:VEBANNER_CELL_REUSE_IDENTIFIER];
     }
     return _colV;
@@ -334,8 +352,14 @@
         NSInteger total = [self collectionView:self.colV numberOfItemsInSection:0];
         if (row < total) {
             _selectIndex = selectIndex;
-            CGFloat offsetX = self.width * row;
-            [self.colV setContentOffset:CGPointMake(offsetX, 0) animated:animate];
+            
+            if (self.direction == VEBannerDirectionHorizontal) {
+                CGFloat offsetX = self.width * row;
+                [self.colV setContentOffset:CGPointMake(offsetX, 0) animated:animate];
+            } else {
+                CGFloat offsetY = self.height * row;
+                [self.colV setContentOffset:CGPointMake(0, offsetY) animated:animate];
+            }
             self.pageControl.numberOfPages = [self.delegate numberOfItemsForVEBanner:self];
             self.pageControl.currentPage = selectIndex;
             [self.pageControl updateCurrentPageDisplay];
@@ -373,8 +397,8 @@
         return;
     }
     _direction = direction;
-//    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.colV.collectionViewLayout;
-//    layout.scrollDirection = direction == VEBannerDirectionHorizontal ? UICollectionViewScrollDirectionHorizontal : UICollectionViewScrollDirectionVertical;
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.colV.collectionViewLayout;
+    layout.scrollDirection = direction == VEBannerDirectionHorizontal ? UICollectionViewScrollDirectionHorizontal : UICollectionViewScrollDirectionVertical;
 }
 
 @end
