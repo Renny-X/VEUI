@@ -74,18 +74,14 @@
     
     // 绘制矩形
     UIBezierPath *rectPath = [UIBezierPath bezierPathWithRoundedRect:contentFrame byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(self.cornerRadius, self.cornerRadius)];
+    [rectPath moveToPoint:aStart];
+    [rectPath addLineToPoint:aNext];
+    [rectPath addLineToPoint:aEnd];
+    [rectPath addLineToPoint:aStart];
+    
     [self.contentColor setFill];
     [rectPath fill];
     [rectPath closePath];
-    
-    UIBezierPath *anglePath = [UIBezierPath bezierPath];
-    [anglePath moveToPoint:aStart];
-    [anglePath addLineToPoint:aNext];
-    [anglePath addLineToPoint:aEnd];
-    [anglePath addLineToPoint:aStart];
-    [self.contentColor setFill];
-    [anglePath fill];
-    [anglePath closePath];
 }
 
 @end

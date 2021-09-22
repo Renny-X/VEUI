@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1708741C26FAD0E80022FD8E /* VEBubbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1708741B26FAD0E80022FD8E /* VEBubbleViewController.m */; };
 		175A02F4268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175A02F3268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m */; };
 		176DC55125F6591A006F6BAA /* VEPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176DC55025F6591A006F6BAA /* VEPopoverViewController.m */; };
 		177708E925E76BFA00B9937B /* VEImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 177708E825E76BFA00B9937B /* VEImageBrowserViewController.m */; };
@@ -56,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1708741A26FAD0E80022FD8E /* VEBubbleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEBubbleViewController.h; sourceTree = "<group>"; };
+		1708741B26FAD0E80022FD8E /* VEBubbleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEBubbleViewController.m; sourceTree = "<group>"; };
 		175A02F2268AB2EE008A6D79 /* VEUIAlertCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEUIAlertCategoryViewController.h; sourceTree = "<group>"; };
 		175A02F3268AB2EE008A6D79 /* VEUIAlertCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEUIAlertCategoryViewController.m; sourceTree = "<group>"; };
 		176DC54F25F6591A006F6BAA /* VEPopoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VEPopoverViewController.h; sourceTree = "<group>"; };
@@ -150,6 +153,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1708741926FAD0B30022FD8E /* VEBubbleView */ = {
+			isa = PBXGroup;
+			children = (
+				1708741A26FAD0E80022FD8E /* VEBubbleViewController.h */,
+				1708741B26FAD0E80022FD8E /* VEBubbleViewController.m */,
+			);
+			path = VEBubbleView;
+			sourceTree = "<group>";
+		};
 		176DC54E25F65902006F6BAA /* VEPopover */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +303,7 @@
 				6003F5A6195388D20070C39A /* VEUIViewController.m */,
 				178AE4B725F1D04400B3863E /* Category */,
 				177A43B22684180C00FC0B6E /* VEBanner */,
+				1708741926FAD0B30022FD8E /* VEBubbleView */,
 				17CBB4CF268572F300193142 /* VECollectionViewLeftFlowLayout */,
 				177708DF25E76B9400B9937B /* VEImageBrowser */,
 				177B02CB25F748A60006D692 /* VEModel */,
@@ -564,6 +577,7 @@
 				17C5BA80266F6326000AB312 /* VEUITextViewCategoryViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				1797416325F88FE40013F198 /* VETabController.m in Sources */,
+				1708741C26FAD0E80022FD8E /* VEBubbleViewController.m in Sources */,
 				17B275B92601E3BD0064A173 /* VETabContentView.m in Sources */,
 				178CFFA325E4943300699E7D /* VEUIModel.m in Sources */,
 				177B0ACD25FA259A003E37A0 /* VETestSonSubModel.m in Sources */,
