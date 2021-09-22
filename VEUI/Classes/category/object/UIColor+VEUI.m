@@ -82,8 +82,13 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     view.backgroundColor = UIColor.clearColor;
     
+    NSMutableArray *cgcolors = [NSMutableArray array];
+    for (int i = 0; i < colors.count; i++) {
+        [cgcolors addObject:colors[i].CGColor];
+    }
+    
     CAGradientLayer *layer = [CAGradientLayer layer];
-    layer.colors = colors;
+    layer.colors = cgcolors;
     layer.startPoint = startPoint;
     layer.endPoint = endPoint;
     if (locations) {
