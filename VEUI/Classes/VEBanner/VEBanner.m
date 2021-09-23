@@ -190,10 +190,12 @@
             v = [self.delegate vebanner:self viewForItemAtIndex:row];
             [self.cacheDict setValue:v forKey:cacheKey];
         }
+        [cell.contentView removeAllSubviews];
         [cell.contentView addSubview:v];
     }
     cell.contentView.clipsToBounds = YES;
     cell.backgroundColor = UIColor.clearColor;
+    cell.contentView.backgroundColor = UIColor.clearColor;
     return cell;
 }
 
@@ -313,7 +315,7 @@
         layout.sectionFootersPinToVisibleBounds = NO;
         
         _colV = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
-        _colV.backgroundColor = [UIColor whiteColor];
+        _colV.backgroundColor = [UIColor clearColor];
         _colV.delegate = self;
         _colV.dataSource = self;
         _colV.showsHorizontalScrollIndicator = NO;
