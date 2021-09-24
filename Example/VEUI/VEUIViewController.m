@@ -39,7 +39,7 @@
             [VEUIGroupModel modelWithTitle:@"Data Display" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEBanner" controller:@"VEBannerController"],
                 [VEUICellModel modelWithTitle:@"VEBubbleView" controller:@"VEBubbleViewController"],
-                [VEUICellModel modelWithTitle:@"VECollectionViewLeftFlowLayout" controller:@"VECollectionViewLeftFlowLayoutController"],
+                [VEUICellModel modelWithTitle:@"VECollectionViewFlowLayout" controller:@"VECollectionViewFlowLayoutController"],
                 [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:@"VEImageBrowserViewController"],
                 [VEUICellModel modelWithTitle:@"VENoticeBar" controller:@"VENoticeBarController"],
             ]],

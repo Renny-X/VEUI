@@ -1,5 +1,5 @@
 //
-//  VECollectionViewLeftFlowLayoutController.h
+//  VECollectionViewFlowLayoutController.h
 //  VEUI_Example
 //
 //  Created by Coder on 2021/6/25.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VECollectionViewLeftFlowLayoutController : UIViewController
+@interface VECollectionViewFlowLayoutController : UIViewController
 
 @end
 

@@ -38,6 +38,16 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.2.7
+
+#### add
+
+#### remove
+* 删除 VECollectionViewLeftFlowLayout，用VECollectionViewFlowLayout itemAlignment 代替
+
+#### upgrade
+* VECollectionViewFlowLayout 支持设置 item 对齐方式设置
+
 ### 0.2.6
 
 #### add
