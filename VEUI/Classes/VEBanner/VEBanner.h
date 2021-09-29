@@ -10,6 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 @class VEBanner;
 
+typedef NS_ENUM(NSInteger, VEBannerDirection) {
+    VEBannerDirectionHorizontal = 0, // 滚动方向 默认横向
+    VEBannerDirectionVertical,
+};
+
 @protocol VEBannerDelegate <NSObject>
 
 @optional
@@ -25,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface VEBanner : UIView
+
+@property(nonatomic, assign)VEBannerDirection direction;
 
 @property(nonatomic, weak)id<VEBannerDelegate> delegate;
 /**

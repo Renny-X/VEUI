@@ -37,10 +37,11 @@
                 [VEUICellModel modelWithTitle:@"UIAlertController+VEUI" controller:@"VEUIAlertCategoryViewController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Data Display" cellArr:@[
+                [VEUICellModel modelWithTitle:@"VEBanner" controller:@"VEBannerController"],
+                [VEUICellModel modelWithTitle:@"VEBubbleView" controller:@"VEBubbleViewController"],
+                [VEUICellModel modelWithTitle:@"VECollectionViewFlowLayout" controller:@"VECollectionViewFlowLayoutController"],
                 [VEUICellModel modelWithTitle:@"VEImageBrowser" controller:@"VEImageBrowserViewController"],
                 [VEUICellModel modelWithTitle:@"VENoticeBar" controller:@"VENoticeBarController"],
-                [VEUICellModel modelWithTitle:@"VEBanner" controller:@"VEBannerController"],
-                [VEUICellModel modelWithTitle:@"VECollectionViewLeftFlowLayout" controller:@"VECollectionViewLeftFlowLayoutController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Feedback" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEToast" controller:@"VEToastViewController"],
@@ -56,7 +57,7 @@
     }
     return _dataArr;
 }
-
+//VEBubbleViewController
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }

@@ -22,6 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
 
+/**
+ * 通过CAGradientLayer 获取 渐变色
+ */
++ (UIColor *)linerColorWithColors:(NSArray<UIColor *> * __nonnull)colors startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint colorSize:(CGSize)size locations:(NSArray<NSNumber *> * __nullable)locations;
+
 // 获取两个颜色的中间颜色
 + (UIColor *)colorFromColor:(UIColor *)fromColor toColor:(UIColor *)toColor progress:(CGFloat)progress;
 

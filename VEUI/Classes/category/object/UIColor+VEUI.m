@@ -75,6 +75,33 @@
     return [[UIColor colorWithHexString:color] colorWithAlphaComponent:alpha];
 }
 
+/**
+ * 通过CAGradientLayer 获取 渐变色
+ */
++ (UIColor *)linerColorWithColors:(NSArray<UIColor *> * __nonnull)colors startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint colorSize:(CGSize)size locations:(NSArray<NSNumber *> * __nullable)locations {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    view.backgroundColor = UIColor.clearColor;
+    
+    NSMutableArray *cgcolors = [NSMutableArray array];
+    for (int i = 0; i < colors.count; i++) {
+        [cgcolors addObject:colors[i].CGColor];
+    }
+    
+    CAGradientLayer *layer = [CAGradientLayer layer];
+    layer.colors = cgcolors;
+    layer.startPoint = startPoint;
+    layer.endPoint = endPoint;
+    if (locations) {
+        layer.locations = locations;
+    }
+    layer.frame = view.bounds;
+    [view.layer addSublayer:layer];
+    
+    UIImage *img = [UIImage imageFromView:view];
+    
+    return [UIColor colorWithPatternImage:img];
+}
+
 // 获取两个颜色的中间颜色
 + (UIColor *)colorFromColor:(UIColor *)fromColor toColor:(UIColor *)toColor progress:(CGFloat)progress {
     if (!fromColor || !toColor) {

@@ -1,8 +1,8 @@
 //
-//  VECollectionViewLeftFlowLayoutController.h
+//  VEBubbleViewController.h
 //  VEUI_Example
 //
-//  Created by Coder on 2021/6/25.
+//  Created by Coder on 2021/9/22.
 //  Copyright © 2021 Coder. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VECollectionViewLeftFlowLayoutController : UIViewController
+@interface VEBubbleViewController : UIViewController
 
 @end
 
