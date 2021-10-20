@@ -64,7 +64,9 @@
 
 #pragma mark - CornerRadius
 - (void)addCornerRadius:(CGFloat)radius {
-    [self addCornerRadius:radius toCorners:UIRectCornerAllCorners];
+    [self.layer setMasksToBounds:YES];
+    [self.layer setCornerRadius:radius];
+//    [self addCornerRadius:radius toCorners:UIRectCornerAllCorners];
 }
 
 - (void)addCornerRadius:(CGFloat)radius toCorners:(UIRectCorner)corners {

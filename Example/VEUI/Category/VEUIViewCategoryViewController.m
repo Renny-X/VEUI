@@ -24,6 +24,7 @@
     
     self.backView = [[UIView alloc] init];
     self.backView.backgroundColor = UIColor.randomColor;
+    [self.backView addCornerRadius:12];
     [self.view addSubview:self.backView];
     
     self.targetView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
