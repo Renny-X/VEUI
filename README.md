@@ -38,6 +38,11 @@ pod repo push --allow-warnings ivedeng-veui-vdpod VEUI.podspec
 
 ## Release Note
 
+### 0.2.8
+
+#### add
+* UIView+VEUI 切圆角使用 CAShapeLayer，重写 setFrame: 方法，修改 frame 后更新 CAShapeLayer.frame + path。
+
 ### 0.2.7
 
 #### add

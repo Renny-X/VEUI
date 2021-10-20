@@ -77,13 +77,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)addToSuperView:(UIView *)superView;
 /**
- * 添加圆角 使用layer.mask需要确定frame后调用
+ * 添加全部圆角
  */
 - (void)addCornerRadius:(CGFloat)radius;
 /**
- * 添加圆角 到指定corner 使用layer.mask需要确定frame后调用
+ * 添加圆角 到指定corner
  */
 - (void)addCornerRadius:(CGFloat)radius toCorners:(UIRectCorner)corners;
+
+@end
+
+@interface VECornerRadiusModel : NSObject
+
+@property(nonatomic, assign)CGFloat radius;
+@property(nonatomic, assign)UIRectCorner corners;
 
 @end
 

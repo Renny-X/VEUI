@@ -10,7 +10,23 @@
 #import "NSObject+VEUI.h"
 #import <objc/runtime.h>
 
+@class VECornerRadiusModel;
+
+@interface UIView (VEUI)
+
+@property(nonatomic, strong)CAShapeLayer *cornerLayer;
+@property(nonatomic, strong)VECornerRadiusModel *radiusModel;
+
+@end
+
 @implementation UIView (VEUI)
+
++ (void)load {
+    method_exchangeImplementations(
+        class_getInstanceMethod([self class], @selector(setFrame:)),
+        class_getInstanceMethod([self class], @selector(VESetFrame:))
+    );
+}
 
 - (UIViewController *)viewController {
     for(UIView *next = self.superview; next; next = next.superview){
@@ -46,17 +62,55 @@
     [superView addSubview:self];
 }
 
+#pragma mark - CornerRadius
 - (void)addCornerRadius:(CGFloat)radius {
-    [self.layer setMasksToBounds:YES];
-    [self.layer setCornerRadius:radius];
+    [self addCornerRadius:radius toCorners:UIRectCornerAllCorners];
 }
 
 - (void)addCornerRadius:(CGFloat)radius toCorners:(UIRectCorner)corners {
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(radius, radius)];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = self.bounds;
-    maskLayer.path = maskPath.CGPath;
-    self.layer.mask = maskLayer;
+    self.radiusModel.corners = corners;
+    self.radiusModel.radius = radius;
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:self.radiusModel.corners cornerRadii:CGSizeMake(self.radiusModel.radius, self.radiusModel.radius)];
+    self.cornerLayer.frame = self.bounds;
+    self.cornerLayer.path = maskPath.CGPath;
+    
+    self.layer.mask = self.cornerLayer;
+}
+
+- (void)VESetFrame:(CGRect)frame {
+    [self VESetFrame:frame];
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:self.radiusModel.corners cornerRadii:CGSizeMake(self.radiusModel.radius, self.radiusModel.radius)];
+    
+    self.cornerLayer.frame = self.bounds;
+    self.cornerLayer.path = maskPath.CGPath;
+}
+
+- (CAShapeLayer *)cornerLayer {
+    CAShapeLayer *layer = objc_getAssociatedObject(self, @selector(cornerLayer));
+    if (!layer) {
+        layer = [CAShapeLayer layer];
+        [self setCornerLayer:layer];
+    }
+    return layer;
+}
+
+- (void)setCornerLayer:(CAShapeLayer *)cornerLayer {
+    objc_setAssociatedObject(self, @selector(cornerLayer), cornerLayer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (VECornerRadiusModel *)radiusModel {
+    VECornerRadiusModel *model = objc_getAssociatedObject(self, @selector(radiusModel));
+    if (!model) {
+        model = [[VECornerRadiusModel alloc] init];
+        [self setRadiusModel:model];
+    }
+    return model;
+}
+
+- (void)setRadiusModel:(VECornerRadiusModel *)radiusModel {
+    objc_setAssociatedObject(self, @selector(radiusModel), radiusModel, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark - set
@@ -181,5 +235,11 @@
 - (CGFloat)bottom {
     return self.maxY;
 }
+
+@end
+
+
+
+@implementation VECornerRadiusModel
 
 @end

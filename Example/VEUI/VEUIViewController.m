@@ -35,6 +35,7 @@
                 [VEUICellModel modelWithTitle:@"UITabbarItem+VEUI" controller:@"VEUITabbarCategoryController"],
                 [VEUICellModel modelWithTitle:@"UITextView+VEUI" controller:@"VEUITextViewCategoryViewController"],
                 [VEUICellModel modelWithTitle:@"UIAlertController+VEUI" controller:@"VEUIAlertCategoryViewController"],
+                [VEUICellModel modelWithTitle:@"UIView+VEUI" controller:@"VEUIViewCategoryViewController"],
             ]],
             [VEUIGroupModel modelWithTitle:@"Data Display" cellArr:@[
                 [VEUICellModel modelWithTitle:@"VEBanner" controller:@"VEBannerController"],
