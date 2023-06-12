@@ -8,7 +8,7 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
-  - VEUI (0.2.6)
+  - VEUI (0.2.7)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -30,8 +30,8 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
-  VEUI: b2aeae59a87687b1b3b0e5227a812075a615ed99
+  VEUI: 1dd70dcc596a330a8ff88fa4a1052fd35331db09
 
-PODFILE CHECKSUM: cc7d81058fc6485d682f26e3382f8759f7bcb814
+PODFILE CHECKSUM: af687831e3157da8d96e93ed89f35d9d4e7aac6b
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
